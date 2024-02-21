@@ -9,16 +9,16 @@ const Filmnav = () => {
             Filmatrix
         </div>
         <div className='hidden flex-wrap justify-evenly sm:flex flex-1 text-[20px]'>
-            <div>
+            <Link to='/filmcompany'><div>
                 Home
-            </div>
+            </div></Link>
             <Link to='/filmcompany/addanc'>
                 <div>Announcement</div>
                 </Link>
-            <Link to='/admin/hcreq'>
+            <Link to='/filmcompany/fcviewhcreq'>
                 <div>Hiring</div>
                 </Link>
-            <Link to='/admin/loreq'>
+            <Link to='/filmcompany/fclocreq'>
             <div>Location</div>
             </Link>
             <Link to='/admin/loreq'>

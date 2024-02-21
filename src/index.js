@@ -21,7 +21,11 @@ import { Addannouncement } from './Filmcompany/Addannouncement';
 import { Hiringreg } from './Hiringreg'; 
 import { Locationregister } from './Locationregister'; 
 import { Seekerreg } from './Seekerreg'; 
-
+import { Viewannouncement } from './Filmcompany/Viewannouncement'; 
+import { Fcviewhcreq } from './Filmcompany/Fcviewhcreq'; 
+import { Fcviewloc } from './Filmcompany/Fcviewloc'; 
+import { Locdetail } from './Filmcompany/Locdetail'; 
+import { Locreq } from './Filmcompany/Locreq'; 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -58,7 +62,11 @@ root.render(
     <Route path='/filmcompany' element={<Filmnav/>}>
       <Route index element={<Filmhome/>}/>
       <Route path='addanc' element={<Addannouncement/>}/>
-      
+      <Route path='vanc' element={<Viewannouncement/>}/>
+      <Route path='fcviewhcreq' element={<Fcviewhcreq/>}/>
+      <Route path='fcvloc' element={<Fcviewloc/>}/>
+      <Route path='locdt' element={<Locdetail/>}/>
+      <Route path='fclocreq' element={<Locreq/>}/>
     </Route>
    </Routes>
    </BrowserRouter>

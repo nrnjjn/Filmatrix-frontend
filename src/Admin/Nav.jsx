@@ -12,9 +12,9 @@ const Adminnav = () => {
         &#9776;
         </div>
         <div className='hidden flex-wrap justify-evenly sm:flex flex-1 text-[20px]'>
-            <div>
+            <Link to=''><div>
                 Home
-            </div>
+            </div></Link>
             <Link to='/admin/film'>
                 <div>Film</div>
                 </Link>
@@ -25,7 +25,7 @@ const Adminnav = () => {
             <div>Location</div>
             </Link>
             
-            <Link to='/admin/fcreg' ><div>
+            <Link to='/admin/aprvdsk' ><div>
                 Other
             </div></Link>
             

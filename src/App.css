@@ -73,3 +73,21 @@ a{
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
+.vanc{
+  background-image: url('./Images/spin.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.fcviewhcreq{
+  background-image: url('./Images/hc2.png');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.fcvloc{
+  background-image: url('./Images/loc.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}

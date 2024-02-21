@@ -1,11 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 
-export const Filmrequest = () => {
+export const Fcviewhcreq = () => {
   return (
-
-<div className='fcreq'>
-    <div className='text-white pt-48 text-center mb-3'> FILM COMPANY</div>
+    <div className='fcviewhcreq text-white'>
+    <div className='text-white pt-36 text-center mb-3 text-[25px]'> HIRING TEAM REQUEST</div>
     
 <form class="max-w-lg mx-auto h-5 ">
     <div class="flex">
@@ -41,20 +39,22 @@ export const Filmrequest = () => {
     </div>
 </form>
 
-<div class=" pt-10 overflow-x-auto shadow-md sm:rounded-lg  ">
-    <table class="w-full text-sm text-center rtl:text-right  text-gray-500 dark:text-gray-400">
+<div class=" pt-14 overflow-x-auto shadow-md sm:rounded-lg  ">
+    <table class="w-full text-sm text-center rtl:text-right  text-gray-500 dark:text-gray-400 dark:bg-gray-950/50">
         <thead class="text-xs text-white uppercase  dark:bg-gray-950/50 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="px-6 py-3">
+            <tr >
+                <th scope="col" class="px-3 py-3">
                     SLNO
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    COMPANY NAME
+                <th scope="col" class="px-1 py-3">
+                    HIRING TEAM NAME
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-1 py-3">
                     EMAIL
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th>PHONE NO</th>
+                <th >Liscence</th>
+                <th scope="col" class="px-1 py-3">
                     DATE
                 </th>
                 <th>
@@ -65,20 +65,24 @@ export const Filmrequest = () => {
             </tr>
         </thead>
         <tbody>
-            <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50">
-                <td scope="row" class="px-6 py-4">
+            <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50 ">
+                <td scope="row" class="px-1 py-4">
                     1
-                </td>
-                <td class="px-6 py-4">
+                </td >
+                <td >
                     Rajkamal
                 </td>
-                <td class="px-6 py-4">
+                <td >
                     rkml@gmail.com
                 </td>
-                <td class="px-6 py-4">
+                <td>9946532902</td>
+                <td >
+                    <button className='text-green-500 bg-black rounded w-14 h-6 text-center'> More</button>
+                </td>
+                <td >
                 23-01-2024
                 </td>
-                <td class="px-6 py-4 text-right">
+                <td >
                     <button className='text-green-500 bg-black rounded w-14 h-6 text-center'>Accept</button>
                 </td>
                 <td>
@@ -88,20 +92,24 @@ export const Filmrequest = () => {
 
 
 
-            <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50">
-                <td scope="row" class="px-6 py-4">
+            <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50 ">
+                <td scope="row" class="px-1 py-4">
                     2
                 </td>
-                <td class="px-6 py-4">
+                <td class="px-1 py-4">
                     Sun Pictures
                 </td>
-                <td class="px-6 py-4">
+                <td class="px-1 py-4">
                     sunp@gmail.com
                 </td>
-                <td class="px-6 py-4">
+                <td>9946532902</td>
+                <td >
+                    <button className='text-green-500 bg-black rounded w-14 h-6 text-center'> More</button>
+                </td>
+                <td >
                 23-01-2024
                 </td>
-                <td class="px-6 py-4 text-right">
+                <td >
                     <button className='text-green-500 bg-black rounded w-14 h-6 text-center'>Accept</button>
                 </td>
                 <td>
@@ -114,6 +122,5 @@ export const Filmrequest = () => {
 </div>
 </div>
 
-    
   )
 }
