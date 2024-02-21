@@ -1,38 +1,75 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+.fonts{
+  font-family: Courgette;
+}
+.landing{
+  background-image: url('landing.jpg');
+  height: 40rem;
+  margin-left: -5px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.logimg{
+  background-image: url('login.jpg');
+  height: 40rem;
+  margin-left: -5px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a{
+  text-decoration: none !important;
+  color: white !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.adminhome{
+  background-image: url('landing.jpg');
+  height: 40rem;
+  margin-left: -5px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.fcreq{
+  background-image: url('./Images/007.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.hcreq{
+  background-image: url('./Images/007.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.loreq{
+  background-image: url('./Images/007.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.aprvdsk{
+  background-image: url('./Images/007.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/*  */
+
+.filmhome{
+  background-image: url('./Images/home2.jpg');
+  height: 40rem;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.addanc{
+  background-image: url('./Images/anc.jpg');
+  height: 40rem;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
