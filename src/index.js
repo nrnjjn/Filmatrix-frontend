@@ -26,6 +26,11 @@ import { Fcviewhcreq } from './Filmcompany/Fcviewhcreq';
 import { Fcviewloc } from './Filmcompany/Fcviewloc'; 
 import { Locdetail } from './Filmcompany/Locdetail'; 
 import { Locreq } from './Filmcompany/Locreq'; 
+import { Locreqdetail } from './Filmcompany/Locreqdetail'; 
+import { Viewprogress } from './Filmcompany/Viewprogress'; 
+import { Aprvdseekers } from './Filmcompany/Aprvdseekers'; 
+import { Hiringfd } from './Filmcompany/Hiringfd'; 
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -67,6 +72,11 @@ root.render(
       <Route path='fcvloc' element={<Fcviewloc/>}/>
       <Route path='locdt' element={<Locdetail/>}/>
       <Route path='fclocreq' element={<Locreq/>}/>
+      <Route path='locreqdetail' element={<Locreqdetail/>}/>
+      <Route path='vprogress' element={<Viewprogress/>}/>
+      <Route path='jobseekers' element={<Aprvdseekers/>}/>
+      <Route path='hiringfd' element={<Hiringfd/>}/>
+      
     </Route>
    </Routes>
    </BrowserRouter>

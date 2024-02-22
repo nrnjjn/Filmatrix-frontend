@@ -18,7 +18,7 @@ export const Login = () => {
             </div>
             <div><button className='text-white ml-44 mt-32'>Login</button></div> */}
             
-            <div className='box w-[60%] h-[85%] m-auto flex flex-wrap justify-center gap-44 shadow-2xl shadow-black/45'>
+            <div className='box pt-5 w-[60%] h-[85%] m-auto flex flex-wrap justify-center gap-44 '>
          
           <div className='mt-5 bg-black  w-[350px] h-[430px] shadow-xl shadow-black/30'>
             <div className='text-center my-7  text-2xl font-semibold text-white'>Login Page</div>
