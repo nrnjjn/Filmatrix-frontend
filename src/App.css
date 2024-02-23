@@ -91,3 +91,15 @@ a{
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
+.hiringhome{
+  background-image: url('./Images/hiring.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.profile{
+  background-image: url('./Images/profile.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}

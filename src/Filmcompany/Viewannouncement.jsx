@@ -81,7 +81,7 @@ export const Viewannouncement = () => {
                     23-01-2024
                     </td>
                     <td>
-                        <button>Edit</button>
+                        <button className=''>Edit</button>
                     </td>
                     <td>
                         <button>Delete</button>

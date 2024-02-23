@@ -30,6 +30,9 @@ import { Locreqdetail } from './Filmcompany/Locreqdetail';
 import { Viewprogress } from './Filmcompany/Viewprogress'; 
 import { Aprvdseekers } from './Filmcompany/Aprvdseekers'; 
 import { Hiringfd } from './Filmcompany/Hiringfd'; 
+import { Hiringnav } from './Hiringteam/Hiringnav'; 
+import { Hiringhome } from './Hiringteam/Hiringhome'; 
+import { Hviewprofile } from './Hiringteam/Hviewprofile'; 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -46,10 +49,9 @@ root.render(
       <Route path='skreg' element={<Seekerreg/>}/>
     </Route>
    </Routes>
-   </BrowserRouter>
+  
 
 
-   <BrowserRouter>
    <Routes>
      <Route path='/admin' element={<Adminnav/>}>
       <Route index element={<Adminhome/>}/>
@@ -60,9 +62,8 @@ root.render(
       
     </Route>
    </Routes>
-   </BrowserRouter>
+ 
 
-   <BrowserRouter>
    <Routes>
     <Route path='/filmcompany' element={<Filmnav/>}>
       <Route index element={<Filmhome/>}/>
@@ -79,6 +80,15 @@ root.render(
       
     </Route>
    </Routes>
+
+
+  <Routes>
+    <Route path='/hiring' element={<Hiringnav/>}>
+    <Route index element={<Hiringhome/>}/>
+    <Route path='hviewprofile' element={<Hviewprofile/>}/>
+
+    </Route>
+    </Routes>   
    </BrowserRouter>
   </React.StrictMode>
 );
