@@ -85,7 +85,8 @@ a{
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-.fcvloc{
+.fcvloc,
+.hvloc{
   background-image: url('./Images/loc.jpg');
   height: 40rem;
   background-size: 100% 100%;
@@ -99,6 +100,30 @@ a{
 }
 .profile{
   background-image: url('./Images/profile.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.hviewanc{
+  background-image: url('./Images/t1.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.hancstatus{
+  background-image: url('./Images/opp.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.hlcbst{
+  background-image: url('./Images/tr.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.lcfeed{
+  background-image: url('./Images/tr2.jpg');
   height: 40rem;
   background-size: 100% 100%;
   background-repeat: no-repeat;

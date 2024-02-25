@@ -33,7 +33,16 @@ import { Hiringfd } from './Filmcompany/Hiringfd';
 import { Hiringnav } from './Hiringteam/Hiringnav'; 
 import { Hiringhome } from './Hiringteam/Hiringhome'; 
 import { Hviewprofile } from './Hiringteam/Hviewprofile'; 
-
+import { Hviewanc } from './Hiringteam/Hviewanc'; 
+import { Hvancdetail } from './Hiringteam/Hvancdetail'; 
+import { Hancstatus } from './Hiringteam/Hancstatus';
+import { Hvloc } from './Hiringteam/Hvloc'; 
+import { Hlocdetail } from './Hiringteam/Hlocdetail'; 
+import { Hfclocstatus } from './Hiringteam/Hfclocstatus'; 
+import { Hlocpay } from './Hiringteam/Hlocpay'; 
+import { Hlcbookst } from './Hiringteam/Hlcbookst'; 
+import { Hlcfeed } from './Hiringteam/Hlcfeed'; 
+import { Addjob } from './Hiringteam/Addjob'; 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -86,7 +95,16 @@ root.render(
     <Route path='/hiring' element={<Hiringnav/>}>
     <Route index element={<Hiringhome/>}/>
     <Route path='hviewprofile' element={<Hviewprofile/>}/>
-
+    <Route path='hviewanc' element={<Hviewanc/>}/>
+    <Route path='hvancd' element={<Hvancdetail/>}/>
+    <Route path='hancst' element={<Hancstatus/>}/>
+    <Route path='hvloc' element={<Hvloc/>}/>
+    <Route path='hlocdetail' element={<Hlocdetail/>}/>
+    <Route path='hfclocst' element={<Hfclocstatus/>}/>
+    <Route path='hlocpay' element={<Hlocpay/>}/>
+    <Route path='hlcbookst' element={<Hlcbookst/>}/>
+    <Route path='hlcfeed' element={<Hlcfeed/>}/>
+    <Route path='addjob' element={<Addjob/>}/>
     </Route>
     </Routes>   
    </BrowserRouter>
