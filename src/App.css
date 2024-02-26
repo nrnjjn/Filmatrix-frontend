@@ -116,7 +116,8 @@ a{
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-.hlcbst{
+.hlcbst,
+.hskreq{
   background-image: url('./Images/tr.jpg');
   height: 40rem;
   background-size: 100% 100%;
@@ -124,6 +125,18 @@ a{
 }
 .lcfeed{
   background-image: url('./Images/tr2.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.hviewjob{
+  background-image: url('./Images/in.png');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.hpw{
+  background-image: url('./Images/pw.png');
   height: 40rem;
   background-size: 100% 100%;
   background-repeat: no-repeat;

@@ -43,6 +43,13 @@ import { Hlocpay } from './Hiringteam/Hlocpay';
 import { Hlcbookst } from './Hiringteam/Hlcbookst'; 
 import { Hlcfeed } from './Hiringteam/Hlcfeed'; 
 import { Addjob } from './Hiringteam/Addjob'; 
+import { Hviewjob } from './Hiringteam/Hviewjob'; 
+import { Hskreq } from './Hiringteam/Hskreq'; 
+import { Hviewprogress } from './Hiringteam/Hviewprogress'; 
+import { Haddprogress } from './Hiringteam/Haddprogress'; 
+import { Hviewfd } from './Hiringteam/Hviewfd'; 
+import { Hvpreviousw } from './Hiringteam/Hvpreviousw'; 
+import { Hvpwd } from './Hiringteam/Hvpwd'; 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -105,6 +112,13 @@ root.render(
     <Route path='hlcbookst' element={<Hlcbookst/>}/>
     <Route path='hlcfeed' element={<Hlcfeed/>}/>
     <Route path='addjob' element={<Addjob/>}/>
+    <Route path='hviewjob' element={<Hviewjob/>}/>
+    <Route path='hskreq' element={<Hskreq/>}/>
+    <Route path='hviewp' element={<Hviewprogress/>}/>
+    <Route path='haddp' element={<Haddprogress/>}/>
+    <Route path='hviewfd' element={<Hviewfd/>}/>
+    <Route path='hvpw' element={<Hvpreviousw/>}/>
+    <Route path='hvpwd' element={<Hvpwd/>}/>
     </Route>
     </Routes>   
    </BrowserRouter>

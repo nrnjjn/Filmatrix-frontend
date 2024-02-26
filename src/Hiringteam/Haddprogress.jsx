@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const Hlcfeed = () => {
+export const Haddprogress = () => {
   return (
-    <div className='lcfeed flex flex-wrap flex-col'>
-        <div className='text-center pt-36 font-bold text-3xl pb-10 text-white'>
-          Hiring Feedback
+    <div className='hviewjob'>
+        <div className='text-center pt-36 font-bold text-3xl pb-10'>
+          Add Progress
          </div>
          <div className='m-auto w-fit '>
           <div className='flex  flex-row pb-3 flex-wrap'>

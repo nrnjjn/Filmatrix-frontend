@@ -93,9 +93,8 @@ export const Hiringnav = () => {
 {jobdrop &&
         <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 w-40 -ml-10'>
             <Link to='/hiring/addjob' className=''><li>Add job</li></Link>
-            <Link to='/filmcompany/hiringfd' className=''> <li>View Job</li></Link>
-            <Link to='/' className=''> <li>Seekers</li></Link>
-            
+            <Link to='/hiring/hviewjob' className=''> <li>View Job</li></Link>
+            <Link to='/hiring/hskreq' className=''> <li>Seekers</li></Link>
         </div>
 }
             </div>
@@ -105,9 +104,11 @@ export const Hiringnav = () => {
                <span onClick={otherdropdown}> Other</span>
 {odrop &&
         <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 w-40 -ml-10'>
-            <Link to='/filmcompany/jobseekers' className=''><li>Crew</li></Link>
-            <Link to='/filmcompany/hiringfd' className=''> <li>Hiring Feedback</li></Link>
-            <Link to='/' className=''> <li>Logout</li></Link>
+            <Link to='/hiring/hviewp' ><li>Progress</li></Link>
+            <Link to='/hiring/haddp' ><li>Add Progress</li></Link>
+            <Link to='/hiring/hlcfeed' > <li>Hiring Feedback</li></Link>
+            <Link to='/hiring/hviewfd' > <li>View Feedback</li></Link>
+            <Link to='/'> <li>Logout</li></Link>
         </div>
 }
             </div>
