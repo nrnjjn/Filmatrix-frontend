@@ -1,14 +1,14 @@
 import React from 'react'
 
-export const Hviewprofile = () => {
+export const Lprofile = () => {
   return (
-    <div className='profile'>
-         <p className='text-center font-bold pt-32 text-[25px] text-black'>PROFILE</p>
+    <div className='lprof '>
+        <p className='text-center font-bold pt-32 text-[25px] text-black'>PROFILE</p>
         <div className='flex flex-wrap '>
         <div className='text-white flex flex-wrap flex-col'>
             <div className='pt-8 '>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 '>
-                    <p >Company Name</p>
+                    <p className=''>Company Name</p>
                     <input type="text" className='bg-transparent border-white border-solid border-2 rounded' />
                 </div>
             </div>
@@ -32,7 +32,7 @@ export const Hviewprofile = () => {
             </div>
         
     </div>
-    <div className='text-white flex flex-wrap flex-col'>
+    <div className='text-black  flex flex-wrap flex-col'>
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3 '>
                     <p>Liscence</p>
@@ -51,7 +51,7 @@ export const Hviewprofile = () => {
                     <input type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
-        <button className='ms-20 py-3'>Submit</button>
+        <button className='ms-20 py-3 text-white'>Submit</button>
         
     </div>
     </div>

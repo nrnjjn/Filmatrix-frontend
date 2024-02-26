@@ -1,9 +1,9 @@
 import React from 'react'
-
-export const Hviewprofile = () => {
+import { Link } from 'react-router-dom'
+export const Upw = () => {
   return (
-    <div className='profile'>
-         <p className='text-center font-bold pt-32 text-[25px] text-black'>PROFILE</p>
+    <div className='upw'>
+        <p className='text-center font-bold pt-32 text-[25px] text-white'>PREVIOUS WORK</p>
         <div className='flex flex-wrap '>
         <div className='text-white flex flex-wrap flex-col'>
             <div className='pt-8 '>
@@ -32,7 +32,7 @@ export const Hviewprofile = () => {
             </div>
         
     </div>
-    <div className='text-white flex flex-wrap flex-col'>
+    <div className='text-white'>
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3 '>
                     <p>Liscence</p>
@@ -51,10 +51,12 @@ export const Hviewprofile = () => {
                     <input type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
-        <button className='ms-20 py-3'>Submit</button>
-        
+        <button className='ms-20 py-3'>Previous Work</button>
+        <br />
+       <Link to='/user/uvpw'> <button className='ms-20 py-3'>Submit</button></Link>
     </div>
     </div>
+    
     </div>
   )
 }

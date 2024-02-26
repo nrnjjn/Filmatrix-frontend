@@ -50,6 +50,20 @@ import { Haddprogress } from './Hiringteam/Haddprogress';
 import { Hviewfd } from './Hiringteam/Hviewfd'; 
 import { Hvpreviousw } from './Hiringteam/Hvpreviousw'; 
 import { Hvpwd } from './Hiringteam/Hvpwd'; 
+import { Usernav }  from './User/Usernav';
+import { Userhome } from './User/Userhome'; 
+import { Userprofile } from './User/Userprofile'; 
+import { Uvanc } from './User/Uvanc'; 
+import { Uvancd } from './User/Uvancd'; 
+import { Ujobreqst } from './User/Ujobreqst'; 
+import { Upw } from './User/Upw'; 
+import { Uvpw } from './User/Uvpw'; 
+import { Uvpwd } from './User/Uvpwd'; 
+import { Ujob } from './User/Ujob'; 
+import { Locnav } from './Location/Locnav'; 
+import { Lhome } from './Location/Lhome'; 
+import { Lprofile } from './Location/Lprofile'; 
+import { Lvanc } from './Location/Lvanc'; 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -121,6 +135,33 @@ root.render(
     <Route path='hvpwd' element={<Hvpwd/>}/>
     </Route>
     </Routes>   
+
+
+
+  <Routes>
+      <Route path='/location' element={<Locnav/>}>
+      <Route index element={<Lhome/>}/>
+      <Route path='lprofile' element={<Lprofile/>}/>
+      <Route path='lvanc' element={<Lvanc/>}/>
+      </Route>
+  </Routes>
+
+
+
+
+  <Routes>
+    <Route path='/user' element={<Usernav/>}>
+    <Route index element={<Userhome/>}/>
+    <Route path='uprofile' element={<Userprofile/>}/>
+    <Route path='uvanc' element={<Uvanc/>}/>
+    <Route path='uvancd' element={<Uvancd/>}/>
+    <Route path='ujobreqst' element={<Ujobreqst/>}/>
+    <Route path='upw' element={<Upw/>}/>
+    <Route path='uvpw' element={<Uvpw/>}/>
+    <Route path='uvpwd' element={<Uvpwd/>}/>
+    <Route path='ujob' element={<Ujob/>}/>
+    </Route>
+  </Routes>
    </BrowserRouter>
   </React.StrictMode>
 );

@@ -141,3 +141,32 @@ a{
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
+.userhome{
+  background-image: url('./Images/userhome.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.ujob{
+  background-image: url('./Images/th1.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.upw{
+  background-image: url('./Images/ist.png');
+ 
+}
+.lhome{
+  background-image: url('./Images/lhome.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.lprof{
+  background-image: url('./Images/lprof.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
