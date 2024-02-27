@@ -32,25 +32,26 @@ a{
   background-size: 100% 100%;
 }
 .fcreq{
-  background-image: url('./Images/007.jpg');
+  background-image: url('./Images/w2.jpg');
   height: 40rem;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 .hcreq{
-  background-image: url('./Images/007.jpg');
+  background-image: url('./Images/w2.jpg');
   height: 40rem;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 .loreq{
-  background-image: url('./Images/007.jpg');
+  background-image: url('./Images/w2.jpg');
   height: 40rem;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-.aprvdsk{
-  background-image: url('./Images/007.jpg');
+.aprvdsk,
+.addanc{
+  background-image: url('./Images/w2.jpg');
   height: 40rem;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -67,12 +68,7 @@ a{
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-.addanc{
-  background-image: url('./Images/anc.jpg');
-  height: 40rem;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
+
 .vanc{
   background-image: url('./Images/spin.jpg');
   height: 40rem;

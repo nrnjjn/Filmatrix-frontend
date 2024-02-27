@@ -9,7 +9,7 @@ export const Addannouncement = () => {
          <div className='m-auto w-fit '>
           <div className='flex  flex-row pb-3 flex-wrap'>
             
-            <input type="text" placeholder='Name' className='w-[237px]' />
+            <input type="text" placeholder='Film Name' className='w-[237px] bg-transparent  placeholder:text-white border-2 rounded placeholder:text-[20px] border-black' />
           </div>
           <div className='flex flex-row pb-3 flex-wrap'>
 
@@ -17,7 +17,7 @@ export const Addannouncement = () => {
           </div>
           <div className='flex flex-row flex-wrap'>
    
-            <textarea name="description" id="" cols="30" rows="10" placeholder='Description' className=''></textarea>
+            <textarea name="description" id="" cols="30" rows="10" placeholder='Description' className='bg-transparent placeholder:text-white placeholder:text-[25px]  border-2 rounded border-black'></textarea>
           </div>
           <button className='text-white bg-black rounded p-2 ml-20 mt-3'>Submit</button>
          </div>
