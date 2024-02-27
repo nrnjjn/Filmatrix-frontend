@@ -1,8 +1,8 @@
 import React from 'react'
-
+import img from '../Images/thug.jpg'
 export const Lancd = () => {
   return (
-    <div className='pt-40 hviewanc'>
+    <div className='pt-40 hpw'>
         <div className='bg-slate-950/50 w-[800px] h-[420px] m-auto flex gap-2 '>
             <img src={ img } alt="" className='w-80 h-80  ps-3 pt-3 '/>
             <div className='flex flex-wrap flex-col'>

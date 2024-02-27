@@ -64,6 +64,14 @@ import { Locnav } from './Location/Locnav';
 import { Lhome } from './Location/Lhome'; 
 import { Lprofile } from './Location/Lprofile'; 
 import { Lvanc } from './Location/Lvanc'; 
+import { Lancd } from './Location/Lancd'; 
+import { Addloc } from './Location/Addloc';
+import { Lviewlc } from './Location/Lviewlc';
+import { Editloc } from './Location/Editloc';
+import { Lbookingreq } from './Location/Lbookingreq';
+import { Lbkst } from './Location/Lbkst';
+import { Lvfd } from './Location/Lvfd';
+import { Lvpay } from './Location/Lvpay';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -143,6 +151,14 @@ root.render(
       <Route index element={<Lhome/>}/>
       <Route path='lprofile' element={<Lprofile/>}/>
       <Route path='lvanc' element={<Lvanc/>}/>
+      <Route path='lancd' element={<Lancd/>}/>
+      <Route path='addloc' element={<Addloc/>}/>
+      <Route path='lviewlc' element={<Lviewlc/>}/>
+      <Route path='editloc' element={<Editloc/>}/>
+      <Route path='lbkreq' element={<Lbookingreq/>}/>
+      <Route path='lbkst' element={<Lbkst/>}/>
+      <Route path='lvfd' element={<Lvfd/>}/>
+      <Route path='lvpay' element={<Lvpay/>}/>
       </Route>
   </Routes>
 

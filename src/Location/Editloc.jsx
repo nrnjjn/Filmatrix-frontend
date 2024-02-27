@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const Hlocpay = () => {
+export const Editloc = () => {
   return (
-    <div className='hvloc'>
-         <p className='text-center font-bold pt-32 text-[25px] text-black'>PROFILE</p>
+    <div className='lprof'>
+        <p className='text-center font-bold pt-32 text-[25px] text-black'>UPDATE LOCATION</p>
         <div className='flex flex-wrap '>
         <div className='text-white flex flex-wrap flex-col'>
             <div className='pt-8 '>
@@ -35,7 +35,7 @@ export const Hlocpay = () => {
     <div className='text-white flex flex-wrap flex-col'>
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3 '>
-                    <p>Liscence</p>
+                    <p className='text-black'>Liscence</p>
                     <input type="file" />
                 </div>
         </div>

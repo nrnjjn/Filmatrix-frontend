@@ -170,3 +170,9 @@ a{
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
+.lbkst{
+  background-image: url('./Images/lbkst.jpg');
+  height: 40rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}

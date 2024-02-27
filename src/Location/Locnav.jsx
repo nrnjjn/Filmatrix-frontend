@@ -66,8 +66,8 @@ export const Locnav = () => {
                <span onClick={locdropdown}> Location</span>
 {locdrop &&
         <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 w-40 -ml-10'>
-            <Link to='/user/ujobreqst' className=''><li>Status</li></Link>
-            <Link to='/hiring/hviewjob' className=''> <li>View Job</li></Link>
+            <Link to='/location/addloc' className=''><li>Add location</li></Link>
+            <Link to='/location/lviewlc' className=''> <li>View location</li></Link>
             <Link to='/hiring/hskreq' className=''> <li>Seekers</li></Link>
         </div>
 }
@@ -78,10 +78,10 @@ export const Locnav = () => {
                <span onClick={otherdropdown}> Other</span>
 {odrop &&
         <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 w-40 -ml-10'>
-            <Link to='/user/upw' ><li>Previous work</li></Link>
-            <Link to='/hiring/haddp' ><li>Add Progress</li></Link>
-            <Link to='/hiring/hlcfeed' > <li>Hiring Feedback</li></Link>
-            <Link to='/hiring/hviewfd' > <li>View Feedback</li></Link>
+            <Link to='/location/lbkreq' ><li>Booking req</li></Link>
+            <Link to='/location/lbkst' ><li>Booking status</li></Link>
+            <Link to='/location/lvfd' > <li>View Feedback</li></Link>
+            <Link to='/location/lvpay' > <li>View Payment</li></Link>
             <Link to='/'> <li>Logout</li></Link>
         </div>
 }
