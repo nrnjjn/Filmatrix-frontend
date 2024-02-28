@@ -3,7 +3,7 @@ import img from '../Images/anc.jpg'
 export const Viewannouncement = () => {
   return (
     <div className='vanc'>
-        <div className='text-black pt-36 text-center mb-3'> ANNOUNCEMENTS</div>
+        <div className='text-white pt-36 text-center mb-3 text-[25px]'> ANNOUNCEMENTS</div>
     
     <form class="max-w-lg mx-auto h-5">
         <div class="flex">
@@ -39,9 +39,9 @@ export const Viewannouncement = () => {
         </div>
     </form>
     
-    <div class=" pt-10 overflow-x-auto shadow-md sm:rounded-lg  ">
-        <table class="w-full text-sm text-center rtl:text-right  text-gray-500 dark:text-black">
-            <thead class="text-xs text-black uppercase  dark:bg-gray-950/50 dark:text-gray-400">
+    <div class=" mt-5 overflow-x-auto shadow-md sm:rounded-lg  ">
+        <table class="w-full text-sm text-center rtl:text-right  text-white">
+            <thead class="text-xs uppercase  dark:bg-gray-950/90 ">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         SLNO
@@ -64,7 +64,7 @@ export const Viewannouncement = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr class=" dark:border-gray-700  hover:bg-slate-800/50">
+                <tr class=" dark:border-gray-700 bg-gray-950/40 hover:bg-slate-800/50">
                     <td scope="row" class="px-6 py-4">
                         1
                     </td>
@@ -81,16 +81,16 @@ export const Viewannouncement = () => {
                     23-01-2024
                     </td>
                     <td>
-                        <button className=''>Edit</button>
+                        <button className='text-yellow-200'>Edit</button>
                     </td>
                     <td>
-                        <button>Delete</button>
+                        <button className='text-black'>Delete</button>
                     </td>
                 </tr>
     
     
     
-                <tr class=" dark:border-gray-700  hover:bg-slate-800/50">
+                <tr class=" dark:border-gray-700 bg-slate-950/40  hover:bg-slate-800/50">
                     <td scope="row" class="px-6 py-4">
                         2
                     </td>
@@ -107,10 +107,10 @@ export const Viewannouncement = () => {
                     23-01-2024
                     </td>
                     <td>
-                        <button>Edit</button>
+                        <button className='text-yellow-200'>Edit</button>
                     </td>
                     <td>
-                        <button>Delete</button>
+                        <button className='text-black'>Delete</button>
                     </td>
                     
                 </tr>

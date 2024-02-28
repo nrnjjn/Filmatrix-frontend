@@ -50,12 +50,14 @@ a{
   background-repeat: no-repeat;
 }
 .aprvdsk,
-.addanc{
+.addanc,
+.vanc,
+.fcviewhcreq,
+.fcvloc{
   background-image: url('./Images/w2.jpg');
   height: 40rem;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  
 }
 
 
@@ -69,19 +71,8 @@ a{
   background-size: 100% 100%;
 }
 
-.vanc{
-  background-image: url('./Images/spin.jpg');
-  height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.fcviewhcreq{
-  background-image: url('./Images/hc2.png');
-  height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.fcvloc,
+
+
 .hvloc{
   background-image: url('./Images/loc.jpg');
   height: 40rem;

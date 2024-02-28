@@ -3,7 +3,7 @@ import React from 'react'
 export const Addannouncement = () => {
   return (
     <div className='addanc flex flex-wrap flex-col'>
-         <div className='text-center pt-36 font-bold text-3xl pb-10'>
+         <div className='text-center pt-36 font-bold text-3xl pb-10 text-white '>
           New Announcement
          </div>
          <div className='m-auto w-fit '>
