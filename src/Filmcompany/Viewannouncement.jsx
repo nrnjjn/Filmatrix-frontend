@@ -1,5 +1,6 @@
 import React from 'react'
 import img from '../Images/anc.jpg'
+import { Link } from 'react-router-dom'
 export const Viewannouncement = () => {
   return (
     <div className='vanc'>
@@ -81,7 +82,7 @@ export const Viewannouncement = () => {
                     23-01-2024
                     </td>
                     <td>
-                        <button className='text-yellow-200'>Edit</button>
+                       <Link to='/filmcompany/editanc'> <button className='text-yellow-200'>Edit</button></Link>
                     </td>
                     <td>
                         <button className='text-black'>Delete</button>
@@ -107,7 +108,7 @@ export const Viewannouncement = () => {
                     23-01-2024
                     </td>
                     <td>
-                        <button className='text-yellow-200'>Edit</button>
+                       <Link to='/filmcompany/editanc'> <button className='text-yellow-200'>Edit</button></Link>
                     </td>
                     <td>
                         <button className='text-black'>Delete</button>

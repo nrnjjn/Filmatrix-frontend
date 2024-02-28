@@ -72,6 +72,7 @@ import { Lbookingreq } from './Location/Lbookingreq';
 import { Lbkst } from './Location/Lbkst';
 import { Lvfd } from './Location/Lvfd';
 import { Lvpay } from './Location/Lvpay';
+import { Editanc } from './Filmcompany/Editanc';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -107,6 +108,7 @@ root.render(
       <Route index element={<Filmhome/>}/>
       <Route path='addanc' element={<Addannouncement/>}/>
       <Route path='vanc' element={<Viewannouncement/>}/>
+      <Route path='editanc' element={<Editanc/>}/>
       <Route path='fcviewhcreq' element={<Fcviewhcreq/>}/>
       <Route path='fcvloc' element={<Fcviewloc/>}/>
       <Route path='locdt' element={<Locdetail/>}/>

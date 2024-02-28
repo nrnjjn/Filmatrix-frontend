@@ -52,14 +52,16 @@ export const Fcviewhcreq = () => {
                 <th scope="col" class="px-3 py-3">
                     SLNO
                 </th>
-                <th scope="col" class="px-1 py-3">
+                <th >
                     HIRING TEAM NAME
                 </th>
-                <th scope="col" class="px-1 py-3">
+                <th >
                     EMAIL
                 </th>
                 <th>PHONE NO</th>
-                <th >Liscence</th>
+                <th>LISCENCE NO</th>
+                <th >LISCENCE</th>
+                <th>STATUS</th>
                 <th scope="col" class="px-1 py-3">
                     DATE
                 </th>
@@ -82,17 +84,18 @@ export const Fcviewhcreq = () => {
                     rkml@gmail.com
                 </td>
                 <td>9946532902</td>
-                <td >
-                    <button className='text-green-500 bg-black rounded w-14 h-6 text-center'> More</button>
-                </td>
+                <td>12345</td>
+                <td><a href="src/landing.jpg/" download>image</a></td>
+                <td>Pending</td>
                 <td >
                 23-01-2024
                 </td>
-                <td >
-                    <button className='text-green-500 bg-black rounded w-14 h-6 text-center'>Accept</button>
+                <td class=" text-right">
+                    <button className='text-yellow-200 
+                     rounded w-14 h-6 text-center'>Accept</button>
                 </td>
                 <td>
-                    <button className='text-red-600 bg-black rounded w-14 h-6 text-center'>Reject</button>
+                    <button className='text-black rounded w-14 h-6 text-center'>Reject</button>
                 </td>
             </tr>
 
@@ -109,17 +112,18 @@ export const Fcviewhcreq = () => {
                     sunp@gmail.com
                 </td>
                 <td>9946532902</td>
-                <td >
-                    <button className='text-green-500 bg-black rounded w-14 h-6 text-center'> More</button>
-                </td>
+                <td>5678</td>
+                <td><a href="src/landing.jpg/" download>image</a></td>
+                <td>Pending</td>
                 <td >
                 23-01-2024
                 </td>
-                <td >
-                    <button className='text-green-500 bg-black rounded w-14 h-6 text-center'>Accept</button>
+                <td class="  text-right">
+                    <button className='text-yellow-200 
+                     rounded w-14 h-6 text-center'>Accept</button>
                 </td>
                 <td>
-                    <button className='text-red-600 bg-black rounded w-14 h-6 text-center'>Reject</button>
+                    <button className='text-black rounded w-14 h-6 text-center'>Reject</button>
                 </td>
             </tr>
             

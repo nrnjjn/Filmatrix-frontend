@@ -1,5 +1,6 @@
 import React from 'react'
 import img from '../Images/171.avif'
+import { Link } from 'react-router-dom'
 export const Hvancdetail = () => {
   return (
     <div className='pt-40 hviewanc'>
@@ -29,7 +30,7 @@ export const Hvancdetail = () => {
                 <p>4</p>
             </div>
             <div>
-                <button className='text-white bg-black'>Apply</button>
+                <Link to='/hiring/hancst'><button className='text-yellow-400'>Apply</button></Link>
             </div>
             </div>
         </div>  

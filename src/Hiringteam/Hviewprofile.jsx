@@ -41,6 +41,12 @@ export const Hviewprofile = () => {
         </div>
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
+                    <p>Liscence no</p>
+                    <input type="text" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    </div>
+        </div>
+        <div>
+        <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Password</p>
                     <input type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>

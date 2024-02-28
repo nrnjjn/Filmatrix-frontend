@@ -3,7 +3,7 @@
   font-family: Courgette;
 }
 .landing{
-  background-image: url('landing.jpg');
+  background-image: url('Images/w3.jpg');
   height: 40rem;
   margin-left: -5px;
   background-repeat: no-repeat;
@@ -24,8 +24,10 @@ a{
   color: white !important;
 }
 
-.adminhome{
-  background-image: url('landing.jpg');
+.adminhome,
+.hiringhome,
+.filmhome{
+  background-image: url('Images/w3.jpg');
   height: 40rem;
   margin-left: -5px;
   background-repeat: no-repeat;
@@ -53,23 +55,20 @@ a{
 .addanc,
 .vanc,
 .fcviewhcreq,
-.fcvloc{
+.fcvloc,
+.hviewanc{
   background-image: url('./Images/w2.jpg');
   height: 40rem;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  
 }
 
 
 
 /*  */
 
-.filmhome{
-  background-image: url('./Images/home2.jpg');
-  height: 40rem;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
+
 
 
 
@@ -79,24 +78,14 @@ a{
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-.hiringhome{
-  background-image: url('./Images/hiring.jpg');
-  height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
+
 .profile{
   background-image: url('./Images/profile.jpg');
   height: 40rem;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-.hviewanc{
-  background-image: url('./Images/t1.jpg');
-  height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
+
 .hancstatus{
   background-image: url('./Images/opp.jpg');
   height: 40rem;

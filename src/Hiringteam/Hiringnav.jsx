@@ -70,7 +70,7 @@ export const Hiringnav = () => {
 {ancdrop &&
             <div className='list-none absolute mt-3 -ml-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 '>
             <Link to='/hiring/hviewanc' className=''><li>View Announcement</li></Link>
-            <Link to='/hiring/hancst' className=''> <li>Booking request</li></Link>
+            <Link to='/hiring/hancst' className=''> <li>Request Status</li></Link>
         </div>
 }
  </div>

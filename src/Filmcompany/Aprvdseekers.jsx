@@ -21,8 +21,8 @@ export const Aprvdseekers = () => {
     </form>
     
     <div class=" pt-10 overflow-x-auto shadow-md sm:rounded-lg  ">
-        <table class="w-full text-sm text-center rtl:text-right  text-black dark:text-black">
-            <thead class="text-xs text-black uppercase  dark:bg-gray-950/50 dark:text-black">
+        <table class="w-full text-sm text-center rtl:text-right  text-white ">
+            <thead class="text-xs  uppercase  dark:bg-gray-950/90 ">
                 <tr >
                     <th scope="col" class="px-6 py-3">
                         SLNO
@@ -43,7 +43,7 @@ export const Aprvdseekers = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr class=" dark:border-gray-700 text-black hover:bg-slate-800/50">
+                <tr class=" dark:border-gray-700 bg-gray-950/40 hover:bg-slate-800/50">
                     <td scope="row" class="px-6 py-4">
                         1
                     </td>
@@ -64,7 +64,7 @@ export const Aprvdseekers = () => {
     
     
     
-                <tr class=" dark:border-gray-700 text-black hover:bg-slate-800/50">
+                <tr class=" dark:border-gray-700 bg-slate-950/40 hover:bg-slate-800/50">
                     <td scope="row" class="px-6 py-4">
                         2
                     </td>

@@ -1,18 +1,19 @@
 import React from 'react'
 import img from '../Images/171.avif'
 import img2 from '../Images/thug.jpg'
+import { Link } from 'react-router-dom'
 export const Hviewanc = () => {
   return (
     <div className='hviewanc'>
         <div className='flex flex-wrap justify-evenly pt-56'>
-        <div className='w-60 h-60 bg-slate-950/50 rounded'>
+        <Link to='/hiring/hvancd'><div className='w-60 h-60 bg-slate-950/50 rounded'>
             <img src={ img } alt=""  className='w-52 m-auto pt-3'/>
             <p className='text-white text-center pt-3 text-[20px]'>Athirappilly</p>
-        </div>
-        <div className='w-60 h-60 bg-slate-950/50 rounded'>
+        </div></Link>
+        <Link to='/hiring/hvancd'><div className='w-60 h-60 bg-slate-950/50 rounded'>
             <img src={ img2 } alt="" className='w-52 h-44 m-auto pt-3'/>
             <p className='text-white text-center pt-3 text-[20px]'>Gulmarg</p>
-        </div>
+        </div></Link>
         </div>
     </div>
   )

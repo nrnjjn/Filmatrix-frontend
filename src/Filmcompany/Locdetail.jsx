@@ -4,7 +4,7 @@ import img from '../Images/Athirappilly.jpg'
 export const Locdetail = () => {
   return (
     <div className='fcvloc pt-40'>
-        <div className='bg-slate-950/50 w-[800px] h-[370px] m-auto flex gap-2 '>
+        <div className='bg-slate-950/50 w-[800px] h-[370px] m-auto flex gap-2 rounded'>
             <img src={ img } alt="" className='w-80 h-80  ps-3 pt-3 '/>
             <div className='flex flex-wrap flex-col'>
             <div className='flex flex-wrap text-white gap-10 pt-3 text-center'>
