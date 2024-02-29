@@ -1,28 +1,30 @@
 import React from 'react'
 
 export const Hlocpay = () => {
+
+    
   return (
-    <div className='hvloc'>
-         <p className='text-center font-bold pt-32 text-[25px] text-black'>PROFILE</p>
-        <div className='flex flex-wrap '>
+    <div className='hvloc '>
+         <p className='text-center font-bold pt-32 text-[25px] text-black'>LOCATION PAYMENT</p>
+        <div className='flex flex-wrap  '>
         <div className='text-white flex flex-wrap flex-col'>
             <div className='pt-8 '>
-                <div className='flex flex-wrap justify-between w-[470px] ms-20 '>
-                    <p >Company Name</p>
-                    <input type="text" className='bg-transparent border-white border-solid border-2 rounded' />
+                <div className='flex flex-wrap gap-56 w-[470px] ms-20 '>
+                    <p className='text-black text-lg font-bold'>Amount</p>
+                    <p>1200rps</p>
+                    
                 </div>
             </div>
             <div>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 py-5'>
-                    <p>E-mail</p>
-                    <input type="email" className='bg-transparent border-white border-solid border-2 rounded'/>
+                <label className='text-black text-lg font-bold'>Holder Name</label>
+                    <input type="text" className='bg-transparent border-white border-solid border-2 rounded h-9'/>
                 </div>
             </div>
             <div>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
-                    <p>Phone</p>
-                    <input type="number" className='bg-transparent border-white border-solid border-2 rounded'/>
-                </div>
+                <label className='text-black text-lg font-bold'>Card Number</label>
+                <input type="text" className='bg-transparent border-white border-solid border-2 rounded h-9'/>                </div>
              </div>
             <div>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>

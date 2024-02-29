@@ -20,18 +20,17 @@ export const Hlocdetail = () => {
                  <br />the entrance to the Sholayar ranges. It is the  
              <br />largest waterfall in Kerala, which stands tall at <br /> 81.5 feet.</p>
             </div>
-            <div className='flex flex-wrap text-white pt-3 text-center gap-14'>
+            <div className='flex flex-wrap text-white pt-3 text-center gap-16'>
               <p className='font-bold'>Date:</p>
-              <p>24-02-2024</p>
+              <input type="date" className='bg-transparent border-2 rounded w-48' />
               
             </div>
-            <div className='flex flex-wrap text-white pt-3 text-center gap-3'>
+            <div className='flex flex-wrap text-white pt-3 text-center gap-4'>
                 <p className='font-bold'>No of days:</p>
-                <p>4</p>
+                <input type="number" className='bg-transparent border-2 rounded' />
             </div>
             <div className='flex flex-wrap text-white pt-2 text-center gap-8 justify-center'>
-            <Link to='/filmcompany/fclocreq'><button className='bg-slate-950/50 ps-1 pe-1 h-8 text-green-400'>Accept</button></Link>
-            <Link to='/filmcompany/fclocreq'><button className='bg-slate-950/50 ps-1 pe-1 h-8 text-red-600'>Reject</button></Link>
+            <Link to='/hiring/hfclocst'><button className=' ps-1 pe-1 h-8 text-yellow-200'>Send Request</button></Link>
             </div></div>
         </div>  
     </div>

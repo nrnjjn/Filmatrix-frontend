@@ -9,8 +9,6 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-
-
 .logimg{
   background-image: url('login.jpg');
   height: 40rem;
@@ -56,7 +54,10 @@ a{
 .vanc,
 .fcviewhcreq,
 .fcvloc,
-.hviewanc{
+.hviewanc,
+.hancstatus,
+.hvloc,
+.hlcbst{
   background-image: url('./Images/w2.jpg');
   height: 40rem;
   background-size: 100% 100%;
@@ -72,12 +73,7 @@ a{
 
 
 
-.hvloc{
-  background-image: url('./Images/loc.jpg');
-  height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
+
 
 .profile{
   background-image: url('./Images/profile.jpg');
@@ -86,13 +82,8 @@ a{
   background-repeat: no-repeat;
 }
 
-.hancstatus{
-  background-image: url('./Images/opp.jpg');
-  height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.hlcbst,
+
+
 .hskreq{
   background-image: url('./Images/tr.jpg');
   height: 40rem;

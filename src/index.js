@@ -98,7 +98,6 @@ root.render(
       <Route path='hcreq' element={<Hiringreq/>}/>
       <Route path='loreq' element={<Locationreq/>}/>
       <Route path='aprvdsk' element={<Approvedseekers/>}/>
-      
     </Route>
    </Routes>
  
