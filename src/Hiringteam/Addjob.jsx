@@ -15,7 +15,7 @@ let handleSubmit=(event)=>{
   event.preventDefault()
   setData(data)
   console.log(data);
-  navigate('/hiring')
+  navigate('/hiring/hviewjob')
   
 }
   return (
@@ -27,12 +27,17 @@ let handleSubmit=(event)=>{
          <div className='m-auto w-fit '>
           <div className='flex  flex-row pb-3 flex-wrap'>
             
-            <input onChange={handleChange} name='Hiring name' type="text" placeholder='Hiring Name' className='w-[237px] h-9 placeholder:text-center bg-transparent placeholder:text-white border-2 rounded text-white' />
+            <input onChange={handleChange} name='Job' type="text" placeholder='Job' className='w-[237px] h-9 placeholder:text-center bg-transparent placeholder:text-white border-2 rounded text-white' />
           </div>
           
+          <div className='flex  flex-row pb-3 flex-wrap'>
+            
+            <input onChange={handleChange} name='Vacancy' type="number" placeholder='Vacancy' className='w-[237px] h-9 placeholder:text-center bg-transparent placeholder:text-white border-2 rounded text-white' />
+          </div>
+
           <div className='flex flex-row flex-wrap'>
    
-            <textarea onChange={handleChange} name="Feedback" id="" cols="30" rows="10" placeholder='Feedback' className='placeholder:text-center placeholder:text-white border-2 rounded bg-transparent text-white'></textarea>
+            <textarea onChange={handleChange} name="Description" id="" cols="30" rows="10" placeholder='Description' className='placeholder:text-center placeholder:text-white border-2 rounded bg-transparent text-white'></textarea>
           </div>
           <button type='submit' className='text-white bg-black rounded p-2 ml-20 mt-3'>Submit</button>
          </div>

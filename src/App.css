@@ -57,7 +57,10 @@ a{
 .hviewanc,
 .hancstatus,
 .hvloc,
-.hlcbst{
+.hlcbst,
+.hviewjob,
+.hskreq,
+.hpw{
   background-image: url('./Images/w2.jpg');
   height: 40rem;
   background-size: 100% 100%;
@@ -84,30 +87,16 @@ a{
 
 
 
-.hskreq{
-  background-image: url('./Images/tr.jpg');
-  height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
+
 .lcfeed{
   background-image: url('./Images/tr2.jpg');
   height: 40rem;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-.hviewjob{
-  background-image: url('./Images/in.png');
-  height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.hpw{
-  background-image: url('./Images/pw.png');
-  height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
+
+
+
 .userhome{
   background-image: url('./Images/userhome.jpg');
   height: 40rem;
