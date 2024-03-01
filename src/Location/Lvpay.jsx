@@ -3,7 +3,7 @@ import React from 'react'
 export const Lvpay = () => {
   return (
     <div className='lbkst'>
-        <div className='text-black pt-36 text-center mb-3 text-[40px]'>VIEW PAYMENT</div>
+        <div className='text-white pt-36 text-center mb-3 text-[40px]'>VIEW PAYMENT</div>
     
     <form class="max-w-72 mx-auto h-5">
         <div class="flex">
@@ -31,14 +31,15 @@ export const Lvpay = () => {
                         FILM NAME
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        SEEKER NAME
+                        HIRING NAME
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        JOB
+                        AMOUNT
                     </th>
                     <th scope="col" class="px-6 py-3">
                         DATE
                     </th>
+                    <th scope="col" class="px-6 py-3">STATUS</th>
                     
                 </tr>
             </thead>
@@ -51,37 +52,23 @@ export const Lvpay = () => {
                         Thug Life
                     </td>
                     <td >
-                        Anuranj
+                        Aashirvad
                     </td>
                     <td>
-                        Camera man
+                        5000
                     </td>
                     <td >
                     23-01-2024
+                    </td>
+                    <td>
+                        Paid
                     </td>
                     
                 </tr>
     
     
     
-                <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50">
-                    <td scope="row" class="px-6 py-4">
-                        2
-                    </td>
-                    <td >
-                        Thug Life
-                    </td>
-                    <td >
-                        Amrutha
-                    </td>
-                    <td>
-                        Actress
-                    </td>
-                    <td >
-                    23-01-2024
-                    </td>
-                    
-                </tr>
+                
                 
             </tbody>
         </table>

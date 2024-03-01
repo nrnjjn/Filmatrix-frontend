@@ -4,36 +4,28 @@ export const Locnav = () => {
 
     const [locdrop,setLocdrop]=useState(false)
     const [odrop,setOdrop]=useState(false)
-    const [ancdrop,setancDrop]=useState(false)
-    const [jobdrop,setJobdrop]=useState(false)
+
 
 
     let locdropdown=()=>{
         setLocdrop(!locdrop)
         setOdrop(false)
-        setancDrop(false)
-        setJobdrop(false)
+       
+       
     }
 
     let otherdropdown=()=>{
         setOdrop(!odrop)
         setLocdrop(false)
-        setancDrop(false)
-        setJobdrop(false)
+ 
     }
-    let announcementdropdown=()=>{
-        setancDrop(!ancdrop)
-        setOdrop(false)
-        setLocdrop(false)
-        setJobdrop(false)
-    }
+  
 
     
     let close=()=>{
         setLocdrop(false)
         setOdrop(false)
-        setancDrop(false)
-        setJobdrop(false)
+       
     }
 
   return (
@@ -51,16 +43,10 @@ export const Locnav = () => {
                     Profile
                 </div></Link>
                
-            <div className=' hover:bg-slate-700 hover:p-1 active:rounded-lg hover:rounded-lg active:bg-slate-700 focus:outline-none focus:ring focus:ring-violet-300 ...'>
-                <span onClick={announcementdropdown}>Announcement</span>
-{ancdrop &&
-            <div className='list-none absolute mt-3 -ml-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 '>
-            <Link to='/location/lvanc' className=''><li>View Announcement</li></Link>
-            <Link to='/user/' className=''> <li>Booking request</li></Link>
-        </div>
-}
- </div>
-
+                <Link to='/location/lvanc'> <div>
+                    Announcement
+                </div></Link>
+            
 
             <div className=' hover:bg-slate-700 hover:p-1 active:rounded-lg hover:rounded-lg active:bg-slate-700 focus:outline-none focus:ring focus:ring-violet-300 ...'>
                <span onClick={locdropdown}> Location</span>
@@ -68,7 +54,7 @@ export const Locnav = () => {
         <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 w-40 -ml-10'>
             <Link to='/location/addloc' className=''><li>Add location</li></Link>
             <Link to='/location/lviewlc' className=''> <li>View location</li></Link>
-            <Link to='/hiring/hskreq' className=''> <li>Seekers</li></Link>
+           
         </div>
 }
             </div>
@@ -79,9 +65,7 @@ export const Locnav = () => {
 {odrop &&
         <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 w-40 -ml-10'>
             <Link to='/location/lbkreq' ><li>Booking req</li></Link>
-            <Link to='/location/lbkst' ><li>Booking status</li></Link>
             <Link to='/location/lvfd' > <li>View Feedback</li></Link>
-            <Link to='/location/lvpay' > <li>View Payment</li></Link>
             <Link to='/'> <li>Logout</li></Link>
         </div>
 }

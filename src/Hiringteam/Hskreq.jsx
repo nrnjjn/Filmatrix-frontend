@@ -56,7 +56,7 @@ export const Hskreq = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr class=" dark:border-gray-700 bg-slate-950/40 text-white hover:bg-slate-800/50 ">
+                <tr class=" dark:border-gray-700  text-white hover:bg-slate-800/50 ">
                     <td scope="row" class="px-1 py-4">
                         1
                     </td >

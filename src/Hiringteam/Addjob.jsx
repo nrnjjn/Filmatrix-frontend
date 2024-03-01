@@ -20,7 +20,7 @@ let handleSubmit=(event)=>{
 }
   return (
     <div className='addanc flex flex-wrap flex-col'>
-        <div className='text-center pt-36 font-bold text-3xl '>
+        <div className='text-center pt-36 font-bold text-3xl text-white '>
           New Job
          </div>
          <form className='pt-5' onSubmit={handleSubmit}>

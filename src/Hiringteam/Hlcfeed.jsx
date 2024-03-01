@@ -1,23 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const Hlcfeed = () => {
+
+const navigate=useNavigate()
+const [data,setData]=useState('')
+
+let handleChange=(event)=>{
+  setData({...data,[event.target.name]:event.target.value})
+}
+
+let handleSubmit=(event)=>{
+  event.preventDefault()
+  setData(data)
+  console.log(data);
+  navigate('/hiring/hlcbookst')
+  
+}
+
   return (
     <div className='lcfeed flex flex-wrap flex-col'>
         <div className='text-center pt-36 font-bold text-3xl pb-10 text-white'>
-          Hiring Feedback
+          LOCATION FEEDBACK
          </div>
-         <div className='m-auto w-fit '>
-          <div className='flex  flex-row pb-3 flex-wrap'>
-            
-            <input type="text" placeholder='Hiring Name' className='w-[237px]' />
-          </div>
-          
+         <form onSubmit={handleSubmit}>
+         <div className='m-auto w-fit '>  
           <div className='flex flex-row flex-wrap'>
    
-            <textarea name="description" id="" cols="30" rows="10" placeholder='Feedback' className=''></textarea>
+            <textarea onChange={handleChange} name="Feedback" id="" cols="30" rows="10" placeholder='Feedback' className='bg-transparent border-2 rounded text-white placeholder:text-center placeholder:text-white'></textarea>
           </div>
-          <button className='text-white bg-black rounded p-2 ml-20 mt-3'>Submit</button>
+          <button type='submit' className='text-white bg-black rounded p-2 ml-20 mt-3'>Submit</button>
          </div>
+         </form>
     </div>
   )
 }

@@ -24,7 +24,9 @@ a{
 
 .adminhome,
 .hiringhome,
-.filmhome{
+.filmhome,
+.lhome,
+.userhome{
   background-image: url('Images/w3.jpg');
   height: 40rem;
   margin-left: -5px;
@@ -60,11 +62,14 @@ a{
 .hlcbst,
 .hviewjob,
 .hskreq,
-.hpw{
-  background-image: url('./Images/w2.jpg');
+.hpw,
+.lcfeed,
+.lprof,
+.lbkst,
+.profile{
+  /* background-image: linear-gradient(#E5E8EF,#94B1BD,#7AB9D3,  #010A1E 85%);   */
+  background-image: url('./Images/b1.svg');
   height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
   
 }
 
@@ -78,31 +83,16 @@ a{
 
 
 
-.profile{
-  background-image: url('./Images/profile.jpg');
-  height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
 
 
 
 
-.lcfeed{
-  background-image: url('./Images/tr2.jpg');
-  height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
 
 
 
-.userhome{
-  background-image: url('./Images/userhome.jpg');
-  height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
+
+
+
 
 .ujob{
   background-image: url('./Images/th1.jpg');
@@ -114,21 +104,5 @@ a{
   background-image: url('./Images/ist.png');
  
 }
-.lhome{
-  background-image: url('./Images/lhome.jpg');
-  height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.lprof{
-  background-image: url('./Images/lprof.jpg');
-  height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.lbkst{
-  background-image: url('./Images/lbkst.jpg');
-  height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
+
+

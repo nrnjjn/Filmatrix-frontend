@@ -11,10 +11,10 @@ export const Lvanc = () => {
             <img src={ img } alt=""  className='w-52 m-auto pt-3'/>
             <p className='text-white text-center pt-5 text-[20px]'>Thalaivar 171</p>
         </div></Link>
-        <div className='w-60 h-60 bg-slate-950/50 rounded'>
+        <Link to='/location/lancd'><div className='w-60 h-60 bg-slate-950/50 rounded'>
             <img src={ img2 } alt="" className='w-52 h-44 m-auto pt-3'/>
             <p className='text-white text-center pt-3 text-[20px]'>Thug Life</p>
-        </div>
+        </div></Link>
         </div>
     </div>
   )

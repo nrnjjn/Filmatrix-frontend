@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Hlcbookst = () => {
   return (
@@ -46,6 +47,9 @@ export const Hlcbookst = () => {
                     <th scope="col" class="px-6 py-3">
                         STATUS
                     </th>
+                    <th>
+                        FEEDBACK
+                    </th>
                     <th scope="col" class="px-6 py-3">
                         DATE
                     </th>
@@ -68,6 +72,9 @@ export const Hlcbookst = () => {
                     </td>
                     <td>
                         Approved
+                    </td>
+                    <td>
+                       <Link to='/hiring/hlcfeed'> <button className='text-yellow-200'>Add</button></Link>
                     </td>
                     <td >
                     23-01-2024

@@ -69,7 +69,6 @@ import { Addloc } from './Location/Addloc';
 import { Lviewlc } from './Location/Lviewlc';
 import { Editloc } from './Location/Editloc';
 import { Lbookingreq } from './Location/Lbookingreq';
-import { Lbkst } from './Location/Lbkst';
 import { Lvfd } from './Location/Lvfd';
 import { Lvpay } from './Location/Lvpay';
 import { Editanc } from './Filmcompany/Editanc';
@@ -157,7 +156,6 @@ root.render(
       <Route path='lviewlc' element={<Lviewlc/>}/>
       <Route path='editloc' element={<Editloc/>}/>
       <Route path='lbkreq' element={<Lbookingreq/>}/>
-      <Route path='lbkst' element={<Lbkst/>}/>
       <Route path='lvfd' element={<Lvfd/>}/>
       <Route path='lvpay' element={<Lvpay/>}/>
       </Route>

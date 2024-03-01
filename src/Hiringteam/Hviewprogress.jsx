@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Hviewprogress = () => {
   return (
@@ -22,7 +23,7 @@ export const Hviewprogress = () => {
     
     <div class=" pt-10 overflow-x-auto shadow-md sm:rounded-lg  ">
         <table class="w-full text-sm text-center rtl:text-right   ">
-            <thead class="text-xs  uppercase  dark:bg-gray-950/50 ">
+            <thead class="text-xs  uppercase  dark:bg-gray-950/90 ">
                 <tr >
                     <th scope="col" class="px-6 py-3">
                         SLNO
@@ -34,13 +35,16 @@ export const Hviewprogress = () => {
                         PROGRESS
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         DATE
                     </th>
                     
                 </tr>
             </thead>
             <tbody>
-                <tr class=" dark:border-gray-700  hover:bg-slate-800/50">
+                <tr class=" dark:border-gray-700 bg-slate-950/40  hover:bg-slate-800/50">
                     <td scope="row" class="px-6 py-4">
                         1
                     </td>
@@ -50,6 +54,9 @@ export const Hviewprogress = () => {
                     <td >
                         Casting complete
                     </td>
+                    <td>
+                       <Link to='/hiring/haddp'> <button className='text-yellow-200'>Add</button></Link>
+                    </td>
                     <td >
                     23-01-2024
                     </td>
@@ -58,15 +65,18 @@ export const Hviewprogress = () => {
     
     
     
-                <tr class=" dark:border-gray-700  hover:bg-slate-800/50">
+                <tr class=" dark:border-gray-700 bg-slate-950/40 hover:bg-slate-800/50">
                     <td scope="row" class="px-6 py-4">
                         2
                     </td>
                     <td >
-                        Sun Pictures
+                        Thalaivar 171
                     </td>
                     <td >
-                        sunp@gmail.com
+                        Music composing
+                    </td>
+                    <td>
+                       <Link to='/hiring/haddp'> <button className='text-yellow-200'>Add</button></Link>
                     </td>
                     <td >
                     23-01-2024

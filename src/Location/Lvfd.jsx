@@ -3,7 +3,7 @@ import React from 'react'
 export const Lvfd = () => {
   return (
     <div className='lbkst'>
-         <div className='text-black pt-36 text-center mb-3 text-[40px]'>VIEW FEEDBACK</div>
+         <div className='text-white pt-36 text-center mb-3 text-[40px]'>VIEW FEEDBACK</div>
     
     <form class="max-w-72 mx-auto h-5">
         <div class="flex">
@@ -31,10 +31,10 @@ export const Lvfd = () => {
                         FILM NAME
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        SEEKER NAME
+                        LOCATION NAME
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        JOB
+                        FEEDBACK
                     </th>
                     <th scope="col" class="px-6 py-3">
                         DATE
@@ -51,10 +51,10 @@ export const Lvfd = () => {
                         Thug Life
                     </td>
                     <td >
-                        Anuranj
+                        Aathirappilly
                     </td>
                     <td>
-                        Camera man
+                        Good
                     </td>
                     <td >
                     23-01-2024
@@ -64,24 +64,6 @@ export const Lvfd = () => {
     
     
     
-                <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50">
-                    <td scope="row" class="px-6 py-4">
-                        2
-                    </td>
-                    <td >
-                        Thug Life
-                    </td>
-                    <td >
-                        Amrutha
-                    </td>
-                    <td>
-                        Actress
-                    </td>
-                    <td >
-                    23-01-2024
-                    </td>
-                    
-                </tr>
                 
             </tbody>
         </table>

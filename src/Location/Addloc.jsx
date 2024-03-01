@@ -1,60 +1,49 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const Addloc = () => {
+
+const navigate=useNavigate()
+const [data,setData]=useState('')
+
+
+let handleChange=(event)=>{
+    setData({...data,[event.target.name]:event.target.value})
+  }
+  
+  let handleSubmit=(event)=>{
+    event.preventDefault()
+    setData(data)
+    console.log(data);
+    navigate('/hiring/hviewjob')
+    
+  }
   return (
     <div className='lprof'>
-        <p className='text-center font-bold pt-32 text-[25px] text-black'>LOCATION</p>
-        <div className='flex flex-wrap '>
-        <div className='text-white flex flex-wrap flex-col'>
-            <div className='pt-8 '>
-                <div className='flex flex-wrap justify-between w-[470px] ms-20 '>
-                    <p >Company Name</p>
-                    <input type="text" className='bg-transparent border-white border-solid border-2 rounded' />
-                </div>
-            </div>
-            <div>
-                <div className='flex flex-wrap justify-between w-[470px] ms-20 py-5'>
-                    <p>E-mail</p>
-                    <input type="email" className='bg-transparent border-white border-solid border-2 rounded'/>
-                </div>
-            </div>
-            <div>
-                <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
-                    <p>Phone</p>
-                    <input type="number" className='bg-transparent border-white border-solid border-2 rounded'/>
-                </div>
-             </div>
-            <div>
-                <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
-                    <p>Address</p>
-                    <textarea name="address" id="" cols="30" rows="10" className='h-36 w-[195px] bg-transparent border-white border-solid border-2 rounded'></textarea>
-                </div>
-            </div>
-        
-    </div>
-    <div className='text-white flex flex-wrap flex-col'>
-        <div>
-        <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3 '>
-                    <p className='text-black'>Liscence</p>
-                    <input type="file" />
-                </div>
-        </div>
-        <div>
-        <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
-                    <p>Password</p>
-                    <input type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
-                    </div>
-        </div>
-        <div>
-        <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
-                    <p>Confirm Password</p>
-                    <input type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
-                    </div>
-        </div>
-        <button className='ms-20 py-3'>Submit</button>
-        
-    </div>
-    </div>
+        <div className='text-center pt-36 font-bold text-3xl text-white'>
+          New Location
+         </div>
+         <form className='pt-5' onSubmit={handleSubmit}>
+         <div className='m-auto w-fit '>
+          <div className='flex  flex-row pb-3 flex-wrap justify-center'>
+            
+            <input onChange={handleChange} name='Name' type="text" placeholder='Location Name' className='w-[237px] h-9 placeholder:text-center bg-transparent placeholder:text-white border-2 rounded text-white' />
+          </div>
+          
+          <div className='flex  flex-row pb-3 flex-wrap justify-evenly'>
+          <label class=" text-center block h-10 mb-2  font-medium text-gray-900 dark:text-white " for="file_input">Id-proof</label>
+          <input onChange={handleChange} name='Id-proof' class="block w-[40%] h-10 text-sm text-gray-900  border-white rounded cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-white border-2" placeholder='New' id="file_input" type="file" />
+          </div>
+
+          <div className='flex flex-row flex-wrap justify-center'>
+   
+            <textarea onChange={handleChange} name="Description" id="" cols="30" rows="10" placeholder='Description' className='placeholder:text-center placeholder:text-white border-2 rounded bg-transparent text-white'></textarea>
+          </div>
+          <div>
+          <button type='submit' className='text-white bg-black rounded p-2 ml-18 mt-3 '>Submit</button>
+         </div>
+         </div>
+         </form>
     </div>
   )
 }

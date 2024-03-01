@@ -3,7 +3,7 @@ import React from 'react'
 export const Hviewfd = () => {
   return (
     <div className='lcfeed text-white'>
-                <div className='text-white pt-36 text-center mb-3 text-[20px]'>FEEDBACK</div>
+    <div className='text-white pt-36 text-center mb-3 text-[20px]'>FEEDBACK</div>
     
     <form class="max-w-72 mx-auto h-5">
         <div class="flex">
@@ -22,7 +22,7 @@ export const Hviewfd = () => {
     
     <div class=" pt-10 overflow-x-auto shadow-md sm:rounded-lg  ">
         <table class="w-full text-sm text-center rtl:text-right   ">
-            <thead class="text-xs  uppercase  dark:bg-gray-950/50 ">
+            <thead class="text-xs  uppercase  dark:bg-gray-950/90 ">
                 <tr >
                     <th scope="col" class="px-6 py-3">
                         SLNO
@@ -31,7 +31,7 @@ export const Hviewfd = () => {
                         FILM NAME
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        PROGRESS
+                        FEEDBACK
                     </th>
                     <th scope="col" class="px-6 py-3">
                         DATE
@@ -40,7 +40,7 @@ export const Hviewfd = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr class=" dark:border-gray-700  hover:bg-slate-800/50">
+                <tr class=" dark:border-gray-700  bg-slate-950/40 hover:bg-slate-800/50">
                     <td scope="row" class="px-6 py-4">
                         1
                     </td>
@@ -48,7 +48,7 @@ export const Hviewfd = () => {
                         Thug Life
                     </td>
                     <td >
-                        Casting complete
+                        Good
                     </td>
                     <td >
                     23-01-2024
@@ -58,21 +58,7 @@ export const Hviewfd = () => {
     
     
     
-                <tr class=" dark:border-gray-700  hover:bg-slate-800/50">
-                    <td scope="row" class="px-6 py-4">
-                        2
-                    </td>
-                    <td >
-                        Sun Pictures
-                    </td>
-                    <td >
-                        sunp@gmail.com
-                    </td>
-                    <td >
-                    23-01-2024
-                    </td>
-                    
-                </tr>
+                
                 
             </tbody>
         </table>
