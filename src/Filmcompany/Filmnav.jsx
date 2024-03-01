@@ -38,6 +38,9 @@ const Filmnav = () => {
             <Link to='/filmcompany'><div onClick={close}>
                 Home
             </div></Link>
+            <Link to='/filmcompany/filmprof'><div onClick={close}>
+                Profile
+            </div></Link>
            
                 <div className='hover:bg-slate-700 hover:p-1 active:rounded-lg hover:rounded-lg active:bg-slate-700 focus:outline-none focus:ring focus:ring-violet-300 ...'>
                     <span onClick={announcementdropdown}>Announcement</span>

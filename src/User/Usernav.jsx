@@ -60,28 +60,18 @@ export const Usernav = () => {
                <Link to='/user/uprofile'> <div>
                     Profile
                 </div></Link>
+
+
+                <Link to='/user/uvanc' className=''><div>
+                    Announcement
+                    </div></Link>
                
-            <div className=' hover:bg-slate-700 hover:p-1 active:rounded-lg hover:rounded-lg active:bg-slate-700 focus:outline-none focus:ring focus:ring-violet-300 ...'>
-                <span onClick={announcementdropdown}>Announcement</span>
-{ancdrop &&
-            <div className='list-none absolute mt-3 -ml-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 '>
-            <Link to='/user/uvanc' className=''><li>View Announcement</li></Link>
-            <Link to='/user/' className=''> <li>Booking request</li></Link>
-        </div>
-}
- </div>
-
-
-            
-
-
             <div className=' hover:bg-slate-700 hover:p-1 active:rounded-lg hover:rounded-lg active:bg-slate-700 focus:outline-none focus:ring focus:ring-violet-300 ...'>
                <span onClick={jobdropdown}> Job</span>
 {jobdrop &&
         <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 w-40 -ml-10'>
+            <Link to='/user/ujob' className=''> <li>View Job</li></Link>
             <Link to='/user/ujobreqst' className=''><li>Status</li></Link>
-            <Link to='/hiring/hviewjob' className=''> <li>View Job</li></Link>
-            <Link to='/hiring/hskreq' className=''> <li>Seekers</li></Link>
         </div>
 }
             </div>
@@ -92,9 +82,6 @@ export const Usernav = () => {
 {odrop &&
         <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 w-40 -ml-10'>
             <Link to='/user/upw' ><li>Previous work</li></Link>
-            <Link to='/hiring/haddp' ><li>Add Progress</li></Link>
-            <Link to='/hiring/hlcfeed' > <li>Hiring Feedback</li></Link>
-            <Link to='/hiring/hviewfd' > <li>View Feedback</li></Link>
             <Link to='/'> <li>Logout</li></Link>
         </div>
 }

@@ -72,6 +72,7 @@ import { Lbookingreq } from './Location/Lbookingreq';
 import { Lvfd } from './Location/Lvfd';
 import { Lvpay } from './Location/Lvpay';
 import { Editanc } from './Filmcompany/Editanc';
+import { Filmprofile } from './Filmcompany/Filmprofile';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -115,6 +116,7 @@ root.render(
       <Route path='vprogress' element={<Viewprogress/>}/>
       <Route path='jobseekers' element={<Aprvdseekers/>}/>
       <Route path='hiringfd' element={<Hiringfd/>}/>
+      <Route path='filmprof' element={<Filmprofile/>}/>
       
     </Route>
    </Routes>

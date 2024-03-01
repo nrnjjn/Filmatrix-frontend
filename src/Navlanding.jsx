@@ -11,6 +11,9 @@ const Navlanding = () => {
         
         
     }
+    let close=()=>{
+        setDrop(false)
+    }
   
 
   return (
@@ -27,11 +30,11 @@ const Navlanding = () => {
                <span onClick={dropdown}> Register</span>
 {drop &&
 
-        <div className='list-none absolute mt-6  bg-gray-400/50 text-black'>
-            <Link to='/fcreg' className='text-black'><li>Film Company</li></Link>
-            <Link to='/hrreg' className='text-black'> <li>Hiring Team</li></Link>
-            <Link to='/loreg' className='text-black'><li>Location Owner</li></Link>
-            <Link to='/skreg' className='text-black'><li>Job Seekers</li></Link>
+        <div className='list-none absolute mt-3 p-1 bg-black text-white'>
+            <Link to='/fcreg' className=''><li>Film Company</li></Link>
+            <Link to='/hrreg' className=''> <li>Hiring Team</li></Link>
+            <Link to='/loreg' className=''><li>Location Owner</li></Link>
+            <Link to='/skreg' className=''><li>Job Seekers</li></Link>
         </div>
 }
 </div>
@@ -43,7 +46,9 @@ const Navlanding = () => {
             
         </div>
     </div>
+    <div onClick={close}>
     <Outlet/>
+    </div>
     </div>
   )
 }

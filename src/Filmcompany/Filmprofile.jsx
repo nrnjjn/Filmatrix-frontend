@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
-export const Hviewprofile = () => {
+export const Filmprofile = () => {
+
     const [data,setData]=useState('')
 
     let handleChange=(event)=>{
@@ -12,10 +13,9 @@ export const Hviewprofile = () => {
         setData(data)
         console.log(data);
       }
-
   return (
-    <div className='profile'>
-         <p className='text-center font-bold pt-32 text-[25px] text-white'>PROFILE</p>
+    <div className='reg'>
+        <p className='text-center font-bold pt-32 text-[25px] text-white'>PROFILE</p>
         <form onSubmit={handleSubmit}>
         <div className='flex flex-wrap '>
         <div className='text-white flex flex-wrap flex-col'>

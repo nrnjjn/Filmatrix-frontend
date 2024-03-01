@@ -66,10 +66,14 @@ a{
 .lcfeed,
 .lprof,
 .lbkst,
-.profile{
+.profile,
+.ujob,
+.upw,
+.reg{
   /* background-image: linear-gradient(#E5E8EF,#94B1BD,#7AB9D3,  #010A1E 85%);   */
   background-image: url('./Images/b1.svg');
   height: 40rem;
+  
   
 }
 
@@ -94,15 +98,7 @@ a{
 
 
 
-.ujob{
-  background-image: url('./Images/th1.jpg');
-  height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.upw{
-  background-image: url('./Images/ist.png');
- 
-}
+
+
 
 
