@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export const Hiringreq = () => {
   return (
     <div className='hcreq'>
-    <div className='text-white pt-40 text-center mb-3'> HIRING COMPANY</div>
+    <div className='text-white pt-40 text-center mb-3 text-2xl font-bold'> HIRING TEAM</div>
     
     <form class="max-w-lg mx-auto ">
     <div class="flex items-center">
@@ -96,11 +96,11 @@ export const Hiringreq = () => {
                 </td>
                 <td>Pending</td>
                 <td class="px-6 py-4 text-right">
-                    <button className='text-yellow-200 
+                    <button className='text-green-500 
                      rounded w-14 h-6 text-center'>Accept</button>
                 </td>
                 <td>
-                    <button className='text-black rounded w-14 h-6 text-center'>Reject</button>
+                    <button className='text-red-500 rounded w-14 h-6 text-center'>Reject</button>
                 </td>
             </tr>
 
@@ -125,10 +125,10 @@ export const Hiringreq = () => {
                 </td>
                 <td>Pending</td>
                 <td class="px-6 py-4 text-right">
-                    <button className='text-yellow-200 rounded w-14 h-6 text-center'>Accept</button>
+                    <button className='text-green-500 rounded w-14 h-6 text-center'>Accept</button>
                 </td>
                 <td>
-                    <button className='text-black rounded w-14 h-6 text-center'>Reject</button>
+                    <button className='text-red-500 rounded w-14 h-6 text-center'>Reject</button>
                 </td>
             </tr>
             

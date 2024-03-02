@@ -64,6 +64,7 @@ export const Locreq = () => {
                         DATE
                     </th>
                     
+                    
                 </tr>
             </thead>
             <tbody>
@@ -85,6 +86,7 @@ export const Locreq = () => {
                     <td >
                     23-01-2024
                     </td>
+                    
                     
                 </tr>
     

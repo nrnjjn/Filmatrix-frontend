@@ -39,7 +39,7 @@ let handleChange=(event)=>{
                 </div>
              </div>
             <div>
-                <div className='flex flex-wrap justify-between w-[470px] ms-20 py-5'>
+                <div className='flex flex-wrap justify-between w-[470px] ms-20 py-6'>
                     <p>Address</p>
                     <textarea onChange={handleChange} name="address" id="" cols="30" rows="10" className='h-36 w-[195px] bg-transparent border-white border-solid border-2 rounded'></textarea>
                 </div>

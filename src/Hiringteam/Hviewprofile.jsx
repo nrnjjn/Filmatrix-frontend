@@ -72,7 +72,7 @@ export const Hviewprofile = () => {
                     <input onChange={handleChange} name='Confirm password' type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
-        <button type='submit' className='ms-20 py-3'>Submit</button>
+        <button type='submit' className='ms-20 py-3 text-green-500'>Submit</button>
         
     </div>
     </div>

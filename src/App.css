@@ -34,22 +34,19 @@ a{
   background-size: 100% 100%;
 }
 .fcreq{
-  background-image: url('./Images/w2.jpg');
+  background-image: url('./Images/b1.svg');
   height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+
 }
 .hcreq{
-  background-image: url('./Images/w2.jpg');
+  background-image: url('./Images/b1.svg');
   height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  
 }
 .loreq{
-  background-image: url('./Images/w2.jpg');
+  background-image: url('./Images/b1.svg');
   height: 40rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+
 }
 .aprvdsk,
 .addanc,

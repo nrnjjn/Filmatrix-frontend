@@ -35,8 +35,8 @@ export const Locreqdetail = () => {
                 <p>40000</p>
             </div>
             <div className='flex flex-wrap text-white pt-2 text-center gap-8 justify-center'>
-            <Link to='/filmcompany/fclocreq'><button className='   text-yellow-200'>Accept</button></Link>
-            <Link to='/filmcompany/fclocreq'><button className='  text-white'>Reject</button></Link>
+            <Link to='/filmcompany/fclocreq'><button className='   text-green-500'>Accept</button></Link>
+            <Link to='/filmcompany/fclocreq'><button className='  text-red-500'>Reject</button></Link>
             </div></div>
         </div>  
     </div>

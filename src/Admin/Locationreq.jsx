@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export const Locationreq = () => {
   return (
     <div className='loreq'>
-    <div className='text-white pt-40 text-center mb-3'> LOCATION OWNER</div>
+    <div className='text-white pt-40 text-center mb-3 font-bold text-2xl'> LOCATION OWNER</div>
     
     <form class="max-w-lg mx-auto ">
     <div class="flex items-center">
@@ -89,10 +89,10 @@ export const Locationreq = () => {
                 23-01-2024
                 </td>
                 <td class="px-6 py-4 ">
-                    <button className='text-yellow-200  rounded w-14 h-6 text-center'>Accept</button>
+                    <button className='text-green-500  rounded w-14 h-6 text-center'>Accept</button>
                 </td>
                 <td>
-                    <button className='text-black  rounded w-14 h-6 text-center'>Reject</button>
+                    <button className='text-red-500  rounded w-14 h-6 text-center'>Reject</button>
                 </td>
             </tr>
 
@@ -115,10 +115,10 @@ export const Locationreq = () => {
                 23-01-2024
                 </td>
                 <td class="">
-                    <button className='text-yellow-200 rounded w-14 h-6 text-center'>Accept</button>
+                    <button className='text-green-500 rounded w-14 h-6 text-center'>Accept</button>
                 </td>
                 <td>
-                    <button className='text-black  rounded w-14 h-6 text-center'>Reject</button>
+                    <button className='text-red-500  rounded w-14 h-6 text-center'>Reject</button>
                 </td>
             </tr>
             

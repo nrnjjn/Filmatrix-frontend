@@ -91,11 +91,11 @@ export const Fcviewhcreq = () => {
                 23-01-2024
                 </td>
                 <td class=" text-right">
-                    <button className='text-yellow-200 
+                    <button className='text-green-500 
                      rounded w-14 h-6 text-center'>Accept</button>
                 </td>
                 <td>
-                    <button className='text-black rounded w-14 h-6 text-center'>Reject</button>
+                    <button className='text-red-500 rounded w-14 h-6 text-center'>Reject</button>
                 </td>
             </tr>
 
@@ -119,11 +119,11 @@ export const Fcviewhcreq = () => {
                 23-01-2024
                 </td>
                 <td class="  text-right">
-                    <button className='text-yellow-200 
+                    <button className='text-green-500 
                      rounded w-14 h-6 text-center'>Accept</button>
                 </td>
                 <td>
-                    <button className='text-black rounded w-14 h-6 text-center'>Reject</button>
+                    <button className='text-red-500 rounded w-14 h-6 text-center'>Reject</button>
                 </td>
             </tr>
             

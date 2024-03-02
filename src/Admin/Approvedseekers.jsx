@@ -3,7 +3,7 @@ import React from 'react'
 export const Approvedseekers = () => {
   return (
     <div className='aprvdsk'>
-        <div className='text-white pt-40 text-center mb-3'> JOB SEEKERS</div>
+        <div className='text-white pt-40 text-center mb-3 text-2xl font-bold'> JOB SEEKERS</div>
     
         <form class="max-w-lg mx-auto">
     <div class="flex items-center">

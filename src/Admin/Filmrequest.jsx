@@ -6,7 +6,7 @@ export const Filmrequest = () => {
   return (
 
 <div className='fcreq' >
-    <div className='text-white pt-40 text-center mb-3'> FILM COMPANY</div>
+    <div className='text-white pt-40 text-center mb-3 font-bold text-2xl'> FILM COMPANY</div>
     
     <form class="max-w-lg mx-auto pb-10">
     <div class="flex items-center">
@@ -89,10 +89,10 @@ export const Filmrequest = () => {
                 </td>
                 <td>Pending</td>
                 <td class="px-6 py-4 text-right">
-                    <button className='text-yellow-200  rounded w-14 h-6 text-center'>Accept</button>
+                    <button className='text-green-500  rounded w-14 h-6 text-center'>Accept</button>
                 </td>
                 <td>
-                    <button className='text-black  rounded w-14 h-6 text-center'>Reject</button>
+                    <button className='text-red-600  rounded w-14 h-6 text-center'>Reject</button>
                 </td>
             </tr>
 
@@ -123,10 +123,10 @@ export const Filmrequest = () => {
                 </td>
                 <td>Pending</td>
                 <td class="px-6 py-4 text-right">
-                    <button className='text-yellow-200  rounded w-14 h-6 text-center'>Accept</button>
+                    <button className='text-green-500  rounded w-14 h-6 text-center'>Accept</button>
                 </td>
                 <td>
-                    <button className='text-black rounded w-14 h-6 text-center'>Reject</button>
+                    <button className='text-red-500 rounded w-14 h-6 text-center'>Reject</button>
                 </td>
             </tr>
             

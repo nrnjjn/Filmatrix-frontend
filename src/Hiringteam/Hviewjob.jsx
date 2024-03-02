@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Hviewjob = () => {
   return (
@@ -75,10 +76,10 @@ export const Hviewjob = () => {
                     23-01-2024
                     </td>
                     <td >
-                        <button className='text-yellow-200 rounded w-14 h-6 text-center'>Accept</button>
+                        <Link to='/hiring/heditjob'><button className='text-green-500 rounded w-14 h-6 text-center'>Edit</button></Link>
                     </td>
                     <td>
-                        <button className='text-black rounded w-14 h-6 text-center'>Reject</button>
+                        <button className='text-red-500 rounded w-14 h-6 text-center'>Delete</button>
                     </td>
                 </tr>
     

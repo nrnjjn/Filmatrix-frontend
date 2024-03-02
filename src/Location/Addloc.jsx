@@ -15,7 +15,7 @@ let handleChange=(event)=>{
     event.preventDefault()
     setData(data)
     console.log(data);
-    navigate('/hiring/hviewjob')
+    navigate('/location/lviewlc')
     
   }
   return (
@@ -37,10 +37,10 @@ let handleChange=(event)=>{
 
           <div className='flex flex-row flex-wrap justify-center'>
    
-            <textarea onChange={handleChange} name="Description" id="" cols="30" rows="10" placeholder='Description' className='placeholder:text-center placeholder:text-white border-2 rounded bg-transparent text-white'></textarea>
+            <textarea onChange={handleChange} name="Description" id="" cols="30" rows="8" placeholder='Description' className='placeholder:text-center placeholder:text-white border-2 rounded bg-transparent text-white'></textarea>
           </div>
           <div>
-          <button type='submit' className='text-white bg-black rounded p-2 ml-18 mt-3 '>Submit</button>
+          <button type='submit' className='text-white bg-black rounded p-2 ml-32 mt-5 '>Submit</button>
          </div>
          </div>
          </form>

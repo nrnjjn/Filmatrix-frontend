@@ -73,6 +73,7 @@ import { Lvfd } from './Location/Lvfd';
 import { Lvpay } from './Location/Lvpay';
 import { Editanc } from './Filmcompany/Editanc';
 import { Filmprofile } from './Filmcompany/Filmprofile';
+import { Heditjob } from './Hiringteam/Heditjob';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -143,6 +144,7 @@ root.render(
     <Route path='hviewfd' element={<Hviewfd/>}/>
     <Route path='hvpw' element={<Hvpreviousw/>}/>
     <Route path='hvpwd' element={<Hvpwd/>}/>
+    <Route path='heditjob' element={<Heditjob/>}/>
     </Route>
     </Routes>   
 

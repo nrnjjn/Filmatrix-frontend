@@ -82,10 +82,10 @@ export const Viewannouncement = () => {
                     23-01-2024
                     </td>
                     <td>
-                       <Link to='/filmcompany/editanc'> <button className='text-yellow-200'>Edit</button></Link>
+                       <Link to='/filmcompany/editanc'> <button className='text-green-500'>Edit</button></Link>
                     </td>
                     <td>
-                        <button className='text-black'>Delete</button>
+                        <button className='text-red-500'>Delete</button>
                     </td>
                 </tr>
     
@@ -108,10 +108,10 @@ export const Viewannouncement = () => {
                     23-01-2024
                     </td>
                     <td>
-                       <Link to='/filmcompany/editanc'> <button className='text-yellow-200'>Edit</button></Link>
+                       <Link to='/filmcompany/editanc'> <button className='text-green-500'>Edit</button></Link>
                     </td>
                     <td>
-                        <button className='text-black'>Delete</button>
+                        <button className='text-red-500'>Delete</button>
                     </td>
                     
                 </tr>
