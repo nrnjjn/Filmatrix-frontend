@@ -19,7 +19,7 @@ let handleSubmit=(event)=>{
 }
   return (
     <div className='hviewjob'>
-        <div className='text-center pt-36 font-bold text-3xl pb-10'>
+        <div className='text-center pt-36 font-bold text-3xl pb-10 text-white'>
           Add Progress
          </div>
          <form onSubmit={handleSubmit}>

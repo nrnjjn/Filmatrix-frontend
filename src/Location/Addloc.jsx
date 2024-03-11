@@ -16,8 +16,8 @@ let handleChange=(event)=>{
     setData(data)
     console.log(data);
     navigate('/location/lviewlc')
-    
   }
+  
   return (
     <div className='lprof'>
         <div className='text-center pt-36 font-bold text-3xl text-white'>

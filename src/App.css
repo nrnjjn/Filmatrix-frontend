@@ -34,18 +34,24 @@ a{
   background-size: 100% 100%;
 }
 .fcreq{
-  background-image: url('./Images/b1.svg');
+  background-image: url('./Images/q9.jpg');
   height: 40rem;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 
 }
 .hcreq{
-  background-image: url('./Images/b1.svg');
+  background-image: url('./Images/q9.jpg');
   height: 40rem;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   
 }
 .loreq{
-  background-image: url('./Images/b1.svg');
+  background-image: url('./Images/q9.jpg');
   height: 40rem;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 
 }
 .aprvdsk,
@@ -68,8 +74,10 @@ a{
 .upw,
 .reg{
   /* background-image: linear-gradient(#E5E8EF,#94B1BD,#7AB9D3,  #010A1E 85%);   */
-  background-image: url('./Images/b1.svg');
+  background-image: url('./Images/q12.jpg');
   height: 40rem;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   
   
 }

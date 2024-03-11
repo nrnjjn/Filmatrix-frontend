@@ -1,7 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 export const Login = () => {
+
+  const navigate=useNavigate()
+  const [data,setData]=useState('')
+
+  let handleChange=(event)=>{
+    setData({...data,[event.target.name]:event.target.value})
+  }
+
+  let handleSubmit=(event)=>{
+    event.preventDefault()
+    setData(data)
+    console.log(data);
+    navigate('/')
+    
+  }
+
   return (
     <div className='logimg pt-5'>
         <div className=' '>
@@ -18,20 +35,20 @@ export const Login = () => {
             </div>
             <div><button className='text-white ml-44 mt-32'>Login</button></div> */}
             
-            <div className='box pt-5 w-[60%] h-[85%] m-auto flex flex-wrap justify-center gap-44 '>
+           <form onSubmit={handleSubmit}> <div className='box pt-5 w-[60%] h-[85%] m-auto flex flex-wrap justify-center gap-44 '>
          
           <div className='mt-5 bg-black  w-[350px] h-[430px] shadow-xl shadow-black/30'>
             <div className='text-center my-7  text-2xl font-semibold text-white'>Login Page</div>
             <div className='ms-9 text-lg mb-2 text-white'>Email</div>
-            <div className='ms-9 mb-7'><input className=' py-2 px-3 pe-20' type="text" name="" id="" placeholder='Enter your email'/></div>
+            <div className='ms-9 mb-7'><input onChange={handleChange} className=' py-2 px-3 pe-20' type="email" name="email" id="" placeholder='Enter your email'/></div>
             <div className='ms-9 text-lg mb-2 text-white'>Passwrord</div>
-            <div className='ms-9 mb-7'><input className=' py-2 px-3 pe-20' type="password" name="" id="" placeholder='Enter your password'/></div>
+            <div className='ms-9 mb-7'><input onChange={handleChange} className=' py-2 px-3 pe-20' type="password" name="" id="" placeholder='Enter your password'/></div>
             <div className='ms-9 text-sm mb-7 text-white'>Forgot password?</div>
             <button className='bg-gray-900 px-7 py-2 text-lg mx-28 font-semibold text-white '>LOGIN</button>
           </div>
                     
         
-        </div>
+        </div></form>
 
         </div>
 

@@ -10,10 +10,10 @@ export const Userhome = () => {
             <img src={ img } alt=""  className='w-52 m-auto pt-3'/>
             <p className='text-white text-center pt-5 text-[20px]'>Cameraman</p>
         </div></Link>
-        <div className='w-60 h-60 bg-slate-950/80 rounded'>
+        <Link to='/user/ujob'><div className='w-60 h-60 bg-slate-950/80 rounded'>
             <img src={ img2 } alt="" className='w-52 h-44 m-auto pt-3'/>
             <p className='text-white text-center pt-3 text-[20px]'>Editor</p>
-        </div>
+        </div></Link>
         </div>
     </div>
   )
