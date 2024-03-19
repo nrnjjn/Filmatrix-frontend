@@ -14,6 +14,8 @@ let handleChange=(event)=>{
     setData(data)
     console.log(data);
   }
+  let id=localStorage.getItem('id')
+  console.log(id);
   return (
     <div className='profile'>
         <p className='text-center font-bold pt-32 text-[25px] text-white'>PROFILE</p>

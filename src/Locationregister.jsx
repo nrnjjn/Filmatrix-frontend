@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 export const Locationregister = () => {
 
@@ -11,16 +12,17 @@ export const Locationregister = () => {
     setData({...data,[event.target.name]:event.target.value})
   }
   
-  let handleSubmit=(event)=>{
+  let handleSubmit=async (event)=>{
     event.preventDefault()
-    setData(data)
     console.log(data);
     navigate('/')
+    let response=await axios.post('http://localhost:4000/seekers/register',{...data,userType:'locationowner'})
+       console.log(response);
     
   }
   return (
     <div className='reg'>
-      <p className='text-center font-bold pt-32 text-[25px] text-white'>FILM COMPANY REGESTRATION</p>
+      <p className='text-center font-bold pt-32 text-[25px] text-white'>LOCATION OWNER REGESTRATION</p>
         <form onSubmit={handleSubmit}>
         <div className='flex flex-wrap '>
         <div className='text-white flex flex-wrap flex-col'>
@@ -33,7 +35,7 @@ export const Locationregister = () => {
             <div>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 py-5'>
                     <p>E-mail</p>
-                    <input onChange={handleChange} name='E-mail' type="email" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} name='Email' type="email" className='bg-transparent border-white border-solid border-2 rounded'/>
                 </div>
             </div>
             <div>
@@ -69,7 +71,7 @@ export const Locationregister = () => {
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Confirm Password</p>
-                    <input onChange={handleChange} name='Confirm password' type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} name='confirmPassword' type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <button type='submit' className='ms-20 py-3 text-green-400'>Submit</button>

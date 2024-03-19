@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 export const Addannouncement = () => {
-
+let id=localStorage.getItem('id')
   const navigate=useNavigate()
   const [data,setData]=useState('')
 
@@ -10,34 +11,41 @@ export const Addannouncement = () => {
     setData({...data,[event.target.name]:event.target.value})
   }
 
-  let handleSubmit=(event)=>{
+  let handleSubmit=async (event)=>{
     event.preventDefault()
     setData(data)
     console.log(data);
     navigate('/filmcompany/vanc')
+    let response=await axios.post(`http://localhost:4000/filmcompany/addanc`,{...data,companyId:id})
+       console.log(response);
     
   }
 
   return (
     <div className='addanc flex flex-wrap flex-col'>
-         <div className='text-center pt-36 font-bold text-3xl pb-10 text-white '>
+         <div className='text-center pt-20 font-bold text-3xl pb-8 text-white '>
           New Announcement
          </div>
          <form onSubmit={handleSubmit}>
          <div className='m-auto w-fit '>
           <div className='flex  flex-row pb-3 flex-wrap justify-center'>
             
-            <input onChange={handleChange} name='Film name' type="text" placeholder='Film Name' className='w-[80%] bg-transparent  placeholder:text-white border-2 rounded placeholder:text-[20px] border-white text-white h-9' />
+            <input onChange={handleChange} name='Filmname' type="text" placeholder='Film Name' className='w-[80%] bg-transparent  placeholder:text-white border-2 rounded placeholder:text-[20px] border-white text-white h-9 placeholder:text-center' />
           </div>
-          <div className='flex flex-row pb-3 flex-wrap justify-center'>
-
-          <input onChange={handleChange} name='Liscence' class="block w-[80%]  text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
+          <div className='flex  flex-row  flex-wrap pb-3 justify-center'>
+            
+            <input onChange={handleChange} name='Director' type="text" placeholder='Director' className='w-[80%] bg-transparent  placeholder:text-white border-2 rounded placeholder:text-[20px] border-white text-white h-9 placeholder:text-center' />
           </div>
-          <div className='flex flex-row flex-wrap justify-center'>
+          
+          <div className='flex flex-row flex-wrap justify-center pb-3'>
    
-            <textarea onChange={handleChange} name="description" id="" cols="30" rows="10" placeholder='Description' className='bg-transparent placeholder:text-white placeholder:text-[25px]  border-2 rounded border-white text-white'></textarea>
+            <textarea onChange={handleChange} name="description" id="" cols="30" rows="10" placeholder='Description' className='w-[80%] bg-transparent placeholder:text-white placeholder:text-[25px]  border-2 rounded border-white text-white placeholder:text-center'></textarea>
           </div>
-          <button type='submit' className='text-white bg-black rounded p-2 ml-28 mt-3'>Submit</button>
+          <div className='flex flex-row pb-3 flex-wrap justify-around'>
+          <label htmlFor="" className='text-white text-lg'>Image: </label>
+          <input onChange={handleChange} name='Image'  class="block w-[50%]  text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
+          </div>
+          <button type='submit' className='text-white bg-black rounded p-2 ml-32 mt-1'>Submit</button>
          </div>
          </form>
     </div>

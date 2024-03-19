@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 export const Addjob = () => {
 
@@ -11,19 +12,21 @@ let handleChange=(event)=>{
   setData({...data,[event.target.name]:event.target.value})
 }
 
-let handleSubmit=(event)=>{
+let handleSubmit=async (event)=>{
   event.preventDefault()
   setData(data)
   console.log(data);
   navigate('/hiring/hviewjob')
+  let response=await axios.post('http://localhost:4000/hiringteam/addjob',data)
+       console.log(response);
   
 }
   return (
     <div className='addanc flex flex-wrap flex-col'>
-        <div className='text-center pt-36 font-bold text-3xl text-white '>
+        <div className='text-center pt-24 font-bold text-3xl text-white '>
           New Job
          </div>
-         <form className='pt-5' onSubmit={handleSubmit}>
+         <form className='pt-4' onSubmit={handleSubmit}>
          <div className='m-auto w-fit '>
           <div className='flex  flex-row pb-3 flex-wrap'>
             
@@ -32,8 +35,13 @@ let handleSubmit=(event)=>{
           
           <div className='flex  flex-row pb-3 flex-wrap'>
             
+            <input onChange={handleChange} name='filmName' type="text" placeholder='Film Name' className='w-[237px] h-9 placeholder:text-center bg-transparent placeholder:text-white border-2 rounded text-white' />
+          </div>
+          <div className='flex  flex-row pb-3 flex-wrap'>
+            
             <input onChange={handleChange} name='Vacancy' type="number" placeholder='Vacancy' className='w-[237px] h-9 placeholder:text-center bg-transparent placeholder:text-white border-2 rounded text-white' />
           </div>
+
 
           <div className='flex flex-row flex-wrap'>
    

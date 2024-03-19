@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import axios from 'axios'
 export const Upw = () => {
-
+    let id=localStorage.getItem('id')
 const navigate=useNavigate()
 const [data,setData]=useState('')
 
@@ -10,11 +10,13 @@ let handleChange=(event)=>{
     setData({...data,[event.target.name]:event.target.value})
   }
 
-  let handleSubmit=(event)=>{
+  let handleSubmit=async (event)=>{
     event.preventDefault()
     setData(data)
     console.log(data);
     navigate('/user/uvpw')
+    let response=await axios.post(`http://localhost:4000/seekers/addpreviouswork`,{...data,seekerId:id})
+       console.log(response);
   }
 
   return (
@@ -33,7 +35,7 @@ let handleChange=(event)=>{
             <div>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 py-5'>
                     <p>Description:</p>
-                    <textarea onChange={handleChange} name="description" id="" cols="30" rows="10" className='h-36 w-[195px] bg-transparent border-white border-solid border-2 rounded'></textarea>
+                    <textarea onChange={handleChange} name="Description" id="" cols="30" rows="10" className='h-36 w-[195px] bg-transparent border-white border-solid border-2 rounded'></textarea>
                 </div>
             </div>
         
@@ -42,8 +44,8 @@ let handleChange=(event)=>{
     <div className='pt-2'>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3 '>
                     
-            <label class="block h-10 mb-2  font-medium text-gray-900 dark:text-white" for="file_input">Liscence</label>
-            <input onChange={handleChange} name='Liscence' class="block w-[40%] text-sm text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
+            <label class="block h-10 mb-2  text-gray-900 dark:text-white" for="file_input">Image</label>
+            <input onChange={handleChange} name='Image' class="block w-[40%] text-sm text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
 
                 </div>
         </div>

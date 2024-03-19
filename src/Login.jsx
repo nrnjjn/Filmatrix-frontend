@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import axios from 'axios'
 
 export const Login = () => {
 
@@ -11,12 +11,32 @@ export const Login = () => {
     setData({...data,[event.target.name]:event.target.value})
   }
 
-  let handleSubmit=(event)=>{
+  let handleSubmit=async (event)=>{
     event.preventDefault()
     setData(data)
-    console.log(data);
-    navigate('/')
-    
+    let response=await axios.post('http://localhost:4000/seekers/login',data)
+    console.log(response);
+    if(response.data){
+      localStorage.setItem('id',response.data._id)
+      if(response.data.userType=='seekers'){
+        navigate('/user')
+      }
+      else if(response.data.userType=='filmcompany'){
+        navigate('/filmcompany')
+      }
+      else if(response.data.userType=='hiringteam'){
+        navigate('/hiring')
+      }
+      else if(response.data.userType=='locationowner'){
+        navigate('/location')
+      }
+      else if(response.data.userType=='admin'){
+        navigate('/admin')
+      }
+    }
+    else{
+      alert('invalid')
+    }
   }
 
   return (
@@ -40,11 +60,11 @@ export const Login = () => {
           <div className='mt-5 bg-black  w-[350px] h-[430px] shadow-xl shadow-black/30'>
             <div className='text-center my-7  text-2xl font-semibold text-white'>Login Page</div>
             <div className='ms-9 text-lg mb-2 text-white'>Email</div>
-            <div className='ms-9 mb-7'><input onChange={handleChange} className=' py-2 px-3 pe-20' type="email" name="email" id="" placeholder='Enter your email'/></div>
+            <div className='ms-9 mb-7'><input onChange={handleChange} className=' py-2 px-3 pe-20' type="email" name="Email" id="" placeholder='Enter your email'/></div>
             <div className='ms-9 text-lg mb-2 text-white'>Passwrord</div>
-            <div className='ms-9 mb-7'><input onChange={handleChange} className=' py-2 px-3 pe-20' type="password" name="" id="" placeholder='Enter your password'/></div>
+            <div className='ms-9 mb-7'><input onChange={handleChange} className=' py-2 px-3 pe-20' type="password" name="Password" id="" placeholder='Enter your password'/></div>
             <div className='ms-9 text-sm mb-7 text-white'>Forgot password?</div>
-            <button className='bg-gray-900 px-7 py-2 text-lg mx-28 font-semibold text-white '>LOGIN</button>
+            <button type='submit' className='bg-gray-900 px-7 py-2 text-lg mx-28 font-semibold text-white '>LOGIN</button>
           </div>
                     
         

@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import img from '../Images/171.avif'
 import img2 from '../Images/thug.jpg'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 export const Uvanc = () => {
+
+  let id=localStorage.getItem('id')
+  const [userData,setUserData]=useState('')
+  const [refresh,setrefresh]=useState(false)
+
+  useEffect(()=>{
+    let fetchdata=async ()=>{
+      let response=await axios.get
+    }
+  })
   return (
     <div className='hpw'>
          <div className='flex flex-wrap justify-evenly pt-56'>
