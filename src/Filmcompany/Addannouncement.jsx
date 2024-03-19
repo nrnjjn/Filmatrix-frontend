@@ -11,12 +11,27 @@ let id=localStorage.getItem('id')
     setData({...data,[event.target.name]:event.target.value})
   }
 
+  let handlefile=(event)=>{
+    console.log(event.target.files);
+    setData({...data,[event.target.name]:event.target.files[0]})
+    console.log(data);
+  }
+
   let handleSubmit=async (event)=>{
     event.preventDefault()
+    let formData = new FormData();
+        formData.append('Filmname', data.Filmname);
+        formData.append('Director', data.Director);
+        formData.append('description', data.description);
+        formData.append('Image', data.Image);
+        formData.append('companyId', id);
     setData(data)
     console.log(data);
     navigate('/filmcompany/vanc')
-    let response=await axios.post(`http://localhost:4000/filmcompany/addanc`,{...data,companyId:id})
+    let response=await axios.post(`http://localhost:4000/filmcompany/addanc`,formData,{
+      headers: {
+        'Content-Type': 'multipart/form-data'  // Set the content type for FormData
+      }})
        console.log(response);
     
   }
@@ -43,7 +58,7 @@ let id=localStorage.getItem('id')
           </div>
           <div className='flex flex-row pb-3 flex-wrap justify-around'>
           <label htmlFor="" className='text-white text-lg'>Image: </label>
-          <input onChange={handleChange} name='Image'  class="block w-[50%]  text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
+          <input onChange={handlefile} name='Image'  class="block w-[50%]  text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
           </div>
           <button type='submit' className='text-white bg-black rounded p-2 ml-32 mt-1'>Submit</button>
          </div>

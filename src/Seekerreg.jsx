@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 export const Seekerreg = () => {
-
   const navigate=useNavigate()
   const [data,setData]=useState('')
   
@@ -11,13 +10,33 @@ export const Seekerreg = () => {
   let handleChange=(event)=>{
     setData({...data,[event.target.name]:event.target.value})
   }
+
+  let handlefile=(event)=>{
+    console.log(event.target.files);
+    setData({...data,[event.target.name]:event.target.files[0]})
+    console.log(data);
+  }
   
   let handleSubmit=async (event)=>{
     event.preventDefault()
-
+    let formData = new FormData();
+        formData.append('Name', data.Name);
+        formData.append('Email', data.Email);
+        formData.append('Phone', data.Phone);
+        formData.append('Address', data.Address);
+        formData.append('Idproof', data.Idproof);
+        formData.append('Gender', data.Gender);
+        formData.append('Password', data.Password);
+        formData.append('confirmPassword', data.confirmPassword);
+        formData.append('userType','seekers')
+    setData(data)
     console.log(data);
     navigate('/')
-    let response=await axios.post('http://localhost:4000/seekers/register',{...data,userType:'seekers'})
+    let response=await axios.post('http://localhost:4000/seekers/register',formData,{userType:'seekers',
+    headers: {
+        'Content-Type': 'multipart/form-data'  // Set the content type for FormData
+      }
+})
        console.log(response);
     
   }
@@ -58,14 +77,12 @@ export const Seekerreg = () => {
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3 '>
                     
             <label class="block h-10 mb-2   text-gray-900 dark:text-white" for="file_input">Idproof</label>
-            <input onChange={handleChange} name='Idproof' class="block w-[40%] text-sm text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
-
+            <input onChange={handlefile} name='Idproof' class="block w-[40%] text-sm text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
                 </div>
         </div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
             <span className=' w-56  rounded-l-lg '>
               Gender:
-
             </span>
             <select onChange={handleChange} className=' h-9 w-[40%] bg-black border-white border-solid border-2 rounded ' name='Gender'>
               <option value='male'>Male</option>

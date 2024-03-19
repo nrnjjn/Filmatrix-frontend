@@ -12,11 +12,31 @@ export const Locationregister = () => {
     setData({...data,[event.target.name]:event.target.value})
   }
   
+  let handlefile=(event)=>{
+    console.log(event.target.files);
+    setData({...data,[event.target.name]:event.target.files[0]})
+    console.log(data);
+  }
+
   let handleSubmit=async (event)=>{
     event.preventDefault()
+    let formData = new FormData();
+    formData.append('Name', data.Name);
+    formData.append('Email', data.Email);
+    formData.append('Phone', data.Phone);
+    formData.append('Address', data.Address);
+    formData.append('Idproof', data.Idproof);
+    formData.append('Password', data.Password);
+    formData.append('confirmPassword', data.confirmPassword);
+    formData.append('userType','locationowner')
+  setData(data)
     console.log(data);
-    navigate('/')
-    let response=await axios.post('http://localhost:4000/seekers/register',{...data,userType:'locationowner'})
+    // navigate('/')
+    let response=await axios.post('http://localhost:4000/seekers/register',formData,{userType:'locationowner',
+    headers: {
+        'Content-Type': 'multipart/form-data'  // Set the content type for FormData
+      }
+})
        console.log(response);
     
   }
@@ -57,7 +77,7 @@ export const Locationregister = () => {
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3 '>
                     
             <label class="block h-10 mb-2   text-gray-900 dark:text-white" for="file_input">Idproof</label>
-            <input onChange={handleChange} name='Idproof' class="block w-[40%] text-sm text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
+            <input onChange={handlefile} name='Idproof' class="block w-[40%] text-sm text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
 
                 </div>
         </div>
