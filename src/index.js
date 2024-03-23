@@ -128,7 +128,7 @@ root.render(
     <Route index element={<Hiringhome/>}/>
     <Route path='hviewprofile' element={<Hviewprofile/>}/>
     <Route path='hviewanc' element={<Hviewanc/>}/>
-    <Route path='hvancd' element={<Hvancdetail/>}/>
+    <Route path='hvancd/:id' element={<Hvancdetail/>}/>
     <Route path='hancst' element={<Hancstatus/>}/>
     <Route path='hvloc' element={<Hvloc/>}/>
     <Route path='hlocdetail' element={<Hlocdetail/>}/>
@@ -155,10 +155,10 @@ root.render(
       <Route index element={<Lhome/>}/>
       <Route path='lprofile' element={<Lprofile/>}/>
       <Route path='lvanc' element={<Lvanc/>}/>
-      <Route path='lancd' element={<Lancd/>}/>
+      <Route path='lancd/:id' element={<Lancd/>}/>
       <Route path='addloc' element={<Addloc/>}/>
       <Route path='lviewlc' element={<Lviewlc/>}/>
-      <Route path='editloc' element={<Editloc/>}/>
+      <Route path='editloc/:userId' element={<Editloc/>}/>
       <Route path='lbkreq' element={<Lbookingreq/>}/>
       <Route path='lvfd' element={<Lvfd/>}/>
       <Route path='lvpay' element={<Lvpay/>}/>

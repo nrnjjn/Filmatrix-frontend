@@ -11,7 +11,6 @@ export const Viewannouncement = () => {
           let response=await axios.get(`http://localhost:4000/filmcompany/viewanc/${id}`)
           console.log(response.data);
           if(response.data){
-
               setdata(response.data)
             }
         }
@@ -60,7 +59,7 @@ export const Viewannouncement = () => {
                     </th>
                     <th></th>
                     <th></th>
-                    
+
                 </tr>
             </thead>
             <tbody>
@@ -93,7 +92,6 @@ export const Viewannouncement = () => {
                     </td>
                 </tr>
                  ))}  
-
             </tbody>
         </table>
     </div>

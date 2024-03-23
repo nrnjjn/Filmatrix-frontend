@@ -1,16 +1,29 @@
-import React, { useState } from 'react'
-
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 export const Hviewprofile = () => {
+    let id=localStorage.getItem('id')
+  const [userData,setUserData]=useState('')
+  const [refresh,setrefresh]=useState(false)
+  useEffect(()=>{
+    let fetchdata=async ()=>{
+        let response=await axios.get(`http://localhost:4000/seekers/viewprofile/${id}`)
+        console.log(response.data);
+        setUserData(response.data)
+      }
+      fetchdata()
+    },[refresh])
     const [data,setData]=useState('')
 
     let handleChange=(event)=>{
         setData({...data,[event.target.name]:event.target.value})
       }
     
-      let handleSubmit=(event)=>{
+      let handleSubmit=async (event)=>{
         event.preventDefault()
-        setData(data)
-        console.log(data);
+        setrefresh(!refresh)
+    let response=await axios.put(`http://localhost:4000/seekers/editprofile/${id}`,data)
+    console.log(response);
+    setData('')
       }
 
   return (
@@ -22,25 +35,25 @@ export const Hviewprofile = () => {
             <div className='pt-8 '>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 '>
                     <p >Company Name</p>
-                    <input onChange={handleChange} name='Company Name' type="text" className='bg-transparent border-white border-solid border-2 rounded' />
+                    <input onChange={handleChange} placeholder={userData.companyName} name='companyName' type="text" className='bg-transparent border-white border-solid border-2 rounded' />
                 </div>
             </div>
             <div>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 py-5'>
                     <p>E-mail</p>
-                    <input onChange={handleChange} name='E-mail' type="email" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} placeholder={userData.Email} name='Email' type="email" className='bg-transparent border-white border-solid border-2 rounded'/>
                 </div>
             </div>
             <div>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Phone</p>
-                    <input onChange={handleChange} name='Phone' type="number" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} placeholder={userData.Phone} name='Phone' type="number" className='bg-transparent border-white border-solid border-2 rounded'/>
                 </div>
              </div>
             <div>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Address</p>
-                    <textarea onChange={handleChange} name="Address" id="" cols="30" rows="10" className='h-36 w-[195px] bg-transparent border-white border-solid border-2 rounded'></textarea>
+                    <textarea onChange={handleChange} placeholder={userData.Address} name="Address" id="" cols="30" rows="10" className='h-36 w-[195px] bg-transparent border-white border-solid border-2 rounded'></textarea>
                 </div>
             </div>
         
@@ -57,19 +70,19 @@ export const Hviewprofile = () => {
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Liscence no</p>
-                    <input onChange={handleChange} name='liscence no' type="text" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} placeholder={userData.liscenceNo} name='liscenceNo' type="text" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Password</p>
-                    <input onChange={handleChange} name='Password' type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} placeholder={userData.Password} name='Password' type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Confirm Password</p>
-                    <input onChange={handleChange} name='Confirm password' type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} placeholder={userData.confirmPassword} name='confirmPassword' type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <button type='submit' className='ms-20 py-3 text-green-500'>Submit</button>

@@ -23,6 +23,7 @@ let handleChange=(event)=>{
 
   let handleSubmit=async (event)=>{
     event.preventDefault()
+    setrefresh(!refresh)
     let response=await axios.put(`http://localhost:4000/seekers/editprofile/${id}`,data)
     console.log(response);
     setData('')

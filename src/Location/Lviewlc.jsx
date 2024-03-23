@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import img from '../Images/Athirappilly.jpg'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 export const Lviewlc = () => {
+    let id=localStorage.getItem('id')
+    const [data,setdata]=useState([''])
+
+    useEffect(()=>{
+        let fetchdata=async ()=>{
+          let response=await axios.get(`http://localhost:4000/locationowner/viewloc/${id}`)
+          console.log(response.data);
+          if(response.data){
+              setdata(response.data)
+            }
+        }
+        fetchdata()
+      },[])
+
   return (
     <div className='lprof'>
         <div className='text-white pt-36 text-center mb-3 text-[25px]'> VIEW LOCATION</div>
@@ -51,52 +66,29 @@ export const Lviewlc = () => {
                 </tr>
             </thead>
             <tbody>
+            {data.map((item,index)=>(
                 <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50 ">
                     <td scope="row" class="px-1 py-4">
-                        1
+                        {index}
                     </td >
                     <td >
-                        Athirappilly
+                        {item.locationName}
                     </td>
                     <td >
-                        abcd
+                        {item.Description}
                     </td>
                     <td className='flex flex-wrap justify-center'>
-                        <img src={ img } alt="" className='h-10 w-10'/>
+                        <img src={`http://localhost:4000/uploads/${item.Image}`} alt="" className='h-10 w-10'/>
                     </td>
                     
                     <td >
-                       <Link to='/location/editloc'> <button className='text-green-500 rounded w-14 h-6 text-center'>Edit</button></Link>
+                       <Link to={`/location/editloc/${item._id}`}> <button className='text-green-500 rounded w-14 h-6 text-center'>Edit</button></Link>
                     </td>
                     <td>
                         <button className='text-red-600 rounded w-14 h-6 text-center'>Delete</button>
                     </td>
                 </tr>
-    
-    
-    
-                <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50 ">
-                    <td scope="row" class="px-1 py-4">
-                        2
-                    </td>
-                    <td class="px-1 py-4">
-                        Kollengod
-                    </td>
-                    <td class="px-1 py-4">
-                        Forest
-                    </td>
-                    <td className='flex flex-wrap justify-center'>
-                        <img src={ img } alt="" className='h-10 w-10'/>
-                    </td>
-                   
-                    <td >
-                       <Link to='/location/lviewlc'> <button className='text-green-500 rounded w-14 h-6 text-center'>Edit</button></Link>
-                    </td>
-                    <td>
-                        <button className='text-red-600 rounded w-14 h-6 text-center'>Delete</button>
-                    </td>
-                </tr>
-                
+                 ))}  
             </tbody>
         </table>
     </div>
