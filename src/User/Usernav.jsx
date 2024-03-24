@@ -81,7 +81,8 @@ export const Usernav = () => {
                <span onClick={otherdropdown}> Other</span>
 {odrop &&
         <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 w-40 -ml-10'>
-            <Link to='/user/upw' ><li>Previous work</li></Link>
+            <Link to='/user/upw' ><li>Add Previous work</li></Link>
+            <Link to='/user/uvpw' ><li>View Previous work</li></Link>
             <Link to='/'> <li>Logout</li></Link>
         </div>
 }

@@ -1,9 +1,22 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
-export const Upw = () => {
+export const Editpw = () => {
 
 let id=localStorage.getItem('id')
+let {userId} = useParams()
+  const [userData,setUserData]=useState('')
+  const [refresh,setrefresh]=useState(false)
+
+  useEffect(()=>{
+    let fetchdata=async ()=>{
+        let response=await axios.get(`http://localhost:4000/seekers/viewpreviousworkd/${userId}`)
+        console.log(response.data);
+        setUserData(response.data)
+      }
+      fetchdata()
+    },[refresh])
+
 const navigate=useNavigate()
 const [data,setData]=useState('')
 
@@ -19,43 +32,42 @@ let handleChange=(event)=>{
 
   let handleSubmit=async (event)=>{
     event.preventDefault()
-    let formData = new FormData();
-    formData.append('Job', data.Job);
-    formData.append('Image', data.Image);
-    formData.append('Description', data.Description);
-    formData.append('Fromdate', data.Fromdate);
-    formData.append('Todate', data.Todate);
-    formData.append('userId', id);
-    setData(data)
-    console.log(data);
+    setrefresh(!refresh)
+
+    const formData = new FormData();
+        for (const key in data){
+            if(data[key]){
+                formData.append(key,data[key]);
+            }
+        }
+        console.log(data);
     console.log(formData);
-
-    // navigate('/user/uvpw')
-    let response=await axios.post(`http://localhost:4000/seekers/addpreviouswork`,formData,{
-       userId:id,
-        headers: {
-            'Content-Type': 'multipart/form-data'  // Set the content type for FormData
-          }
+    let response= axios.put(`http://localhost:4000/seekers/editpreviouswork/${userId}`,formData,{
+      headers:{
+        'content-Type':'multiport/form-data'
+      }
     })
-       console.log(response.data);
+    console.log(response);
+    setData('')
+    // navigate('/location/lviewlc')
+    
   }
-
   return (
     <div className='upw'>
-        <p className='text-center font-bold pt-32 text-[25px] text-white'>PREVIOUS WORK</p>
+        <p className='text-center font-bold pt-32 text-[25px] text-white'>EDIT PREVIOUS WORK</p>
        <form onSubmit={handleSubmit}> 
        <div className='flex flex-wrap '>
         <div className='text-white flex flex-wrap flex-col'>
             <div className='pt-8 '>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 '>
                     <p >Job:</p>
-                    <input onChange={handleChange} name='Job' type="text" className='bg-transparent border-white border-solid border-2 rounded' />
+                    <input onChange={handleChange} placeholder={userData.Job} name='Job' type="text" className='bg-transparent border-white border-solid border-2 rounded' />
                 </div>
             </div>
             <div>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 py-5'>
                     <p>Description:</p>
-                    <textarea onChange={handleChange} name="Description" id="" cols="30" rows="10" className='h-36 w-[195px] bg-transparent border-white border-solid border-2 rounded'></textarea>
+                    <textarea onChange={handleChange} placeholder={userData.Description} name="Description" id="" cols="30" rows="10" className='h-36 w-[195px] bg-transparent border-white border-solid border-2 rounded'></textarea>
                 </div>
             </div>
         
@@ -70,13 +82,13 @@ let handleChange=(event)=>{
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3 text-white'>
                     <p>From date:</p>
-                    <input onChange={handleChange} name='Fromdate' type="date" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} placeholder={userData.FromDate} name='Fromdate' type="date" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3 text-white'>
                     <p>To date:</p>
-                    <input onChange={handleChange} name='Todate' type="date" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} placeholder={userData.Todate} name='Todate' type="date" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <button type='submit' className='ms-20 py-5 text-yellow-200'>Submit</button></div>

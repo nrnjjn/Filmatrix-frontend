@@ -7,7 +7,6 @@ let id=localStorage.getItem('id')
 const navigate=useNavigate()
 const [data,setData]=useState('')
 
-
 let handleChange=(event)=>{
     setData({...data,[event.target.name]:event.target.value})
   }
@@ -17,7 +16,6 @@ let handleChange=(event)=>{
     console.log(data);
   }
 
-  
   let handleSubmit=async (event)=>{
     event.preventDefault()
     let formData = new FormData();
@@ -35,7 +33,6 @@ let handleChange=(event)=>{
         'Content-Type': 'multipart/form-data'  // Set the content type for FormData
       }})
        console.log(response);
-    
   }
      
   return (

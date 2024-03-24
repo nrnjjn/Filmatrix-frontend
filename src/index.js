@@ -74,6 +74,7 @@ import { Lvpay } from './Location/Lvpay';
 import { Editanc } from './Filmcompany/Editanc';
 import { Filmprofile } from './Filmcompany/Filmprofile';
 import { Heditjob } from './Hiringteam/Heditjob';
+import { Editpw } from './User/Editpw';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -173,12 +174,13 @@ root.render(
     <Route index element={<Userhome/>}/>
     <Route path='uprofile' element={<Userprofile/>}/>
     <Route path='uvanc' element={<Uvanc/>}/>
-    <Route path='uvancd' element={<Uvancd/>}/>
+    <Route path='uvancd/:id' element={<Uvancd/>}/>
     <Route path='ujobreqst' element={<Ujobreqst/>}/>
     <Route path='upw' element={<Upw/>}/>
     <Route path='uvpw' element={<Uvpw/>}/>
-    <Route path='uvpwd' element={<Uvpwd/>}/>
+    <Route path='uvpwd/:id' element={<Uvpwd/>}/>
     <Route path='ujob' element={<Ujob/>}/>
+    <Route path='editpw/:userId' element={<Editpw/>}/>
     </Route>
   </Routes>
    </BrowserRouter>
