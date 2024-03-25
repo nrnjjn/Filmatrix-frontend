@@ -85,7 +85,7 @@ export const Viewannouncement = () => {
                     {item.Date}
                     </td>
                     <td>
-                       <Link to='/filmcompany/editanc'> <button className='text-green-500'>Edit</button></Link>
+                       <Link to={`/filmcompany/editanc/${item._id}`}> <button className='text-green-500'>Edit</button></Link>
                     </td>
                     <td>
                         <button className='text-red-500'>Delete</button>

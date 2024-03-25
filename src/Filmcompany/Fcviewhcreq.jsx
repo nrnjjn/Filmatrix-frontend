@@ -1,6 +1,19 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 export const Fcviewhcreq = () => {
+    let id=localStorage.getItem('id')
+    const [data,setdata]=useState([''])
+
+    useEffect(()=>{
+        let fetchdata=async ()=>{
+          let response=await axios.get(`http://localhost:4000/locationowner/viewloc/${id}`)
+          console.log(response.data);
+          if(response.data){
+              setdata(response.data)
+            }
+        }
+        fetchdata()
+      },[])
   return (
     <div className='fcviewhcreq text-white'>
     <div className='text-white pt-40 text-center mb-3 text-[25px]'> HIRING TEAM REQUEST</div>
@@ -52,6 +65,9 @@ export const Fcviewhcreq = () => {
                 <th scope="col" class="px-3 py-3">
                     SLNO
                 </th>
+                <th>
+                    FILM NAME
+                </th>
                 <th >
                     HIRING TEAM NAME
                 </th>
@@ -73,10 +89,14 @@ export const Fcviewhcreq = () => {
             </tr>
         </thead>
         <tbody>
+            {data.map((item,index)=>(
             <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50 ">
                 <td scope="row" class="px-1 py-4">
                     1
                 </td >
+                <td>
+                    Thug Life
+                </td>
                 <td >
                     Rajkamal
                 </td>
@@ -98,35 +118,8 @@ export const Fcviewhcreq = () => {
                     <button className='text-red-500 rounded w-14 h-6 text-center'>Reject</button>
                 </td>
             </tr>
+))}
 
-
-
-            <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50 ">
-                <td scope="row" class="px-1 py-4">
-                    2
-                </td>
-                <td class="px-1 py-4">
-                    Sun Pictures
-                </td>
-                <td class="px-1 py-4">
-                    sunp@gmail.com
-                </td>
-                <td>9946532902</td>
-                <td>5678</td>
-                <td><a href="src/landing.jpg/" download>image</a></td>
-                <td>Pending</td>
-                <td >
-                23-01-2024
-                </td>
-                <td class="  text-right">
-                    <button className='text-green-500 
-                     rounded w-14 h-6 text-center'>Accept</button>
-                </td>
-                <td>
-                    <button className='text-red-500 rounded w-14 h-6 text-center'>Reject</button>
-                </td>
-            </tr>
-            
         </tbody>
     </table>
 </div>

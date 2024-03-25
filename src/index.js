@@ -75,6 +75,7 @@ import { Editanc } from './Filmcompany/Editanc';
 import { Filmprofile } from './Filmcompany/Filmprofile';
 import { Heditjob } from './Hiringteam/Heditjob';
 import { Editpw } from './User/Editpw';
+import { Hreqdescription } from './Hiringteam/Hreqdescription';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -109,10 +110,10 @@ root.render(
       <Route index element={<Filmhome/>}/>
       <Route path='addanc' element={<Addannouncement/>}/>
       <Route path='vanc' element={<Viewannouncement/>}/>
-      <Route path='editanc' element={<Editanc/>}/>
+      <Route path='editanc/:companyId' element={<Editanc/>}/>
       <Route path='fcviewhcreq' element={<Fcviewhcreq/>}/>
       <Route path='fcvloc' element={<Fcviewloc/>}/>
-      <Route path='locdt' element={<Locdetail/>}/>
+      <Route path='locdt/:id' element={<Locdetail/>}/>
       <Route path='fclocreq' element={<Locreq/>}/>
       <Route path='locreqdetail' element={<Locreqdetail/>}/>
       <Route path='vprogress' element={<Viewprogress/>}/>
@@ -146,6 +147,7 @@ root.render(
     <Route path='hvpw' element={<Hvpreviousw/>}/>
     <Route path='hvpwd' element={<Hvpwd/>}/>
     <Route path='heditjob' element={<Heditjob/>}/>
+    <Route path='hreqdescription' element={<Hreqdescription/>}/>
     </Route>
     </Routes>   
 
@@ -159,7 +161,7 @@ root.render(
       <Route path='lancd/:id' element={<Lancd/>}/>
       <Route path='addloc' element={<Addloc/>}/>
       <Route path='lviewlc' element={<Lviewlc/>}/>
-      <Route path='editloc/:userId' element={<Editloc/>}/>
+      <Route path='editloc/:companyId' element={<Editloc/>}/>
       <Route path='lbkreq' element={<Lbookingreq/>}/>
       <Route path='lvfd' element={<Lvfd/>}/>
       <Route path='lvpay' element={<Lvpay/>}/>

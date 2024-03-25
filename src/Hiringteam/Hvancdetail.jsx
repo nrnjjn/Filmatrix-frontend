@@ -35,7 +35,7 @@ console.log(id);
             </p>
             </div>
             <div className='flex flex-wrap justify-center '>
-                <Link to='/hiring/hancst'><button className='text-yellow-400'>Apply</button></Link>
+                <Link to='/hiring/hreqdescription'><button className='text-yellow-400'>Apply</button></Link>
             </div>
             </div>
         </div>  

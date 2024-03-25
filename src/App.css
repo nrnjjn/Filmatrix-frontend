@@ -72,7 +72,8 @@ a{
 .profile,
 .ujob,
 .upw,
-.reg{
+.reg,
+.hreqdesc{
   /* background-image: linear-gradient(#E5E8EF,#94B1BD,#7AB9D3,  #010A1E 85%);   */
   background-image: url('./Images/q12.jpg');
   height: 40rem;
