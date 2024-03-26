@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-
+import axios from 'axios'
 export const Hancstatus = () => {
+    let id=localStorage.getItem('id')
+    const [data,setData]=useState([''])
+
+    useEffect(()=>{
+        let fetchdata=async ()=>{
+            let response=await axios.get(`http://localhost:4000/hiringteam/viewhreq/${id}`)
+            console.log(response.data)
+            if(response.data){
+                setData(response.data)
+            }
+        }
+        fetchdata()
+    },[])
   return (
     <div className='hancstatus'>
         <div className='text-white pt-36 text-center mb-3 text-[25px]'>REQUEST STATUS</div>
@@ -50,6 +63,7 @@ export const Hancstatus = () => {
                 </tr>
             </thead>
             <tbody>
+                {data.map((item,index)=>(
                 <tr class=" dark:border-gray-700 text-white bg-gray-950-950/40 hover:bg-slate-800/50 ">
                     <td scope="row" class="px-1 py-4">
                         1
@@ -66,22 +80,11 @@ export const Hancstatus = () => {
                     </td>
                     
                 </tr>
+                       ))}
     
     
     
-                <tr class="  text-white bg-gray-950-950/40 hover:bg-slate-800/50 ">
-                    <td scope="row" class="px-1 py-4">
-                        2
-                    </td>
-                    <td class="px-1 py-4">
-                        Thalaivar 171
-                    </td>
-                    <td class="px-1 py-4">
-                        Sun Pictures                    </td>
-                    <td>Pending</td>
-                    <td></td>
-                    
-                </tr>
+                
                 
             </tbody>
         </table>

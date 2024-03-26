@@ -6,7 +6,7 @@ export const Fcviewhcreq = () => {
 
     useEffect(()=>{
         let fetchdata=async ()=>{
-          let response=await axios.get(`http://localhost:4000/locationowner/viewloc/${id}`)
+          let response=await axios.get(`http://localhost:4000/filmcompany/viewhiringreq/${id}`)
           console.log(response.data);
           if(response.data){
               setdata(response.data)
@@ -92,23 +92,23 @@ export const Fcviewhcreq = () => {
             {data.map((item,index)=>(
             <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50 ">
                 <td scope="row" class="px-1 py-4">
-                    1
+                    {index}
                 </td >
                 <td>
-                    Thug Life
+                    {item.anc?.Filmname}
                 </td>
                 <td >
-                    Rajkamal
+                    {item.hiring?.companyName}
                 </td>
                 <td >
-                    rkml@gmail.com
+                    {item.hiring?.Email}
                 </td>
-                <td>9946532902</td>
-                <td>12345</td>
-                <td><a href="src/landing.jpg/" download>image</a></td>
-                <td>Pending</td>
+                <td>{item.hiring?.Phone}</td>
+                <td>{item.hiring?.liscenceNo}</td>
+                <td><a href={item.hiring?.Liscence} download>image</a></td>
+                <td>{item.req?.Status}</td>
                 <td >
-                23-01-2024
+                {item.req?.Date}
                 </td>
                 <td class=" text-right">
                     <button className='text-green-500 

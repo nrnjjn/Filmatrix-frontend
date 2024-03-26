@@ -147,7 +147,7 @@ root.render(
     <Route path='hvpw' element={<Hvpreviousw/>}/>
     <Route path='hvpwd' element={<Hvpwd/>}/>
     <Route path='heditjob' element={<Heditjob/>}/>
-    <Route path='hreqdescription' element={<Hreqdescription/>}/>
+    <Route path='hreqdescription/:id2' element={<Hreqdescription/>}/>
     </Route>
     </Routes>   
 
