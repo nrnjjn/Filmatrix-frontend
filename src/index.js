@@ -133,7 +133,7 @@ root.render(
     <Route path='hvancd/:id' element={<Hvancdetail/>}/>
     <Route path='hancst' element={<Hancstatus/>}/>
     <Route path='hvloc' element={<Hvloc/>}/>
-    <Route path='hlocdetail' element={<Hlocdetail/>}/>
+    <Route path='hlocdetail/:id' element={<Hlocdetail/>}/>
     <Route path='hfclocst' element={<Hfclocstatus/>}/>
     <Route path='hlocpay' element={<Hlocpay/>}/>
     <Route path='hlcbookst' element={<Hlcbookst/>}/>

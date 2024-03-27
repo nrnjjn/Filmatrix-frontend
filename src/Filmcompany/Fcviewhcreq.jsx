@@ -3,6 +3,16 @@ import axios from 'axios'
 export const Fcviewhcreq = () => {
     let id=localStorage.getItem('id')
     const [data,setdata]=useState([''])
+    const [data1,setData1]=useState('')
+    const[refresh,setrefresh]=useState(false)
+
+    let handlesubmit=async (statuss)=>{
+        setrefresh(!refresh)
+        let response=await axios.put(`http://localhost:4000/filmcompany/manageHiring/${id},{Status:statuss}`)
+        console.log(response)
+        setData1('')
+      }
+    
 
     useEffect(()=>{
         let fetchdata=async ()=>{
@@ -112,10 +122,10 @@ export const Fcviewhcreq = () => {
                 </td>
                 <td class=" text-right">
                     <button className='text-green-500 
-                     rounded w-14 h-6 text-center'>Accept</button>
+                     rounded w-14 h-6 text-center' onClick={()=>{handlesubmit('accept')}}>Accept</button>
                 </td>
                 <td>
-                    <button className='text-red-500 rounded w-14 h-6 text-center'>Reject</button>
+                    <button className='text-red-500 rounded w-14 h-6 text-center' onClick={()=>{handlesubmit('reject')}} >Reject</button>
                 </td>
             </tr>
 ))}

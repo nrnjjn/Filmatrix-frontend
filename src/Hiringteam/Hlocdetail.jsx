@@ -1,37 +1,72 @@
-import React from 'react'
-import img from '../Images/Athirappilly.jpg'
-import { Link } from 'react-router-dom'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 export const Hlocdetail = () => {
+const [data,setData]=useState([''])
+let id2=localStorage.getItem('id')
+const [data1,setData1]=useState('')
+
+let handleChange=(event)=>{
+  setData1({...data1,[event.target.name]:event.target.value})
+}
+const navigate=useNavigate()
+let handleSubmit=async (event)=>{
+  event.preventDefault()
+  setData1(data1)
+  console.log(data1);
+  navigate('/hiring/hfclocst')
+  let response=await axios.post('http://localhost:4000/hiringteam/locreq',{...data1,hiringId:id2,locationId:id})
+       console.log(response);
+  navigate('/hiring/hfclocst')
+}
+
+let {id}=useParams()
+console.log(id);
+useEffect(()=>{
+  let fetchdata=async ()=>{
+    let response=await axios.get(`http://localhost:4000/filmcompany/viewlocd/${id}`)
+    console.log(response.data);
+    if(response.data){
+        setData(response.data)
+      }
+  }
+  fetchdata()
+},[])
+
   return (
     <div className='hvloc pt-40'>
          <div className='bg-slate-950/50 w-[800px] h-[420px] m-auto flex gap-2 '>
-            <img src={ img } alt="" className='w-80 h-80  ps-3 pt-3 '/>
+            <img src={ `http://localhost:4000/uploads/${data.Image}`  } alt="" className='w-80 h-80  ps-3 pt-3 '/>
             <div className='flex flex-wrap flex-col'>
             <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
             <p className='font-bold'>Place:</p>
-            <p>Athirappilli</p>
+            <p>{data.locationName}</p>
             </div>
             <div className='flex flex-wrap text-white gap-10 pt-3 text-center'>
             <p className='font-bold'>Details:</p>
-            <p className='text-left'>Athirapilly Falls is situated in Athirapilly Panchayat  
-                <br />in Chalakudy Taluk of Thrissur District in Kerala,
-                <br /> India on the Chalakudy River, which originates  
-                <br />from the upper reaches of the Western Ghats at 
-                 <br />the entrance to the Sholayar ranges. It is the  
-             <br />largest waterfall in Kerala, which stands tall at <br /> 81.5 feet.</p>
+            <p className='text-left'> {data.Description}</p>
             </div>
-            <div className='flex flex-wrap text-white pt-3 text-center gap-16'>
+            <form onSubmit={handleSubmit}>
+            
+              <div className='flex flex-wrap text-white pt-3 text-center gap-16'>
               <p className='font-bold'>Date:</p>
-              <input type="date" className='bg-transparent border-2 rounded w-48' />
+              <input name='Date' onChange={handleChange} type="date" className='bg-transparent border-2 rounded w-48' />
               
             </div>
             <div className='flex flex-wrap text-white pt-3 text-center gap-4'>
                 <p className='font-bold'>No of days:</p>
-                <input type="number" className='bg-transparent border-2 rounded' />
+                <input type="number" onChange={handleChange} name='Noofdays' className='bg-transparent border-2 rounded' />
             </div>
+            <select onChange={handleChange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2'  name="filmName" >
+            {data1.map((item)=>(
+              <option value={item.wardNumber}>{item.wardnumber}</option>
+            ))}
+           </select>
             <div className='flex flex-wrap text-white pt-2 text-center gap-8 justify-center'>
-            <Link to='/hiring/hfclocst'><button className=' ps-1 pe-1 h-8 text-yellow-200'>Send Request</button></Link>
-            </div></div>
+            <button type='submit' className=' ps-1 pe-1 h-8 text-yellow-200'>Send Request</button>
+            </div>
+            </form>
+            </div>
         </div>  
     </div>
   )
