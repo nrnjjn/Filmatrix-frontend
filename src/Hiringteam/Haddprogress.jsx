@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -10,10 +11,12 @@ let handleChange=(event)=>{
   setData({...data,[event.target.name]:event.target.value})
 }
 
-let handleSubmit=(event)=>{
+let handleSubmit=async (event)=>{
   event.preventDefault()
   setData(data)
   console.log(data);
+  let response=await axios.post('http://localhost:400/hiringteam/addprogress',data)
+  console.log(response);
   navigate('/hiring/hviewp')
   
 }
@@ -24,8 +27,6 @@ let handleSubmit=(event)=>{
          </div>
          <form onSubmit={handleSubmit}>
          <div className='m-auto w-fit '>
-          
-          
           <div className='flex flex-row flex-wrap'>
    
             <textarea onChange={handleChange} name="Progress" id="" cols="30" rows="10" placeholder='Progress' className=' placeholder:text-center bg-transparent placeholder:text-white border-2 rounded text-white'></textarea>

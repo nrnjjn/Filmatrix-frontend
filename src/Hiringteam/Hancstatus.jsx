@@ -76,7 +76,7 @@ export const Hancstatus = () => {
                     </td>
                     <td>Accepted</td>
                     <td>
-                      <Link to='/hiring/haddp'>  <button className='text-yellow-200'>Add</button></Link>
+                      <Link to={`/hiring/haddp/${item._id}`}>  <button className='text-yellow-200'>Add</button></Link>
                     </td>
                     
                 </tr>

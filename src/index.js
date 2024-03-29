@@ -120,7 +120,6 @@ root.render(
       <Route path='jobseekers' element={<Aprvdseekers/>}/>
       <Route path='hiringfd' element={<Hiringfd/>}/>
       <Route path='filmprof' element={<Filmprofile/>}/>
-      
     </Route>
    </Routes>
 

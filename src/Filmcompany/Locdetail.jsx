@@ -17,6 +17,7 @@ console.log(id);
     }
     fetchdata()
   },[])
+  
   return (
     <div className='fcvloc pt-40'>
         <div className='bg-slate-950/50 w-[800px] h-[370px] m-auto flex gap-2 rounded'>

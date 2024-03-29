@@ -5,34 +5,43 @@ export const Hlocdetail = () => {
 const [data,setData]=useState([''])
 let id2=localStorage.getItem('id')
 const [data1,setData1]=useState('')
+const [data3,setData3]=useState([''])
+
 
 let handleChange=(event)=>{
   setData1({...data1,[event.target.name]:event.target.value})
+  console.log(data);
 }
+
+
 const navigate=useNavigate()
 let handleSubmit=async (event)=>{
   event.preventDefault()
   setData1(data1)
   console.log(data1);
-  navigate('/hiring/hfclocst')
+  // navigate('/hiring/hfclocst')
   let response=await axios.post('http://localhost:4000/hiringteam/locreq',{...data1,hiringId:id2,locationId:id})
        console.log(response);
-  navigate('/hiring/hfclocst')
+  // navigate('/hiring/hfclocst')
 }
+
 
 let {id}=useParams()
 console.log(id);
 useEffect(()=>{
   let fetchdata=async ()=>{
     let response=await axios.get(`http://localhost:4000/filmcompany/viewlocd/${id}`)
-    console.log(response.data);
-    if(response.data){
-        setData(response.data)
-      }
+    let responss=await axios.get(`http://localhost:4000/filmcompany/viewlocfname/${id2}`)
+    setData(response.data)
+    setData3(responss.data)
+
+      
   }
+
+
   fetchdata()
 },[])
-
+console.log(data3 ,'-----------------------------');
   return (
     <div className='hvloc pt-40'>
          <div className='bg-slate-950/50 w-[800px] h-[420px] m-auto flex gap-2 '>
@@ -57,10 +66,13 @@ useEffect(()=>{
                 <p className='font-bold'>No of days:</p>
                 <input type="number" onChange={handleChange} name='Noofdays' className='bg-transparent border-2 rounded' />
             </div>
-            <select onChange={handleChange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2'  name="filmName" >
-            {data1.map((item)=>(
-              <option value={item.wardNumber}>{item.wardnumber}</option>
-            ))}
+            <select onChange={handleChange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2 mt-3'  name="Filmname" >
+              <option value="">select</option>
+         {data3.map((item)=>(
+          <option  value={item.anc?._id}>
+            {item.anc?.Filmname}
+          </option>
+         ))}
            </select>
             <div className='flex flex-wrap text-white pt-2 text-center gap-8 justify-center'>
             <button type='submit' className=' ps-1 pe-1 h-8 text-yellow-200'>Send Request</button>

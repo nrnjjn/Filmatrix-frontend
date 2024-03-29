@@ -33,7 +33,6 @@ let id=localStorage.getItem('id')
         'Content-Type': 'multipart/form-data'  // Set the content type for FormData
       }})
        console.log(response);
-    
   }
 
   return (
