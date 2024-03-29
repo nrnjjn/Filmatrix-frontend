@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
-export const Hancstatus = () => {
-    let id=localStorage.getItem('id')
-    const [data,setData]=useState([''])
 
+export const Hancstatus = () => {
+    let id2=localStorage.getItem('id')
+    const [data,setData]=useState([''])
+    const [data2,setData2]=useState([''])
+
+    let { id } = useParams();
     useEffect(()=>{
         let fetchdata=async ()=>{
-            let response=await axios.get(`http://localhost:4000/hiringteam/viewhreq/${id}`)
+            let response=await axios.get(`http://localhost:4000/hiringteam/viewhreq/${id2}`)
+            let response2=await axios.get(`http://localhost:4000/hiringteam/viewfilmcompany/${id}`)
             console.log(response.data)
             if(response.data){
                 setData(response.data)
+                setData2(response2.data)
             }
         }
         fetchdata()
@@ -66,17 +71,21 @@ export const Hancstatus = () => {
                 {data.map((item,index)=>(
                 <tr class=" dark:border-gray-700 text-white bg-gray-950-950/40 hover:bg-slate-800/50 ">
                     <td scope="row" class="px-1 py-4">
-                        1
+                        {index}
                     </td >
                     <td >
-                        Thug Life
+                        {item.film?.Filmname}
                     </td>
+                    
+
+                   
                     <td >
-                         Rajkamal
-                    </td>
-                    <td>Accepted</td>
-                    <td>
+                        {data2[index]?.companyName}
+                    </td> 
+                    <td>{item.req?.Status}</td>
+                    <td >{item.req?.Status === 'Accepted' && ( 
                       <Link to={`/hiring/haddp/${item._id}`}>  <button className='text-yellow-200'>Add</button></Link>
+                    )}
                     </td>
                     
                 </tr>

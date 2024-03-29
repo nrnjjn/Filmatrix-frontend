@@ -141,7 +141,7 @@ root.render(
     <Route path='hviewjob' element={<Hviewjob/>}/>
     <Route path='hskreq' element={<Hskreq/>}/>
     <Route path='hviewp' element={<Hviewprogress/>}/>
-    <Route path='haddp' element={<Haddprogress/>}/>
+    <Route path='haddp/:id' element={<Haddprogress/>}/>
     <Route path='hviewfd' element={<Hviewfd/>}/>
     <Route path='hvpw' element={<Hvpreviousw/>}/>
     <Route path='hvpwd' element={<Hvpwd/>}/>

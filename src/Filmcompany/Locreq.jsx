@@ -93,7 +93,7 @@ export const Locreq = () => {
                     </td>
                     <td>{item.req?.Status}</td>
                     <td >
-                    {item.req?.Date}
+                    { new Date(item.req?.Date).toLocaleDateString()}
                     </td>
                     
                     

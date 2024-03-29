@@ -102,7 +102,7 @@ export const Fcviewhcreq = () => {
                 <td><a href={item.hiring?.Liscence} download>image</a></td>
                 <td>{item.req?.Status}</td>
                 <td >
-                {item.req?.Date}
+                { new Date(item.req?.Date).toLocaleDateString()}
                 </td>
                 <td class=" text-right">
                     <button className='text-green-500 

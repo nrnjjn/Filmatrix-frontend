@@ -1,21 +1,24 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export const Haddprogress = () => {
-
+let id2=localStorage.getItem('id')
 const navigate=useNavigate()
 const [data,setData]=useState('')
 
 let handleChange=(event)=>{
   setData({...data,[event.target.name]:event.target.value})
+  console.log(data);
 }
+let {id}=useParams()
+console.log(id)
 
 let handleSubmit=async (event)=>{
   event.preventDefault()
   setData(data)
   console.log(data);
-  let response=await axios.post('http://localhost:400/hiringteam/addprogress',data)
+  let response=await axios.post('http://localhost:400/hiringteam/addprogress',{...data,hiringId:id2,ancId:id})
   console.log(response);
   navigate('/hiring/hviewp')
   

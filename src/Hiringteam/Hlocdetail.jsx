@@ -41,7 +41,7 @@ useEffect(()=>{
 
   fetchdata()
 },[])
-console.log(data3 ,'-----------------------------');
+console.log(data3);
   return (
     <div className='hvloc pt-40'>
          <div className='bg-slate-950/50 w-[800px] h-[420px] m-auto flex gap-2 '>
