@@ -1,7 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import axios from 'axios'
+
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 export const Hviewjob = () => {
+    let id=localStorage.getItem('id')
+    const [data,setdata]=useState([''])
+
+  console.log(id)
+    useEffect(()=>{
+        let fetchdata=async()=>{
+        let response=await axios.get(`http://localhost:4000/hiringteam/viewjob/${id}`)
+        console.log(response.data)
+        if(response.data){
+
+            setdata(response.data)
+        }
+    }
+    fetchdata()
+    },[])
   return (
     <div className='hviewjob'>
         <div className='text-white pt-36 text-center mb-3 text-[25px]'> VIEW JOB</div>
@@ -55,25 +72,26 @@ export const Hviewjob = () => {
                 </tr>
             </thead>
             <tbody>
+                {data.map((item,index)=>(             
                 <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50 ">
                     <td scope="row" class="px-1 py-4">
-                        1
+                        {index}
                     </td >
                     <td >
-                        Thug Life
+                        {item.anc?.Filmname}
                     </td>
                     <td >
-                        Editor
+                        {item.req?.Job}
                     </td>
                     <td >
-                        5
+                        {item.req?.Vacancy}
                     </td>
                     <td >
-                     premier pro
+                     {item.req?.Description}
                     </td>
                     
                     <td >
-                    23-01-2024
+                    {item.req?.Date}
                     </td>
                     <td >
                         <Link to='/hiring/heditjob'><button className='text-green-500 rounded w-14 h-6 text-center'>Edit</button></Link>
@@ -85,7 +103,7 @@ export const Hviewjob = () => {
     
     
     
-                
+))}
                 
             </tbody>
         </table>

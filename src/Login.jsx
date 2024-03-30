@@ -19,16 +19,40 @@ export const Login = () => {
     if(response.data){
       localStorage.setItem('id',response.data._id)
       if(response.data.userType=='seekers'){
-        navigate('/user')
+        if(response.data.Status=='Accepted'){
+
+          navigate('/user')
+        }
+        else{
+          alert('Invalid')
+        }
       }
       else if(response.data.userType=='filmcompany'){
-        navigate('/filmcompany')
+        if(response.data.Status=='Accepted'){
+
+          navigate('/filmcompany')
+        }
+        else{
+          alert('Invalid')
+        }
       }
       else if(response.data.userType=='hiringteam'){
-        navigate('/hiring')
+        if(response.data.Status=='Accepted'){
+
+          navigate('/hiring')
+        }
+        else{
+          alert('Invalid')
+        }
       }
       else if(response.data.userType=='locationowner'){
-        navigate('/location')
+        if(response.data.Status=='Accepted'){
+
+          navigate('/location')
+        }
+        else{
+          alert('Invalid')
+        }
       }
       else if(response.data.userType=='admin'){
         navigate('/admin')

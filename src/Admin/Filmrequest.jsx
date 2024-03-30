@@ -1,7 +1,29 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect } from 'react'
 
 import { useState } from 'react'; 
 export const Filmrequest = () => {
+const [data,setdata]=useState([''])
+const [refresh,setrefresh]=useState(false)
+
+let handleSubmit=async(statuss,id)=>{
+    setrefresh(!refresh)
+    let response=await axios.put(`http://localhost:4000/admin/acceptusers/${id}`,{...data,Status:statuss})
+    // let response=await axios.put(`http://localhost:4000/admin/filmaccept/${id}`,{Status:statuss})
+    console.log(response)
+    setdata('')
+}
+
+useEffect(()=>{
+    let fetchdata=async()=>{
+       let response=await axios.get('http://localhost:4000/admin/viewfilmcompany')
+       console.log(response.data);
+       setdata(response.data)
+
+    }
+    fetchdata()
+ },[refresh])
+
 
   return (
 
@@ -54,9 +76,7 @@ export const Filmrequest = () => {
                 <th scope="col" class=" py-3">
                     LISCENCE
                 </th>
-                <th scope="col" class=" py-3">
-                    DATE
-                </th>
+                
                 <th>STATUS</th>
                 <th>
 
@@ -65,70 +85,41 @@ export const Filmrequest = () => {
             </tr>
         </thead>
         <tbody>
+            {data.map((item,index)=>(
+
+            
             <tr class=" dark:border-gray-700 text-white bg-gray-950/40 hover:bg-slate-800/50">
                 <td scope="row" class="px-6 py-4">
-                    1
+                    {index}
                 </td>
                 <td class="px-6 py-4">
-                    Rajkamal
+                    {item.companyName}
                 </td>
                 <td class="px-6 py-4">
-                    rkml@gmail.com
+                    {item.Email}
                 </td>
                 <td class="px-6 py-4">
-                    9946532902
+                    {item.Phone}
                 </td>
                 <td class="px-6 py-4">
-                    Address
+                    {item.Address}
                 </td>
                 
-                <td class="px-6 py-4">123456</td>
+                <td class="px-6 py-4">{item.liscenceNo}</td>
                 <td><a href="src/landing.jpg/" download>img</a></td>
-               <td class="px-6 py-4">
-                23-01-2024
-                </td>
-                <td>Pending</td>
+               
+                <td>{item.Status}</td>
                 <td class="px-6 py-4 text-right">
-                    <button className='text-green-500  rounded w-14 h-6 text-center'>Accept</button>
+                    <button  onClick={()=>{handleSubmit('Accepted',item._id)}} className='text-green-500  rounded w-14 h-6 text-center'>Accept</button>
                 </td>
                 <td>
-                    <button className='text-red-600  rounded w-14 h-6 text-center'>Reject</button>
+                    <button onClick={()=>{handleSubmit('Rejected',item._id)}} className='text-red-600  rounded w-14 h-6 text-center'>Reject</button>
                 </td>
             </tr>
+))}
 
 
-
-            <tr class=" dark:border-gray-700 text-white bg-gray-950/40 hover:bg-slate-800/50">
-                <td >
-                    2
-                </td>
-                <td >
-                    Sun Pictures
-                </td>
-                <td >
-                    sunp@gmail.com
-                </td>
-                <td>8592967139</td>
-                <td>
-                    Abc
-                    xyz
-                </td>
-                
-                <td>
-                    356890
-                </td>
-                <td><a href="src/landing.jpg/" download>img</a></td>
-                <td >
-                23-01-2024
-                </td>
-                <td>Pending</td>
-                <td class="px-6 py-4 text-right">
-                    <button className='text-green-500  rounded w-14 h-6 text-center'>Accept</button>
-                </td>
-                <td>
-                    <button className='text-red-500 rounded w-14 h-6 text-center'>Reject</button>
-                </td>
-            </tr>
+            
             
         </tbody>
     </table>
