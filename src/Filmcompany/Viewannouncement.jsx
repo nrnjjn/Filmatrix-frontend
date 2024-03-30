@@ -67,7 +67,7 @@ export const Viewannouncement = () => {
 
                 <tr class=" dark:border-gray-700 bg-gray-950/40 hover:bg-slate-800/50">
                     <td scope="row" class="px-6 py-4">
-                        {index}
+                        {index+1}
                     </td>
                     <td >
                         {item.Filmname}
@@ -82,7 +82,7 @@ export const Viewannouncement = () => {
                         <img  alt="" className='w-10 h-10 ' src={`http://localhost:4000/uploads/${item.Image}`} />
                     </td>
                     <td class="px-6 py-4">
-                    {item.Date}
+                    { new Date(item.Date).toLocaleDateString()}
                     </td>
                     <td>
                        <Link to={`/filmcompany/editanc/${item._id}`}> <button className='text-green-500'>Edit</button></Link>

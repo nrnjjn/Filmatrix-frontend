@@ -4,14 +4,13 @@ import { Link } from 'react-router-dom'
 export const Locreq = () => {
     let id=localStorage.getItem('id')
     const [data,setdata]=useState([''])
-    const [data1,setData1]=useState('')
     const[refresh,setrefresh]=useState(false)
 
-    let handlesubmit=async (statuss)=>{
+    let handlesubmit=async (status)=>{
         setrefresh(!refresh)
-        let response=await axios.put(`http://localhost:4000/filmcompany/manageHiring/${id},{Status:statuss}`)
+        let response=await axios.put(`http://localhost:4000/filmcompany/managelocreq/${id}`,{...data,Status:status})
         console.log(response)
-        setData1('')
+        setdata('')
       }
 
       useEffect(()=>{
@@ -23,7 +22,7 @@ export const Locreq = () => {
             }
         }
         fetchdata()
-      },[])
+      },[refresh])
 
   return (
     <div className='fcvloc'>
@@ -79,10 +78,10 @@ export const Locreq = () => {
             {data.map((item,index)=>(
                 <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50 ">
                     <td scope="row" class="px-1 py-4">
-                        {index}
+                        {index+1}
                     </td >
                     <td >
-                        
+                        {item.anc?.Filmname}
                     </td>
                     <td >
                         {item.hiring?.companyName}

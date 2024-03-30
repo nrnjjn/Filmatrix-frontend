@@ -1,6 +1,29 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 export const Locationreq = () => {
+
+    const [data,setdata]=useState([''])
+const [refresh,setrefresh]=useState(false)
+
+let handleSubmit=async(status,id)=>{
+    setrefresh(!refresh)
+    let response=await axios.put(`http://localhost:4000/admin/acceptusers/${id}`,{...data,Status:status})
+    console.log(response)
+    setdata('')
+}
+
+useEffect(()=>{
+    let fetchdata=async()=>{
+       let response=await axios.get('http://localhost:4000/admin/viewlocationowner')
+       console.log(response.data);
+       setdata(response.data)
+
+    }
+    fetchdata()
+ },[refresh])
+
+
   return (
     <div className='loreq'>
     <div className='text-white pt-40 text-center mb-3 font-bold text-2xl'> LOCATION OWNER</div>
@@ -61,8 +84,8 @@ export const Locationreq = () => {
                 </th>
                 <th>ADDRESS</th>
                 <th>ID Proof</th>
-                <th scope="col" class="px-6 py-3">
-                    DATE
+                <th>
+                    STATUS
                 </th>
                 <th>
                 </th>
@@ -72,56 +95,33 @@ export const Locationreq = () => {
             </tr>
         </thead>
         <tbody>
+            {data.map((item,index)=>(
             <tr class=" dark:border-gray-700 text-white bg-gray-950/40 hover:bg-slate-800/50">
                 <td scope="row" class="px-6 py-4">
-                    1
+                    {index+1}
                 </td>
                 <td class="px-6 py-4">
-                    Rajkamal
+                    {item.Name}
                 </td>
                 <td class="px-6 py-4">
-                    rkml@gmail.com
+                    {item.Email}
                 </td>
-                <td class="px-6 py-4">9946532902</td>
-                <td class="px-6 py-4">Abc</td>
-                <td class="px-6 py-4">id.pdf</td>
+                <td class="px-6 py-4">{item.Phone}</td>
+                <td class="px-6 py-4">{item.Address}</td>
                 <td class="px-6 py-4">
-                23-01-2024
+                <a href="src/landing.jpg/" download>img</a>
+                </td>
+                <td>
+                    {item.Status}
                 </td>
                 <td class="px-6 py-4 ">
-                    <button className='text-green-500  rounded w-14 h-6 text-center'>Accept</button>
+                    <button onClick={()=>{handleSubmit('Accepted',item._id)}} className='text-green-500  rounded w-14 h-6 text-center'>Accept</button>
                 </td>
                 <td>
-                    <button className='text-red-500  rounded w-14 h-6 text-center'>Reject</button>
+                    <button onClick={()=>{handleSubmit('Rejected',item._id)}} className='text-red-500  rounded w-14 h-6 text-center'>Reject</button>
                 </td>
             </tr>
-
-
-
-            <tr class=" dark:border-gray-700 text-white bg-slate-950/40 hover:bg-slate-800/50">
-                <td scope="row" class="px-6 py-4">
-                    2
-                </td>
-                <td class="px-6 py-4">
-                    Sun Pictures
-                </td>
-                <td class="px-6 py-4">
-                    sunp@gmail.com
-                </td>
-                <td>9946532902</td>
-                <td>Abc</td>
-                <td>id.pdf</td>
-                <td class="px-6 py-4">
-                23-01-2024
-                </td>
-                <td class="">
-                    <button className='text-green-500 rounded w-14 h-6 text-center'>Accept</button>
-                </td>
-                <td>
-                    <button className='text-red-500  rounded w-14 h-6 text-center'>Reject</button>
-                </td>
-            </tr>
-            
+             ))}
         </tbody>
     </table>
 </div>

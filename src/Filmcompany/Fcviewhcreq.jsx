@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+
 export const Fcviewhcreq = () => {
+
     let id=localStorage.getItem('id')
     const [data,setdata]=useState([''])
-    const [data1,setData1]=useState('')
     const[refresh,setrefresh]=useState(false)
 
-    let handlesubmit=async (statuss)=>{
+    let handlesubmit=async (status)=>{
         setrefresh(!refresh)
-        let response=await axios.put(`http://localhost:4000/filmcompany/manageHiring/${id},{Status:statuss}`)
+        let response=await axios.put(`http://localhost:4000/filmcompany/manageHiring/${id}`,{...data,Status:status})
         console.log(response)
-        setData1('')
+        setdata('')
       }
     
 
@@ -18,12 +19,12 @@ export const Fcviewhcreq = () => {
         let fetchdata=async ()=>{
           let response=await axios.get(`http://localhost:4000/filmcompany/viewhiringreq/${id}`)
           console.log(response.data);
-          if(response.data){
-              setdata(response.data)
-            }
+            setdata(response.data)
+            
         }
         fetchdata()
-      },[])
+      },[refresh])
+
   return (
     <div className='fcviewhcreq text-white'>
     <div className='text-white pt-40 text-center mb-3 text-[25px]'> HIRING TEAM REQUEST</div>
@@ -71,6 +72,7 @@ export const Fcviewhcreq = () => {
                 <th>PHONE NO</th>
                 <th>LISCENCE NO</th>
                 <th >LISCENCE</th>
+                <th>DESCRIPTION</th>
                 <th>STATUS</th>
                 <th scope="col" class="px-1 py-3">
                     DATE
@@ -86,7 +88,7 @@ export const Fcviewhcreq = () => {
             {data.map((item,index)=>(
             <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50 ">
                 <td scope="row" class="px-1 py-4">
-                    {index}
+                    {index+1}
                 </td >
                 <td>
                     {item.anc?.Filmname}
@@ -100,16 +102,17 @@ export const Fcviewhcreq = () => {
                 <td>{item.hiring?.Phone}</td>
                 <td>{item.hiring?.liscenceNo}</td>
                 <td><a href={item.hiring?.Liscence} download>image</a></td>
+                <td>{item.req?.Description}</td>
                 <td>{item.req?.Status}</td>
                 <td >
                 { new Date(item.req?.Date).toLocaleDateString()}
                 </td>
                 <td class=" text-right">
                     <button className='text-green-500 
-                     rounded w-14 h-6 text-center' onClick={()=>{handlesubmit('accept')}}>Accept</button>
+                     rounded w-14 h-6 text-center' onClick={()=>{handlesubmit('Accepted',item._id)}}>Accept</button>
                 </td>
                 <td>
-                    <button className='text-red-500 rounded w-14 h-6 text-center' onClick={()=>{handlesubmit('reject')}} >Reject</button>
+                    <button className='text-red-500 rounded w-14 h-6 text-center' onClick={()=>{handlesubmit('Rejected',item._id)}} >Reject</button>
                 </td>
             </tr>
 ))}

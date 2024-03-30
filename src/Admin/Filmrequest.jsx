@@ -1,15 +1,15 @@
 import axios from 'axios';
 import React, { useEffect } from 'react'
-
 import { useState } from 'react'; 
+
 export const Filmrequest = () => {
+    
 const [data,setdata]=useState([''])
 const [refresh,setrefresh]=useState(false)
 
-let handleSubmit=async(statuss,id)=>{
+let handleSubmit=async(status,id)=>{
     setrefresh(!refresh)
-    let response=await axios.put(`http://localhost:4000/admin/acceptusers/${id}`,{...data,Status:statuss})
-    // let response=await axios.put(`http://localhost:4000/admin/filmaccept/${id}`,{Status:statuss})
+    let response=await axios.put(`http://localhost:4000/admin/acceptusers/${id}`,{...data,Status:status})
     console.log(response)
     setdata('')
 }
@@ -106,7 +106,7 @@ useEffect(()=>{
                 </td>
                 
                 <td class="px-6 py-4">{item.liscenceNo}</td>
-                <td><a href="src/landing.jpg/" download>img</a></td>
+                <td><a href={item.Liscence} download>img</a></td>
                
                 <td>{item.Status}</td>
                 <td class="px-6 py-4 text-right">

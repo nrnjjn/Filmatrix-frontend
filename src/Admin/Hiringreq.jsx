@@ -126,12 +126,7 @@ useEffect(()=>{
                 </td>
             </tr>
 ))}
-
-
-            
-            
-
-            
+    
         </tbody>
     </table>
 </div>

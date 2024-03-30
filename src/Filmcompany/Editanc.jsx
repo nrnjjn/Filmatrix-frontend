@@ -42,6 +42,9 @@ let handleChange=(event)=>{
         }
         console.log(data);
     console.log(formData);
+
+    navigate('/filmcompany/vanc')
+    
     let response= axios.put(`http://localhost:4000/filmcompany/editanc/${companyId}`,formData,{
       headers:{
         'content-Type':'multiport/form-data'
@@ -49,7 +52,7 @@ let handleChange=(event)=>{
     })
     console.log(response);
     setData('')
-    // navigate('/location/lviewlc')
+     
     
   }
   return (

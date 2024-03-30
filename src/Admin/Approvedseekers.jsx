@@ -1,6 +1,22 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 export const Approvedseekers = () => {
+
+const [data,setdata]=useState([''])
+const [refresh,setrefresh]=useState(false)
+
+useEffect(()=>{
+    let fetchdata=async()=>{
+       let response=await axios.get('http://localhost:4000/admin/viewseekers')
+       console.log(response.data);
+       setdata(response.data)
+
+    }
+    fetchdata()
+ },[refresh])
+
+
   return (
     <div className='aprvdsk'>
         <div className='text-white pt-40 text-center mb-3 text-2xl font-bold'> JOB SEEKERS</div>
@@ -64,22 +80,21 @@ export const Approvedseekers = () => {
                     <th scope="col" class="px-6 py-3">
                         HIRING TEAM
                     </th>
-                    <th scope="col" class="px-6 py-3">
-                        DATE
-                    </th>
+                   
                     
                 </tr>
             </thead>
             <tbody>
+                {data.map((item,index)=>(
                 <tr class=" dark:border-gray-700 text-white bg-slate-950/40 hover:bg-slate-800/50">
                     <td scope="row" class="px-6 py-4">
-                        1
+                        {index+1}
                     </td>
                     <td class="px-6 py-4">
-                        Abhijith
+                        {item.Name}
                     </td>
                     <td class="px-6 py-4">
-                        Thug Life
+                        
                     </td>
                     <td>
                         Rajkamal
@@ -87,36 +102,10 @@ export const Approvedseekers = () => {
                     <td>
                         Aashirvad
                     </td>
-                    <td class="px-6 py-4">
-                    23-01-2024
-                    </td>
+                    
                     
                 </tr>
-    
-    
-    
-                <tr class=" dark:border-gray-700 text-white bg-slate-950/40 hover:bg-slate-800/50">
-                    <td scope="row" class="px-6 py-4">
-                        2
-                    </td>
-                    <td class="px-6 py-4">
-                        Daniya
-                    </td>
-                    <td class="px-6 py-4">
-                        Thalaivar 171
-                    </td>
-                    <td>
-                        Sun Pictures
-                    </td>
-                    <td>
-                        Aashirvad
-                    </td>
-                    <td class="px-6 py-4">
-                    23-01-2024
-                    </td>
-                    
-                </tr>
-                
+                 ))}
             </tbody>
         </table>
     </div>
