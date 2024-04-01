@@ -1,10 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 export const Hiringfd = () => {
   const navigate=useNavigate()
-  const [data,setData]=useState('')
+  const [data,setData]=useState([''])
+  const [data1,setData1]=useState([''])
+ 
+
+
+  let id=localStorage.getItem('id')
 
   let handleChange=(event)=>{
     setData({...data,[event.target.name]:event.target.value})
@@ -15,9 +20,20 @@ export const Hiringfd = () => {
     setData(data)
     console.log(data);
     navigate('/filmcompany')
-    let response=await axios.post('http://localhost:4000/filmcompany/hiringfeedback',data)
+    let response=await axios.post('http://localhost:4000/filmcompany/hiringfeedback',{...data})
        console.log(response);
   }
+
+
+console.log(id)
+useEffect(()=>{
+  let fetchdata=async ()=>{
+    let response=await axios.get(`http://localhost:4000/filmcompany/viewanc/${id}`)
+    setData1(response.data)
+  }
+  fetchdata()
+},[])
+console.log(data1)
 
   return (
     <div className='addanc flex flex-wrap flex-col'>
@@ -28,11 +44,17 @@ export const Hiringfd = () => {
          <div className='m-auto w-fit '>
           <div className='flex  flex-row pb-3 flex-wrap'>
             
-          <select name="companyName" id=""  className='w-60 rounded-lg inline-flex items-center py-2.5 text-[100%] px-4  text-sm font-medium text-center text-gray-900 bg-gray-700 border border-gray-300 rounded-s-lg  hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-gray-700 dark:bg-gray-950/50 dark:hover:bg-gray-500 dark:focus:ring-gray-700 dark:text-white dark:border-gray-700'>
-    <option value="" >All</option>
-    <option value="">Accepted</option>
-    <option value="">Rejected</option>
-  </select>           </div>
+          <select onChange={handleChange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2 mt-3'  name="ancId" >
+              <option value="">select</option>
+              
+         {data1.map((item)=>(
+          <option  value={item._id}>
+            {item.Filmname}
+          </option>
+          
+         ))}
+           </select>     
+               </div>
           
           <div className='flex flex-row flex-wrap'>
    

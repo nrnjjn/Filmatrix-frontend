@@ -76,6 +76,7 @@ import { Filmprofile } from './Filmcompany/Filmprofile';
 import { Heditjob } from './Hiringteam/Heditjob';
 import { Editpw } from './User/Editpw';
 import { Hreqdescription } from './Hiringteam/Hreqdescription';
+import { Hiringreqdetail } from './Filmcompany/Hiringreqdetail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -115,11 +116,12 @@ root.render(
       <Route path='fcvloc' element={<Fcviewloc/>}/>
       <Route path='locdt/:id' element={<Locdetail/>}/>
       <Route path='fclocreq' element={<Locreq/>}/>
-      <Route path='locreqdetail' element={<Locreqdetail/>}/>
+      <Route path='locreqdetail/:id' element={<Locreqdetail/>}/>
       <Route path='vprogress' element={<Viewprogress/>}/>
       <Route path='jobseekers' element={<Aprvdseekers/>}/>
-      <Route path='hiringfd' element={<Hiringfd/>}/>
+      <Route path='hiringfd/:id' element={<Hiringfd/>}/>
       <Route path='filmprof' element={<Filmprofile/>}/>
+      <Route path='hiringreqdetail/:id' element={<Hiringreqdetail/>}/>
     </Route>
    </Routes>
 

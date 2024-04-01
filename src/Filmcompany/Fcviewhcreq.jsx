@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export const Fcviewhcreq = () => {
 
@@ -20,7 +21,6 @@ export const Fcviewhcreq = () => {
           let response=await axios.get(`http://localhost:4000/filmcompany/viewhiringreq/${id}`)
           console.log(response.data);
             setdata(response.data)
-            
         }
         fetchdata()
       },[refresh])
@@ -66,22 +66,24 @@ export const Fcviewhcreq = () => {
                 <th >
                     HIRING TEAM NAME
                 </th>
-                <th >
+                <th>DETAILS</th>
+                {/* <th >
                     EMAIL
                 </th>
                 <th>PHONE NO</th>
                 <th>LISCENCE NO</th>
                 <th >LISCENCE</th>
-                <th>DESCRIPTION</th>
+                <th>DESCRIPTION</th> */}
                 <th>STATUS</th>
+                <th>FEEDBACK</th>
                 <th scope="col" class="px-1 py-3">
                     DATE
                 </th>
-                <th>
+                {/* <th>
                 </th>
                 <th>
 
-                </th>
+                </th> */}
             </tr>
         </thead>
         <tbody>
@@ -96,24 +98,31 @@ export const Fcviewhcreq = () => {
                 <td >
                     {item.hiring?.companyName}
                 </td>
-                <td >
+                
+                {/* <td >
                     {item.hiring?.Email}
                 </td>
                 <td>{item.hiring?.Phone}</td>
                 <td>{item.hiring?.liscenceNo}</td>
                 <td><a href={item.hiring?.Liscence} download>image</a></td>
-                <td>{item.req?.Description}</td>
+                <td>{item.req?.Description}</td> */}
+                <td><Link to={`/filmcompany/hiringreqdetail/${item._id}`}><button className='text-yellow-200  rounded w-14 h-6 text-center'> More</button></Link></td>
                 <td>{item.req?.Status}</td>
+                <td>
+                {item.req?.Status === 'Accepted' && ( 
+                      <Link to={`/filmcompany/hiringfd/${item.hiring?._id}`}>  <button className='text-yellow-200'>Add</button></Link>
+                    )}
+                </td>
                 <td >
                 { new Date(item.req?.Date).toLocaleDateString()}
                 </td>
-                <td class=" text-right">
+                {/* <td class=" text-right">
                     <button className='text-green-500 
                      rounded w-14 h-6 text-center' onClick={()=>{handlesubmit('Accepted',item._id)}}>Accept</button>
                 </td>
                 <td>
                     <button className='text-red-500 rounded w-14 h-6 text-center' onClick={()=>{handlesubmit('Rejected',item._id)}} >Reject</button>
-                </td>
+                </td> */}
             </tr>
 ))}
 

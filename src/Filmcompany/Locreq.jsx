@@ -6,12 +6,7 @@ export const Locreq = () => {
     const [data,setdata]=useState([''])
     const[refresh,setrefresh]=useState(false)
 
-    let handlesubmit=async (status)=>{
-        setrefresh(!refresh)
-        let response=await axios.put(`http://localhost:4000/filmcompany/managelocreq/${id}`,{...data,Status:status})
-        console.log(response)
-        setdata('')
-      }
+    
 
       useEffect(()=>{
         let fetchdata=async ()=>{
@@ -88,7 +83,7 @@ export const Locreq = () => {
                     </td>
                     <td>{item.loc?.locationName}</td>
                     <td >
-                       <Link to='/filmcompany/locreqdetail'><button className='text-yellow-200  rounded w-14 h-6 text-center'> More</button></Link>
+                       <Link to={`/filmcompany/locreqdetail/${item.req?._id}`}><button className='text-yellow-200  rounded w-14 h-6 text-center'> More</button></Link>
                     </td>
                     <td>{item.req?.Status}</td>
                     <td >
