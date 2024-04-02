@@ -95,7 +95,7 @@ export const Hviewjob = () => {
 
                     </td>
                     <td >
-                        <Link to='/hiring/heditjob'><button className='text-green-500 rounded w-14 h-6 text-center'>Edit</button></Link>
+                        <Link to={`/hiring/heditjob/${item?.req?._id}`}><button className='text-green-500 rounded w-14 h-6 text-center'>Edit</button></Link>
                     </td>
                     <td>
                         <button className='text-red-500 rounded w-14 h-6 text-center'>Delete</button>

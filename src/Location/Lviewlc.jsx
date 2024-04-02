@@ -68,7 +68,7 @@ export const Lviewlc = () => {
             {data.map((item,index)=>(
                 <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50 ">
                     <td scope="row" class="px-1 py-4">
-                        {index}
+                        {index+1}
                     </td >
                     <td >
                         {item.locationName}

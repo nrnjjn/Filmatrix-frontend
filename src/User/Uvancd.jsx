@@ -5,7 +5,9 @@ import axios from 'axios'
 
 export const Uvancd = () => {
 
-  const [data,setdata]=useState([''])
+  const [data,setdata]=useState('')
+  const [data1,setdata1]=useState('')
+let id2=localStorage.getItem('id')
   // let id=localStorage.getItem('id')
 let {id}=useParams()
 console.log(id);

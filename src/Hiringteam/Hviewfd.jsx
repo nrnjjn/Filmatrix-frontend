@@ -1,6 +1,21 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 export const Hviewfd = () => {
+    let id2=localStorage.getItem('id')
+    const [data,setData]=useState([''])
+    useEffect(()=>{
+        let fetchdata=async ()=>{
+            let response=await axios.get(`http://localhost:4000/hiringteam/viewhreq/${id2}`)
+            // let response2=await axios.get(`http://localhost:4000/hiringteam/viewfilmcompany/${id}`)
+            console.log(response.data)
+            if(response.data){
+                setData(response.data)
+                // setData2(response2.data)
+            }
+        }
+        fetchdata()
+    },[])
   return (
     <div className='lcfeed text-white'>
     <div className='text-white pt-36 text-center mb-3 text-[20px]'>FEEDBACK</div>
@@ -31,33 +46,33 @@ export const Hviewfd = () => {
                         FILM NAME
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        FEEDBACK
+                        FILM COMPANY
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        DATE
+                    FEEDBACK
                     </th>
                     
                 </tr>
             </thead>
             <tbody>
+                {data.map((item,index)=>(
                 <tr class=" dark:border-gray-700  bg-slate-950/40 hover:bg-slate-800/50">
                     <td scope="row" class="px-6 py-4">
-                        1
+                        {index+1}
                     </td>
                     <td >
-                        Thug Life
+                        {item.film?.Filmname}
                     </td>
                     <td >
-                        Good
-                    </td>
+                    {item.companyName}                    </td>
                     <td >
-                    23-01-2024
+                    {item.req?.Feedback}
                     </td>
                     
                 </tr>
     
     
-    
+                ))}
                 
                 
             </tbody>

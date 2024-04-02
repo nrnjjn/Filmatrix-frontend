@@ -48,7 +48,7 @@ let handleChange=(event)=>{
     })
     console.log(response);
     setData('')
-    // navigate('/location/lviewlc')
+    navigate('/location/lviewlc')
     
   }
 

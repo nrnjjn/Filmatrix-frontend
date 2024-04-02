@@ -147,7 +147,7 @@ root.render(
     <Route path='hviewfd' element={<Hviewfd/>}/>
     <Route path='hvpw' element={<Hvpreviousw/>}/>
     <Route path='hvpwd' element={<Hvpwd/>}/>
-    <Route path='heditjob' element={<Heditjob/>}/>
+    <Route path='heditjob/:id' element={<Heditjob/>}/>
     <Route path='hreqdescription/:id2' element={<Hreqdescription/>}/>
     </Route>
     </Routes>   
@@ -162,7 +162,7 @@ root.render(
       <Route path='lancd/:id' element={<Lancd/>}/>
       <Route path='addloc' element={<Addloc/>}/>
       <Route path='lviewlc' element={<Lviewlc/>}/>
-      <Route path='editloc/:companyId' element={<Editloc/>}/>
+      <Route path='editloc/:userId' element={<Editloc/>}/>
       <Route path='lbkreq' element={<Lbookingreq/>}/>
       <Route path='lvfd' element={<Lvfd/>}/>
       <Route path='lvpay' element={<Lvpay/>}/>
