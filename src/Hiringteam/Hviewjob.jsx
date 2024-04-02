@@ -75,7 +75,7 @@ export const Hviewjob = () => {
                 {data.map((item,index)=>(             
                 <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50 ">
                     <td scope="row" class="px-1 py-4">
-                        {index}
+                        {index+1}
                     </td >
                     <td >
                         {item.anc?.Filmname}
@@ -91,7 +91,8 @@ export const Hviewjob = () => {
                     </td>
                     
                     <td >
-                    {item.req?.Date}
+                    { new Date(item.req?.Date).toLocaleDateString()}
+
                     </td>
                     <td >
                         <Link to='/hiring/heditjob'><button className='text-green-500 rounded w-14 h-6 text-center'>Edit</button></Link>

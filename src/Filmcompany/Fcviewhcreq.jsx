@@ -106,11 +106,11 @@ export const Fcviewhcreq = () => {
                 <td>{item.hiring?.liscenceNo}</td>
                 <td><a href={item.hiring?.Liscence} download>image</a></td>
                 <td>{item.req?.Description}</td> */}
-                <td><Link to={`/filmcompany/hiringreqdetail/${item._id}`}><button className='text-yellow-200  rounded w-14 h-6 text-center'> More</button></Link></td>
+                <td><Link to={`/filmcompany/hiringreqdetail/${item?.req?._id}`}><button className='text-yellow-200  rounded w-14 h-6 text-center'> More</button></Link></td>
                 <td>{item.req?.Status}</td>
                 <td>
                 {item.req?.Status === 'Accepted' && ( 
-                      <Link to={`/filmcompany/hiringfd/${item.hiring?._id}`}>  <button className='text-yellow-200'>Add</button></Link>
+                      <Link to={`/filmcompany/hiringfd/${item.req?._id}`}>  <button className='text-yellow-200'>Add</button></Link>
                     )}
                 </td>
                 <td >

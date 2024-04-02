@@ -1,6 +1,21 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 export const Viewprogress = () => {
+
+    let id=localStorage.getItem('id')
+    const [data,setdata]=useState([''])
+    const [refresh,setrefresh]=useState(false)
+
+    useEffect(()=>{
+        let fetchdata=async ()=>{
+          let response=await axios.get(`http://localhost:4000/filmcompany/viewhiringreq/${id}`)
+          console.log(response.data);
+            setdata(response.data)
+        }
+        fetchdata()
+      },[refresh])
+
   return (
     <div className='vanc'>
         <div className='text-white pt-36 text-center mb-3 text-[20px]'>PROGRESS</div>
@@ -40,39 +55,28 @@ export const Viewprogress = () => {
                 </tr>
             </thead>
             <tbody>
+                {data.map((item,index)=>(
+
+                
                 <tr class=" dark:border-gray-700 bg-slate-950/40 hover:bg-slate-800/50">
                     <td scope="row" class="px-6 py-4">
-                        1
+                        {index+1}
                     </td>
                     <td >
-                        Thug Life
+                        {item.anc?.Filmname}
                     </td>
                     <td >
-                        Casting complete
+                        {item.req?.Progress}
                     </td>
                     <td >
-                    23-01-2024
-                    </td>
+                    { new Date(item.req?.Date).toLocaleDateString()}                    </td>
                     
                 </tr>
+                ))}
     
     
     
-                <tr class=" dark:border-gray-7 bg-slate-950/40 hover:bg-slate-800/50">
-                    <td scope="row" class="px-6 py-4">
-                        2
-                    </td>
-                    <td >
-                        Sun Pictures
-                    </td>
-                    <td >
-                        sunp@gmail.com
-                    </td>
-                    <td >
-                    23-01-2024
-                    </td>
-                    
-                </tr>
+                
                 
             </tbody>
         </table>

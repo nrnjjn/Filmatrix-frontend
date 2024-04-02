@@ -78,7 +78,7 @@ const Filmnav = () => {
 {odrop &&
         <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 w-40 -ml-10'>
             <Link to='/filmcompany/jobseekers' className=''><li>Crew</li></Link>
-            <Link to='/filmcompany/hiringfd' className=''> <li>Hiring Feedback</li></Link>
+            {/* <Link to='/filmcompany/hiringfd' className=''> <li>Hiring Feedback</li></Link> */}
             <Link to='/' className=''> <li>Logout</li></Link>
         </div>
 }
