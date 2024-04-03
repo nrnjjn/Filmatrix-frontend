@@ -23,7 +23,7 @@ let handleSubmit=async (event)=>{
   setData(data)
   console.log(data);
   navigate('/hiring/hviewjob')
-  let response=await axios.put(`http://localhost:4000/hiringteam/editjob/${id2}`,data)
+  let response=await axios.put(`http://localhost:4000/hiringteam/editjob/${id}`,data)
   console.log(response);
   setrefresh(!refresh)
 }

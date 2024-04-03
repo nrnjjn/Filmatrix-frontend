@@ -15,7 +15,7 @@ let {id2}=useParams()
     event.preventDefault()
     setData(data)
     console.log(data);
-    event.preventDefault()
+    // event.preventDefault()
     // navigate('/filmcompany/vanc')
     let response=await axios.post('http://localhost:4000/hiringteam/posthiringreq',{...data,userId:id,ancId:id2})
     console.log(response);    

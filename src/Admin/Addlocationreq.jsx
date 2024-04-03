@@ -1,29 +1,24 @@
 import axios from 'axios';
 import React, { useEffect } from 'react'
 import { useState } from 'react'; 
+import { Link } from 'react-router-dom';
 
-export const Filmrequest = () => {
+export const Addlocationnreq = () => {
     
 const [data,setdata]=useState([''])
-const [refresh,setrefresh]=useState(false)
+// const [refresh,setrefresh]=useState(false)
 
-let handleSubmit=async(status,id)=>{
-    setrefresh(!refresh)
-    let response=await axios.put(`http://localhost:4000/admin/acceptusers/${id}`,{...data,Status:status})
-    console.log(response)
-    setdata('')
-}
+
 
 useEffect(()=>{
     let fetchdata=async()=>{
-       let response=await axios.get('http://localhost:4000/admin/viewfilmcompany')
-       console.log(response.data);
+       let response=await axios.get('http://localhost:4000/admin/viewlocationreq')
+       console.log(response.data,'------');
        setdata(response.data)
 
     }
     fetchdata()
- },[refresh])
-
+ },[])
 
   return (
 
@@ -55,66 +50,52 @@ useEffect(()=>{
     <table class="w-full text-sm text-center rtl:text-right  text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-white uppercase  dark:bg-gray-950/90 dark:text-gray-400 ">
             <tr>
-                <th >
+                <th scope="col" class="px-6 py-3">
                     SLNO
                 </th>
                 <th >
-                    COMPANY NAME
+                    LOCATION OWNER
                 </th>
                 <th >
-                    EMAIL
+                    LOCATION
                 </th>
                 <th >
-                    PHONE NO
+                    DETAILS
                 </th>
                 <th>
-                    ADDRESS
+                    STATUS
                 </th>
                 
-                <th>LISCENCE NO
-                </th>
-                <th scope="col" class=" py-3">
-                    LISCENCE
-                </th>
                 
-                <th>STATUS</th>
-                <th>
-
-                </th>
-                <th></th>
             </tr>
         </thead>
         <tbody>
-            {data.map((item,index)=>(
+            {data?.map((item,index)=>(
 
             
             <tr class=" dark:border-gray-700 text-white bg-gray-950/40 hover:bg-slate-800/50">
                 <td scope="row" class="px-6 py-4">
-                    {index}
+                    {index+1}
                 </td>
                 <td class="px-6 py-4">
-                    {item.companyName}
+                    {item.ownername}
                 </td>
                 <td class="px-6 py-4">
-                    {item.Email}
+                    {item.req?.locationName}
                 </td>
                 <td class="px-6 py-4">
-                    {item.Phone}
+                <Link to={`/admin/locd/${item.req?._id}`}><button className='text-yellow-400'>More</button></Link>
+
                 </td>
                 <td class="px-6 py-4">
-                    {item.Address}
+                    {item.req?.Status}
                 </td>
                 
                 <td class="px-6 py-4">{item.liscenceNo}</td>
-                <td><a href={`http://localhost:4000/uploads/${item.Liscence}`} download>img</a></td>
+                {/* <td><a href={item.Liscence} download>img</a></td> */}
                
                 <td>{item.Status}</td>
-                <td class="px-6 py-4 text-right">
-                    <button  onClick={()=>{handleSubmit('Accepted',item._id)}} className='text-green-500  rounded w-14 h-6 text-center'>Accept</button>
-                </td>
-                <td>
-                    <button onClick={()=>{handleSubmit('Rejected',item._id)}} className='text-red-600  rounded w-14 h-6 text-center'>Reject</button>
-                </td>
+                
             </tr>
 ))}
 

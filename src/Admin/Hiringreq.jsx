@@ -20,12 +20,10 @@ useEffect(()=>{
        let response=await axios.get('http://localhost:4000/admin/viewhiringteam')
        console.log(response.data);
        setdata(response.data)
-
     }
     fetchdata()
  },[refresh])
-
-
+ 
   return (
     <div className='hcreq'>
     <div className='text-white pt-40 text-center mb-3 text-2xl font-bold'> HIRING TEAM</div>
@@ -114,7 +112,7 @@ useEffect(()=>{
                 <td>{item.Phone}</td>
                 <td>{item.Address}</td>
                 <td>{item.liscenceNo}</td>
-                <td><a href="src/landing.jpg/" download>img</a></td>
+                <td><a href={`http://localhost:4000/uploads/${item.Lisence}`} download>img</a></td>
                
                 <td>{item.Status}</td>
                 <td class="px-6 py-4 text-right">

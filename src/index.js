@@ -77,6 +77,8 @@ import { Heditjob } from './Hiringteam/Heditjob';
 import { Editpw } from './User/Editpw';
 import { Hreqdescription } from './Hiringteam/Hreqdescription';
 import { Hiringreqdetail } from './Filmcompany/Hiringreqdetail';
+import { Addlocationnreq } from './Admin/Addlocationreq';
+import { Locationdetail } from './Admin/Locationdetail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -102,6 +104,8 @@ root.render(
       <Route path='hcreq' element={<Hiringreq/>}/>
       <Route path='loreq' element={<Locationreq/>}/>
       <Route path='aprvdsk' element={<Approvedseekers/>}/>
+      <Route path='addlocreq' element={<Addlocationnreq/>}/>
+      <Route path='locd/:id' element={<Locationdetail/>}/>
     </Route>
    </Routes>
  

@@ -41,6 +41,7 @@ const Adminnav = () => {
                 {odrop &&
                          <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1'>
                          <Link to='/admin/aprvdsk' className=''><li>Crew</li></Link>
+                         <Link to='/admin/addlocreq' className=''><li>Location request</li></Link>
                          <Link to='/' className=''> <li>Logout</li></Link>
                          </div>
                 }
