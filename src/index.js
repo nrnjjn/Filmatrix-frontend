@@ -79,6 +79,7 @@ import { Hreqdescription } from './Hiringteam/Hreqdescription';
 import { Hiringreqdetail } from './Filmcompany/Hiringreqdetail';
 import { Addlocationnreq } from './Admin/Addlocationreq';
 import { Locationdetail } from './Admin/Locationdetail';
+import { Ujobdescription } from './User/Ujobdescription';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -149,8 +150,8 @@ root.render(
     <Route path='hviewp' element={<Hviewprogress/>}/>
     <Route path='haddp/:id' element={<Haddprogress/>}/>
     <Route path='hviewfd' element={<Hviewfd/>}/>
-    <Route path='hvpw' element={<Hvpreviousw/>}/>
-    <Route path='hvpwd' element={<Hvpwd/>}/>
+    <Route path='hvpw/:id' element={<Hvpreviousw/>}/>
+    <Route path='hvpwd/:id' element={<Hvpwd/>}/>
     <Route path='heditjob/:id' element={<Heditjob/>}/>
     <Route path='hreqdescription/:id2' element={<Hreqdescription/>}/>
     </Route>
@@ -186,8 +187,10 @@ root.render(
     <Route path='upw' element={<Upw/>}/>
     <Route path='uvpw' element={<Uvpw/>}/>
     <Route path='uvpwd/:id' element={<Uvpwd/>}/>
-    <Route path='ujob' element={<Ujob/>}/>
+    <Route path='ujob/:id' element={<Ujob/>}/>
     <Route path='editpw/:userId' element={<Editpw/>}/>
+    <Route path='ujobdesc/:id2' element={<Ujobdescription/>}/>
+
     </Route>
   </Routes>
    </BrowserRouter>

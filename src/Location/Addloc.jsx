@@ -33,7 +33,7 @@ let handleChange=(event)=>{
     
     let response=await axios.post('http://localhost:4000/locationowner/addlocation',formData,{
       headers: {
-        'Content-Type': 'multipart/form-data'  // Set the content type for FormData
+        'Content-Type': 'multipart/form-data' 
       }})
        console.log(response);
   }

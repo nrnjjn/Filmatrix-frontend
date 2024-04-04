@@ -1,6 +1,20 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 export const Ujobreqst = () => {
+    let id=localStorage.getItem('id')
+    const [data,setData]=useState([''])
+    // let {id}=useParams()
+    console.log(id)
+    useEffect(()=>{
+        let fetchdata=async ()=>{
+            let response=await axios.get(`http://localhost:4000/seekers/jobreqst/${id}`)
+            console.log(response.data);
+            setData(response.data)
+        }
+        fetchdata()
+    },[])
+
   return (
     <div className='ujob'>
          <div className='text-white pt-36 text-center mb-3 text-[25px]'> JOB REQUEST STATUS</div>
@@ -44,24 +58,21 @@ export const Ujobreqst = () => {
                 </tr>
             </thead>
             <tbody>
+                {data.map((item,index)=>(
                 <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50 ">
                     <td scope="row" class="px-1 py-4">
-                        1
+                        {index+1}
                     </td >
                     <td >
-                        Thug Life
+                        {item.film}
                     </td>
                     <td >
-                        Editor
+                        {item.job?.Job}
                     </td>
-                    <td>Pending</td>
+                    <td>{item.req?.Status}</td>
                     
                 </tr>
-    
-    
-    
-                
-                
+    ))}
             </tbody>
         </table>
     </div>

@@ -38,7 +38,7 @@ console.log(id);
             </div>
            
             <div className='pt-2 flex flex-wrap justify-center'>
-                <Link to='/user/ujobreqst'><button className='text-green-400 '>Apply</button></Link>
+                <Link to={`/user/ujob/${data._id}`}><button className='text-green-400 '>Apply</button></Link>
             </div>
             </div>
         </div>  

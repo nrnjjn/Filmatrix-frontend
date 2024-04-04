@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 export const Ujob = () => {
   const [data,setdata]=useState([''])
-
+let {id}=useParams()
   useEffect(()=>{
     let fetchdata=async ()=>{
-      let response=await axios.get('http://localhost:4000/seekers/viewjob')
+      let response=await axios.get(`http://localhost:4000/seekers/viewjob/${id}`)
       console.log(response.data);
       if(response.data){
           setdata(response.data)
@@ -38,7 +38,7 @@ export const Ujob = () => {
             <p className='w-36'>{item.Description}</p>
             </div>
             <div className='flex flex-wrap justify-center'>
-            <Link to='/user/ujobreqst'><button className='text-green-400'>Apply</button></Link> 
+            <Link to={`/user/ujobdesc/${item._id}`}><button className='text-green-400'>Apply</button></Link> 
             </div>
         </div>
             ))}

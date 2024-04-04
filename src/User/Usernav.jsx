@@ -65,16 +65,20 @@ export const Usernav = () => {
                 <Link to='/user/uvanc' className=''><div>
                     Announcement
                     </div></Link>
+
+                    <Link to='/user/ujobreqst' className=''><div>
+                    Job
+                    </div></Link>
                
-            <div className=' hover:bg-slate-700 hover:p-1 active:rounded-lg hover:rounded-lg active:bg-slate-700 focus:outline-none focus:ring focus:ring-violet-300 ...'>
+            {/* <div className=' hover:bg-slate-700 hover:p-1 active:rounded-lg hover:rounded-lg active:bg-slate-700 focus:outline-none focus:ring focus:ring-violet-300 ...'>
                <span onClick={jobdropdown}> Job</span>
 {jobdrop &&
         <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 w-40 -ml-10'>
-            <Link to='/user/ujob' className=''> <li>View Job</li></Link>
-            <Link to='/user/ujobreqst' className=''><li>Status</li></Link>
+            {/* <Link to='/user/ujob' className=''> <li>View Job</li></Link> */}
+            {/* <Link to='/user/ujobreqst' className=''><li>Status</li></Link>
         </div>
 }
-            </div>
+            </div> */} 
 
             
             <div className=' hover:bg-slate-700 hover:p-1 active:rounded-lg hover:rounded-lg active:bg-slate-700 focus:outline-none focus:ring focus:ring-violet-300 ...'>
