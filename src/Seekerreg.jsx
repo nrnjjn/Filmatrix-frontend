@@ -42,7 +42,7 @@ export const Seekerreg = () => {
   }
   return (
     <div className='reg'>
-     <p className='text-center font-bold pt-32 text-[25px] text-white'>SEEKERS REGESTRATION</p>
+     <p className='text-center font-bold pt-32 text-[25px] text-white'>SEEKERS REGISTRATION</p>
         <form onSubmit={handleSubmit}>
         <div className='flex flex-wrap '>
         <div className='text-white flex flex-wrap flex-col'>

@@ -37,7 +37,7 @@ export const Locationdetail = () => {
             <img src={ `http://localhost:4000/uploads/${data.response?.Image3}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
 
             <div className='flex flex-wrap flex-col'>
-            <div className='flex flex-wrap text-white gap-12 pt-5 text-center'>
+            <div className='flex flex-wrap text-white gap-12 pt-2 text-center'>
             <p className='font-bold'>Name:</p>
             <p>{data.loc?.Name}</p>
             </div>
@@ -59,8 +59,12 @@ export const Locationdetail = () => {
                 <p className='font-bold'>Description:</p>
                 <p>{data.response?.Description}</p>
             </div>
+            <div className='flex flex-wrap text-white pt-3 text-center gap-10'>
+                <p className='font-bold'>Price per day:</p>
+                <p>{data.response?.Priceperday}</p>
+            </div>
            <div>
-           <a href={`http://localhost:4000/uploads/${data.response?.Certificate}`} download>Certificate</a>
+           <a className='text-green-500' href={`http://localhost:4000/uploads/${data.response?.Certificate}`} download >Certificate</a>
            </div>
             <div className='flex flex-wrap text-white pt-2 text-center gap-8 justify-center'>
             <button onClick={()=>{handlesubmit('Accepted',data._id)}} className='   text-green-500'>Accept</button>

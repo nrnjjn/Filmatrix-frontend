@@ -42,7 +42,7 @@ console.log(data);
   }
   return (
     <div className='reg text-white placeholder:text-white'>
-      <p className='text-center font-bold pt-32 text-[25px] text-white'>FILM COMPANY REGESTRATION</p>
+      <p className='text-center font-bold pt-32 text-[25px] text-white'>FILM COMPANY REGISTRATION</p>
         <form onSubmit={handleSubmit}>
         <div className='flex flex-wrap '>
         <div className='text-white flex flex-wrap flex-col'>

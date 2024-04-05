@@ -10,7 +10,7 @@ let {id}=useParams()
 
 let handleSubmit=async(status,id)=>{
     setrefresh(!refresh)
-    let response=await axios.put(`http://localhost:4000/admin/acceptusers/${id}`,{...data,Status:status})
+    let response=await axios.put(`http://localhost:4000/hiringteam/managejobreq/${id}`,{...data,Status:status})
     console.log(response)
     setdata('')
 }

@@ -25,6 +25,7 @@ let handleChange=(event)=>{
         formData.append('Image3', data.Image3);
         formData.append('Certificate', data.Certificate);
         formData.append('Description', data.Description);
+        formData.append('Priceperday',data.Priceperday)
         formData.append('userId', id);
     setData(data)
     console.log(data);
@@ -54,6 +55,10 @@ let handleChange=(event)=>{
             <textarea onChange={handleChange} name="Description" id="" cols="30" rows="8" placeholder='Description' className='placeholder:text-center mb-4 placeholder:text-white border-2 rounded bg-transparent text-white'></textarea>
           </div>
           
+          <div className='flex flex-row flex-wrap justify-center'>
+          <input onChange={handleChange} name='Priceperday' type="number" placeholder='Price per day' className='w-[237px] mb-3 h-9 placeholder:text-center bg-transparent placeholder:text-white border-2 rounded text-white' />
+          </div>
+
           <div className='flex  flex-row pb-3 flex-wrap justify-evenly'>
           <label class=" text-center block h-10 mb-2  font-medium text-gray-900 dark:text-white " for="file_input">Image1</label>
           <input onChange={handlefile} name='Image' class="block w-[40%] h-10 text-sm text-gray-900  border-white rounded cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-white border-2" placeholder='New' id="file_input" type="file" />
@@ -76,7 +81,7 @@ let handleChange=(event)=>{
 
           
           <div>
-          <button type='submit' className='text-white bg-black rounded p-2 ml-32 mt-3 '>Submit</button>
+          <button type='submit' className='text-green-600 bg-black rounded p-2 ml-32 mt-2 '>Submit</button>
          </div>
          </div>
          </form>

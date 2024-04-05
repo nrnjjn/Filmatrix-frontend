@@ -42,7 +42,7 @@ export const Locationregister = () => {
   }
   return (
     <div className='reg'>
-      <p className='text-center font-bold pt-32 text-[25px] text-white'>LOCATION OWNER REGESTRATION</p>
+      <p className='text-center font-bold pt-32 text-[25px] text-white'>LOCATION OWNER REGISTRATION</p>
         <form onSubmit={handleSubmit}>
         <div className='flex flex-wrap '>
         <div className='text-white flex flex-wrap flex-col'>

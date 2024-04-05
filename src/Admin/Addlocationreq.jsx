@@ -23,7 +23,7 @@ useEffect(()=>{
   return (
 
 <div className='fcreq' >
-    <div className='text-white pt-40 text-center mb-3 font-bold text-2xl'> FILM COMPANY</div>
+    <div className='text-white pt-40 text-center mb-3 font-bold text-2xl'> LOCATION</div>
     
     <form class="max-w-lg mx-auto pb-10">
     <div class="flex items-center">

@@ -53,6 +53,9 @@ export const Lviewlc = () => {
                         LOCATION NAME
                     </th>
                     <th scope="col" class="px-1 py-3">
+                        LOCATION NAME
+                    </th>
+                    <th scope="col" class="px-1 py-3">
                         DESCRIPTION
                     </th>
                     <th>IMAGE</th>
@@ -75,6 +78,9 @@ export const Lviewlc = () => {
                     </td>
                     <td >
                         {item.Description}
+                    </td>
+                    <td>
+                        {item.Status}
                     </td>
                     <td className='flex flex-wrap justify-center'>
                         <img src={`http://localhost:4000/uploads/${item.Image}`} alt="" className='h-10 w-10'/>

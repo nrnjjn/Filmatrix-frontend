@@ -94,7 +94,7 @@ useEffect(()=>{
                         {item.Name}
                     </td>
                     <td class="px-6 py-4">
-                        
+                        Thug Life
                     </td>
                     <td>
                         Rajkamal
