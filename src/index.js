@@ -80,6 +80,7 @@ import { Hiringreqdetail } from './Filmcompany/Hiringreqdetail';
 import { Addlocationnreq } from './Admin/Addlocationreq';
 import { Locationdetail } from './Admin/Locationdetail';
 import { Ujobdescription } from './User/Ujobdescription';
+import { Seekerreqd } from './Hiringteam/Seekerreqd';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -154,6 +155,7 @@ root.render(
     <Route path='hvpwd/:id' element={<Hvpwd/>}/>
     <Route path='heditjob/:id' element={<Heditjob/>}/>
     <Route path='hreqdescription/:id2' element={<Hreqdescription/>}/>
+    <Route path='seekerreqd/:id' element={<Seekerreqd/>}/>
     </Route>
     </Routes>   
 

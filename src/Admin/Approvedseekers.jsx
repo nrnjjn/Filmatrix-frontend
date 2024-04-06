@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 export const Approvedseekers = () => {
 
 const [data,setdata]=useState([''])
-const [refresh,setrefresh]=useState(false)
 
 useEffect(()=>{
     let fetchdata=async()=>{
@@ -14,7 +13,7 @@ useEffect(()=>{
 
     }
     fetchdata()
- },[refresh])
+ },[])
 
 
   return (
@@ -91,10 +90,10 @@ useEffect(()=>{
                         {index+1}
                     </td>
                     <td class="px-6 py-4">
-                        {item.Name}
+                        {item.user?.Name}
                     </td>
                     <td class="px-6 py-4">
-                        Thug Life
+                        {item.anc?.Filmname}
                     </td>
                     <td>
                         Rajkamal

@@ -3,21 +3,21 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 export const Hskreq = () => {
-
+let id2=localStorage.getItem('id')
     const [data,setdata]=useState([''])
 const [refresh,setrefresh]=useState(false)
 let {id}=useParams()
 
-let handleSubmit=async(status,id)=>{
+let handleSubmit=async(status,id2)=>{
     setrefresh(!refresh)
-    let response=await axios.put(`http://localhost:4000/hiringteam/managejobreq/${id}`,{...data,Status:status})
+    let response=await axios.put(`http://localhost:4000/hiringteam/managejobreq/${id2}`,{...data,Status:status})
     console.log(response)
     setdata('')
 }
 
 useEffect(()=>{
     let fetchdata=async()=>{
-       let response=await axios.get(`http://localhost:4000/hiringteam/viewjobreq/${id}`)
+       let response=await axios.get(`http://localhost:4000/hiringteam/viewjobreq/${id2}`)
        console.log(response.data);
        setdata(response.data)
     }
@@ -67,6 +67,12 @@ useEffect(()=>{
                     <th>
                         PREVIOUS WORK
                     </th>
+                    <th>
+                        STATUS
+                    </th>
+                    <th>
+                        DETAILS
+                    </th>
                     <th scope="col" class="px-1 py-3">
                         DATE
                     </th>
@@ -84,28 +90,37 @@ useEffect(()=>{
                         {index+1}
                     </td >
                     <td >
-                        {item.film?.Filmname}
+                        {item.anc?.Filmname}
                     </td>
                     <td>
-                        {item.seeker?.Name}
-                    </td>
+                    {item.seeker?.Name}
+                                        </td>
                     <td >
                         {item.seeker?.Email}
                     </td>
                     <td >
-                       <Link to={`/hiring/hvpw/${item.req?._id}`}> <button className='text-yellow-200  rounded w-14 h-6 text-center'> More</button></Link>
+                       <Link to={`/hiring/hvpw/${item.seeker?._id}`}> <button className='text-yellow-200  rounded w-14 h-6 text-center'> More</button></Link>
                     </td>
-                    <td >
-                    { new Date(item.req?.Date).toLocaleDateString()}
-                    </td>
-                    <td >
-                        <button  onClick={()=>{handleSubmit('Accepted',item._id)}} className='text-green-500 rounded w-14 h-6 text-center'>Accept</button>
+                    <td className='text-white'>
+                        {item.status}
                     </td>
                     <td>
-                        <button className='text-red-500  rounded w-14 h-6 text-center'>Reject</button>
+                    <Link to={`/hiring/seekerreqd/${item._id}`}> <button className='text-yellow-200  rounded w-14 h-6 text-center'> More</button></Link>
+                    </td>
+                    <td >
+                    { new Date(item.date).toLocaleDateString()}
+                    </td>
+                    <td>
+
+                    </td>
+                    <td >
+                        <button  onClick={()=>{handleSubmit('Accepted',item.req?._id)}} className='text-green-500 rounded w-14 h-6 text-center'>Accept</button>
+                    </td>
+                    <td>
+                        <button onClick={()=>{handleSubmit('Rejected',item.req?._id)}} className='text-red-500  rounded w-14 h-6 text-center'>Reject</button>
                     </td>
                 </tr>
-                     ))}
+                     ))} 
             </tbody>
         </table>
     </div>

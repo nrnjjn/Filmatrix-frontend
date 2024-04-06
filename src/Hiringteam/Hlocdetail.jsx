@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+
 export const Hlocdetail = () => {
 const [data,setData]=useState([''])
 let id2=localStorage.getItem('id')
@@ -9,21 +10,16 @@ const [data3,setData3]=useState([''])
 const [data4,setData4]=useState('')
 
 let handleChange=(event)=>{
-  console.log('dsadsa');
   setData1({...data1,[event.target.name]:event.target.value})
   console.log(data);
-  
-    console.log('jhgf');
     console.log(data1.Noofdays);
     // let totalamt=data1.Noofdays*data.Priceperday
     // console.log(totalamt);
     // setData4(totalamt)
-    if (event.target.name === 'Noofdays' || event.target.name === 'Priceperday') {
-      let totalamt = data1.Noofdays * data.Priceperday;
-      setData4(totalamt);
-    }
-  
-
+    // if (event.target.name === 'Noofdays' || event.target.name === 'Priceperday') {
+    //   let totalamt = parseInt(data1.Noofdays) * parseInt(data[0].Priceperday);
+    //   setData4(totalamt);
+    // }
 }
 
 
@@ -33,7 +29,7 @@ let handleSubmit=async (event)=>{
   setData1(data1)
   console.log(data1);
   // navigate('/hiring/hfclocst')
-  let response=await axios.post('http://localhost:4000/hiringteam/locreq',{...data1,hiringId:id2,locationId:id})
+  let response=await axios.post('http://localhost:4000/hiringteam/locreq',{...data1,hiringId:id2,locationId:id,total:data1.Noofdays * data.Priceperday})
        console.log(response);
   // navigate('/hiring/hfclocst')
 }
@@ -73,15 +69,15 @@ console.log(data3);
             </div>
             <div className='flex flex-wrap text-white pt-3 text-center gap-4'>
                 <p className='font-bold'>No of days:</p>
-                <input type="number" onChange={handleChange} name='Noofdays' className='bg-transparent border-2 rounded' />
+                <input type="number" onChange={handleChange} value={data1.Noofdays} name='Noofdays' className='bg-transparent border-2 rounded' />
             </div>
             <div className='flex flex-wrap text-white pt-3 text-center gap-4'>
                 <p className='font-bold'>Price per day:</p>
-                <p>{data.Priceperday}</p>
+                <p>{  data.Priceperday}</p>
             </div>
             <div className='flex flex-wrap text-white pt-3 text-center gap-4'>
                 <p className='font-bold'>Total amount:</p>
-                <p>{data4}</p>
+                <p>{ data1.Noofdays * data.Priceperday}</p>
             </div>
             <select onChange={handleChange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2 mt-3'  name="Filmname" >
               <option value="">select</option>

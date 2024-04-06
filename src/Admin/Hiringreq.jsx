@@ -112,7 +112,7 @@ useEffect(()=>{
                 <td>{item.Phone}</td>
                 <td>{item.Address}</td>
                 <td>{item.liscenceNo}</td>
-                <td><a href={`http://localhost:4000/uploads/${item.Lisence}`} download>img</a></td>
+                <td><a href={`http://localhost:4000/uploads/${item.Liscence}`} download>img</a></td>
                
                 <td>{item.Status}</td>
                 <td class="px-6 py-4 text-right">

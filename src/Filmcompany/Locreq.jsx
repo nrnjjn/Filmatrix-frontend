@@ -62,9 +62,7 @@ export const Locreq = () => {
                     <th>PLACE</th>
                     <th >DETAILS</th>
                     <th>STATUS</th>
-                    <th scope="col" class="px-1 py-3">
-                        DATE
-                    </th>
+                    
                     
                     
                 </tr>
@@ -86,9 +84,7 @@ export const Locreq = () => {
                        <Link to={`/filmcompany/locreqdetail/${item.req?._id}`}><button className='text-yellow-200  rounded w-14 h-6 text-center'> More</button></Link>
                     </td>
                     <td>{item.req?.Status}</td>
-                    <td >
-                    { new Date(item.req?.Date).toLocaleDateString()}
-                    </td>
+                    
                     
                     
                 </tr>

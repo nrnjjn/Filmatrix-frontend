@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import img from '../Images/Athirappilly.jpg'
 import { Link, useParams } from 'react-router-dom' 
 import axios from 'axios'
 
@@ -52,9 +51,9 @@ export const Locreqdetail = () => {
                 <p className='font-bold'>No of days:</p>
                 <p>{data.response?.Noofdays}</p>
             </div>
-            <div className='flex flex-wrap text-white pt-3 text-center gap-16'>
-                <p className='font-bold'>Price:</p>
-                <p>40000</p>
+            <div className='flex flex-wrap text-white pt-3 text-center gap-10'>
+                <p className='font-bold'>Total price:</p>
+                <p>{data.response?.total}</p>
             </div>
             <form onSubmit={handlesubmit}>
             <div className='flex flex-wrap text-white pt-2 text-center gap-8 justify-center'>

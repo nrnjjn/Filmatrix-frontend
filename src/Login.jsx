@@ -19,13 +19,10 @@ export const Login = () => {
     if(response.data){
       localStorage.setItem('id',response.data._id)
       if(response.data.userType=='seekers'){
-        if(response.data.Status=='Accepted'){
 
           navigate('/user')
-        }
-        else{
-          alert('Invalid')
-        }
+        
+        
       }
       else if(response.data.userType=='filmcompany'){
         if(response.data.Status=='Accepted'){
