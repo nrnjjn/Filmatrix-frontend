@@ -1,11 +1,21 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 
 export const Hfclocstatus = () => {
     let id=localStorage.getItem('id')
     const [data,setData]=useState([''])
-    
+    const [data1,setData1]=useState([''])
+    const navigate=useNavigate()
+
+    let handleSubmit=async (event)=>{
+        event.preventDefault()
+        setData1(data)
+        console.log(data);
+        navigate('/hiring/hlcbookst')
+        let response=await axios.post(`http://localhost:4000/hiringteam/locationbooking`,data)
+        console.log(response);
+      }
 
     // let {id}=useParams()
     console.log(id)
@@ -71,11 +81,9 @@ export const Hfclocstatus = () => {
             </thead>
             <tbody>
                 {data.map((item,index)=>(
-
-               
                 <tr class=" dark:border-gray-700 bg-slate-950/40 text-white hover:bg-slate-800/50">
                     <td scope="row" class="px-6 py-4">
-                        {index}
+                        {index+1}
                     </td>
                     <td >
                         {item.film?.Filmname}
@@ -86,13 +94,16 @@ export const Hfclocstatus = () => {
                     <td>
                         {item.req?.Status}
                     </td>
-                    <td >
+
+                    <td>
                     { new Date(item.req?.Date).toLocaleDateString()}
                     </td>
-                    <td>
-                    <Link to='/hiring/hlocpay'>
+
+                    <td>{item.req?.Status === 'Accepted' && (
+                    <Link to={`/hiring/hlcbookst`}>
                     <button className='text-yellow-200 rounded w-14 h-6 text-center'>Book</button>
                     </Link>
+                    )}
                     </td>
                     
                 </tr>

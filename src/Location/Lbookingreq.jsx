@@ -1,7 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 
 export const Lbookingreq = () => {
+
+    const [data,setdata]=useState([''])
+const [refresh,setrefresh]=useState(false)
+
+let handleSubmit=async(status,id)=>{
+    setrefresh(!refresh)
+    let response=await axios.put(`http://localhost:4000/admin/acceptusers/${id}`,{...data,Status:status})
+    console.log(response)
+    setdata('')
+}
+
+useEffect(()=>{
+    let fetchdata=async()=>{
+       let response=await axios.get('http://localhost:4000/admin/viewfilmcompany')
+       console.log(response.data);
+       setdata(response.data)
+
+    }
+    fetchdata()
+ },[refresh])
+
+
   return (
     <div className='lprof'>
         <div className='text-white pt-36 text-center mb-3 text-[25px]'>LOCATION BOOKING</div>

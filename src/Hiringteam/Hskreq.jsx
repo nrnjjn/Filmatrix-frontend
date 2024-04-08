@@ -63,16 +63,10 @@ useEffect(()=>{
                     <th scope="col" class="px-1 py-3">
                         SEEKER NAME
                     </th>
-                    <th >E-MAIL</th>
-                    <th>
-                        PREVIOUS WORK
-                    </th>
                     <th>
                         STATUS
                     </th>
-                    <th>
-                        DETAILS
-                    </th>
+                    <th>DETAILS</th>
                     <th scope="col" class="px-1 py-3">
                         DATE
                     </th>
@@ -95,17 +89,13 @@ useEffect(()=>{
                     <td>
                     {item.seeker?.Name}
                                         </td>
-                    <td >
-                        {item.seeker?.Email}
-                    </td>
-                    <td >
-                       <Link to={`/hiring/hvpw/${item.seeker?._id}`}> <button className='text-yellow-200  rounded w-14 h-6 text-center'> More</button></Link>
-                    </td>
+                    
+                   
                     <td className='text-white'>
                         {item.status}
                     </td>
                     <td>
-                    <Link to={`/hiring/seekerreqd/${item._id}`}> <button className='text-yellow-200  rounded w-14 h-6 text-center'> More</button></Link>
+                    <Link to={`/hiring/seekerreqd/${item.req?._id}`}> <button className='text-yellow-200  rounded w-14 h-6 text-center'> More</button></Link>
                     </td>
                     <td >
                     { new Date(item.date).toLocaleDateString()}
@@ -113,12 +103,7 @@ useEffect(()=>{
                     <td>
 
                     </td>
-                    <td >
-                        <button  onClick={()=>{handleSubmit('Accepted',item.req?._id)}} className='text-green-500 rounded w-14 h-6 text-center'>Accept</button>
-                    </td>
-                    <td>
-                        <button onClick={()=>{handleSubmit('Rejected',item.req?._id)}} className='text-red-500  rounded w-14 h-6 text-center'>Reject</button>
-                    </td>
+                    
                 </tr>
                      ))} 
             </tbody>

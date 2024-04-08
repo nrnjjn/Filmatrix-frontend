@@ -6,16 +6,15 @@ export const Hviewprogress = () => {
 
     let id=localStorage.getItem('id')
     const [data,setdata]=useState([''])
-    const [refresh,setrefresh]=useState(false)
 
     useEffect(()=>{
         let fetchdata=async ()=>{
-          let response=await axios.get(`http://localhost:4000/filmcompany/viewhiringreq/${id}`)
+          let response=await axios.get(`http://localhost:4000/hiringteam/viewfilmprogress/${id}`)
           console.log(response.data);
             setdata(response.data)
         }
         fetchdata()
-      },[refresh])
+      },[])
 
   return (
     <div className='hviewjob text-white'>
@@ -67,7 +66,7 @@ export const Hviewprogress = () => {
                         {index+1}
                     </td>
                     <td >
-                        {item.anc?.Filmname}
+                        {item.film?.Filmname}
                     </td>
                     <td >
                         {item.req?.Progress}

@@ -142,7 +142,7 @@ root.render(
     <Route path='hvloc' element={<Hvloc/>}/>
     <Route path='hlocdetail/:id' element={<Hlocdetail/>}/>
     <Route path='hfclocst' element={<Hfclocstatus/>}/>
-    <Route path='hlocpay' element={<Hlocpay/>}/>
+    <Route path='hlocpay/:id/:locationId' element={<Hlocpay/>}/>
     <Route path='hlcbookst' element={<Hlcbookst/>}/>
     <Route path='hlcfeed' element={<Hlcfeed/>}/>
     <Route path='addjob' element={<Addjob/>}/>

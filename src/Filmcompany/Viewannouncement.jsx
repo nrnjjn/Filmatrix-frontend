@@ -6,6 +6,10 @@ export const Viewannouncement = () => {
     let id=localStorage.getItem('id')
     const [data,setdata]=useState([''])
 
+    let handledelete=async (id)=>{
+        let response=await axios.delete(`http://localhost:4000/filmcompany/deleteanc/${id}`)
+        console.log(response)
+    }
     useEffect(()=>{
         let fetchdata=async ()=>{
           let response=await axios.get(`http://localhost:4000/filmcompany/viewanc/${id}`)
@@ -34,7 +38,6 @@ export const Viewannouncement = () => {
             </div>
         </div>
     </form>
-    
     <div class=" mt-5 overflow-x-auto shadow-md sm:rounded-lg  ">
         <table class="w-full text-sm text-center rtl:text-right  text-white">
             <thead class="text-xs uppercase  dark:bg-gray-950/90 ">
@@ -64,7 +67,6 @@ export const Viewannouncement = () => {
             </thead>
             <tbody>
             {data.map((item,index)=>(
-
                 <tr class=" dark:border-gray-700 bg-gray-950/40 hover:bg-slate-800/50">
                     <td scope="row" class="px-6 py-4">
                         {index+1}
@@ -88,7 +90,7 @@ export const Viewannouncement = () => {
                        <Link to={`/filmcompany/editanc/${item._id}`}> <button className='text-green-500'>Edit</button></Link>
                     </td>
                     <td>
-                        <button className='text-red-500'>Delete</button>
+                        <button  onClick={()=>handledelete(item._id)} className='text-red-500'>Delete</button>
                     </td>
                 </tr>
                  ))}  

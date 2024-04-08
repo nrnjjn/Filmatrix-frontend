@@ -1,23 +1,37 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export const Hlocpay = () => {
 
     const navigate=useNavigate()
     const [data,setData]=useState('')
+    
+    let {id,locationId}=useParams()
+
+    let id2=localStorage.getItem('id')
 
     let handleChange=(event)=>{
         setData({...data,[event.target.name]:event.target.value})
       }
     
-      let handleSubmit=(event)=>{
+      let handleSubmit=async (event)=>{
         event.preventDefault()
+        let response=await axios.post(`http://localhost:4000/hiringteam/addpayment/${id2}`,{Amount:data.total,Paymentstatus:'Paid',hiringId:id2,locationownerId:locationId})
         setData(data)
         console.log(data);
         navigate('/hiring/hlcbookst')
-        
       }
         
+      useEffect(()=>{
+        let fetchdata=async ()=>{
+            let response=await axios.get(`http://localhost:4000/hiringteam/viewlocreqd/${id}`)
+            console.log(response.data);
+            setData(response.data)
+        }
+        fetchdata()
+    },[])
+
   return (
     <div className='hvloc '>
          <p className='text-center font-bold pt-32 text-[25px] text-white'>LOCATION PAYMENT</p>
@@ -27,8 +41,7 @@ export const Hlocpay = () => {
             <div className='pt-8 '>
                 <div className='flex flex-wrap gap-56 w-[470px] ms-20 '>
                     <p className='text-white '>Amount</p>
-                    <p>1200rps</p>
-                    
+                    <p className='text-white'>{data.total}</p>
                 </div>
             </div>
             <div>
