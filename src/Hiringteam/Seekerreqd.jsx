@@ -10,10 +10,12 @@ export const Seekerreqd = () => {
 
     const navigate=useNavigate()
 
+  
+  
     let handlesubmit=async (status)=>{
-        let response=await axios.put(`http://localhost:4000/hiringteam/managejobreq/${id}`,{...data,Status:status})
+        let response=await axios.put(`http://localhost:4000/hiringteam/managejobreq/${id}`,{Status:status})
         console.log(response)
-        setData('')
+      
       }
       useEffect(()=>{
         let fetchdata=async ()=>{
@@ -57,8 +59,8 @@ export const Seekerreqd = () => {
             </div>
             <form onSubmit={handlesubmit}>
             <div className='flex flex-wrap text-white pt-2 text-center gap-8 justify-center'>
-            <Link to='/hiring/hskreq' onClick={()=>{handlesubmit('Accepted',data._id)}}><button className='   text-green-500'>Accept</button></Link>
-            <Link to='/hiring/hskreq' onClick={()=>{handlesubmit('Rejected',data._id)}}><button className='  text-red-500'>Reject</button></Link>
+            <button  onClick={()=>{handlesubmit('Accepted',data._id)}} className='   text-green-500'>Accept</button>
+            <button onClick={()=>{handlesubmit('Rejected',data._id)}} className='  text-red-500'>Reject</button>
             </div>
             </form>
             </div>

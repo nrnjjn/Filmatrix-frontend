@@ -35,9 +35,8 @@ console.log(id);
             <p className='font-bold'>Details:</p>
             <p className='text-left'>{data.description}</p>
             </div>
-           
             <div className='pt-2 flex flex-wrap justify-center'>
-                <Link to={`/user/ujob/${data._id}`}><button className='text-green-400 '>Apply</button></Link>
+                <Link to={`/user/ujob/${data._id}`}><button className='text-green-400 '>View jobs</button></Link>
             </div>
             </div>
         </div>  

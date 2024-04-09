@@ -9,10 +9,14 @@ const [refresh,setrefresh]=useState(false)
 let {id}=useParams()
 
 let handleSubmit=async(status,id2)=>{
+    console.log(
+        status,'---r---rrr---rrr--rr'
+    );
     setrefresh(!refresh)
-    let response=await axios.put(`http://localhost:4000/hiringteam/managejobreq/${id2}`,{...data,Status:status})
+    let response=await axios.put(`http://localhost:4000/hiringteam/managejobreq/${id2}`,{Status:status})
+    
     console.log(response)
-    setdata('')
+
 }
 
 useEffect(()=>{
@@ -60,11 +64,17 @@ useEffect(()=>{
                     <th scope="col" class="px-1 py-3">
                         FILM NAME
                     </th>
+                    <th>
+                        JOB
+                    </th>
                     <th scope="col" class="px-1 py-3">
                         SEEKER NAME
                     </th>
                     <th>
                         STATUS
+                    </th>
+                    <th>
+                        VACANCY
                     </th>
                     <th>DETAILS</th>
                     <th scope="col" class="px-1 py-3">
@@ -87,13 +97,18 @@ useEffect(()=>{
                         {item.anc?.Filmname}
                     </td>
                     <td>
+                        {item.jobb?.Job}
+                    </td>
+                    <td>
                     {item.seeker?.Name}
-                                        </td>
+                                        
+                    </td>
                     
                    
                     <td className='text-white'>
                         {item.status}
                     </td>
+                    <td>{item.jobb?.Vacancy}</td>
                     <td>
                     <Link to={`/hiring/seekerreqd/${item.req?._id}`}> <button className='text-yellow-200  rounded w-14 h-6 text-center'> More</button></Link>
                     </td>

@@ -4,10 +4,20 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 export const Hviewjob = () => {
+
+    let handledelete=async (id)=>{
+        let response=await axios.delete(`http://localhost:4000/hiringteam/deletejob/${id}`)
+        console.log(response)
+    }
+
     let id=localStorage.getItem('id')
     const [data,setdata]=useState([''])
 
   console.log(id)
+
+
+
+
     useEffect(()=>{
         let fetchdata=async()=>{
         let response=await axios.get(`http://localhost:4000/hiringteam/viewjob/${id}`)
@@ -98,7 +108,7 @@ export const Hviewjob = () => {
                         <Link to={`/hiring/heditjob/${item?.req?._id}`}><button className='text-green-500 rounded w-14 h-6 text-center'>Edit</button></Link>
                     </td>
                     <td>
-                        <button className='text-red-500 rounded w-14 h-6 text-center'>Delete</button>
+                        <button onClick={()=>handledelete(item.req?._id)} className='text-red-500 rounded w-14 h-6 text-center'>Delete</button>
                     </td>
                 </tr>
     

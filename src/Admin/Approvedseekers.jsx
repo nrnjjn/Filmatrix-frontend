@@ -79,8 +79,6 @@ useEffect(()=>{
                     <th scope="col" class="px-6 py-3">
                         HIRING TEAM
                     </th>
-                   
-                    
                 </tr>
             </thead>
             <tbody>
@@ -96,13 +94,11 @@ useEffect(()=>{
                         {item.anc?.Filmname}
                     </td>
                     <td>
-                        Rajkamal
+                        {item.fc?.companyName}
                     </td>
                     <td>
-                        Aashirvad
+                        {item.hiring?.companyName}
                     </td>
-                    
-                    
                 </tr>
                  ))}
             </tbody>
