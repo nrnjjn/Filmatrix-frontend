@@ -6,6 +6,8 @@ export const Hlocpay = () => {
 
     const navigate=useNavigate()
     const [data,setData]=useState('')
+    const [data1,setData1]=useState('')
+
     
     let {id,locationId}=useParams()
 
@@ -20,6 +22,7 @@ export const Hlocpay = () => {
         let response=await axios.post(`http://localhost:4000/hiringteam/addpayment/${id2}`,{Amount:data.total,Paymentstatus:'Paid',hiringId:id2,locationownerId:locationId})
         setData(data)
         console.log(data);
+        console.log(response);
         navigate('/hiring/hlcbookst')
       }
         
@@ -27,7 +30,7 @@ export const Hlocpay = () => {
         let fetchdata=async ()=>{
             let response=await axios.get(`http://localhost:4000/hiringteam/viewlocreqd/${id}`)
             console.log(response.data);
-            setData(response.data)
+            setData1(response.data)
         }
         fetchdata()
     },[])
@@ -41,7 +44,7 @@ export const Hlocpay = () => {
             <div className='pt-8 '>
                 <div className='flex flex-wrap gap-56 w-[470px] ms-20 '>
                     <p className='text-white '>Amount</p>
-                    <p className='text-white'>{data.total}</p>
+                    <p className='text-white'>{data1.total}</p>
                 </div>
             </div>
             <div>

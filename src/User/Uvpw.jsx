@@ -6,6 +6,8 @@ export const Uvpw = () => {
   let id=localStorage.getItem('id')
   const [data,setdata]=useState([''])
 
+
+
   useEffect(()=>{
       let fetchdata=async ()=>{
         let response=await axios.get(`http://localhost:4000/seekers/viewpreviouswork/${id}`)

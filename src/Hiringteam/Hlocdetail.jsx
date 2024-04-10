@@ -7,7 +7,6 @@ const [data,setData]=useState([''])
 let id2=localStorage.getItem('id')
 const [data1,setData1]=useState('')
 const [data3,setData3]=useState([''])
-const [data4,setData4]=useState('')
 
 let handleChange=(event)=>{
   setData1({...data1,[event.target.name]:event.target.value})

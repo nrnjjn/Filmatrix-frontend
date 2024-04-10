@@ -104,7 +104,7 @@ export const Hlcbookst = () => {
                     <td></td>
                     <td>
                     {item.req?.bookingStatus === 'Accepted' && ( 
-                       <Link to={`/hiring/hlocpay/${item.req?.hiringId,item.req?.locationId}`}> <button className='text-yellow-200'>PAY</button></Link>
+                       <Link to={`/hiring/hlocpay/${item.req?.hiringId}/${item.req?.locationId}`}> <button className='text-yellow-200'>PAY</button></Link>
                     )}
                     </td>
                     
@@ -113,7 +113,7 @@ export const Hlcbookst = () => {
                     
                     <td>
                     {item.req?.bookingStatus === 'Accepted' && ( 
-                       <Link to='/hiring/hlcfeed'> <button className='text-yellow-200'>Add</button></Link>
+                       <Link to={`/hiring/hlcfeed/${item.req?._id}`}> <button className='text-yellow-200'>Add</button></Link>
                     )}
                        </td>
                     <td >

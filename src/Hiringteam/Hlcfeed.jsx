@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-
+import { useNavigate, useParams } from 'react-router-dom'
+import axios from 'axios';
 export const Hlcfeed = () => {
 
 const navigate=useNavigate()
@@ -10,10 +10,15 @@ let handleChange=(event)=>{
   setData({...data,[event.target.name]:event.target.value})
 }
 
-let handleSubmit=(event)=>{
+let {id}=useParams()
+console.log(id)
+
+let handleSubmit=async (event)=>{
   event.preventDefault()
   setData(data)
   console.log(data);
+  let response=await axios.put(`http://localhost:4000/hiringteam/locationfeedback/${id}`,data)
+console.log(response);
   navigate('/hiring/hlcbookst')
   
 }

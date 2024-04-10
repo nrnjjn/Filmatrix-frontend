@@ -6,6 +6,12 @@ export const Uvpwd = () => {
   // let id=localStorage.getItem('id')
 let {id}=useParams()
 console.log(id);
+
+let handledelete=async (id)=>{
+  let response=await axios.delete(`http://localhost:4000/seekers/deletepreviouswork/${id}`)
+  console.log(response)
+}
+
   useEffect(()=>{
     let fetchdata=async ()=>{
       let response=await axios.get(`http://localhost:4000/seekers/viewpreviousworkd/${id}`)
@@ -31,16 +37,21 @@ console.log(id);
             </div>
             <div className='flex flex-wrap text-white pt-3 text-center gap-8'>
               <p className='font-bold'>From Date:</p>
-              <p>{data.Fromdate}</p>
+              <p>
+              { new Date(data.Fromdate).toLocaleDateString()}
+              </p>
               
             </div>
             <div className='flex flex-wrap text-white pt-3 text-center gap-14'>
                 <p className='font-bold'>To Date:</p>
-                <p>{data.Todate}</p>
+                <p>
+                { new Date(data.Todate).toLocaleDateString()}
+
+                </p>
             </div>
             <div className='flex flex-wrap text-white pt-2 text-center gap-8 justify-center'>
             <Link to={`/user/editpw/${data._id}`}><button className='  h-8 text-green-400'>Edit</button></Link>
-            <Link to='/user/uvpw'><button className='  h-8 text-red-600'>Delete</button></Link>
+            <Link to='/user/uvpw'><button onClick={()=>handledelete(data._id)} className='  h-8 text-red-600'>Delete</button></Link>
             </div></div>
         </div>  
     </div>

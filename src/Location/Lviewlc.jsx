@@ -6,6 +6,11 @@ export const Lviewlc = () => {
     let id=localStorage.getItem('id')
     const [data,setdata]=useState([''])
 
+    let handledelete=async (id)=>{
+        let response=await axios.delete(`http://localhost:4000/locationowner/deletelocation/${id}`)
+        console.log(response)
+    }
+
     useEffect(()=>{
         let fetchdata=async ()=>{
           let response=await axios.get(`http://localhost:4000/locationowner/viewloc/${id}`)
@@ -90,7 +95,7 @@ export const Lviewlc = () => {
                        <Link to={`/location/editloc/${item._id}`}> <button className='text-green-500 rounded w-14 h-6 text-center'>Edit</button></Link>
                     </td>
                     <td>
-                        <button className='text-red-600 rounded w-14 h-6 text-center'>Delete</button>
+                        <button onClick={()=>handledelete(item._id)} className='text-red-600 rounded w-14 h-6 text-center'>Delete</button>
                     </td>
                 </tr>
                  ))}  
