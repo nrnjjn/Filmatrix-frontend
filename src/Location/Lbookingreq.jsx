@@ -4,22 +4,30 @@ import axios from 'axios';
 
 export const Lbookingreq = () => {
 
-    const [data,setdata]=useState([''])
-const [refresh,setrefresh]=useState(false)
+const [data,setdata]=useState([''])
+const [data2,setdata2]=useState([''])
 
-let handleSubmit=async(status,id)=>{
+
+const [refresh,setrefresh]=useState(false)
+let id=localStorage.getItem('id')
+
+
+let handleChange=(event)=>{
+    setdata({...data,[event.target.name]:event.target.value})
+  }
+
+let handleSubmit=async(status,rid)=>{
     setrefresh(!refresh)
-    let response=await axios.put(`http://localhost:4000/admin/acceptusers/${id}`,{...data,Status:status})
+    let response=await axios.put(`http://localhost:4000/locationowner/managebookings/${rid}`,{bookingStatus:status})
     console.log(response)
     setdata('')
 }
 
 useEffect(()=>{
     let fetchdata=async()=>{
-       let response=await axios.get('http://localhost:4000/admin/viewfilmcompany')
+       let response=await axios.get(`http://localhost:4000/locationowner/viewlocreq/${id}`)
        console.log(response.data);
-       setdata(response.data)
-
+       setdata2(response.data)
     }
     fetchdata()
  },[refresh])
@@ -84,26 +92,30 @@ useEffect(()=>{
                 </tr>
             </thead>
             <tbody>
+                {data2.map((item,index)=>(
                 <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50 ">
                     <td scope="row" class="px-1 py-4">
-                        1
+                        {index+1}
                     </td >
                     
-                    <td>Aathirappilli</td>
+                    <td>{item.loc?.locationName}</td>
                     <td >
-                        Rajkamal
+                        {item.hiring?.companyName}
                     </td>
                     <td >
-                        rkml@gmail.com
-                    </td>
-                    <td>9946532902</td>
-                    <td >
-                    23-01-2024
-                    </td>
-                    <td >5
+                        {item.hiring?.Email}
                     </td>
                     <td>
-                        Accepted
+                        {item.hiring?.Phone}
+                    </td>
+                    <td >
+                    { new Date(item.fcreq?.Date).toLocaleDateString()}
+                    </td>
+                    <td >
+                        {item.fcreq?.Noofdays}
+                    </td>
+                    <td>
+                        {item.req?.bookingStatus}
                     </td>
                     <td>
                         <Link to='/location/lvpay'>
@@ -111,50 +123,13 @@ useEffect(()=>{
                         </Link>
                     </td>
                     <td >
-                        <button className='text-green-500  rounded w-14 h-6 text-center'>Accept</button>
+                        <button onClick={()=>{handleSubmit('Accepted',item.req?._id)}} className='text-green-500  rounded w-14 h-6 text-center'>Accept</button>
                     </td>
                     <td>
-                        <button className='text-red-600  rounded w-14 h-6 text-center'>Reject</button>
+                        <button  onClick={()=>{handleSubmit('Rejected',item.req?._id)}} className='text-red-600  rounded w-14 h-6 text-center'>Reject</button>
                     </td>
-                </tr>
-    
-    
-    
-                <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50 ">
-                    <td scope="row" class="px-1 py-4">
-                        2
-                    </td>
-                    
-                    <td>
-                        Kakkayam
-                    </td>
-                    <td class="px-1 py-4">
-                        Sun Pictures
-                    </td>
-                    <td class="px-1 py-4">
-                        sunp@gmail.com
-                    </td>
-                    <td>9946532902</td>
-                    <td >
-                    23-01-2024
-                    </td>
-                    <td >
-                        3
-                    </td>
-                    <td>
-                        Pending
-                    </td>
-                    <td>
-                       <Link to='/location/lvpay'> <button className='text-yellow-200'>More</button></Link>
-                    </td>
-                    <td >
-                        <button className='text-green-500  rounded w-14 h-6 text-center'>Accept</button>
-                    </td>
-                    <td>
-                        <button className='text-red-600  rounded w-14 h-6 text-center'>Reject</button>
-                    </td>
-                </tr>
-                
+                </tr> 
+            ))}        
             </tbody>
         </table>
     </div>

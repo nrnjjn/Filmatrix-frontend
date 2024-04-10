@@ -28,7 +28,7 @@ let handleSubmit=async (event)=>{
   event.preventDefault()
   setData1(data1)
   console.log(data1);
-  // navigate('/hiring/hfclocst')
+  navigate('/hiring/hfclocst')
   let response=await axios.post('http://localhost:4000/hiringteam/locreq',{...data1,hiringId:id2,locationId:id,total:data1.Noofdays * data.Priceperday})
        console.log(response);
   // navigate('/hiring/hfclocst')
@@ -90,7 +90,8 @@ console.log(data3);
 
            </select>
             <div className='flex flex-wrap text-white pt-2 text-center gap-8 justify-center'>
-            <button type='submit' className=' ps-1 pe-1 h-8 text-yellow-200'>Send Request</button>
+                <button type='submit' className=' ps-1 pe-1 h-8 text-yellow-200'>Send Request</button>
+              
             </div>
             </form>
             </div>

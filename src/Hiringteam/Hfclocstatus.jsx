@@ -8,12 +8,17 @@ export const Hfclocstatus = () => {
     const [data1,setData1]=useState([''])
     const navigate=useNavigate()
 
-    let handleSubmit=async (event)=>{
-        event.preventDefault()
+
+    let handleChange=(event)=>{
+        setData({...data,[event.target.name]:event.target.value})
+      }
+
+
+    let handleSubmit=async (loc,film,fcreq)=>{
         setData1(data)
         console.log(data);
         navigate('/hiring/hlcbookst')
-        let response=await axios.post(`http://localhost:4000/hiringteam/locationbooking`,data)
+        let response=await axios.post(`http://localhost:4000/hiringteam/locationbooking`,{...data,hiringId:id,locationId:loc,ancId:film,Fcreq:fcreq})
         console.log(response);
       }
 
@@ -94,14 +99,12 @@ export const Hfclocstatus = () => {
                     <td>
                         {item.req?.Status}
                     </td>
-
                     <td>
-                    { new Date(item.req?.Date).toLocaleDateString()}
+                    { new Date(item.fcreq?.Date).toLocaleDateString()}
                     </td>
-
                     <td>{item.req?.Status === 'Accepted' && (
                     <Link to={`/hiring/hlcbookst`}>
-                    <button className='text-yellow-200 rounded w-14 h-6 text-center'>Book</button>
+                    <button onClick={()=>handleSubmit(item.loc?._id, item.film?._id, item.req?._id)} className='text-yellow-200 rounded w-14 h-6 text-center'>Book</button>
                     </Link>
                     )}
                     </td>

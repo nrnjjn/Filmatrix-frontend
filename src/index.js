@@ -81,6 +81,7 @@ import { Addlocationnreq } from './Admin/Addlocationreq';
 import { Locationdetail } from './Admin/Locationdetail';
 import { Ujobdescription } from './User/Ujobdescription';
 import { Seekerreqd } from './Hiringteam/Seekerreqd';
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

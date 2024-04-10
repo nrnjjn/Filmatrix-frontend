@@ -9,7 +9,7 @@ export const Ujobreqst = () => {
     useEffect(()=>{
         let fetchdata=async ()=>{
             let response=await axios.get(`http://localhost:4000/seekers/jobreqst/${id}`)
-            console.log(response.data);
+            console.log(response.data,'------------------');
             setData(response.data)
         }
         fetchdata()
@@ -39,7 +39,6 @@ export const Ujobreqst = () => {
         </div>
     </div>
 </form>
-    
     <div class=" overflow-x-auto shadow-md sm:rounded-lg  ">
         <table class="w-full text-sm text-center rtl:text-right  text-gray-500 dark:text-gray-400 dark:bg-gray-950/50">
             <thead class="text-xs text-white uppercase  dark:bg-gray-950/50 dark:text-gray-400">
@@ -64,7 +63,7 @@ export const Ujobreqst = () => {
                         {index+1}
                     </td >
                     <td >
-                        {item.film}
+                        {item.film?.Filmname}
                     </td>
                     <td >
                         {item.job?.Job}

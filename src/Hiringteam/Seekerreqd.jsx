@@ -58,10 +58,15 @@ export const Seekerreqd = () => {
                 </p>
             </div>
             <form onSubmit={handlesubmit}>
+            {data.response?.Status === 'Accepted' ?
+            <div className='flex flex-wrap text-white pt-2 text-center gap-8 justify-center'>
+            </div>
+            :
             <div className='flex flex-wrap text-white pt-2 text-center gap-8 justify-center'>
             <button  onClick={()=>{handlesubmit('Accepted',data._id)}} className='   text-green-500'>Accept</button>
             <button onClick={()=>{handlesubmit('Rejected',data._id)}} className='  text-red-500'>Reject</button>
             </div>
+            }
             </form>
             </div>
         </div>  

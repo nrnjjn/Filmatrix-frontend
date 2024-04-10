@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+
 
 export const Ujobdescription = () => {
 
@@ -22,6 +24,7 @@ export const Ujobdescription = () => {
 
     let handleSubmit=async (event)=>{
       event.preventDefault()
+      try{
       let formData = new FormData();
         formData.append('Description',data.Description);
         formData.append('Cv',data.Cv);
@@ -36,10 +39,16 @@ export const Ujobdescription = () => {
             'Content-Type': 'multipart/form-data'
         }
       })
-      console.log(response);    
+     
+      console.log(response); 
     }
+    catch(e){
+      toast("Already applied")
+    }   
+  }
   return (
     <div className='hreqdesc'><div className='pt-32  pl-[40%] '>
+      <ToastContainer/>
       <form onSubmit={handleSubmit}>
         <p className='text-white pl-16 text-xl' >Description</p>
         <textarea onChange={handleChange} name="Description" id="" cols="30" rows="10" className='bg-transparent border-2 rounded text-white'></textarea>

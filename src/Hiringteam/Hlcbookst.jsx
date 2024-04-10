@@ -1,7 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 export const Hlcbookst = () => {
+    let id=localStorage.getItem('id')
+    const [data,setData]=useState([''])
+    const navigate=useNavigate()
+    const[refresh,setrefresh]=useState(false)
+
+
+    // let handleSubmit=async (loc)=>{
+    //     setData1(data)
+    //     console.log(data);
+    //     // navigate('/hiring/hlcbookst')
+    //     let response=await axios.post(`http://localhost:4000/hiringteam/locationbooking`,{...data,hiringId:id,locationId:loc})
+    //     console.log(response);
+    //   }
+    // let {id}=useParams()
+    console.log(id)
+    useEffect(()=>{
+        let fetchdata=async ()=>{
+            let response=await axios.get(`http://localhost:4000/hiringteam/viewlocationbooking/${id}`)
+            console.log(response.data);
+            setData(response.data)
+        }
+        fetchdata()
+    },[])
   return (
     <div className='hlcbst'>
         <div className='text-white pt-36 text-center mb-3 text-[25px]'>LOCATION BOOKING STATUS</div>
@@ -41,12 +66,16 @@ export const Hlcbookst = () => {
                     <th scope="col" class="px-6 py-3">
                         LOCATION
                     </th>
-                    <th scope="col" class="px-6 py-3">
-                        PAYMENT
-                    </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th >
                         STATUS
                     </th>
+                    <th >
+                        PAYMENT STATUS
+                    </th>
+                    <th>
+                        
+                    </th>
+                    
                     <th>
                         FEEDBACK
                     </th>
@@ -57,35 +86,42 @@ export const Hlcbookst = () => {
                 </tr>
             </thead>
             <tbody>
+                {data.map((item,index)=>(
                 <tr class=" dark:border-gray-700 text-white bg-slate-950/40 hover:bg-slate-800/50">
                     <td scope="row" class="px-6 py-4">
-                        1
+                        {index+1}
                     </td>
                     <td >
-                        Thug Life
+                        {item.film?.Filmname}
                     </td>
                     <td >
-                        Athirappilli
+                        {item.loc?.locationName}
                     </td>
                     <td>
-                        Successful
+                        
+                        {item.req?.bookingStatus}
                     </td>
+                    <td></td>
                     <td>
-                        Approved
+                    {item.req?.bookingStatus === 'Accepted' && ( 
+                       <Link to={`/hiring/hlocpay/${item.req?.hiringId,item.req?.locationId}`}> <button className='text-yellow-200'>PAY</button></Link>
+                    )}
                     </td>
+                    
+                 
+                    
+                    
                     <td>
+                    {item.req?.bookingStatus === 'Accepted' && ( 
                        <Link to='/hiring/hlcfeed'> <button className='text-yellow-200'>Add</button></Link>
-                    </td>
+                    )}
+                       </td>
                     <td >
-                    23-01-2024
+                    { new Date(item.fcreq?.Date).toLocaleDateString()}
                     </td>
                     
                 </tr>
-    
-    
-    
-                
-                
+                ))}
             </tbody>
         </table>
     </div>
