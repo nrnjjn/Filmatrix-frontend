@@ -6,6 +6,8 @@ export const Addjob = () => {
 let id=localStorage.getItem('id')
 const navigate=useNavigate()
 const [data,setData]=useState('')
+const [view,setView]=useState([])
+
 const [data2,setData2]=useState([''])
 
 let handleChange=(event)=>{
@@ -27,6 +29,8 @@ useEffect(()=>{
   let fetchdata=async()=>{
     let response=await axios.get(`http://localhost:4000/filmcompany/viewlocfname/${id}`)
     setData2(response.data)
+    let response_categories=await axios.get(`http://localhost:4000/admin/viewcategory/`)
+    setView(response_categories.data)
   }
   fetchdata()
 },[])
@@ -51,10 +55,25 @@ console.log(data2);
           </option>
          ))}
            </select>
+
+
+
+
+           
           <div className='flex  flex-row pb-3 flex-wrap'>
             
             <input onChange={handleChange} name='Vacancy' type="number" placeholder='Vacancy' className='w-[237px] h-9 placeholder:text-center bg-transparent placeholder:text-white border-2 rounded text-white' />
           </div>
+
+
+          <select onChange={handleChange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2 mt-3 mb-3'  name="category" >
+              <option value="">select</option>
+         {view.map((item)=>(
+          <option  value={item?._id}>
+            {item?.name}
+          </option>
+         ))}
+           </select>
 
 
           <div className='flex flex-row flex-wrap'>

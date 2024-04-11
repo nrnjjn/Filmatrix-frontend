@@ -82,6 +82,8 @@ import { Locationdetail } from './Admin/Locationdetail';
 import { Ujobdescription } from './User/Ujobdescription';
 import { Seekerreqd } from './Hiringteam/Seekerreqd';
 import 'react-toastify/dist/ReactToastify.css';
+import Admincategory from './Admin/Admincategory.jsx';
+import ViewCatJobs from "./ViewCatJobs.jsx"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -109,6 +111,9 @@ root.render(
       <Route path='aprvdsk' element={<Approvedseekers/>}/>
       <Route path='addlocreq' element={<Addlocationnreq/>}/>
       <Route path='locd/:id' element={<Locationdetail/>}/>
+      <Route path='category' element={<Admincategory/>}/>
+      
+
     </Route>
    </Routes>
  
@@ -193,7 +198,8 @@ root.render(
     <Route path='ujob/:id' element={<Ujob/>}/>
     <Route path='editpw/:userId' element={<Editpw/>}/>
     <Route path='ujobdesc/:id2' element={<Ujobdescription/>}/>
-
+    <Route path='viewjobs/category/:id' element={<ViewCatJobs/>}/>
+    
     </Route>
   </Routes>
    </BrowserRouter>

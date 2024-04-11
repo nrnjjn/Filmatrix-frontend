@@ -104,7 +104,7 @@ export const Hlcbookst = () => {
                     <td></td>
                     <td>
                     {item.req?.bookingStatus === 'Accepted' && ( 
-                       <Link to={`/hiring/hlocpay/${item.req?.hiringId}/${item.req?.locationId}`}> <button className='text-yellow-200'>PAY</button></Link>
+                       <Link state={item} to={`/hiring/hlocpay/${item.req?.hiringId}/${item.req?.locationId}`}> <button className='text-yellow-200'>PAY</button></Link>
                     )}
                     </td>
                     

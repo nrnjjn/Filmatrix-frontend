@@ -35,6 +35,9 @@ const Adminnav = () => {
             <Link to='/admin/loreq'>
             <div onClick={close}>Location</div>
             </Link>
+            <Link to='/admin/category'>
+                <div onClick={close}>Category</div>
+                </Link>
             
             <div>
                 <span onClick={otherdropdown}>Other</span>

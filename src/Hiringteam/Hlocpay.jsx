@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, useLocation } from 'react-router-dom'
 
 export const Hlocpay = () => {
 
@@ -10,6 +10,9 @@ export const Hlocpay = () => {
 
     
     let {id,locationId}=useParams()
+    let {state}=useLocation()
+
+    console.log(state.fcreq.total);
 
     let id2=localStorage.getItem('id')
 
@@ -19,7 +22,7 @@ export const Hlocpay = () => {
     
       let handleSubmit=async (event)=>{
         event.preventDefault()
-        let response=await axios.post(`http://localhost:4000/hiringteam/addpayment/${id2}`,{Amount:data.total,Paymentstatus:'Paid',hiringId:id2,locationownerId:locationId})
+        let response=await axios.post(`http://localhost:4000/hiringteam/addpayment/${id2}`,{Amount:state.fcreq.total,Paymentstatus:'Paid',hiringId:id2,locationownerId:locationId})
         setData(data)
         console.log(data);
         console.log(response);
@@ -44,13 +47,13 @@ export const Hlocpay = () => {
             <div className='pt-8 '>
                 <div className='flex flex-wrap gap-56 w-[470px] ms-20 '>
                     <p className='text-white '>Amount</p>
-                    <p className='text-white'>{data1.total}</p>
+                    <p className='text-white'>{state.fcreq.total}</p>
                 </div>
             </div>
             <div>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 py-5'>
                 <label className='text-white '>Holder Name</label>
-                    <input onChange={handleChange} type="text" className='bg-transparent border-white border-solid border-2 rounded h-9'/>
+                    <input onChange={handleChange} type="text" name="holdername" className='bg-transparent border-white border-solid border-2 rounded h-9'/>
                 </div>
             </div>
             <div>
