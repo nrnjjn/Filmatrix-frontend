@@ -7,11 +7,12 @@ export const Filmrequest = () => {
 const [data,setdata]=useState([''])
 const [refresh,setrefresh]=useState(false)
 
-let handleSubmit=async(status,id)=>{
-    setrefresh(!refresh)
-    let response=await axios.put(`http://localhost:4000/admin/acceptusers/${id}`,{...data,Status:status})
+let handleSubmit=(status,id)=>{
+    let response= axios.put(`http://localhost:4000/admin/acceptusers/${id}`,{...data,Status:status})
+    window.location.reload()
+    // setrefresh(!refresh)
     console.log(response)
-    setdata('')
+    
 }
 
 useEffect(()=>{
@@ -22,7 +23,7 @@ useEffect(()=>{
 
     }
     fetchdata()
- },[refresh])
+ },[])
 
 
   return (
@@ -90,7 +91,7 @@ useEffect(()=>{
             
             <tr class=" dark:border-gray-700 text-white bg-gray-950/40 hover:bg-slate-800/50">
                 <td scope="row" class="px-6 py-4">
-                    {index}
+                    {index+1}
                 </td>
                 <td class="px-6 py-4">
                     {item.companyName}

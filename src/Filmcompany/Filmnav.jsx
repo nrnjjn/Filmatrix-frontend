@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { Outlet, Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Outlet, Link, useNavigate } from 'react-router-dom';
+import axios from 'axios'
 
 const Filmnav = () => {
     const [locdrop,setLocdrop]=useState(false)
@@ -27,6 +28,30 @@ const Filmnav = () => {
         setOdrop(false)
         setancDrop(false)
     }
+
+    const navigate=useNavigate()
+
+    let logout=()=>{
+        localStorage.removeItem('id')
+        localStorage.removeItem('email')
+        navigate('/login')
+    }
+        useEffect(()=>{
+            let auth=async ()=>{
+              let id=localStorage.getItem('id')
+              let email=localStorage.getItem('email')
+              let response=await axios.post('http://localhost:4000/seekers/api/auth/authenticate',{_id:id,Email:email})
+              console.log(response);
+              if(response==null){
+                navigate('/login')
+              }
+              else if(response?.data?.userType !=='filmcompany'){
+                navigate('/login')
+              }
+         
+            }
+            auth()
+          },[])
 
   return (
     <div>
@@ -79,7 +104,7 @@ const Filmnav = () => {
         <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 w-40 -ml-10'>
             <Link to='/filmcompany/jobseekers' className=''><li>Crew</li></Link>
             {/* <Link to='/filmcompany/hiringfd' className=''> <li>Hiring Feedback</li></Link> */}
-            <Link to='/' className=''> <li>Logout</li></Link>
+           <li onClick={logout}>Logout</li>
         </div>
 }
             </div>

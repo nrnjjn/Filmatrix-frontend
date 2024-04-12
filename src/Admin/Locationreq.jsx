@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 export const Locationreq = () => {
 
-    const [data,setdata]=useState([''])
+const [data,setdata]=useState([''])
 const [refresh,setrefresh]=useState(false)
 
-let handleSubmit=async(status,id)=>{
-    setrefresh(!refresh)
-    let response=await axios.put(`http://localhost:4000/admin/acceptusers/${id}`,{...data,Status:status})
+let handleSubmit=(status,id)=>{
+    // setrefresh(!refresh)
+    let response= axios.put(`http://localhost:4000/admin/acceptusers/${id}`,{...data,Status:status})
+    window.location.reload()
     console.log(response)
-    setdata('')
 }
 
 useEffect(()=>{
@@ -21,7 +21,7 @@ useEffect(()=>{
 
     }
     fetchdata()
- },[refresh])
+ },[])
 
 
   return (

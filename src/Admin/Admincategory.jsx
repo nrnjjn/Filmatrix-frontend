@@ -50,15 +50,60 @@ useEffect(()=>{
      
           <div className='flex flex-row flex-wrap'>
    
-            <input value={data.category} type='text' onChange={handleChange}  name="category" placeholder='Category' className='bg-transparent text-white placeholder:text-white/70 border-2 rounded placeholder:text-center'></input>
+            <input value={data.category} type='text' onChange={handleChange}  name="category" placeholder='Category' className='bg-transparent text-white placeholder:text-white/70 border-2 rounded placeholder:text-center w-32'></input>
           </div>
           <button type='submit' className='text-white bg-black rounded p-2 ml-20 mt-3'>Submit</button>
          </div>
          </form>
 
-<div className="max-w-[500px] overflow-y-scroll m-auto">
+{/* <div className="max-w-[500px] overflow-y-scroll m-auto"> */}
 
-         {
+
+<div class="  overflow-x-auto shadow-md sm:rounded-lg  mt-3">
+    <table class="w-full text-sm text-center rtl:text-right  text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-white uppercase  dark:bg-gray-950/90 dark:text-gray-400 ">
+            <tr>
+                <th >
+                    SLNO
+                </th>
+                <th scope="col" class=" py-3">
+                    CATEGORY
+                </th>
+                <th >
+                    
+                </th>
+                <th >
+                    
+                </th>
+             
+            </tr>
+        </thead>
+        <tbody>
+       { view && view.map((i,index)=>{
+            return(
+            <tr class=" dark:border-gray-700 text-white bg-gray-950/40 hover:bg-slate-800/50">
+                <td >
+                    {index+1}
+                </td>
+                <td class="px-6 py-4">
+                {i.name}                </td>
+                <td >
+                    <button   className='text-green-500  rounded w-14 h-6 text-center'>Edit</button>
+                </td>
+                <td>
+                    <button onClick={()=>handledelete(i._id)} className='text-red-600  rounded w-14 h-6 text-center'>Delete</button>
+                </td>
+            </tr>
+            )
+})}
+
+
+            
+            
+        </tbody>
+    </table>
+</div>
+         {/* {
            view && view.map((i)=>{
                 return(
                     <>
@@ -68,10 +113,10 @@ useEffect(()=>{
                     </>
                 )
             })
-         }
+         } */}
 </div>
 
-    </div>
+    // </div>
   )
 }
 

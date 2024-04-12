@@ -8,11 +8,11 @@ export const Hiringreq = () => {
 const [data,setdata]=useState([''])
 const [refresh,setrefresh]=useState(false)
 
-let handleSubmit=async(statuss,id)=>{
-    setrefresh(!refresh)
-    let response=await axios.put(`http://localhost:4000/admin/acceptusers/${id}`,{...data,Status:statuss})
+let handleSubmit=(statuss,id)=>{
+    let response=axios.put(`http://localhost:4000/admin/acceptusers/${id}`,{...data,Status:statuss})
+    window.location.reload()
+
     console.log(response)
-    setdata('')
 }
 
 useEffect(()=>{
@@ -22,7 +22,7 @@ useEffect(()=>{
        setdata(response.data)
     }
     fetchdata()
- },[refresh])
+ },[])
  
   return (
     <div className='hcreq'>
