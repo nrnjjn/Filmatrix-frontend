@@ -75,9 +75,9 @@ export const Hfclocstatus = () => {
                     <th scope="col" class="px-6 py-3">
                         STATUS
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    {/* <th scope="col" class="px-6 py-3">
                         DATE
-                    </th>
+                    </th> */}
                     <th>
 
                     </th>
@@ -99,9 +99,9 @@ export const Hfclocstatus = () => {
                     <td>
                         {item.req?.Status}
                     </td>
-                    <td>
+                    {/* <td>
                     { new Date(item.fcreq?.Date).toLocaleDateString()}
-                    </td>
+                    </td> */}
                     <td>{item.req?.Status === 'Accepted' && (
                     <Link to={`/hiring/hlcbookst`}>
                     <button onClick={()=>handleSubmit(item.loc?._id, item.film?._id, item.req?._id)} className='text-yellow-200 rounded w-14 h-6 text-center'>Book</button>

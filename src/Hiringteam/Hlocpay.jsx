@@ -9,7 +9,7 @@ export const Hlocpay = () => {
     const [data1,setData1]=useState('')
 
     
-    let {id,locationId}=useParams()
+    let {id,locationId,_id}=useParams()
     let {state}=useLocation()
 
     console.log(state.fcreq.total);
@@ -21,8 +21,7 @@ export const Hlocpay = () => {
       }
     
       let handleSubmit=async (event)=>{
-        event.preventDefault()
-        let response=await axios.post(`http://localhost:4000/hiringteam/addpayment/${id2}`,{Amount:state.fcreq.total,Paymentstatus:'Paid',hiringId:id2,locationownerId:locationId})
+        let response=await axios.put(`http://localhost:4000/hiringteam/payment/${_id}`,{paymentStatus:'Paid'})
         setData(data)
         console.log(data);
         console.log(response);
@@ -78,8 +77,16 @@ export const Hlocpay = () => {
                     <input onChange={handleChange} type="text" name='cvc' className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
-        <button type='submit' className='ms-20 py-3 text-green-500'>Submit</button>
-        
+        <form>
+            {data.req?.paymentStatus === 'Pending' ?
+            <div className='flex flex-wrap text-white pt-2 text-center gap-8 justify-center'>
+            </div>
+            :
+            <div className='flex flex-wrap text-white pt-2 text-center gap-8 justify-center'>
+            <button type='button' onClick={()=>{handleSubmit('Paid',data._id)}} className='   text-green-500'>Pay</button>
+            </div>
+            }
+            </form>        
     </div>
     </div>
     </form>

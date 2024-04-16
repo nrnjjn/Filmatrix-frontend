@@ -1,6 +1,19 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 export const Lvpay = () => {
+    let id=localStorage.getItem('id')
+    const [data,setData]=useState([''])
+    console.log(id)
+    useEffect(()=>{
+        let fetchdata=async ()=>{
+            let response=await axios.get(`http://localhost:4000/hiringteam/viewlocationbooking/${id}`)
+            console.log(response.data);
+            setData(response.data)
+        }
+        fetchdata()
+    },[])
+
   return (
     <div className='lbkst'>
         <div className='text-white pt-36 text-center mb-3 text-[40px]'>VIEW PAYMENT</div>

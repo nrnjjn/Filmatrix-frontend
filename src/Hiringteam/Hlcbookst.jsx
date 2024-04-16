@@ -101,10 +101,12 @@ export const Hlcbookst = () => {
                         
                         {item.req?.bookingStatus}
                     </td>
-                    <td></td>
                     <td>
-                    {item.req?.bookingStatus === 'Accepted' && ( 
-                       <Link state={item} to={`/hiring/hlocpay/${item.req?.hiringId}/${item.req?.locationId}`}> <button className='text-yellow-200'>PAY</button></Link>
+                        {item.req?.paymentStatus}
+                    </td>
+                    <td>
+                    {item.req?.bookingStatus === 'Accepted' && item.req?.paymentStatus !== 'Paid' && ( 
+                       <Link state={item} to={`/hiring/hlocpay/${item.req?.hiringId}/${item.req?.locationId}/${item.req?._id}`}> <button className='text-yellow-200'>PAY</button></Link>
                     )}
                     </td>
                     
