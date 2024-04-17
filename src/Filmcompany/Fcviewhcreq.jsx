@@ -5,15 +5,19 @@ import { Link } from 'react-router-dom'
 export const Fcviewhcreq = () => {
 
     let id=localStorage.getItem('id')
+    console.log(id);
+
     const [data,setdata]=useState([''])
     const[refresh,setrefresh]=useState(false)
 
-    let handlesubmit=async (status)=>{
-        setrefresh(!refresh)
-        let response=await axios.put(`http://localhost:4000/filmcompany/manageHiring/${id}`,{...data,Status:status})
-        console.log(response)
-        setdata('')
-      }
+    // let handlesubmit=async (status)=>{
+    //     setrefresh(!refresh)
+    //     let response=await axios.put(`http://localhost:4000/filmcompany/manageHiring/${id}`,{...data,Status:status})
+    //     console.log(response)
+    //     if(response.data){
+    //         setdata(response.data)
+    //     }
+    // }
     
 
     useEffect(()=>{
@@ -93,10 +97,10 @@ export const Fcviewhcreq = () => {
                     {index+1}
                 </td >
                 <td>
-                    {item.anc?.Filmname}
+                    {item?.anc?.Filmname}
                 </td>
                 <td >
-                    {item.hiring?.companyName}
+                    {item?.hiring?.companyName}
                 </td>
                 
                 {/* <td >
@@ -107,14 +111,14 @@ export const Fcviewhcreq = () => {
                 <td><a href={item.hiring?.Liscence} download>image</a></td>
                 <td>{item.req?.Description}</td> */}
                 <td><Link to={`/filmcompany/hiringreqdetail/${item?.req?._id}`}><button className='text-yellow-200  rounded w-14 h-6 text-center'> More</button></Link></td>
-                <td>{item.req?.Status}</td>
+                <td>{item?.req?.Status}</td>
                 <td>
-                {item.req?.Status === 'Accepted' && ( 
+                {item?.req?.Status === 'Accepted' && ( 
                       <Link to={`/filmcompany/hiringfd/${item.req?._id}`}>  <button className='text-yellow-200'>Add</button></Link>
                     )}
                 </td>
                 <td >
-                { new Date(item.req?.Date).toLocaleDateString()}
+                { new Date(item?.req?.Date).toLocaleDateString()}
                 </td>
                 {/* <td class=" text-right">
                     <button className='text-green-500 

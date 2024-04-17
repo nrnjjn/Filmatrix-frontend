@@ -36,19 +36,19 @@ useEffect(()=>{
 },[])
 console.log(data2);
   return (
-    <div className='addanc flex flex-wrap flex-col'>
-        <div className='text-center pt-24 font-bold text-3xl text-white '>
+    <div className='addanc  '>
+        <div className='text-center pt-24 font-bold text-3xl  text-white '>
           New Job
          </div>
          <form className='pt-4' onSubmit={handleSubmit}>
-         <div className='m-auto w-fit '>
+         <div className='m-auto  w-fit '>
           <div className='flex  flex-row pb-3 flex-wrap'>
             
             <input onChange={handleChange} name='Job' type="text" placeholder='Job' className='w-[237px] h-9 placeholder:text-center bg-transparent placeholder:text-white border-2 rounded text-white' />
           </div>
           
           <select onChange={handleChange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2 mt-3 mb-3'  name="ancId" >
-              <option value="">select</option>
+              <option value="">Filmname</option>
          {data2.map((item)=>(
           <option  value={item.anc?._id}>
             {item.anc?.Filmname}
@@ -67,7 +67,7 @@ console.log(data2);
 
 
           <select onChange={handleChange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2 mt-3 mb-3'  name="category" >
-              <option value="">select</option>
+              <option value="">Category</option>
          {view.map((item)=>(
           <option  value={item?._id}>
             {item?.name}

@@ -81,6 +81,7 @@ import { Addlocationnreq } from './Admin/Addlocationreq';
 import { Locationdetail } from './Admin/Locationdetail';
 import { Ujobdescription } from './User/Ujobdescription';
 import { Seekerreqd } from './Hiringteam/Seekerreqd';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Admincategory from './Admin/Admincategory.jsx';
 import ViewCatJobs from "./ViewCatJobs.jsx"
@@ -201,7 +202,10 @@ root.render(
     <Route path='viewjobs/category/:id' element={<ViewCatJobs/>}/>
     
     </Route>
+
   </Routes>
+  <ToastContainer />
+
    </BrowserRouter>
   </React.StrictMode>
 );

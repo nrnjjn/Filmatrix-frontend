@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 export const Fcregister = () => {
   const navigate=useNavigate()
@@ -19,6 +20,22 @@ let handlefile=(event)=>{
 
 let handleSubmit=async (event)=>{
   event.preventDefault()
+
+
+  const requiredFields = ['companyName','Email','Phone','Address','Liscence','liscenceNo','Password','confirmPassword'];
+
+       for (const field of requiredFields) {
+        if (!data[field]) {
+            return toast.error(`${field} is required`);
+        }
+    }
+
+
+  if(data.confirmPassword!=data.Password){
+    toast.error('password doesnt match')
+
+  }
+  else{
   let formData = new FormData();
   formData.append('companyName', data.companyName);
   formData.append('Email', data.Email);
@@ -29,17 +46,26 @@ let handleSubmit=async (event)=>{
   formData.append('Password', data.Password);
   formData.append('confirmPassword', data.confirmPassword);
   formData.append('userType','filmcompany')
-setData(data)
 console.log(data);
-    navigate('/')
     let response=await axios.post('http://localhost:4000/seekers/register',formData,{userType:'filmcompany',
     headers: {
         'Content-Type': 'multipart/form-data'  // Set the content type for FormData
       }
+}).then((res)=>{
+  setData(data)
+    toast.success("successfully registered")
+    console.log(data);
+    navigate('/')
+
+}).catch((err)=>{
+  toast.error(err.response.data.message || err.message ||'password doesnt match')
+
 })
-       console.log(response);
-    
+
+  
   }
+  }
+
   return (
     <div className='reg text-white placeholder:text-white'>
       <p className='text-center font-bold pt-32 text-[25px] text-white'>FILM COMPANY REGISTRATION</p>
@@ -49,7 +75,7 @@ console.log(data);
             <div className='pt-8 '>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 '>
                     <p >Company Name</p>
-                    <input onChange={handleChange} name='companyName' type="text" className='bg-transparent border-white border-solid border-2 rounded' />
+                    <input onChange={handleChange}  required name='companyName' type="text" className='bg-transparent border-white border-solid border-2 rounded' />
                 </div>
             </div>
             <div>
@@ -61,7 +87,7 @@ console.log(data);
             <div>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Phone</p>
-                    <input onChange={handleChange} name='Phone' type="number" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} pattern="[0-9]{10}" title="Please enter a valid phone number"  maxLength={10} name='Phone' type="text" className='bg-transparent border-white border-solid border-2 rounded'/>
                 </div>
              </div>
             <div>
@@ -77,26 +103,26 @@ console.log(data);
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3 '>
                     
             <label class="block h-10 mb-2  font-medium text-gray-900 dark:text-white" for="file_input">Liscence</label>
-            <input onChange={handlefile} name='Liscence' class="block w-[40%] text-sm text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
+            <input onChange={handlefile} required name='Liscence' class="block w-[40%] text-sm text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
 
                 </div>
         </div>
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Liscence no</p>
-                    <input onChange={handleChange} name='liscenceNo' type="text" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} name='liscenceNo' required type="number" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Password</p>
-                    <input onChange={handleChange} name='Password' type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$" title='Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and be 8 to 30 characters long.' onChange={handleChange} name='Password' type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Confirm Password</p>
-                    <input onChange={handleChange} name='confirmPassword' type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$" title='Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and be 8 to 30 characters long.' onChange={handleChange} name='confirmPassword' type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <button type='submit' className='ms-20 py-3 text-green-400'>Submit</button>

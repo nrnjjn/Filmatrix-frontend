@@ -28,6 +28,7 @@ export const Ujobdescription = () => {
       let formData = new FormData();
         formData.append('Description',data.Description);
         formData.append('Cv',data.Cv);
+        formData.append('Form',data.Form)
         formData.append('sId',id);
         formData.append('jobId',id2);
       setData(data)
@@ -55,6 +56,10 @@ export const Ujobdescription = () => {
         <div className='flex  flex-row pb-3 flex-wrap gap-5 mt-3'>
           <label class=" text-center block h-10 mb-2  font-medium text-gray-900 dark:text-white " for="file_input">Cv</label>
           <input onChange={handlefile} name='Cv' class="block w-[20%] h-10 text-sm text-gray-900  border-white rounded cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-white border-2" placeholder='New' id="file_input" type="file" />
+          </div>
+          <div className='flex  flex-row pb-3 flex-wrap gap-5 mt-3'>
+          <label class=" text-center block h-10 mb-2  font-medium text-gray-900 dark:text-white " for="file_input">File</label>
+          <input onChange={handlefile} name='File' class="block w-[20%] h-10 text-sm text-gray-900  border-white rounded cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-white border-2" placeholder='New' id="file_input" type="file" />
           </div>
         <button type='submit' className=' pl-24 text-yellow-200'>Submit</button>
     

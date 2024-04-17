@@ -85,7 +85,7 @@ let handleSubmit= async(event)=>{
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Liscence no</p>
-                    <input onChange={handleChange} name='liscenceNo' type="text" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} name='liscenceNo' type="number" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <div>

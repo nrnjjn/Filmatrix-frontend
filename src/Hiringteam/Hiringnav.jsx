@@ -54,9 +54,9 @@ export const Hiringnav = () => {
         navigate('/login')
     }
         useEffect(()=>{
+            let id=localStorage.getItem('id')
+            let email=localStorage.getItem('email')
             let auth=async ()=>{
-              let id=localStorage.getItem('id')
-              let email=localStorage.getItem('email')
               let response=await axios.post('http://localhost:4000/seekers/api/auth/authenticate',{_id:id,Email:email})
               console.log(response);
               if(response==null){
@@ -67,7 +67,15 @@ export const Hiringnav = () => {
               }
          
             }
-            auth()
+            if(id){
+
+                auth()
+            }
+            else{
+                navigate('/login')
+                window.location.reload()
+    
+            }
           },[])
 
 

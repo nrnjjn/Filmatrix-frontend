@@ -33,6 +33,7 @@ let handleSubmit=async (event)=>{
   // navigate('/hiring/hfclocst')
 }
 
+const currentDate = new Date().toISOString().split('T')[0];
 
 let {id}=useParams()
 console.log(id);
@@ -64,7 +65,7 @@ console.log(data3);
             
               <div className='flex flex-wrap text-white pt-3 text-center gap-16'>
               <p className='font-bold'>Date:</p>
-              <input name='Date' onChange={handleChange} type="date"  className='bg-transparent border-2 rounded w-48' />
+              <input name='Date' min={currentDate} onChange={handleChange} type="date"  className='bg-transparent border-2 rounded w-48' />
             </div>
             <div className='flex flex-wrap text-white pt-3 text-center gap-4'>
                 <p className='font-bold'>No of days:</p>

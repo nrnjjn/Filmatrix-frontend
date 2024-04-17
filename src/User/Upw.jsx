@@ -40,6 +40,9 @@ let handleChange=(event)=>{
        console.log(response.data);
   }
 
+  const today = new Date().toISOString().split('T')[0];
+
+
   return (
     <div className='upw'>
         <p className='text-center font-bold pt-32 text-[25px] text-white'>PREVIOUS WORK</p>
@@ -70,13 +73,13 @@ let handleChange=(event)=>{
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3 text-white'>
                     <p>From date:</p>
-                    <input onChange={handleChange} name='Fromdate' type="date" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} max={today} name='Fromdate' type="date" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3 text-white'>
                     <p>To date:</p>
-                    <input onChange={handleChange} name='Todate' type="date" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} max={today} name='Todate' type="date" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <button type='submit' className='ms-20 py-5 text-yellow-200'>Submit</button></div>
