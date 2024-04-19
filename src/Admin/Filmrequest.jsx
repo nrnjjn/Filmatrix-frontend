@@ -68,7 +68,9 @@ export const Filmrequest = () => {
                             onChange={(e) => setSearch(e.target.value)}
                             type="search"
                             id="search-dropdown"
-                            className="block p-2.5 w-full z-20 text-sm text-white bg-slate-950/50 rounded-e-lg border-s-2 border border-gray-700 focus:ring-gray-700 focus:border-gray-700 dark:bg-gray-950/50 dark:border-s-orange-500 dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-700 placeholder:text-white"
+                            className="block p-2.5 w-full z-20 text-sm text-white bg-slate-950/50 rounded-e-lg border-s-2 border border-gray-700
+                             focus:ring-gray-700 focus:border-gray-700 dark:bg-gray-950/50 dark:border-s-orange-500 dark:border-gray-700
+                              dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-700 placeholder:text-white"
                             placeholder="Search Film company"
                             required
                         />

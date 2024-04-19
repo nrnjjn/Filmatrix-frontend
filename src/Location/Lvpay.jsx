@@ -7,7 +7,7 @@ export const Lvpay = () => {
     console.log(id)
     useEffect(()=>{
         let fetchdata=async ()=>{
-            let response=await axios.get(`http://localhost:4000/hiringteam/viewlocationbooking/${id}`)
+            let response=await axios.get(`http://localhost:4000/locationowner/viewpayment/${id}`)
             console.log(response.data);
             setData(response.data)
         }
@@ -18,7 +18,7 @@ export const Lvpay = () => {
     <div className='lbkst'>
         <div className='text-white pt-36 text-center mb-3 text-[40px]'>VIEW PAYMENT</div>
     
-    <form class="max-w-72 mx-auto h-5">
+    {/* <form class="max-w-72 mx-auto h-5">
         <div class="flex">
          
             <div class="relative w-full">
@@ -32,7 +32,7 @@ export const Lvpay = () => {
             </div>
         </div>
     </form>
-    
+     */}
     <div class=" pt-10 overflow-x-auto shadow-md sm:rounded-lg  ">
         <table class="w-full text-sm text-center rtl:text-right  text-white dark:text-white">
             <thead class="text-xs text-white uppercase  dark:bg-gray-950/50 dark:text-white">
@@ -49,37 +49,38 @@ export const Lvpay = () => {
                     <th scope="col" class="px-6 py-3">
                         AMOUNT
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    {/* <th scope="col" class="px-6 py-3">
                         DATE
-                    </th>
+                    </th> */}
                     <th scope="col" class="px-6 py-3">STATUS</th>
                     
                 </tr>
             </thead>
             <tbody>
+                {data.map((item,index)=>(
                 <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50">
                     <td scope="row" class="px-6 py-4">
-                        1
+                        {index+1}
                     </td>
                     <td >
-                        Thug Life
+                        {item?.anc?.Filmname}
                     </td>
                     <td >
-                        Aashirvad
+                        {item?.hiring?.companyName}
                     </td>
                     <td>
-                        5000
+                        {item?.req?.Amount}
                     </td>
-                    <td >
-                    23-01-2024
-                    </td>
+                    {/* <td >
+                    { new Date(item.req?.Date).toLocaleDateString()}
+                    </td> */}
                     <td>
-                        Paid
+                        {item?.booking?.paymentStatus}
                     </td>
                     
                 </tr>
     
-    
+))}
     
                 
                 

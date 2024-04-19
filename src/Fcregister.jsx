@@ -81,19 +81,19 @@ console.log(data);
             <div>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 py-5'>
                     <p>E-mail</p>
-                    <input onChange={handleChange} name='Email' type="email" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} required name='Email' type="email" className='bg-transparent border-white border-solid border-2 rounded'/>
                 </div>
             </div>
             <div>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Phone</p>
-                    <input onChange={handleChange} pattern="[0-9]{10}" title="Please enter a valid phone number"  maxLength={10} name='Phone' type="text" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} required pattern="[0-9]{10}" title="Please enter a valid phone number"  maxLength={10} name='Phone' type="text" className='bg-transparent border-white border-solid border-2 rounded'/>
                 </div>
              </div>
             <div>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Address</p>
-                    <textarea onChange={handleChange} name="Address" id="" cols="30" rows="10" className='h-36 w-[195px] bg-transparent border-white border-solid border-2 rounded'></textarea>
+                    <textarea required onChange={handleChange} name="Address" id="" cols="30" rows="10" className='h-36 w-[195px] bg-transparent border-white border-solid border-2 rounded'></textarea>
                 </div>
             </div>
         
@@ -110,19 +110,19 @@ console.log(data);
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Liscence no</p>
-                    <input onChange={handleChange} name='liscenceNo' required type="number" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} name='liscenceNo' required type="text" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Password</p>
-                    <input pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$" title='Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and be 8 to 30 characters long.' onChange={handleChange} name='Password' type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$" title='Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and be 8 to 30 characters long.' onChange={handleChange} name='Password' type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Confirm Password</p>
-                    <input pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$" title='Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and be 8 to 30 characters long.' onChange={handleChange} name='confirmPassword' type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$" title='Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and be 8 to 30 characters long.' onChange={handleChange} name='confirmPassword' type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <button type='submit' className='ms-20 py-3 text-green-400'>Submit</button>

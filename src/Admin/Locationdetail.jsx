@@ -49,10 +49,10 @@ export const Locationdetail = () => {
             <p className='font-bold'>Phone no:</p>
             <p className='text-left'>{data.loc?.Phone}</p>
             </div>
-            <div className='flex flex-wrap text-white gap-10 pt-3 text-center'>
+            {/* <div className='flex flex-wrap text-white gap-10 pt-3 text-center'>
             <p className='font-bold'>Liscence no:</p>
-            <p className='text-left'>{data.loc?.Name}</p>
-            </div>
+            <p className='text-left'>{data.loc?.liscenceNo}</p>
+            </div> */}
            
             
             <div className='flex flex-wrap text-white pt-3 text-center gap-16'>

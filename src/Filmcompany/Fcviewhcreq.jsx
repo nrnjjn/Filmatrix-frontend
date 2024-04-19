@@ -31,9 +31,9 @@ export const Fcviewhcreq = () => {
 
   return (
     <div className='fcviewhcreq text-white'>
-    <div className='text-white pt-40 text-center mb-3 text-[25px]'> HIRING TEAM REQUEST</div>
+    <div className='text-white pt-40 text-center mb-5 text-[30px]'> HIRING TEAM REQUEST</div>
     
-    <form class="max-w-lg mx-auto pb-10">
+    {/* <form class="max-w-lg mx-auto pb-10">
     <div class="flex items-center">
        <div className=''>
         
@@ -54,7 +54,7 @@ export const Fcviewhcreq = () => {
             </button>
         </div>
     </div>
-</form>
+</form> */}
 
 
 <div class="  overflow-x-auto shadow-md sm:rounded-lg  ">

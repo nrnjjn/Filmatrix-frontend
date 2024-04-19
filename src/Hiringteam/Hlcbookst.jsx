@@ -29,9 +29,9 @@ export const Hlcbookst = () => {
     },[])
   return (
     <div className='hlcbst'>
-        <div className='text-white pt-36 text-center mb-3 text-[25px]'>LOCATION BOOKING STATUS</div>
+        <div className='text-white pt-36 text-center mb-5 text-[30px]'>LOCATION BOOKING STATUS</div>
     
-        <form class="max-w-lg mx-auto pb-10">
+        {/* <form class="max-w-lg mx-auto pb-10">
     <div class="flex items-center">
        <div className=''>
   <select name="" id="" className='h-[41px] inline-flex items-center py-2.5 text-[100%] px-4  text-sm font-medium text-center text-gray-900 bg-gray-700 border border-gray-300 rounded-s-lg  hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-gray-700 dark:bg-gray-950/50 dark:hover:bg-gray-500 dark:focus:ring-gray-700 dark:text-white dark:border-gray-700'>
@@ -51,7 +51,7 @@ export const Hlcbookst = () => {
             </button>
         </div>
     </div>
-</form>
+</form> */}
     
     <div class="  overflow-x-auto shadow-md sm:rounded-lg  ">
         <table class="w-full text-sm text-center rtl:text-right  text-white dark:text-white">

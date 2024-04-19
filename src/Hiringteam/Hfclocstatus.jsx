@@ -34,9 +34,9 @@ export const Hfclocstatus = () => {
     },[])
   return (
     <div className='hvloc'>
-        <div className='text-white pt-36 text-center mb-3 text-[25px]'>REQUEST STATUS</div>
+        <div className='text-white pt-36 text-center mb-5 text-[30px]'>REQUEST STATUS</div>
     
-        <form class="max-w-lg mx-auto pb-10">
+        {/* <form class="max-w-lg mx-auto pb-10">
     <div class="flex items-center">
        <div className=''>
         
@@ -57,7 +57,7 @@ export const Hfclocstatus = () => {
             </button>
         </div>
     </div>
-</form>
+</form> */}
     
     <div class=" overflow-x-auto shadow-md sm:rounded-lg  ">
         <table class="w-full text-sm text-center rtl:text-right  text-white dark:text-white">

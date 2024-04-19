@@ -25,7 +25,7 @@ export const Viewannouncement = () => {
     <div className='vanc'>
         <div className='text-white pt-36 text-center mb-3 text-[25px]'> ANNOUNCEMENTS</div>
     
-    <form class="max-w-lg mx-auto h-5">
+    {/* <form class="max-w-lg mx-auto h-5">
         <div class="flex">
             <div class="relative ps-32">
                 <input type="search" id="search-dropdown" class="block p-2.5 w-64 rounded-s-lg z-20 text-sm text-white bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-950/50 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:border-blue-500" placeholder="Search Here..." required />
@@ -37,7 +37,7 @@ export const Viewannouncement = () => {
                 </button>
             </div>
         </div>
-    </form>
+    </form> */}
     <div class=" mt-5 overflow-x-auto shadow-md sm:rounded-lg  ">
         <table class="w-full text-sm text-center rtl:text-right  text-white">
             <thead class="text-xs uppercase  dark:bg-gray-950/90 ">

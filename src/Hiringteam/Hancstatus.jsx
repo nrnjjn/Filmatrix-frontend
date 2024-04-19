@@ -22,9 +22,9 @@ export const Hancstatus = () => {
     },[])
   return (
     <div className='hancstatus'>
-        <div className='text-white pt-36 text-center mb-3 text-[25px]'>REQUEST STATUS</div>
+        <div className='text-white pt-36 text-center mb-5 text-[30px]'>REQUEST STATUS</div>
     
-        <form class="max-w-lg mx-auto pb-10">
+        {/* <form class="max-w-lg mx-auto pb-10">
     <div class="flex items-center">
        <div className=''>
         
@@ -45,7 +45,7 @@ export const Hancstatus = () => {
             </button>
         </div>
     </div>
-</form>
+</form> */}
     
     <div class="  overflow-x-auto shadow-md sm:rounded-lg  ">
         <table class="w-full text-sm text-center rtl:text-right  text-gray-500 dark:text-gray-400 dark:bg-gray-950/50">

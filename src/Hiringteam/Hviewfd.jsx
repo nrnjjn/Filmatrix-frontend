@@ -18,9 +18,9 @@ export const Hviewfd = () => {
     },[])
   return (
     <div className='lcfeed text-white'>
-    <div className='text-white pt-36 text-center mb-3 text-[20px]'>FEEDBACK</div>
+    <div className='text-white pt-36 text-center mb-3 text-[30px]'>FEEDBACK</div>
     
-    <form class="max-w-72 mx-auto h-5">
+    {/* <form class="max-w-72 mx-auto h-5">
         <div class="flex">
          
             <div class="relative w-full">
@@ -34,7 +34,7 @@ export const Hviewfd = () => {
             </div>
         </div>
     </form>
-    
+     */}
     <div class=" pt-10 overflow-x-auto shadow-md sm:rounded-lg  ">
         <table class="w-full text-sm text-center rtl:text-right   ">
             <thead class="text-xs  uppercase  dark:bg-gray-950/90 ">

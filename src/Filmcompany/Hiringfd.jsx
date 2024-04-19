@@ -21,7 +21,7 @@ console.log(id)
     event.preventDefault()
     setData(data)
     console.log(data);
-    // navigate('/filmcompany')
+    navigate('/filmcompany/fcviewhcreq')
     let response=await axios.put(`http://localhost:4000/filmcompany/hiringfeedbackput/${id}`,data)
        console.log(response);
   }
@@ -32,7 +32,7 @@ useEffect(()=>{
   let fetchdata=async ()=>{
     let response=await axios.get(`http://localhost:4000/filmcompany/viewhiringreq/${id}`)
 
-   let result = response.data.find((item)=> item.req._id===id )
+   let result = response.data.find((item)=> item?.req?._id===id )
    console.log(result,'result');
     setData1(result)
   }
@@ -59,8 +59,8 @@ console.log(data1,'ddd')
           
          ))}
            </select>      */}
-           <p>FILM NAME:</p>
-           <p>{data1.anc?.Filmname}</p>
+           {/* <p>FILM NAME:</p>
+           <p>{data1?.anc?.Filmname}</p> */}
 
 
                </div>

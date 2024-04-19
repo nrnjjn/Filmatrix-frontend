@@ -1,11 +1,26 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 export const Lvfd = () => {
+    let id2=localStorage.getItem('id')
+    const [data,setData]=useState([''])
+    useEffect(()=>{
+        let fetchdata=async ()=>{
+            let response=await axios.get(`http://localhost:4000/locationowner/viewlocreq/${id2}`)
+            // let response2=await axios.get(`http://localhost:4000/hiringteam/viewfilmcompany/${id}`)
+            console.log(response.data)
+            if(response.data){
+                setData(response.data)
+                // setData2(response2.data)
+            }
+        }
+        fetchdata()
+    },[])
   return (
     <div className='lbkst'>
          <div className='text-white pt-36 text-center mb-3 text-[40px]'>VIEW FEEDBACK</div>
     
-    <form class="max-w-72 mx-auto h-5">
+    {/* <form class="max-w-72 mx-auto h-5">
         <div class="flex">
          
             <div class="relative w-full">
@@ -19,7 +34,7 @@ export const Lvfd = () => {
             </div>
         </div>
     </form>
-    
+     */}
     <div class=" pt-10 overflow-x-auto shadow-md sm:rounded-lg  ">
         <table class="w-full text-sm text-center rtl:text-right  text-white dark:text-white">
             <thead class="text-xs text-white uppercase  dark:bg-gray-950/50 dark:text-white">
@@ -36,34 +51,31 @@ export const Lvfd = () => {
                     <th scope="col" class="px-6 py-3">
                         FEEDBACK
                     </th>
-                    <th scope="col" class="px-6 py-3">
-                        DATE
-                    </th>
+                   
                     
                 </tr>
             </thead>
             <tbody>
+                {data.map((item,index)=>(
                 <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50">
                     <td scope="row" class="px-6 py-4">
-                        1
+                        {index+1}
                     </td>
                     <td >
-                        Thug Life
+                        {item?.anc?.Filmname }
                     </td>
                     <td >
-                        Aathirappilly
+                        {item?.loc?.locationName}
                     </td>
                     <td>
-                        Good
+                        {item?.req?.Feedback}
                     </td>
-                    <td >
-                    23-01-2024
-                    </td>
+                    
                     
                 </tr>
     
     
-    
+))}
                 
             </tbody>
         </table>
