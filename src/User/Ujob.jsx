@@ -38,7 +38,7 @@ let {id}=useParams()
             <p className='w-36'>{item.Description}</p>
             </div>
             <div className='flex flex-wrap justify-center'>
-            <Link to={`/user/ujobdesc/${item._id}`}><button className='text-green-400'>Apply</button></Link> 
+            <Link to={`/user/ujobdesc/${item?._id}`}><button className='text-green-400'>Apply</button></Link> 
             </div>
         </div>
             ))}

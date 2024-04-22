@@ -42,7 +42,7 @@ function ViewCatJobs() {
                     <p className='w-36'>{item?.req?.Description}</p>
                     </div>
                     <div className='flex flex-wrap justify-center'>
-                    <Link to={`/user/ujobdesc/${item?._id}`}><button className='text-green-400'>Apply</button></Link> 
+                    <Link to={`/user/ujobdesc/${item?.req?._id}`}><button className='text-green-400'>Apply</button></Link> 
                     </div>
                 </div>
                 )
