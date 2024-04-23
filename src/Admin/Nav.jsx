@@ -4,6 +4,8 @@ import axios from 'axios'
 
 const Adminnav = () => {
 
+    const [data,setData] = useState('');
+
     const [odrop,setOdrop]=useState(false)
 
     let otherdropdown=()=>{
@@ -26,6 +28,7 @@ const Adminnav = () => {
             let auth=async ()=>{
               let response=await axios.post('http://localhost:4000/seekers/api/auth/authenticate',{_id:id,Email:email})
               console.log(response);
+              setData(response.data);
               if(response==null){
                 navigate('/login')
               }
@@ -47,10 +50,14 @@ const Adminnav = () => {
   return (
     <div>
     <div className='flex flex-wrap fixed w-[100%] justify-between bg-black text-white p-3 text-[25px]'>
-        <div className='fonts flex-1'>
-            Filmatrix
+        <div className='fonts flex-1 ps-3'>
+            <div className='flex gap-4'>
+           <div> Filmatrix</div>
+            <div className='text-red-500 text-[25px]'>{data?.userType} </div>
+            </div>
         </div>
-        <div className=" block sm:hidden">
+        
+        <div className=" block sm:hidden ">
         &#9776;
         </div>
         <div className='hidden flex-wrap justify-evenly sm:flex flex-1 text-[20px]'>

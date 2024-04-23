@@ -126,7 +126,7 @@ export const Approvedseekers = () => {
               <th>FILM NAME</th>
               <th>FILM COMPANY</th>
               <th>HIRING TEAM</th>
-              <th>CATEGORY</th>
+              <th>JOB</th>
             </tr>
           </thead>
           <tbody>
@@ -138,7 +138,7 @@ export const Approvedseekers = () => {
                 <td className="px-6 py-4">{item?.anc?.Filmname}</td>
                 <td>{item?.fc?.companyName}</td>
                 <td>{item?.hiring?.companyName}</td>
-                <td>{item?.cat?.name}</td>
+                <td>{item?.job?.Job}</td>
               </tr>
             ))}
           </tbody>

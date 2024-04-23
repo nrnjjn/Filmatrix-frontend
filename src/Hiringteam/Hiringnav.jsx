@@ -4,6 +4,7 @@ import axios from 'axios'
 
 export const Hiringnav = () => {
 
+    const [data,setData] = useState('');
     const [locdrop,setLocdrop]=useState(false)
     const [odrop,setOdrop]=useState(false)
     const [ancdrop,setancDrop]=useState(false)
@@ -59,6 +60,7 @@ export const Hiringnav = () => {
             let auth=async ()=>{
               let response=await axios.post('http://localhost:4000/seekers/api/auth/authenticate',{_id:id,Email:email})
               console.log(response);
+              setData(response.data);
               if(response==null){
                 navigate('/login')
               }
@@ -85,7 +87,11 @@ export const Hiringnav = () => {
     <div>
         <div className='flex flex-wrap fixed w-[100%] justify-between bg-black text-white p-3 text-[25px]'>
         <div className='fonts flex-1 ps-3'>
-            Filmatrix
+        <div className='flex gap-4'>
+           <div> Filmatrix</div>
+            <div className='text-blue-400/80 text-[15px] text-center pt-[10px]'>{data?.userType} </div>
+            <div className='text-gray-500 text-[15px] text-center pt-[10px]'>{data?.companyName}</div>
+            </div>
         </div>
         <div className='hidden flex-wrap justify-evenly sm:flex flex-1 text-[20px]'>
             <Link to='/hiring'><div onClick={close}>
@@ -135,6 +141,8 @@ export const Hiringnav = () => {
                <span onClick={otherdropdown}> Other</span>
 {odrop &&
         <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 w-40 -ml-10'>
+            <Link to='/hiring/addpwk' ><li>Add Previous work</li></Link>
+            <Link to='/hiring/viewhpwk' ><li>View Previous work</li></Link>
             <Link to='/hiring/hviewp' ><li>Progress</li></Link>
             <Link to='/hiring/hviewfd' > <li>View Feedback</li></Link>
              <li onClick={logout}>Logout</li>

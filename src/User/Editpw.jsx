@@ -61,7 +61,7 @@ let handleChange=(event)=>{
             <div className='pt-8 '>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 '>
                     <p >Job:</p>
-                    <input onChange={handleChange} placeholder={userData.Job} name='Job' type="text" className='bg-transparent border-white border-solid border-2 rounded' />
+                    <input onChange={handleChange} placeholder={userData.Job} name='Job' type="text" className='bg-transparent border-white border-solid border-2 rounded placeholder:text-white' />
                 </div>
             </div>
             <div>

@@ -85,6 +85,10 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Admincategory from './Admin/Admincategory.jsx';
 import ViewCatJobs from "./ViewCatJobs.jsx"
+import { Addpwk } from './Hiringteam/Addpwk.jsx';
+import { Viewhpwk } from './Hiringteam/Viewhpwk.jsx';
+import { Viewhpwkd } from './Hiringteam/Viewhpwkd.jsx';
+import { Edithpwk } from './Hiringteam/Edithpwk.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -163,6 +167,10 @@ root.render(
     <Route path='heditjob/:id' element={<Heditjob/>}/>
     <Route path='hreqdescription/:id2' element={<Hreqdescription/>}/>
     <Route path='seekerreqd/:id' element={<Seekerreqd/>}/>
+    <Route path='addpwk' element={<Addpwk/>}/>
+    <Route path='viewhpwk' element={<Viewhpwk/>}/>
+    <Route path='viewhpwkd/:id' element={<Viewhpwkd/>}/>
+    <Route path='edithpwk/:userId' element={<Edithpwk/>}/>
     </Route>
     </Routes>   
 

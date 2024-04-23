@@ -4,6 +4,7 @@ import axios from 'axios'
 
 export const Locnav = () => {
 
+    const [data,setData] = useState('');
     const [locdrop,setLocdrop]=useState(false)
     const [odrop,setOdrop]=useState(false)
 
@@ -44,6 +45,7 @@ export const Locnav = () => {
     
           let response=await axios.post('http://localhost:4000/seekers/api/auth/authenticate',{_id:id,Email:email})
           console.log(response);
+          setData(response.data)
           if(response==null){
             navigate('/login')
           }
@@ -67,7 +69,11 @@ export const Locnav = () => {
     <div>
         <div className='flex flex-wrap fixed w-[100%] justify-between bg-black text-white p-3 text-[25px]'>
         <div className='fonts flex-1 ps-3'>
-            Filmatrix
+        <div className='flex gap-4'>
+           <div> Filmatrix</div>
+            <div className='text-blue-400/80 text-[15px] text-center pt-[10px]'>{data?.userType} </div>
+            <div className='text-gray-500 text-[15px] text-center pt-[10px]'>{data?.Name}</div>
+            </div>
         </div>
         <div className='hidden flex-wrap justify-evenly sm:flex flex-1 text-[20px]'>
             <Link to='/location'><div onClick={close}>
