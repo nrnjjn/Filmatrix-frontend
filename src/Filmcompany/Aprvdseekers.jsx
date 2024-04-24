@@ -1,6 +1,23 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 export const Aprvdseekers = () => {
+
+    let id2=localStorage.getItem('id')
+    const [data,setdata]=useState([''])
+const [refresh,setrefresh]=useState(false)
+
+useEffect(()=>{
+    let fetchdata=async()=>{
+       let response=await axios.get(`http://localhost:4000/filmcompany/viewjobseekers/${id2}`)
+       console.log(response.data);
+       setdata(response.data)
+    }
+    fetchdata()
+ },[refresh])
+
+
   return (
     <div className='vanc'>
         <div className='text-white pt-36 text-center mb-3 text-[30px]'>CREW</div>
@@ -43,46 +60,28 @@ export const Aprvdseekers = () => {
                 </tr>
             </thead>
             <tbody>
+            {data.map((item,index)=>(
+
                 <tr class=" dark:border-gray-700 bg-gray-950/40 hover:bg-slate-800/50">
                     <td scope="row" class="px-6 py-4">
-                        1
+                        {index+1}
                     </td>
                     <td >
-                        Thug Life
+                        {item.ancData?.Filmname}
                     </td>
                     <td >
                         Anuranj
                     </td>
                     <td>
-                        Camera man
+                        {item?.jobData?.Job}
                     </td>
                     <td >
                     23-01-2024
                     </td>
                     
                 </tr>
-    
-    
-    
-                <tr class=" dark:border-gray-700 bg-slate-950/40 hover:bg-slate-800/50">
-                    <td scope="row" class="px-6 py-4">
-                        2
-                    </td>
-                    <td >
-                        Thug Life
-                    </td>
-                    <td >
-                        Amrutha
-                    </td>
-                    <td>
-                        Actress
-                    </td>
-                    <td >
-                    23-01-2024
-                    </td>
-                    
-                </tr>
-                
+                                     ))} 
+
             </tbody>
         </table>
     </div>

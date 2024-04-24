@@ -175,7 +175,6 @@ root.render(
     </Routes>   
 
 
-
   <Routes>
       <Route path='/location' element={<Locnav/>}>
       <Route index element={<Lhome/>}/>
