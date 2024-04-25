@@ -75,11 +75,15 @@ let handleChange=(event)=>{
 
        <textarea onChange={handleChange} name="description" id="" cols="30" rows="10" placeholder={userData.description} className='w-[80%] bg-transparent placeholder:text-white placeholder:text-[25px]  border-2 rounded border-white text-white placeholder:text-center'></textarea>
      </div>
-     <div className='flex flex-row pb-3 flex-wrap justify-around'>
+     <div className='flex flex-row pb-3 flex-wrap w-[300px] gap-3 justify-center'>
      <label htmlFor="" className='text-white text-lg'>Image: </label>
-     <input onChange={handlefile} name='Image'  class="block w-[50%]  text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
+     <a href={`http://localhost:4000/uploads/${userData.Image}`} download>
+                                        <img src={`http://localhost:4000/uploads/${userData.Image}`} alt=""  className='w-10'/>
+                                    </a>
+     <input onChange={handlefile} name='Image'  class="block w-[40%]  text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
+     
      </div>
-     <button type='submit' className='text-white bg-black rounded p-2 ml-32 mt-1'>Submit</button>
+     <button type='submit' className=' bg-black rounded p-2 ml-32 mt-1 text-green-600'>Submit</button>
     </div>
     </form>
 </div>

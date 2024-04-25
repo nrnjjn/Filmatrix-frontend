@@ -86,6 +86,9 @@ export const Filmprofile = () => {
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3 '>
                     
             <label class="block h-10 mb-2  font-medium text-gray-900 dark:text-white" for="file_input">Liscence</label>
+            <a href={`http://localhost:4000/uploads/${userData.Liscence}`} download>
+                                        <img src={`http://localhost:4000/uploads/${userData.Liscence}`} alt=""  className='w-10'/>
+                                    </a>
             <input onChange={handlefile} name='Liscence' class="block w-[40%] text-sm text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
 
                 </div>

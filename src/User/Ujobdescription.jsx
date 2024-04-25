@@ -31,6 +31,7 @@ export const Ujobdescription = () => {
         formData.append('File',data.File)
         formData.append('sId',id);
         formData.append('jobId',id2);
+        // formData.append('companyId',id2.companyId);
 
       setData(data)
       console.log(data);

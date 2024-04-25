@@ -1,90 +1,134 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 export const Aprvdseekers = () => {
+    const [data, setData] = useState([]);
+    const [filteredData, setFilteredData] = useState([]);
+    const [filmNames, setFilmNames] = useState([]);
+    const [selectedFilm, setSelectedFilm] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
 
-    let id2=localStorage.getItem('id')
-    const [data,setdata]=useState([''])
-const [refresh,setrefresh]=useState(false)
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:4000/filmcompany/viewjobseekers/${localStorage.getItem('id')}`);
+                console.log(response.data);
+                setData(response.data);
+                setFilteredData(response.data); // Initialize filteredData with all data
 
-useEffect(()=>{
-    let fetchdata=async()=>{
-       let response=await axios.get(`http://localhost:4000/filmcompany/viewjobseekers/${id2}`)
-       console.log(response.data);
-       setdata(response.data)
-    }
-    fetchdata()
- },[refresh])
+                // Extract unique Filmnames from the data
+                const uniqueFilmNames = [...new Set(response.data.map(item => item?.anc?.Filmname))];
+                setFilmNames(uniqueFilmNames);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
+    }, []);
 
+    useEffect(() => {
+        filterData();
+    }, [searchQuery, selectedFilm]);
 
-  return (
-    <div className='vanc'>
-        <div className='text-white pt-36 text-center mb-3 text-[30px]'>CREW</div>
-    
-    {/* <form class="max-w-72 mx-auto h-5">
-        <div class="flex">
-         
-            <div class="relative w-full">
-                <input type="search" id="search-dropdown" class="rounded-s-md block p-2.5 w-full z-20 text-sm text-white bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-950/50 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:border-blue-500" placeholder="Search Here..." required />
-                <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-gray-950/50 rounded-e-lg border border-blue-700 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-gray-950/50 dark:hover:bg-gray-700 dark:focus:ring-blue-800/50">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                    </svg>
-                    <span class="sr-only">Search</span>
-                </button>
+    const filterData = () => {
+        let filtered = data;
+        
+        // Filter by selectedFilm
+        if (selectedFilm) {
+            filtered = filtered.filter(item => item?.anc?.Filmname.toLowerCase() === selectedFilm.toLowerCase());
+        }
+
+        // Filter by searchQuery
+        if (searchQuery) {
+            const lowerSearchQuery = searchQuery.toLowerCase();
+            filtered = filtered.filter(item =>
+                item.anc?.Filmname.toLowerCase().includes(lowerSearchQuery) ||
+                item.seek?.Name.toLowerCase().includes(lowerSearchQuery) ||
+                item?.job?.Job.toLowerCase().includes(lowerSearchQuery) ||
+                new Date(item?.req?.Date).toLocaleDateString().includes(lowerSearchQuery)
+            );
+        }
+
+        setFilteredData(filtered);
+    };
+
+    const handleFilmChange = (event) => {
+        setSelectedFilm(event.target.value);
+    };
+
+    const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value);
+    };
+
+    return (
+        <div className='vanc'>
+            <div className='text-white pt-36 text-center mb-3 text-[30px]'>CREW</div>
+
+            {/* Dropdown to select Filmnames */}
+            <div className='flex flex-wrap w-80 justify-center m-auto'>
+            <div className='w-36 mx-auto mb-4'>
+                <select
+                    value={selectedFilm}
+                    onChange={handleFilmChange}
+                    className='block w-full h-8 px-4 border border-gray-300 rounded-s bg-white/60 placeholder:text-white text-sm leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                >
+                    <option value=''>Select Film</option>
+                    {filmNames.map((film, index) => (
+                        <option key={index} value={film}>
+                            {film}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
+            {/* Search bar */}
+            <div className='w-44 mx-auto mb-4'>
+                <input
+                    type='text'
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                    className='block w-full h-8 px-4 border border-gray-300 rounded-e text-white bg-transparent text-sm leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                    placeholder='Search...'
+                />
+            </div>
+            </div>
+            {/* Table */}
+            <div className='pt-10 overflow-x-auto shadow-md sm:rounded-lg'>
+                <table className='w-full text-sm text-center rtl:text-right text-white'>
+                    <thead className='text-xs uppercase dark:bg-gray-950/90'>
+                        <tr>
+                            <th scope='col' className='px-6 py-3'>
+                                SLNO
+                            </th>
+                            <th scope='col' className='px-6 py-3'>
+                                FILM NAME
+                            </th>
+                            <th scope='col' className='px-6 py-3'>
+                                SEEKER NAME
+                            </th>
+                            <th scope='col' className='px-6 py-3'>
+                                JOB
+                            </th>
+                            <th scope='col' className='px-6 py-3'>
+                                DATE
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {filteredData.map((item, index) => (
+                            <tr key={index} className='dark:border-gray-700 bg-gray-950/40 hover:bg-slate-800/50'>
+                                <td scope='row' className='px-6 py-4'>
+                                    {index + 1}
+                                </td>
+                                <td>{item.anc?.Filmname}</td>
+                                <td>{item.seek?.Name}</td>
+                                <td>{item?.job?.Job}</td>
+                                <td>{new Date(item?.req?.Date).toLocaleDateString()}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </div>
-    </form>
-     */}
-    <div class=" pt-10 overflow-x-auto shadow-md sm:rounded-lg  ">
-        <table class="w-full text-sm text-center rtl:text-right  text-white ">
-            <thead class="text-xs  uppercase  dark:bg-gray-950/90 ">
-                <tr >
-                    <th scope="col" class="px-6 py-3">
-                        SLNO
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        FILM NAME
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        SEEKER NAME
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        JOB
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        DATE
-                    </th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-            {data.map((item,index)=>(
-
-                <tr class=" dark:border-gray-700 bg-gray-950/40 hover:bg-slate-800/50">
-                    <td scope="row" class="px-6 py-4">
-                        {index+1}
-                    </td>
-                    <td >
-                        {item.ancData?.Filmname}
-                    </td>
-                    <td >
-                        Anuranj
-                    </td>
-                    <td>
-                        {item?.jobData?.Job}
-                    </td>
-                    <td >
-                    23-01-2024
-                    </td>
-                    
-                </tr>
-                                     ))} 
-
-            </tbody>
-        </table>
-    </div>
-    </div>
-  )
-}
+    );
+};
