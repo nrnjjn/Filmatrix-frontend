@@ -102,13 +102,13 @@ export const Filmprofile = () => {
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Password</p>
-                    <input onChange={handleChange} placeholder={userData.Password} name='Password' type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} placeholder={userData.Password} name='Password' type="text" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Confirm Password</p>
-                    <input onChange={handleChange} placeholder={userData.confirmPassword} name='confirmPassword' type="password" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} placeholder={userData.confirmPassword} name='confirmPassword' type="text" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <button type='submit' className='ms-20 py-3 text-green-500'>Submit</button>

@@ -102,7 +102,7 @@ export const Filmrequest = () => {
                                 <td>{item.companyName}</td>
                                 <td>{item.Email}</td>
                                 <td>{item.Phone}</td>
-                                <td>{item.Address}</td>
+                                <td className='w-8 pt-1 pb-1'>{item.Address}</td>
                                 <td>{item.liscenceNo}</td>
                                 <td>
                                     <a href={`http://localhost:4000/uploads/${item.Liscence}`} download>

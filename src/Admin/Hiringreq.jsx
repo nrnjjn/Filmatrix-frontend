@@ -106,9 +106,7 @@ useEffect(()=>{
                 </th>
                 <th>LISCENCE NO</th>
                 <th>LISCENCE</th>
-                <th scope="col" class="px-6 py-3">
-                    DATE
-                </th>
+                
                 <th>STATUS</th>
                 <th>
                 </th>
@@ -131,7 +129,7 @@ useEffect(()=>{
                     {item.Email}
                 </td>
                 <td>{item.Phone}</td>
-                <td>{item.Address}</td>
+                <td className='w-8 pt-1 pb-1'>{item.Address}</td>
                 <td>{item.liscenceNo}</td>
                 <td><a href={`http://localhost:4000/uploads/${item.Liscence}`} download>img</a></td>
                

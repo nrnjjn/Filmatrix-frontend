@@ -123,7 +123,7 @@ useEffect(()=>{
                     {item.Email}
                 </td>
                 <td class="px-6 py-4">{item.Phone}</td>
-                <td class="px-6 py-4">{item.Address}</td>
+                <td className='w-10 pt-2 pb-1'>{item.Address}</td>
                 <td class="px-6 py-4">
                 <a href={`http://localhost:4000/uploads/${item.Idproof}`} download>img</a>
                 </td>

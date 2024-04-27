@@ -53,7 +53,7 @@ const Adminnav = () => {
         <div className='fonts flex-1 ps-3'>
             <div className='flex gap-4'>
            <div> Filmatrix</div>
-            <div className='text-red-500 text-[25px]'>{data?.userType} </div>
+            <div className='text-red-500 text-[18px] pt-1.5'>{data?.userType} </div>
             </div>
         </div>
         
