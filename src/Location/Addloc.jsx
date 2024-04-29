@@ -44,7 +44,7 @@ let handleChange=(event)=>{
         <div className='text-center pt-36 font-bold text-3xl text-white'>
           New Location
          </div>
-         <form className='pt-5' onSubmit={handleSubmit}>
+         <form className='pt-3' onSubmit={handleSubmit}>
          <div className='m-auto w-fit '>
           <div className='flex  flex-row pb-3 flex-wrap justify-center'>
             

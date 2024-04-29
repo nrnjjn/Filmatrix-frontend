@@ -69,7 +69,7 @@ export const Addjob = () => {
           <div className='flex flex-row pb-3 flex-wrap'>
             <input onChange={handleChange} name='Job' type="text" placeholder='Job' className='w-[237px] h-9 placeholder:text-center bg-transparent placeholder:text-white border-2 rounded text-white' />
           </div>
-          <select onChange={handleChange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2 mt-3 mb-3' name="ancId">
+          <select onChange={handleChange} className='h-9 w-56 bg-white rounded-lg text-black pl-2 mt-2 mb-3' name="ancId">
             <option value="">Filmname</option>
             {data2.map((item) => (
               <option key={item.anc?._id} value={item.anc?._id}>
@@ -77,10 +77,10 @@ export const Addjob = () => {
               </option>
             ))}
           </select>
-          <div className='flex flex-row pb-3 flex-wrap'>
+          <div className='flex flex-row pb-2 flex-wrap'>
             <input onChange={handleChange} name='Vacancy' type="number" placeholder='Vacancy' className='w-[237px] h-9 placeholder:text-center bg-transparent placeholder:text-white border-2 rounded text-white' />
           </div>
-          <select onChange={handleChange} className='h-9 w-56 bg-white rounded-r-lg text-black pl-2 mt-3 mb-3' name="category">
+          <select onChange={handleChange} className='h-9 w-56 bg-white  rounded-lg text-black pl-2 mt-3 mb-3' name="category">
             <option value="">Category</option>
             {view.map((item) => (
               <option key={item._id} value={item._id}>

@@ -85,11 +85,11 @@ export const Filmrequest = () => {
                         <tr>
                             <th scope="col" className="px-3 py-3">SLNO</th>
                             <th>COMPANY NAME</th>
-                            <th>EMAIL</th>
-                            <th>PHONE NO</th>
-                            <th>ADDRESS</th>
-                            <th>LISCENCE NO</th>
-                            <th>LISCENCE</th>
+                            <th scope="col" className="px-3 py-3">EMAIL</th>
+                            <th scope="col" className="px-3 py-3">PHONE NO</th>
+                            <th scope="col" className="px-3 py-3">ADDRESS</th>
+                            <th scope="col" className="px-3 py-3">LISCENCE NO</th>
+                            <th scope="col" className="px-3 py-3">LISCENCE</th>
                             <th>STATUS</th>
                             <th></th>
                             <th></th>
@@ -110,16 +110,20 @@ export const Filmrequest = () => {
                                     </a>
                                 </td>
                                 <td>{item.Status}</td>
-                                <td>
-                                    <button onClick={() => handleSubmit('Accepted', item._id)} className="text-green-500 rounded w-14 h-6 text-center">
-                                        Accept
-                                    </button>
-                                </td>
-                                <td>
-                                    <button onClick={() => handleSubmit('Rejected', item._id)} className="text-red-600 rounded w-14 h-6 text-center">
-                                        Reject
-                                    </button>
-                                </td>
+                                {item.Status !== 'Accepted' && (
+                                    <>
+                                        <td>
+                                            <button onClick={() => handleSubmit('Accepted', item._id)} className="text-green-500 rounded w-14 h-6 text-center">
+                                                Accept
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button onClick={() => handleSubmit('Rejected', item._id)} className="text-red-600 rounded w-14 h-6 text-center">
+                                                Reject
+                                            </button>
+                                        </td>
+                                    </>
+                                )}
                             </tr>
                         ))}
                     </tbody>

@@ -79,9 +79,9 @@ export const Hlcbookst = () => {
                     <th>
                         FEEDBACK
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    {/* <th scope="col" class="px-6 py-3">
                         DATE
-                    </th>
+                    </th> */}
                     
                 </tr>
             </thead>
@@ -118,9 +118,9 @@ export const Hlcbookst = () => {
                        <Link to={`/hiring/hlcfeed/${item.req?._id}`}> <button className='text-yellow-200'>Add</button></Link>
                     )}
                        </td>
-                    <td >
+                    {/* <td >
                     { new Date(item.fcreq?.Date).toLocaleDateString()}
-                    </td>
+                    </td> */}
                     
                 </tr>
                 ))}

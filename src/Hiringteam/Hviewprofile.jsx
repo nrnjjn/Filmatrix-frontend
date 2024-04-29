@@ -18,13 +18,29 @@ export const Hviewprofile = () => {
     let handleChange=(event)=>{
         setData({...data,[event.target.name]:event.target.value})
       }
-    
+
+      let handlefile=(event)=>{
+        console.log(event.target.files);
+        setData({...data,[event.target.name]:event.target.files[0]})
+        console.log(data);
+      }
       let handleSubmit=async (event)=>{
         event.preventDefault()
         setrefresh(!refresh)
-    let response=await axios.put(`http://localhost:4000/seekers/editprofile/${id}`,data)
+        const formData = new FormData();
+        for (const key in data){
+            if(data[key]){
+                formData.append(key,data[key]);
+            }
+        }
+        console.log(data);
+        console.log(formData);  
+    let response=await axios.put(`http://localhost:4000/seekers/editprofile/${id}`,formData,{
+    headers:{
+        'content-Type':'multiport/form-data'
+      }
+    })
     console.log(response);
-    setData('')
       }
 
   return (
@@ -69,7 +85,7 @@ export const Hviewprofile = () => {
                 <img  alt="" className='w-10 h-10 ' src={`http://localhost:4000/uploads/${userData?.Liscence}`} />
                 </a>
 
-            <input onChange={handleChange} name='Liscence' class="block w-[40%] text-sm text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
+            <input onChange={handlefile} name='Liscence' class="block w-[40%] text-sm text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
 
                 </div>
         </div>

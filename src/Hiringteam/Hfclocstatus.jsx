@@ -29,13 +29,21 @@ export const Hfclocstatus = () => {
 
     const handleSubmit = async (loc, film, fcreq) => {
         navigate('/hiring/hlcbookst');
-        await axios.post('http://localhost:4000/hiringteam/locationbooking', {
-            ...data,
-            hiringId: id,
-            locationId: loc,
-            ancId: film,
-            Fcreq: fcreq
-        });
+        try {
+            // Extract total from fcreq
+            const total = fcreq.total;
+
+            // Send POST request with the total value included in fcreq
+            await axios.post('http://localhost:4000/hiringteam/locationbooking', {
+                ...data,
+                hiringId: id,
+                locationId: loc,
+                ancId: film,
+                Fcreq: { ...fcreq, total }, // Include total in Fcreq
+            });
+        } catch (error) {
+            console.error('Error submitting:', error);
+        }
     };
 
     return (
@@ -80,7 +88,7 @@ export const Hfclocstatus = () => {
                                 <td>{item.req?.Status}</td>
                                 <td>
                                     {item.req?.Status === 'Accepted' && (
-                                        <button onClick={() => handleSubmit(item.loc?._id, item.film?._id, item.req?._id)} className='text-yellow-200 rounded w-14 h-6 text-center'>Book</button>
+                                        <button onClick={() => handleSubmit(item.loc?._id, item.film?._id, item.req, item?.req?.total )} className='text-yellow-200 rounded w-14 h-6 text-center'>Book</button>
                                     )}
                                 </td>
                             </tr>

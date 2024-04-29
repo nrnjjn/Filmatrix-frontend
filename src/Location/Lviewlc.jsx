@@ -57,11 +57,12 @@ export const Lviewlc = () => {
                     <th scope="col" class="px-1 py-3">
                         LOCATION NAME
                     </th>
-                    <th scope="col" class="px-1 py-3">
-                        LOCATION NAME
-                    </th>
+                    <th>PRICE PER DAY</th>
                     <th scope="col" class="px-1 py-3">
                         DESCRIPTION
+                    </th>
+                    <th scope="col" class="px-1 py-3">
+                        STATUS
                     </th>
                     <th>IMAGE</th>
                     
@@ -80,6 +81,9 @@ export const Lviewlc = () => {
                     </td >
                     <td >
                         {item.locationName}
+                    </td>
+                    <td>
+                        {item?.Priceperday}
                     </td>
                     <td >
                         {item.Description}

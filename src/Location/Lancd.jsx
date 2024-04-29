@@ -22,7 +22,7 @@ console.log(id);
         <div className='bg-slate-950/50 w-[850px] h-[450px] m-auto flex gap-2 '>
           
             <img src={`http://localhost:4000/uploads/${data.Image}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
-            <div className='flex flex-wrap flex-col'>
+            <div className='flex flex-wrap flex-col w-[700px]'>
             <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
             <p className='font-bold'>Film Name:</p>
             <p>{data.Filmname}</p>

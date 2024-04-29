@@ -1,10 +1,13 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 export const Lvpay = () => {
-    let id=localStorage.getItem('id')
+    // let id=localStorage.getItem('id')
+    let {id}=useParams()
     const [data,setData]=useState([''])
     console.log(id)
+    
     useEffect(()=>{
         let fetchdata=async ()=>{
             let response=await axios.get(`http://localhost:4000/locationowner/viewpayment/${id}`)
