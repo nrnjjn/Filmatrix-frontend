@@ -116,9 +116,11 @@ export const Locationreq = () => {
                                 <td class="px-6 py-4">{item.Phone}</td>
                                 <td className='w-10 pt-2 pb-1'>{item.Address}</td>
                                 <td class="px-6 py-4">
-                                    <a href={`http://localhost:4000/uploads/${item.Idproof}`} download>img</a>
+                                    <a href={`http://localhost:4000/uploads/${item.Idproof}`} download>
+                                        <img src={`http://localhost:4000/uploads/${item.Idproof}`} className='w-10 m-auto' alt="" />
+                                        </a>
                                 </td>
-                                <td>
+                                <td class="px-6 py-4">
                                     {item.Status}
                                 </td>
                                 {item.Status !== 'Accepted' && (

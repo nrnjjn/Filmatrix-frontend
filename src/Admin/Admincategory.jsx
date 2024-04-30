@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import  { toast } from 'react-toastify';
 
 export const Admincategory = () => {
   const [data,setData]=useState('')
@@ -8,18 +9,30 @@ export const Admincategory = () => {
   const [view,setView]=useState([])
   const [refresh,setRefresh]=useState(true)
  
-
-
-
-
   let handleChange=(event)=>{
     setData({...data,[event.target.name]:event.target.value})
   }
 
+  let handlefile=(event)=>{
+    console.log(event.target.files);
+    setData({...data,[event.target.name]:event.target.files[0]})
+    console.log(data);
+  }
+
   let handleSubmit= async (event)=>{
     event.preventDefault()
-    let response=await axios.post(`http://localhost:4000/admin/createcategory/`,data)
-       console.log(response);
+    let formData = new FormData();
+    formData.append('name', data.category);
+    formData.append('Image',data.Image);
+    setData(data)
+    console.log(data);
+    console.log(formData);
+    let response=await axios.post(`http://localhost:4000/admin/createcategory/`,formData,{
+      headers: {
+        'Content-Type': 'multipart/form-data'  // Set the content type for FormData
+      }
+    })
+       console.log(response.data);
        setRefresh(!refresh)
        setData('')
   }
@@ -41,18 +54,22 @@ useEffect(()=>{
 },[refresh])
 
   return (
-    <div className='addanc flex flex-wrap flex-col'>
+    <div className='addanc'>
          <div className='text-center pt-36 font-bold text-3xl text-white/70'>
           category
          </div>
          <form onSubmit={handleSubmit} className='pt-3'>
          <div className='m-auto w-fit '>
      
-          <div className='flex flex-row flex-wrap'>
+          <div className='flex flex-row flex-wrap justify-center'>
    
-            <input value={data.category} type='text' onChange={handleChange}  name="category" placeholder='Category' className='bg-transparent text-white placeholder:text-white/70 border-2 rounded placeholder:text-center w-32'></input>
+            <input value={data.category} type='text' onChange={handleChange}  name="category" placeholder='Category' className='bg-transparent text-white placeholder:text-white/70 border-2 rounded placeholder:text-center w-56 h-8'></input>
           </div>
-          <button type='submit' className='text-white bg-black rounded p-2 ml-20 mt-3'>Submit</button>
+          <div className='flex flex-wrap justify-between w-[300px] text-center mt-4 py-3 '>      
+            <label class="block h-10 mb-2  text-gray-900 dark:text-white" for="file_input">Work photo:</label>
+            <input onChange={handlefile}  name='Image' class="block w-[40%] h-10 text-sm text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
+                </div>
+          <button type='submit' className='text-white bg-black rounded p-2 ms-32 mt-3'>Submit</button>
          </div>
          </form>
 
@@ -68,6 +85,9 @@ useEffect(()=>{
                 </th>
                 <th scope="col" class=" py-3">
                     CATEGORY
+                </th>
+                <th>
+                  IMAGE
                 </th>
                 <th >
                     
@@ -87,8 +107,13 @@ useEffect(()=>{
                 </td>
                 <td class="px-6 py-4">
                 {i.name}                </td>
+                <td>
+                 <a href={`http://localhost:4000/uploads/${i.Image}`}> <img className='w-14 m-auto' src={`http://localhost:4000/uploads/${i.Image}`} alt="" /></a>
+                </td>
                 <td >
+                   <Link to={`/admin/editcategory/${i._id}`}>
                     <button   className='text-green-500  rounded w-14 h-6 text-center'>Edit</button>
+                    </Link>
                 </td>
                 <td>
                     <button onClick={()=>handledelete(i._id)} className='text-red-600  rounded w-14 h-6 text-center'>Delete</button>

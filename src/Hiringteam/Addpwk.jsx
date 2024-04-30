@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import  { toast } from 'react-toastify';
 
 export const Addpwk = () => {
 
@@ -31,47 +32,50 @@ let handleChange=(event)=>{
     formData.append('Producer', data.Producer);
     formData.append('Productionhouse', data.Productionhouse);
     formData.append('userId', id);
-
     setData(data)
     console.log(data);
     console.log(formData);
+    toast.success('Previous work added')
 
-    // navigate('/user/uvpw')
+    // navigate('/hiring/viewhpwk')
     let response=await axios.post(`http://localhost:4000/hiringteam/addpwk`,formData,{
        userId:id,
         headers: {
             'Content-Type': 'multipart/form-data'  // Set the content type for FormData
           }
     })
+    setData('')
        console.log(response.data);
   }
 
   const today = new Date().toISOString().split('T')[0];
 
   return (
+  <>
+    
     <div className='upw'>
         <p className='text-center font-bold pt-32 text-[25px] text-white'>PREVIOUS WORK</p>
        <form onSubmit={handleSubmit}> 
        <div className='flex flex-wrap '>
-        <div className='text-white flex flex-wrap flex-col'>
+        <div className='text-white flex flex-wrap flex-col '>
             <div className='pt-8 '>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 '>
                     <p >Film:</p>
-                    <input onChange={handleChange} name='Filmname' type="text" className='bg-transparent border-white border-solid border-2 rounded' />
+                    <input onChange={handleChange} value={data.Filmname ? data.Filmname: ''} name='Filmname' type="text" className='bg-transparent border-white border-solid border-2 rounded' />
                 </div>
                 <div className='flex flex-wrap justify-between w-[470px]  ms-20 py-3'>
                     <p >Genre:</p>
-                    <input onChange={handleChange} name='Genre' type="text" className='bg-transparent border-white border-solid border-2 rounded' />
+                    <input onChange={handleChange} value={data.Genre ? data.Genre: ''} name='Genre' type="text" className='bg-transparent border-white border-solid border-2 rounded' />
                 </div>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 py-'>
                     <p >Director:</p>
-                    <input onChange={handleChange} name='Director' type="text" className='bg-transparent border-white border-solid border-2 rounded' />
+                    <input onChange={handleChange} value={data.Director ? data.Director: ''} name='Director' type="text" className='bg-transparent border-white border-solid border-2 rounded' />
                 </div>
             </div>
             <div>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Description:</p>
-                    <textarea onChange={handleChange} name="Description" id="" cols="30" rows="10" className='h-36 w-[195px] bg-transparent border-white border-solid border-2 rounded'></textarea>
+                    <textarea onChange={handleChange} value={data.Description ? data.Description: ''} name="Description" id="" cols="30" rows="10" className='h-36 w-[195px] bg-transparent border-white border-solid border-2 rounded'></textarea>
                 </div>
             </div>
         
@@ -80,35 +84,36 @@ let handleChange=(event)=>{
     <div className='pt-2'>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3 '>      
             <label class="block h-10 mb-2  text-gray-900 dark:text-white" for="file_input">Work photo:</label>
-            <input onChange={handlefile} name='Image' class="block w-[40%] text-sm text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
+            <input onChange={handlefile}  name='Image' class="block w-[40%] text-sm text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
                 </div>
       </div>
       <div className='flex flex-wrap justify-between w-[470px] ms-20 py-'>
                     <p >Producer:</p>
-                    <input onChange={handleChange} name='Producer' type="text" className='bg-transparent border-white border-solid border-2 rounded' />
+                    <input onChange={handleChange} value={data.Producer ? data.Producer : ''} name='Producer' type="text" className='bg-transparent border-white border-solid border-2 rounded' />
                 </div>
 
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
             <p >Productionhouse:</p>
-                    <input onChange={handleChange} name='Productionhouse' type="text" className='bg-transparent border-white border-solid border-2 rounded' />
+                    <input onChange={handleChange} value={data.Productionhouse ? data.Productionhouse: ''} name='Productionhouse' type="text" className='bg-transparent border-white border-solid border-2 rounded' />
                 </div>
 
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 text-white'>
                     <p>From date:</p>
-                    <input onChange={handleChange} max={today} name='Fromdate' type="date" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange}  max={today} name='Fromdate' type="date" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
        
         <div>
         <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3 text-white'>
                     <p>To date:</p>
-                    <input onChange={handleChange} max={today} name='Todate' type="date" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} max={today}  name='Todate' type="date" className='bg-transparent border-white border-solid border-2 rounded'/>
                     </div>
         </div>
         <button type='submit' className='py-5 text-yellow-200'>Submit</button></div>
-    </div></form>
     </div>
-
+    </form>
+    </div>
+    </>
   )
 }

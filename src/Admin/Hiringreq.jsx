@@ -116,11 +116,13 @@ export const Hiringreq = () => {
                                 <td className="px-6 py-4">
                                     {item.Email}
                                 </td>
-                                <td>{item.Phone}</td>
+                                <td className="px-6 py-4">{item.Phone}</td>
                                 <td className='w-8 pt-1 pb-1'>{item.Address}</td>
-                                <td>{item.liscenceNo}</td>
-                                <td><a href={`http://localhost:4000/uploads/${item.Liscence}`} download>img</a></td>
-                                <td>{item.Status}</td>
+                                <td className="px-6 py-4">{item.liscenceNo}</td>
+                                <td><a href={`http://localhost:4000/uploads/${item.Liscence}`} download>
+                                    <img src={`http://localhost:4000/uploads/${item.Liscence}`}className='w-10 m-auto' alt="" />
+                                    </a></td>
+                                <td className="px-6 py-4">{item.Status}</td>
                                 {item.Status !== 'Accepted' && (
                                     <>
                                         <td className="px-6 py-4 text-right">

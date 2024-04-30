@@ -50,6 +50,7 @@ let handleChange=(event)=>{
         'content-Type':'multiport/form-data'
       }
     })
+    
     console.log(response);
     setData('')
      

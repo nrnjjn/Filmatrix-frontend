@@ -40,9 +40,7 @@ export const Lvpay = () => {
         <table class="w-full text-sm text-center rtl:text-right  text-white dark:text-white">
             <thead class="text-xs text-white uppercase  dark:bg-gray-950/50 dark:text-white">
                 <tr >
-                    <th scope="col" class="px-6 py-3">
-                        SLNO
-                    </th>
+                    
                     <th scope="col" class="px-6 py-3">
                         FILM NAME
                     </th>
@@ -60,30 +58,25 @@ export const Lvpay = () => {
                 </tr>
             </thead>
             <tbody>
-                {data.map((item,index)=>(
                 <tr class=" dark:border-gray-700 text-white hover:bg-slate-800/50">
-                    <td scope="row" class="px-6 py-4">
-                        {index+1}
+                    
+                    <td class="px-6 py-3">
+                        {data?.anc?.Filmname}
                     </td>
                     <td >
-                        {item?.anc?.Filmname}
-                    </td>
-                    <td >
-                        {item?.hiring?.companyName}
+                        {data?.hiring?.companyName}
                     </td>
                     <td>
-                        {item?.req?.Amount}
+                        {data?.response?.Total}
                     </td>
                     {/* <td >
                     { new Date(item.req?.Date).toLocaleDateString()}
                     </td> */}
                     <td>
-                        {item?.booking?.paymentStatus}
+                        {data?.response?.paymentStatus}
                     </td>
                     
                 </tr>
-    
-))}
     
                 
                 

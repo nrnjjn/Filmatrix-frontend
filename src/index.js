@@ -89,6 +89,7 @@ import { Addpwk } from './Hiringteam/Addpwk.jsx';
 import { Viewhpwk } from './Hiringteam/Viewhpwk.jsx';
 import { Viewhpwkd } from './Hiringteam/Viewhpwkd.jsx';
 import { Edithpwk } from './Hiringteam/Edithpwk.jsx';
+import { Editcategory } from './Admin/Editcategory.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -117,6 +118,7 @@ root.render(
       <Route path='addlocreq' element={<Addlocationnreq/>}/>
       <Route path='locd/:id' element={<Locationdetail/>}/>
       <Route path='category' element={<Admincategory/>}/>
+      <Route path='editcategory/:id' element={<Editcategory/>}/>
       
 
     </Route>
@@ -186,7 +188,7 @@ root.render(
       <Route path='editloc/:userId' element={<Editloc/>}/>
       <Route path='lbkreq' element={<Lbookingreq/>}/>
       <Route path='lvfd' element={<Lvfd/>}/>
-      <Route path='lvpay' element={<Lvpay/>}/>
+      <Route path='lvpay/:id' element={<Lvpay/>}/>
       </Route>
   </Routes>
 

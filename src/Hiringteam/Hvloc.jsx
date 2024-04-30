@@ -34,7 +34,7 @@ export const Hvloc = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
-      <div className='flex flex-wrap justify-evenly pt-4'>
+      <div className='flex flex-wrap justify-evenly pt-4 gap-5'>
         {filteredData.map(item => (
           <Link key={item._id} to={`/hiring/hlocdetail/${item._id}`}>
             <div className='w-60 h-52 bg-slate-950/50 rounded'>

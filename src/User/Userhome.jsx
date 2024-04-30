@@ -29,7 +29,7 @@ return(
   <>
 
   <Link to={`/user/viewjobs/category/${item?._id}`}><div className='w-60 h-60 bg-slate-950/80 rounded'>
-            <img src={ img } alt="" className='w-52 h-44 m-auto pt-3'/>
+            <img src={ `http://localhost:4000/uploads/${item.Image}` } alt="" className='w-52 h-44 m-auto pt-3'/>
             <p className='text-white text-center pt-3 text-[20px]'>{item.name}</p>
         </div></Link>
   </>

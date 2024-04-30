@@ -38,7 +38,7 @@ export const Hviewanc = () => {
                     className='p-2 border border-gray-300 bg-transparent text-white rounded-md focus:outline-none focus:border-blue-500'
                 />
             </div>
-            <div className='flex flex-wrap justify-evenly pt-5'>
+            <div className='flex flex-wrap justify-evenly pt-5 gap-5'>
                 {filteredData.map((item) => (
                     <Link to={`/hiring/hvancd/${item._id}`} key={item._id}>
                         <div className='w-60 h-60 bg-slate-950/50 rounded'>

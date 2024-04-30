@@ -27,11 +27,10 @@ export const Hfclocstatus = () => {
         (statusFilter ? item.req?.Status === statusFilter : true)
     );
 
-    const handleSubmit = async (loc, film, fcreq) => {
+    const handleSubmit = async (loc, film, fcreq,total) => {
         navigate('/hiring/hlcbookst');
         try {
             // Extract total from fcreq
-            const total = fcreq.total;
 
             // Send POST request with the total value included in fcreq
             await axios.post('http://localhost:4000/hiringteam/locationbooking', {
@@ -39,7 +38,8 @@ export const Hfclocstatus = () => {
                 hiringId: id,
                 locationId: loc,
                 ancId: film,
-                Fcreq: { ...fcreq, total }, // Include total in Fcreq
+                Fcreq: fcreq, // Include total in Fcreq
+                Total:total
             });
         } catch (error) {
             console.error('Error submitting:', error);
@@ -54,7 +54,7 @@ export const Hfclocstatus = () => {
                 <select
                         value={statusFilter}
                         onChange={(e) => setStatusFilter(e.target.value)}
-                        className='border w-24 border-gray-300 bg-white rounded-s px-4 h-10 focus:outline-none focus:ring-2 focus:ring-gray-400'
+                        className='border w-24 border-gray-300 bg-white/70 rounded-s px-4 h-10 focus:outline-none focus:ring-2 focus:ring-gray-400'
                     >
                         <option value=''>All</option>
                         <option value='Accepted'>Accepted</option>
@@ -85,7 +85,7 @@ export const Hfclocstatus = () => {
                                 <td className="px-6 py-4">{index + 1}</td>
                                 <td>{item.film?.Filmname}</td>
                                 <td>{item.loc?.locationName}</td>
-                                <td>{item.req?.Status}</td>
+                                <td>{item.req?.total}</td>
                                 <td>
                                     {item.req?.Status === 'Accepted' && (
                                         <button onClick={() => handleSubmit(item.loc?._id, item.film?._id, item.req, item?.req?.total )} className='text-yellow-200 rounded w-14 h-6 text-center'>Book</button>
