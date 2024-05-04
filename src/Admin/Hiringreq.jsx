@@ -78,7 +78,7 @@ export const Hiringreq = () => {
                 </div>
             </form>
 
-            <div className="pt-10 overflow-x-auto shadow-md sm:rounded-lg">
+            <div className="pt-3 overflow-x-auto shadow-md sm:rounded-lg">
                 <table className="w-full text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-white uppercase dark:bg-gray-950/90 dark:text-gray-400">
                         <tr>
@@ -94,7 +94,7 @@ export const Hiringreq = () => {
                             <th>
                                 PHONE NO
                             </th>
-                            <th scope="col" className="px-6 py-3">
+                            <th scope="col" className="w-8 pt-1 pb-1">
                                 ADDRESS
                             </th>
                             <th>LISCENCE NO</th>

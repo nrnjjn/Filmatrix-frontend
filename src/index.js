@@ -90,6 +90,9 @@ import { Viewhpwk } from './Hiringteam/Viewhpwk.jsx';
 import { Viewhpwkd } from './Hiringteam/Viewhpwkd.jsx';
 import { Edithpwk } from './Hiringteam/Edithpwk.jsx';
 import { Editcategory } from './Admin/Editcategory.jsx';
+import Announcement from './Admin/Announcement.jsx';
+import Announcementd from './Admin/Announcementd.jsx';
+import Emailotp from './Emailotp.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -103,6 +106,7 @@ root.render(
       <Route path='hrreg' element={<Hiringreg/>}/>
       <Route path='loreg' element={<Locationregister/>}/>
       <Route path='skreg' element={<Seekerreg/>}/>
+      <Route path='emailotp' element={<Emailotp/>}/>
     </Route>
    </Routes>
   
@@ -119,6 +123,8 @@ root.render(
       <Route path='locd/:id' element={<Locationdetail/>}/>
       <Route path='category' element={<Admincategory/>}/>
       <Route path='editcategory/:id' element={<Editcategory/>}/>
+      <Route path='announcement' element={<Announcement/>}/>
+      <Route path='announcementd/:id' element={<Announcementd/>}/>
       
 
     </Route>

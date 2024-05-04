@@ -80,7 +80,8 @@ const Adminnav = () => {
             <div>
                 <span onClick={otherdropdown}>Other</span>
                 {odrop &&
-                         <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1'>
+                         <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 me-2 pe-1 pb-1'>
+                         <Link to='/admin/announcement' className=''><li>Announcement</li></Link>
                          <Link to='/admin/aprvdsk' className=''><li>Crew</li></Link>
                          <Link to='/admin/addlocreq' className=''><li>Location request</li></Link>
                          <li onClick={logout}>Logout</li>
