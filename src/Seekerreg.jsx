@@ -10,6 +10,7 @@ export const Seekerreg = () => {
   
   let handleChange=(event)=>{
     setData({...data,[event.target.name]:event.target.value})
+    console.log(data);
   }
 
   let handlefile=(event)=>{
@@ -20,7 +21,7 @@ export const Seekerreg = () => {
   
   let handleSubmit=async (event)=>{
     event.preventDefault()
-    const requiredFields = ['companyName','Email','Phone','Address','Liscence','liscenceNo','Password','confirmPassword'];
+    const requiredFields = ['Email','Phone','Address','Password','confirmPassword'];
 
        for (const field of requiredFields) {
         if (!data[field]) {
@@ -84,7 +85,7 @@ export const Seekerreg = () => {
             <div>
                 <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3'>
                     <p>Phone</p>
-                    <input onChange={handleChange} required pattern="[0-9]{10}" title="Please enter a valid phone number"  maxLength={10} name='Phone' type="number" className='bg-transparent border-white border-solid border-2 rounded'/>
+                    <input onChange={handleChange} required pattern="[0-9]{10}" title="Please enter a valid phone number"  maxLength={10} name='Phone' type="tel" className='bg-transparent border-white border-solid border-2 rounded'/>
                 </div>
              </div>
             <div>
@@ -108,6 +109,7 @@ export const Seekerreg = () => {
               Gender:
             </span>
             <select onChange={handleChange} className=' h-9 w-[40%] bg-black border-white border-solid border-2 rounded ' name='Gender'>
+              <option value=''>select</option>
               <option value='male'>Male</option>
               <option value='female'>Female</option>
               <option value='others'>Other</option>

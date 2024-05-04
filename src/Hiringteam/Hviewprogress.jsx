@@ -1,91 +1,92 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Hviewprogress = () => {
+    let id = localStorage.getItem('id');
+    const [data, setData] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [filmNames, setFilmNames] = useState([]);
 
-    let id=localStorage.getItem('id')
-    const [data,setdata]=useState([''])
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:4000/hiringteam/viewfilmprogress/${id}`);
+                setData(response.data);
 
-    useEffect(()=>{
-        let fetchdata=async ()=>{
-          let response=await axios.get(`http://localhost:4000/hiringteam/viewfilmprogress/${id}`)
-          console.log(response.data);
-            setdata(response.data)
-        }
-        fetchdata()
-      },[])
+                // Extract unique film names from the data
+                const uniqueFilmNames = [...new Set(response.data.map(item => item.film?.Filmname))];
+                setFilmNames(uniqueFilmNames);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
+    }, [id]);
 
-  return (
-    <div className='hviewjob text-white'>
-        <div className='text-white pt-36 text-center mb-3 text-[30px]'>PROGRESS</div>
-    
-    {/* <form class="max-w-72 mx-auto h-5">
-        <div class="flex">
-         
-            <div class="relative w-full">
-                <input type="search" id="search-dropdown" class="rounded-s-md block p-2.5 w-full z-20 text-sm text-white bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-950/50 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:border-blue-500" placeholder="Search Here..." required />
-                <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-gray-950/50 rounded-e-lg border border-blue-700 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-gray-950/50 dark:hover:bg-gray-700 dark:focus:ring-blue-800/50">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                    </svg>
-                    <span class="sr-only">Search</span>
-                </button>
+    const filteredData = data.filter(item => {
+        const searchString = searchQuery.toLowerCase();
+        const filmName = (item.film && item.film.Filmname) ? item.film.Filmname.toLowerCase() : '';
+        const progress = (item.req && item.req.Progress) ? item.req.Progress.toLowerCase() : '';
+        return filmName.includes(searchString) || progress.includes(searchString);
+    });
+
+    return (
+        <div className='hviewjob text-white'>
+            <div className='text-white pt-36 text-center mb-3 text-[30px]'>PROGRESS</div>
+
+            <div className="max-w-lg mt-4 mx-auto pb-10 flex">
+            <select
+                    id="filmname-dropdown"
+                    className="block p-2.5 w-32 ml-16  z-20 text-sm text-white bg-slate-950/50 rounded-s-lg border-s-2 border border-gray-700 focus:ring-gray-700 focus:border-gray-700 dark:bg-gray-950/50 dark:border-s-orange-500 dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-700 placeholder:text-white"
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    required
+                >
+                    <option value="">Film Name</option>
+                    {filmNames.map((filmName, index) => (
+                        <option key={index} value={filmName}>{filmName}</option>
+                    ))}
+                </select>
+                <input
+                    type="search"
+                    id="search-bar"
+                    className="block p-2.5 w-1/2 z-20 text-sm text-white bg-slate-950/50 rounded-e-lg border-s-2 border border-gray-700 focus:ring-gray-700 focus:border-gray-700 dark:bg-gray-950/50 dark:border-s-orange-500 dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-700 placeholder:text-white placeholder:text-center"
+                    placeholder="Search "
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    required
+                />
+              
+            </div>
+
+            <div className="pt-2 overflow-x-auto shadow-md sm:rounded-lg">
+                <table className="w-full text-sm text-center rtl:text-right">
+                    <thead className="text-xs uppercase dark:bg-gray-950/90">
+                        <tr>
+                            <th scope="col" className="px-6 py-3">SLNO</th>
+                            <th scope="col" className="px-6 py-3">FILM NAME</th>
+                            <th scope="col" className="px-6 py-3">PROGRESS</th>
+                            <th scope="col" className="px-6 py-3"></th>
+                            <th scope="col" className="px-6 py-3">DATE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {filteredData.map((item, index) => (
+                            <tr className="dark:border-gray-700 bg-slate-950/40 hover:bg-slate-800/50" key={index}>
+                                <td scope="row" className="px-6 py-4">{index + 1}</td>
+                                <td>{item.film?.Filmname}</td>
+                                <td>{item.req?.Progress}</td>
+                                <td>
+                                    <Link to={`/hiring/haddp/${item.req?._id}`}>
+                                        <button className='text-yellow-200'>Add</button>
+                                    </Link>
+                                </td>
+                                <td>{new Date(item.req?.Date).toLocaleDateString()}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </div>
-    </form>
-     */}
-    <div class=" pt-10 overflow-x-auto shadow-md sm:rounded-lg  ">
-        <table class="w-full text-sm text-center rtl:text-right   ">
-            <thead class="text-xs  uppercase  dark:bg-gray-950/90 ">
-                <tr >
-                    <th scope="col" class="px-6 py-3">
-                        SLNO
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        FILM NAME
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        PROGRESS
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        DATE
-                    </th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                {data.map((item,index)=>(
-
-                
-                <tr class=" dark:border-gray-700 bg-slate-950/40  hover:bg-slate-800/50">
-                    <td scope="row" class="px-6 py-4">
-                        {index+1}
-                    </td>
-                    <td >
-                        {item.film?.Filmname}
-                    </td>
-                    <td >
-                        {item.req?.Progress}
-                    </td>
-                    <td>
-                       <Link to={`/hiring/haddp/${item.req?._id}`}> <button className='text-yellow-200'>Add</button></Link>
-                    </td>
-                    <td >
-                    { new Date(item.req?.Date).toLocaleDateString()}                     </td>
-                    
-                </tr>
-    ))}
-    
-    
-               
-                
-            </tbody>
-        </table>
-    </div>
-    </div>
-  )
-}
+    );
+};

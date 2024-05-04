@@ -93,6 +93,7 @@ import { Editcategory } from './Admin/Editcategory.jsx';
 import Announcement from './Admin/Announcement.jsx';
 import Announcementd from './Admin/Announcementd.jsx';
 import Emailotp from './Emailotp.jsx';
+import Changepwd from './Changepwd.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -107,6 +108,7 @@ root.render(
       <Route path='loreg' element={<Locationregister/>}/>
       <Route path='skreg' element={<Seekerreg/>}/>
       <Route path='emailotp' element={<Emailotp/>}/>
+      <Route path='changepwd/:Email' element={<Changepwd/>}/>
     </Route>
    </Routes>
   

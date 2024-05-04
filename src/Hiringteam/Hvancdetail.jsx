@@ -5,6 +5,7 @@ import axios from 'axios';
 export const Hvancdetail = () => {
   const [data, setData] = useState(null);
   const [hasRequest, setHasRequest] = useState(false);
+  const [hdata, setHdata] = useState('');
   const { id } = useParams();
   const id1 = localStorage.getItem('id');
 
@@ -25,6 +26,15 @@ export const Hvancdetail = () => {
           const hasMatchingRequest = requestResponse.data.some(item => item.req.ancId === id);
           setHasRequest(hasMatchingRequest);
         }
+
+        const hresponse = await axios.get('http://localhost:4000/hiringteam/hiringreqq');
+        console.log(hresponse.data);
+        if(hresponse.data){
+          setHdata(hresponse.data);
+        }
+
+
+
       } catch (error) {
         console.error('Error fetching data:', error);
       }

@@ -8,7 +8,7 @@ const Emailotp = () => {
     const [otp, setOtp] = useState('');
     const [message, setMessage] = useState('');
     const[verifyotp,setVerifyotp]=useState('')
-  
+  let navigate=useNavigate()
     const sendOTP = async () => {
       try {
         const response = await axios.post('http://localhost:4000/admin/sendOTP', { Email });
@@ -24,7 +24,8 @@ const Emailotp = () => {
       try {
         console.log(verifyotp,otp);
         if(verifyotp==otp){
-          alert('success')
+          // alert('success')
+          navigate(`/changepwd/${Email}`)
         }
       } catch (error) {
         setMessage('Error verifying OTP. Please try again.');
