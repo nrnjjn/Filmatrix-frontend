@@ -20,14 +20,14 @@ const Navlanding = () => {
     <div>
     <div className='flex flex-wrap fixed w-[100%] justify-between bg-black text-white p-3 text-[25px]'>
         <div className='fonts flex-1 ps-3'>
-            Filmatrix
+           <button> Filmatrix</button>
         </div>
         <div className='flex flex-wrap  text-[20px] flex-1 justify-evenly'>
             <Link to='/'><div>
                 Home
             </div></Link>
             <div  className=' text-white'>
-               <span onClick={dropdown}> Register</span>
+               <button onClick={dropdown}> Register</button>
 {drop &&
 
         <div className='list-none absolute mt-3 p-1 bg-black text-white'>

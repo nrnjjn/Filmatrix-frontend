@@ -9,7 +9,7 @@ let {id}=useParams()
 console.log(id);
 
 let handledelete=async (id)=>{
-  let response=await axios.delete(`http://localhost:4000/seekers/deletepreviouswork/${id}`)
+  let response=await axios.delete(`http://localhost:4000/hiringteam/deletepreviouswork/${id}`)
   console.log(response)
 }
 

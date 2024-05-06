@@ -70,9 +70,9 @@ export const Locreq = () => {
                             items.map((item, idx) => (
                                 <tr key={`${index}-${idx}`} className="dark:border-gray-700 text-white hover:bg-slate-800/50">
                                     <td className="px-1 py-4">{idx + 1}</td>
-                                    <td>{item.anc?.Filmname}</td>
-                                    <td>{item.hiring?.companyName}</td>
-                                    <td>{item.loc?.locationName}</td>
+                                    <td className="px-1 py-4">{item.anc?.Filmname}</td>
+                                    <td className="px-1 py-4">{item.hiring?.companyName}</td>
+                                    <td className="px-1 py-4">{item.loc?.locationName}</td>
                                     <td>
                                         <Link to={`/filmcompany/locreqdetail/${item.req?._id}`}>
                                             <button className='text-yellow-200 rounded w-14 h-6 text-center'>More</button>

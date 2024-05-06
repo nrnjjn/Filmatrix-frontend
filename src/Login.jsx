@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 export const Login = () => {
 
@@ -57,7 +58,7 @@ export const Login = () => {
       }
     }
     else{
-      alert('invalid')
+      toast.error('Incorrect username or password')
     }
   }
 

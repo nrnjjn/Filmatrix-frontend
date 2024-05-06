@@ -49,19 +49,26 @@ useEffect(()=>{
 console.log(data3);
 
   return (
-    <div className='hvloc pt-40'>
-         <div className='bg-slate-950/50 w-[800px] h-[100%] m-auto flex gap-2 '>
-            <img src={ `http://localhost:4000/uploads/${data.Image}`  } alt="" className='w-80 h-80  ps-3 pt-3 '/>
+    <div className='fcvloc pt-32'>
+      <div className='bg-slate-950/50 w-[60%] h-[470px] m-auto  gap-2 '>
+        <div className='flex'>
+            <img src={ `http://localhost:4000/uploads/${data?.Image}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
+            <img src={ `http://localhost:4000/uploads/${data?.Image2}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
+            </div>
+            <div className='flex gap-5 pb-3'>  
+            <img src={ `http://localhost:4000/uploads/${data?.Image3}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
+
             <div className='flex flex-wrap flex-col'>
-            <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
-            <p className='font-bold'>Place:</p>
+            <div className='flex flex-wrap text-white gap-12 pt-2 text-center'>
+           <p className='font-bold'>Place:</p>
             <p>{data.locationName}</p>
             </div>
-            <div className='flex flex-wrap text-white gap-10 pt-3 text-center'>
-            <p className='font-bold'>Details:</p>
+            <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
+           <p className='font-bold'>Details:</p>
             <p className='text-left'> {data.Description}</p>
             </div>
-            <form onSubmit={handleSubmit}>
+                               
+             <form onSubmit={handleSubmit}>
             
               <div className='flex flex-wrap text-white pt-3 text-center gap-16'>
               <p className='font-bold'>Date:</p>
@@ -94,8 +101,12 @@ console.log(data3);
               
             </div>
             </form>
+                                 <div>
+                      </div>
+        
+            
             </div>
-        </div>  
+        </div>  </div> 
     </div>
   )
 }

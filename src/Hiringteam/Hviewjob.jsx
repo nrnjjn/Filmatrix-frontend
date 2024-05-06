@@ -46,6 +46,7 @@ export const Hviewjob = () => {
         try {
             await axios.delete(`http://localhost:4000/hiringteam/deletejob/${id}`);
             setData(prevData => prevData.filter(item => item.req._id !== id));
+            window.location.reload();
         } catch (error) {
             console.error('Error deleting job:', error);
         }

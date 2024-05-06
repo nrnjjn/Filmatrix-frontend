@@ -19,21 +19,35 @@ console.log(id);
   },[])
   
   return (
-    <div className='fcvloc pt-40'>
-        <div className='bg-slate-950/50 w-[800px] h-[370px] m-auto flex gap-2 rounded'>
+    <div className='fcvloc pt-32'>
+    <div className='bg-slate-950/50 w-[60%] h-[470px] m-auto  gap-2 '>
+      <div className='flex'>
+          <img src={ `http://localhost:4000/uploads/${data?.Image}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
+          <img src={ `http://localhost:4000/uploads/${data?.Image2}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
+          </div>
+          <div className='flex gap-5 pb-3'>  
+          <img src={ `http://localhost:4000/uploads/${data?.Image3}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
 
-            <img src={ `http://localhost:4000/uploads/${data.Image}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
-            <div className='flex flex-wrap flex-col'>
-            <div className='flex flex-wrap text-white gap-10 pt-3 text-center'>
-            <p className='font-bold'>Place:</p>
-            <p>{data.locationName}</p>
-            </div>
-            <div className='flex flex-wrap text-white gap-10 pt-3 text-center'>
-            <p className='font-bold'>Details:</p>
-            <p className='text-left'>{data.Description}</p>
-            </div>
-            </div>
-        </div>
-    </div>
+          <div className='flex flex-wrap flex-col'>
+          <div className='flex flex-wrap text-white gap-12 pt-2 text-center'>
+          <p className='font-bold'>Place:</p>
+          <p>{data?.locationName}</p>
+          </div>
+          <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
+          <p className='font-bold'>Details:</p>
+          <p className='text-left'>{data?.Description}</p>
+          </div>
+         
+          
+         
+          
+        
+         
+         
+         
+          
+          </div>
+      </div>  </div> 
+  </div>
   )
 }

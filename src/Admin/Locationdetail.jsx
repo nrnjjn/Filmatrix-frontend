@@ -64,7 +64,7 @@ export const Locationdetail = () => {
                 <p>{data.response?.Priceperday}</p>
             </div>
            <div>
-           <a className='text-green-500' href={`http://localhost:4000/uploads/${data.response?.Certificate}`} download >Certificate</a>
+           <a  href={`http://localhost:4000/uploads/${data.response?.Certificate}`} download >Certificate</a>
            </div>
             <div className='flex flex-wrap text-white pt-2 text-center gap-8 justify-center'>
             <button onClick={()=>{handlesubmit('Accepted',data._id)}} className='   text-green-500'>Accept</button>

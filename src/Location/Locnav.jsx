@@ -90,7 +90,7 @@ export const Locnav = () => {
             
 
             <div className=' hover:bg-slate-700 hover:p-1 active:rounded-lg hover:rounded-lg active:bg-slate-700 focus:outline-none focus:ring focus:ring-violet-300 ...'>
-               <span onClick={locdropdown}> Location</span>
+               <button onClick={locdropdown}> Location</button>
 {locdrop &&
         <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 w-40 -ml-10'>
             <Link to='/location/addloc' className=''><li>Add location</li></Link>
@@ -102,7 +102,7 @@ export const Locnav = () => {
 
             
             <div className=' hover:bg-slate-700 hover:p-1 active:rounded-lg hover:rounded-lg active:bg-slate-700 focus:outline-none focus:ring focus:ring-violet-300 ...'>
-               <span onClick={otherdropdown}> Other</span>
+               <button onClick={otherdropdown}> Other</button>
 {odrop &&
         <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 pe-1 pb-1 w-40 -ml-10'>
             <Link to='/location/lbkreq' ><li>Booking req</li></Link>
@@ -113,7 +113,8 @@ export const Locnav = () => {
             </div>
         </div>
     </div>
-    <div onClick={close}>
+    <div> <button onClick={close}> 
+    Logout</button> 
 
     <Outlet/>
     </div>

@@ -46,6 +46,12 @@ export const Hiringreqdetail = () => {
                         <p>{data.response?.Description}</p>
                     </div>
 
+                    <div className='flex flex-wrap text-white pt-3 text-center gap-16'>
+                    <Link to={`/filmcompany/viewpwk/${data.hiring?._id}`}> <button className='text-yellow-200  rounded w-14 h-6 text-center'> Previous work</button>
+                  </Link>
+                    </div>
+
+
                     {data.response?.Status !== 'Accepted' && (
                         <div className='flex flex-wrap text-white pt-2 text-center gap-8 justify-center'>
                             <button onClick={() => { handlesubmit('Accepted', data._id) }} className='text-green-500'>Accept</button>

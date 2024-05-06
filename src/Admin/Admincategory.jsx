@@ -42,7 +42,7 @@ export const Admincategory = () => {
   let handledelete= async (id)=>{
     let response=await axios.delete(`http://localhost:4000/admin/viewcategory/${id}`)
        console.log(response);
-       toast.success('Category deleted')
+       toast.error('Category deleted')
        setRefresh(!refresh)
   }
 
@@ -58,14 +58,14 @@ useEffect(()=>{
   return (
     <div className='addanc'>
          <div className='text-center pt-36 font-bold text-3xl text-white/70'>
-          category
+          Category
          </div>
          <form onSubmit={handleSubmit} className='pt-3'>
          <div className='m-auto w-fit '>
      
           <div className='flex flex-row flex-wrap justify-center'>
    
-            <input value={data.category ? data.category: ''} type='text' onChange={handleChange}  name="category" placeholder='Category' className='bg-transparent text-white placeholder:text-white/70 border-2 rounded placeholder:text-center w-56 h-8'></input>
+            <input value={data.category ? data.category: ''} type='text' onChange={handleChange}  name="category" placeholder='Job category' required className='bg-transparent text-white placeholder:text-white/70 border-2 rounded placeholder:text-center w-56 h-8'></input>
           </div>
           <div className='flex flex-wrap justify-between w-[300px] text-center mt-4 py-3 '>      
             <label class="block h-10 mb-2  text-gray-900 dark:text-white" for="file_input">Work photo:</label>

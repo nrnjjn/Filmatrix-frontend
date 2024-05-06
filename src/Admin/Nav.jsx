@@ -20,7 +20,7 @@ const Adminnav = () => {
     let logout=()=>{
         localStorage.removeItem('id')
         localStorage.removeItem('email')
-        navigate('/login')
+        navigate('/')
     }
         useEffect(()=>{
             let id=localStorage.getItem('id')
@@ -78,13 +78,13 @@ const Adminnav = () => {
                 </Link>
             
             <div>
-                <span onClick={otherdropdown}>Other</span>
+                <button onClick={otherdropdown}>Other</button>
                 {odrop &&
                          <div className='list-none absolute mt-3  bg-black text-white text-[16px] pt-2 ps-1 me-2 pe-1 pb-1'>
                          <Link to='/admin/announcement' className=''><li>Announcement</li></Link>
                          <Link to='/admin/aprvdsk' className=''><li>Crew</li></Link>
                          <Link to='/admin/addlocreq' className=''><li>Location request</li></Link>
-                         <li onClick={logout}>Logout</li>
+                         <button onClick={logout}>Logout</button>
                          </div>
                 }
             </div>

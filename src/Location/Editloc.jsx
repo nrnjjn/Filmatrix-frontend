@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
+import  { toast } from 'react-toastify';
 
 export const Editloc = () => {
   let id=localStorage.getItem('id')
@@ -48,7 +49,7 @@ let handleChange=(event)=>{
     })
     console.log(response);
     setData('')
-    navigate('/location/lviewlc')
+    toast.success('Location updated')
     
   }
 

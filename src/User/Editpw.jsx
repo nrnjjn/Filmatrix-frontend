@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
+import  { toast } from 'react-toastify';
+
 export const Editpw = () => {
 
 let id=localStorage.getItem('id')
@@ -48,6 +50,8 @@ let handleChange=(event)=>{
       }
     })
     console.log(response);
+    toast.success('Previous work updated')
+
     setData('')
     // navigate('/location/lviewlc')
     

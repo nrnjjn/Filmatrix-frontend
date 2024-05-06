@@ -39,7 +39,7 @@ export const Fcviewloc = () => {
                     placeholder='Search Location Name'
                 />
             </div>
-            <div className='flex flex-wrap justify-evenly pt-8'>
+            <div className='flex flex-wrap justify-evenly pt-8 gap-5'>
                 {filteredData.map((item) => (
                     <Link key={item._id} to={`/filmcompany/locdt/${item._id}`}>
                         <div className='w-60 h-60 bg-slate-950/30 rounded'>

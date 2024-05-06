@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
+import  { toast } from 'react-toastify';
 
 export const Edithpwk = () => {
     let id=localStorage.getItem('id')
@@ -42,6 +43,7 @@ let handleChange=(event)=>{
         }
         console.log(data);
     console.log(formData);
+    toast.success('Previous work updated')
     let response= axios.put(`http://localhost:4000/hiringteam/editpreviouswork/${userId}`,formData,{
       headers:{
         'content-Type':'multiport/form-data'
@@ -56,7 +58,7 @@ let handleChange=(event)=>{
 
   return (
     <div className='upw'>
-    <p className='text-center font-bold pt-32 text-[25px] text-white'>PREVIOUS WORK</p>
+    <p className='text-center font-bold pt-32 text-[25px] text-white'>EDIT PREVIOUS WORK</p>
    <form onSubmit={handleSubmit}> 
    <div className='flex flex-wrap '>
     <div className='text-white flex flex-wrap flex-col'>

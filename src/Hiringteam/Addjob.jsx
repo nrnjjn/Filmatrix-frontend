@@ -67,7 +67,7 @@ export const Addjob = () => {
       <form className='pt-4' onSubmit={handleSubmit}>
         <div className='m-auto w-fit'>
           <div className='flex flex-row pb-3 flex-wrap'>
-            <input onChange={handleChange} name='Job' type="text" placeholder='Job' className='w-[237px] h-9 placeholder:text-center bg-transparent placeholder:text-white border-2 rounded text-white' />
+            <input onChange={handleChange} pattern="^[a-zA-Z ]*$" required name='Job' type="text" placeholder='Job' className='w-[237px] h-9 placeholder:text-center bg-transparent placeholder:text-white border-2 rounded text-white' />
           </div>
           <select onChange={handleChange} className='h-9 w-56 bg-white rounded-lg text-black pl-2 mt-2 mb-3' name="ancId">
             <option value="">Filmname</option>
@@ -78,7 +78,7 @@ export const Addjob = () => {
             ))}
           </select>
           <div className='flex flex-row pb-2 flex-wrap'>
-            <input onChange={handleChange} name='Vacancy' type="number" placeholder='Vacancy' className='w-[237px] h-9 placeholder:text-center bg-transparent placeholder:text-white border-2 rounded text-white' />
+            <input onChange={handleChange} name='Vacancy' required type="number" placeholder='Vacancy' className='w-[237px] h-9 placeholder:text-center bg-transparent placeholder:text-white border-2 rounded text-white' />
           </div>
           <select onChange={handleChange} className='h-9 w-56 bg-white  rounded-lg text-black pl-2 mt-3 mb-3' name="category">
             <option value="">Category</option>
@@ -89,7 +89,7 @@ export const Addjob = () => {
             ))}
           </select>
           <div className='flex flex-row flex-wrap'>
-            <textarea onChange={handleChange} name="Description" id="" cols="30" rows="10" placeholder='Description' className='placeholder:text-center placeholder:text-white border-2 rounded bg-transparent text-white'></textarea>
+            <textarea onChange={handleChange} required name="Description" id="" cols="30" rows="10" placeholder='Description' className='placeholder:text-center placeholder:text-white border-2 rounded bg-transparent text-white'></textarea>
           </div>
           <button type='submit' className='text-white bg-black rounded p-2 ml-20 mt-3'>Submit</button>
         </div>

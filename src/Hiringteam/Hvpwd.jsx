@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import img from '../Images/cameraman.jpg'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 

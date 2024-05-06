@@ -28,6 +28,10 @@ const Announcementd = () => {
             <p className='font-bold'>Film Name:</p>
             <p>{data.Filmname}</p>
             </div>
+            <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
+            <p className='font-bold'>Direct:</p>
+            <p>{data.Director}</p>
+            </div>
             <div className='flex flex-wrap text-white gap-10 pt-3 text-center'>
             <p className='font-bold'>Description:</p>
             <p className='text-left w-[60%]'>

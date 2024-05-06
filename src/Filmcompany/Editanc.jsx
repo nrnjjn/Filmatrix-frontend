@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import  { toast } from 'react-toastify';
 
 export const Editanc = () => {
 
@@ -43,7 +44,7 @@ let handleChange=(event)=>{
         console.log(data);
     console.log(formData);
 
-    navigate('/filmcompany/vanc')
+    toast.success('Announcement updated')
     
     let response= axios.put(`http://localhost:4000/filmcompany/editanc/${companyId}`,formData,{
       headers:{

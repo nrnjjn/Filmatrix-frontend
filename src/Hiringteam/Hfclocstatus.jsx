@@ -75,6 +75,7 @@ export const Hfclocstatus = () => {
                             <th scope="col" className="px-6 py-3">SLNO</th>
                             <th scope="col" className="px-6 py-3">FILM NAME</th>
                             <th scope="col" className="px-6 py-3">PLACE</th>
+                            <th scope="col" className="px-6 py-3">PRICE</th>
                             <th scope="col" className="px-6 py-3">STATUS</th>
                             <th></th>
                         </tr>
@@ -86,6 +87,7 @@ export const Hfclocstatus = () => {
                                 <td>{item.film?.Filmname}</td>
                                 <td>{item.loc?.locationName}</td>
                                 <td>{item.req?.total}</td>
+                                <td>{item.req?.Status}</td>
                                 <td>
                                     {item.req?.Status === 'Accepted' && (
                                         <button onClick={() => handleSubmit(item.loc?._id, item.film?._id, item.req, item?.req?.total )} className='text-yellow-200 rounded w-14 h-6 text-center'>Book</button>

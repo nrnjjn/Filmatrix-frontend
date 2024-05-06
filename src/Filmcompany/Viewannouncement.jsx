@@ -11,6 +11,8 @@ export const Viewannouncement = () => {
         let response = await axios.delete(`http://localhost:4000/filmcompany/deleteanc/${id}`);
         console.log(response);
         // After deletion, refetch the data
+        window.location.reload(); // Reload the page after submitting
+
         fetchData();
     };
 
