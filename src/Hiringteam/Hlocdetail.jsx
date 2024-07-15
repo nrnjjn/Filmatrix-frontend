@@ -31,7 +31,7 @@ let handleSubmit=async (event)=>{
   let response=await axios.post('http://localhost:4000/hiringteam/locreq',{...data1,hiringId:id2,locationId:id,total:data1.Noofdays * data.Priceperday})
        console.log(response);
   // navigate('/hiring/hfclocst')
-}
+} 
 
 const currentDate = new Date().toISOString().split('T')[0];
 

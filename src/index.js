@@ -129,8 +129,6 @@ root.render(
       <Route path='editcategory/:id' element={<Editcategory/>}/>
       <Route path='announcement' element={<Announcement/>}/>
       <Route path='announcementd/:id' element={<Announcementd/>}/>
-      
-
     </Route>
    </Routes>
  

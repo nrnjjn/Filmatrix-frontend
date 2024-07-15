@@ -12,11 +12,13 @@ let id=localStorage.getItem('id')
     setData({...data,[event.target.name]:event.target.value})
   }
 
+  
   let handlefile=(event)=>{
     console.log(event.target.files);
     setData({...data,[event.target.name]:event.target.files[0]})
     console.log(data);
   }
+
 
   let handleSubmit=async (event)=>{
     event.preventDefault()
@@ -35,6 +37,7 @@ let id=localStorage.getItem('id')
       }})
        console.log(response);
   }
+
 
   return (
     <div className='addanc flex flex-wrap flex-col'>
