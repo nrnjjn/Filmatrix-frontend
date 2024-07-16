@@ -23,8 +23,6 @@ export const Login = () => {
       if(response.data.userType=='seekers'){
 
           navigate('/user')
-        
-        
       }
       else if(response.data.userType=='filmcompany'){
         if(response.data.Status=='Accepted'){
