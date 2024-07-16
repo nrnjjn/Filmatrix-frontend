@@ -22,7 +22,7 @@ export const Locationregister = () => {
   let handleSubmit=async (event)=>{
     event.preventDefault()
 
-    const requiredFields = ['Name','Email','Phone','Address','Liscence','liscenceNo','Password','confirmPassword'];
+    const requiredFields = ['Name','Email','Phone','Address','Password','confirmPassword'];
 
     for (const field of requiredFields) {
      if (!data[field]) {
