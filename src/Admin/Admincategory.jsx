@@ -27,7 +27,7 @@ export const Admincategory = () => {
     setData(data)
     console.log(data);
     console.log(formData);
-    let response=await axios.post(`http://localhost:4000/admin/createcategory/`,formData,{
+    let response=await axios.post(`https://filmatrix.onrender.com/admin/createcategory/`,formData,{
       headers: {
         'Content-Type': 'multipart/form-data'  // Set the content type for FormData
       }
@@ -40,7 +40,7 @@ export const Admincategory = () => {
 
   
   let handledelete= async (id)=>{
-    let response=await axios.delete(`http://localhost:4000/admin/viewcategory/${id}`)
+    let response=await axios.delete(`https://filmatrix.onrender.com/admin/viewcategory/${id}`)
        console.log(response);
        toast.error('Category deleted')
        setRefresh(!refresh)
@@ -49,7 +49,7 @@ export const Admincategory = () => {
 
 useEffect(()=>{
   let fetchdata=async ()=>{
-    let response=await axios.get(`http://localhost:4000/admin/viewcategory/`)
+    let response=await axios.get(`https://filmatrix.onrender.com/admin/viewcategory/`)
     setView(response.data)
   }
   fetchdata()
@@ -110,7 +110,7 @@ useEffect(()=>{
                 <td class="px-6 py-4">
                 {i.name}                </td>
                 <td>
-                 <a href={`http://localhost:4000/uploads/${i.Image}`}> <img className='w-14 m-auto' src={`http://localhost:4000/uploads/${i.Image}`} alt="" /></a>
+                 <a href={`https://filmatrix.onrender.com/uploads/${i.Image}`}> <img className='w-14 m-auto' src={`https://filmatrix.onrender.com/uploads/${i.Image}`} alt="" /></a>
                 </td>
                 <td >
                    <Link to={`/admin/editcategory/${i._id}`}>

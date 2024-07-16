@@ -9,13 +9,13 @@ let {id}=useParams()
 console.log(id);
 
 let handledelete=async (id)=>{
-  let response=await axios.delete(`http://localhost:4000/hiringteam/deletepreviouswork/${id}`)
+  let response=await axios.delete(`https://filmatrix.onrender.com/hiringteam/deletepreviouswork/${id}`)
   console.log(response)
 }
 
   useEffect(()=>{
     let fetchdata=async ()=>{
-      let response=await axios.get(`http://localhost:4000/hiringteam/viewpreviousworkd/${id}`)
+      let response=await axios.get(`https://filmatrix.onrender.com/hiringteam/viewpreviousworkd/${id}`)
       console.log(response.data);
       if(response.data){
           setdata(response.data)
@@ -26,7 +26,7 @@ let handledelete=async (id)=>{
   return (
 <div className='pt-36 hpw'>
         <div className='bg-slate-950/50 w-[800px] h-[490px] m-auto flex gap-2 '>
-            <img src={`http://localhost:4000/uploads/${data.Image}`} alt="" className='w-80 h-80  ps-3 pt-3 '/>
+            <img src={`https://filmatrix.onrender.com/uploads/${data.Image}`} alt="" className='w-80 h-80  ps-3 pt-3 '/>
             <div className='flex flex-wrap flex-col'>
             <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
             <p className='font-bold'>Film:</p>

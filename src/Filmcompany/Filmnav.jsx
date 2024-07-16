@@ -41,7 +41,7 @@ const Filmnav = () => {
             let id=localStorage.getItem('id')
             let email=localStorage.getItem('email')
             let auth=async ()=>{
-              let response=await axios.post('http://localhost:4000/seekers/api/auth/authenticate',{_id:id,Email:email})
+              let response=await axios.post('https://filmatrix.onrender.com/seekers/api/auth/authenticate',{_id:id,Email:email})
               console.log(response);
               setData(response.data);
               if(response==null){

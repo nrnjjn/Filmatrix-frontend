@@ -37,7 +37,7 @@ export const Ujobdescription = () => {
       console.log(data);
       console.log(formData);
       // navigate('/filmcompany/vanc')
-      let response=await axios.post('http://localhost:4000/seekers/postjobreq',formData,{
+      let response=await axios.post('https://filmatrix.onrender.com/seekers/postjobreq',formData,{
         headers:{
             'Content-Type': 'multipart/form-data'
         }

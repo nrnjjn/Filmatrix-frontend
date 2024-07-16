@@ -10,7 +10,7 @@ export const Lviewlc = () => {
 
     const handleDelete = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:4000/locationowner/deletelocation/${id}`);
+            const response = await axios.delete(`https://filmatrix.onrender.com/locationowner/deletelocation/${id}`);
             console.log(response);
             // Refresh data after deletion
             fetchData();
@@ -21,7 +21,7 @@ export const Lviewlc = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/locationowner/viewloc/${id}`);
+            const response = await axios.get(`https://filmatrix.onrender.com/locationowner/viewloc/${id}`);
             setData(response.data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -95,7 +95,7 @@ export const Lviewlc = () => {
                                 <td>{item.Description}</td>
                                 <td>{item.Status}</td>
                                 <td className='flex flex-wrap justify-center'>
-                                    <img src={`http://localhost:4000/uploads/${item.Image}`} alt="" className='h-10 w-10'/>
+                                    <img src={`https://filmatrix.onrender.com/uploads/${item.Image}`} alt="" className='h-10 w-10'/>
                                 </td>
                                 <td>
                                     <Link to={`/location/editloc/${item._id}`}>

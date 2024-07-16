@@ -21,7 +21,7 @@ export const Hlocpay = () => {
       }
     
       let handleSubmit=async (event)=>{
-        let response=await axios.put(`http://localhost:4000/hiringteam/payment/${_id}`,{paymentStatus:'Paid'})
+        let response=await axios.put(`https://filmatrix.onrender.com/hiringteam/payment/${_id}`,{paymentStatus:'Paid'})
         setData(data)
         console.log(data);
         console.log(response);
@@ -30,7 +30,7 @@ export const Hlocpay = () => {
         
       useEffect(()=>{
         let fetchdata=async ()=>{
-            let response=await axios.get(`http://localhost:4000/hiringteam/viewlocreqd/${id}`)
+            let response=await axios.get(`https://filmatrix.onrender.com/hiringteam/viewlocreqd/${id}`)
             console.log(response.data);
             setData1(response.data)
         }

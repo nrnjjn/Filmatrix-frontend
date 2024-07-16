@@ -11,14 +11,14 @@ export const Locreqdetail = () => {
 
     const handleSubmit = async (status) => {
         setRefresh(!refresh);
-        let response = await axios.put(`http://localhost:4000/filmcompany/managelocreq/${id}`, { ...data, Status: status });
+        let response = await axios.put(`https://filmatrix.onrender.com/filmcompany/managelocreq/${id}`, { ...data, Status: status });
         console.log(response);
         setData('');
     }
 
     useEffect(() => {
         const fetchData = async () => {
-            let response = await axios.get(`http://localhost:4000/filmcompany/viewlocreqd/${id}`);
+            let response = await axios.get(`https://filmatrix.onrender.com/filmcompany/viewlocreqd/${id}`);
             console.log(response.data);
             if (response.data) {
                 setData(response.data);
@@ -30,7 +30,7 @@ export const Locreqdetail = () => {
     return (
         <div className='fcvloc pt-32'>
             <div className='bg-slate-950/50 w-[800px] h-[470px] m-auto flex gap-2 '>
-                <img src={`http://localhost:4000/uploads/${data?.loc?.Image}`} alt="" className='w-80 h-80  ps-3 pt-3 ' />
+                <img src={`https://filmatrix.onrender.com/uploads/${data?.loc?.Image}`} alt="" className='w-80 h-80  ps-3 pt-3 ' />
                 <div className='flex flex-wrap flex-col'>
                     <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
                         <p className='font-bold'>Place:</p>

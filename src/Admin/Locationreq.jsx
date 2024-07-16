@@ -9,7 +9,7 @@ export const Locationreq = () => {
 
     const handleSubmit = async (status, id) => {
         try {
-            let response = await axios.put(`http://localhost:4000/admin/acceptusers/${id}`, { ...data, Status: status });
+            let response = await axios.put(`https://filmatrix.onrender.com/admin/acceptusers/${id}`, { ...data, Status: status });
             window.location.reload();
             console.log(response);
         } catch (error) {
@@ -24,7 +24,7 @@ export const Locationreq = () => {
     useEffect(() => {
         let fetchData = async () => {
             try {
-                let response = await axios.get('http://localhost:4000/admin/viewlocationowner');
+                let response = await axios.get('https://filmatrix.onrender.com/admin/viewlocationowner');
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -116,8 +116,8 @@ export const Locationreq = () => {
                                 <td class="px-6 py-4">{item.Phone}</td>
                                 <td className='w-8 pt-1 pb-1'>{item.Address}</td>
                                 <td class="px-6 py-4">
-                                    <a href={`http://localhost:4000/uploads/${item.Idproof}`} download>
-                                        <img src={`http://localhost:4000/uploads/${item.Idproof}`} className='w-10 m-auto' alt="" />
+                                    <a href={`https://filmatrix.onrender.com/uploads/${item.Idproof}`} download>
+                                        <img src={`https://filmatrix.onrender.com/uploads/${item.Idproof}`} className='w-10 m-auto' alt="" />
                                         </a>
                                 </td>
                                 <td class="px-6 py-4">

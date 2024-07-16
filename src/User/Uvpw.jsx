@@ -10,7 +10,7 @@ export const Uvpw = () => {
 
   useEffect(()=>{
       let fetchdata=async ()=>{
-        let response=await axios.get(`http://localhost:4000/seekers/viewpreviouswork/${id}`)
+        let response=await axios.get(`https://filmatrix.onrender.com/seekers/viewpreviouswork/${id}`)
         console.log(response.data);
         if(response.data){
             setdata(response.data)
@@ -25,7 +25,7 @@ export const Uvpw = () => {
         {data.map((item)=>(
           <Link to={`/user/uvpwd/${item._id}`}>
         <div className='w-60 h-60 bg-slate-950/50 rounded'>
-            <img src={ `http://localhost:4000/uploads/${item.Image}` } alt=""  className='w-52 m-auto pt-3'/>
+            <img src={ `https://filmatrix.onrender.com/uploads/${item.Image}` } alt=""  className='w-52 m-auto pt-3'/>
             <p className='text-white text-center pt-5 text-[20px]'>{item.Job}</p>
         </div></Link>
         ))}

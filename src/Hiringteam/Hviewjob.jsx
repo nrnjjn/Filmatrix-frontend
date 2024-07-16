@@ -10,7 +10,7 @@ export const Hviewjob = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get(`http://localhost:4000/hiringteam/viewjob/${localStorage.getItem('id')}`);
+            const response = await axios.get(`https://filmatrix.onrender.com/hiringteam/viewjob/${localStorage.getItem('id')}`);
             setData(response.data);
             setFilteredData(response.data);
         };
@@ -44,7 +44,7 @@ export const Hviewjob = () => {
 
     const handleDelete = async id => {
         try {
-            await axios.delete(`http://localhost:4000/hiringteam/deletejob/${id}`);
+            await axios.delete(`https://filmatrix.onrender.com/hiringteam/deletejob/${id}`);
             setData(prevData => prevData.filter(item => item.req._id !== id));
             window.location.reload();
         } catch (error) {

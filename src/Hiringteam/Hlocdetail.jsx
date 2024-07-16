@@ -28,7 +28,7 @@ let handleSubmit=async (event)=>{
   setData1(data1)
   console.log(data1);
   navigate('/hiring/hfclocst')
-  let response=await axios.post('http://localhost:4000/hiringteam/locreq',{...data1,hiringId:id2,locationId:id,total:data1.Noofdays * data.Priceperday})
+  let response=await axios.post('https://filmatrix.onrender.com/hiringteam/locreq',{...data1,hiringId:id2,locationId:id,total:data1.Noofdays * data.Priceperday})
        console.log(response);
   // navigate('/hiring/hfclocst')
 } 
@@ -39,8 +39,8 @@ let {id}=useParams()
 console.log(id);
 useEffect(()=>{
   let fetchdata=async ()=>{
-    let response=await axios.get(`http://localhost:4000/filmcompany/viewlocd/${id}`)
-    let responss=await axios.get(`http://localhost:4000/filmcompany/viewlocfname/${id2}`)
+    let response=await axios.get(`https://filmatrix.onrender.com/filmcompany/viewlocd/${id}`)
+    let responss=await axios.get(`https://filmatrix.onrender.com/filmcompany/viewlocfname/${id2}`)
     setData(response.data)
     setData3(responss.data)   
   }
@@ -52,11 +52,11 @@ console.log(data3);
     <div className='fcvloc pt-32'>
       <div className='bg-slate-950/50 w-[60%] h-[470px] m-auto  gap-2 '>
         <div className='flex'>
-            <img src={ `http://localhost:4000/uploads/${data?.Image}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
-            <img src={ `http://localhost:4000/uploads/${data?.Image2}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
+            <img src={ `https://filmatrix.onrender.com/uploads/${data?.Image}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
+            <img src={ `https://filmatrix.onrender.com/uploads/${data?.Image2}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
             </div>
             <div className='flex gap-5 pb-3'>  
-            <img src={ `http://localhost:4000/uploads/${data?.Image3}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
+            <img src={ `https://filmatrix.onrender.com/uploads/${data?.Image3}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
 
             <div className='flex flex-wrap flex-col'>
             <div className='flex flex-wrap text-white gap-12 pt-2 text-center'>

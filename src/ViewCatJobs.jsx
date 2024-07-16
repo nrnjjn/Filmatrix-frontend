@@ -9,7 +9,7 @@ function ViewCatJobs() {
     let {id}=useParams()
       useEffect(()=>{
         let fetchdata=async ()=>{
-          let response=await axios.get(`http://localhost:4000/seekers/viewjobbycatid/${id}`)
+          let response=await axios.get(`https://filmatrix.onrender.com/seekers/viewjobbycatid/${id}`)
           if(response.data){
               setdata(response.data)
             }

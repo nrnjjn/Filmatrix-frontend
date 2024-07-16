@@ -12,7 +12,7 @@ export const Editanc = () => {
 
   useEffect(()=>{
     let fetchdata=async ()=>{
-        let response=await axios.get(`http://localhost:4000/hiringteam/viewancd/${companyId}`)
+        let response=await axios.get(`https://filmatrix.onrender.com/hiringteam/viewancd/${companyId}`)
         console.log(response.data);
         setUserData(response.data)
       }
@@ -46,7 +46,7 @@ let handleChange=(event)=>{
 
     toast.success('Announcement updated')
     
-    let response= axios.put(`http://localhost:4000/filmcompany/editanc/${companyId}`,formData,{
+    let response= axios.put(`https://filmatrix.onrender.com/filmcompany/editanc/${companyId}`,formData,{
       headers:{
         'content-Type':'multiport/form-data'
       }
@@ -79,8 +79,8 @@ let handleChange=(event)=>{
      </div>
      <div className='flex flex-row pb-3 flex-wrap w-[300px] gap-3 justify-center'>
      <label htmlFor="" className='text-white text-lg'>Image: </label>
-     <a href={`http://localhost:4000/uploads/${userData.Image}`} download>
-                                        <img src={`http://localhost:4000/uploads/${userData.Image}`} alt=""  className='w-10'/>
+     <a href={`https://filmatrix.onrender.com/uploads/${userData.Image}`} download>
+                                        <img src={`https://filmatrix.onrender.com/uploads/${userData.Image}`} alt=""  className='w-10'/>
                                     </a>
      <input onChange={handlefile} name='Image'  class="block w-[40%]  text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
      

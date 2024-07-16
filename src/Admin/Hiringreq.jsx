@@ -14,7 +14,7 @@ export const Hiringreq = () => {
 
     let handleSubmit = async (statuss, id) => {
         try {
-            let response = await axios.put(`http://localhost:4000/admin/acceptusers/${id}`, {...data, Status: statuss});
+            let response = await axios.put(`https://filmatrix.onrender.com/admin/acceptusers/${id}`, {...data, Status: statuss});
             window.location.reload();
             console.log(response);
         } catch (error) {
@@ -25,7 +25,7 @@ export const Hiringreq = () => {
     useEffect(() => {
         let fetchData = async () => {
             try {
-                let response = await axios.get('http://localhost:4000/admin/viewhiringteam');
+                let response = await axios.get('https://filmatrix.onrender.com/admin/viewhiringteam');
                 setData(response.data);
             } catch (error) {
                 console.log('Error fetching data:', error);
@@ -119,8 +119,8 @@ export const Hiringreq = () => {
                                 <td className="px-6 py-4">{item.Phone}</td>
                                 <td className='w-8 pt-1 pb-1'>{item.Address}</td>
                                 <td className="px-6 py-4">{item.liscenceNo}</td>
-                                <td><a href={`http://localhost:4000/uploads/${item.Liscence}`} download>
-                                    <img src={`http://localhost:4000/uploads/${item.Liscence}`}className='w-10 m-auto' alt="" />
+                                <td><a href={`https://filmatrix.onrender.com/uploads/${item.Liscence}`} download>
+                                    <img src={`https://filmatrix.onrender.com/uploads/${item.Liscence}`}className='w-10 m-auto' alt="" />
                                     </a></td>
                                 <td className="px-6 py-4">{item.Status}</td>
                                 {item.Status !== 'Accepted' && (

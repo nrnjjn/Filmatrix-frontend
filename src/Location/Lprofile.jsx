@@ -9,7 +9,7 @@ export const Lprofile = () => {
 
     useEffect(()=>{
       let fetchdata=async ()=>{
-          let response=await axios.get(`http://localhost:4000/seekers/viewprofile/${id}`)
+          let response=await axios.get(`https://filmatrix.onrender.com/seekers/viewprofile/${id}`)
           console.log(response.data);
           setUserData(response.data)
         }
@@ -24,7 +24,7 @@ let handleChange=(event)=>{
   let handleSubmit=async (event)=>{
     event.preventDefault()
     setrefresh(!refresh)
-    let response=await axios.put(`http://localhost:4000/seekers/editprofile/${id}`,data)
+    let response=await axios.put(`https://filmatrix.onrender.com/seekers/editprofile/${id}`,data)
     console.log(response);
     setData('')
   }

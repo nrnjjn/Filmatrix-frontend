@@ -13,21 +13,21 @@ export const Hvancdetail = () => {
     const fetchData = async () => {
       try {
         // Fetch announcement details
-        const response = await axios.get(`http://localhost:4000/hiringteam/viewancd/${id}`);
+        const response = await axios.get(`https://filmatrix.onrender.com/hiringteam/viewancd/${id}`);
         console.log(response.data);
         if (response.data) {
           setData(response.data);
         }
 
         // Check if there exists a hiring request for the user and announcement
-        const requestResponse = await axios.get(`http://localhost:4000/hiringteam/viewhreq/${id1}`);
+        const requestResponse = await axios.get(`https://filmatrix.onrender.com/hiringteam/viewhreq/${id1}`);
         console.log(requestResponse.data);
         if (requestResponse.data && requestResponse.data.length > 0) {
           const hasMatchingRequest = requestResponse.data.some(item => item.req.ancId === id);
           setHasRequest(hasMatchingRequest);
         }
 
-        const hresponse = await axios.get('http://localhost:4000/hiringteam/hiringreqq');
+        const hresponse = await axios.get('https://filmatrix.onrender.com/hiringteam/hiringreqq');
         console.log(hresponse.data);
         if(hresponse.data){
           setHdata(hresponse.data);
@@ -46,7 +46,7 @@ export const Hvancdetail = () => {
     <div className='pt-36 hviewanc'>
       {data && (
         <div className='bg-slate-950/50 w-[700px] h-[450px] m-auto flex gap-2'>
-          <img src={`http://localhost:4000/uploads/${data.Image}`} alt="" className='w-80 h-80 ps-3 pt-3' />
+          <img src={`https://filmatrix.onrender.com/uploads/${data.Image}`} alt="" className='w-80 h-80 ps-3 pt-3' />
           <div className='flex flex-wrap flex-col w-[700px]'>
             <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
               <p className='font-bold'>Film Name:</p>

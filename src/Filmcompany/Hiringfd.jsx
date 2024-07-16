@@ -22,7 +22,7 @@ console.log(id)
     setData(data)
     console.log(data);
     navigate('/filmcompany/fcviewhcreq')
-    let response=await axios.put(`http://localhost:4000/filmcompany/hiringfeedbackput/${id}`,data)
+    let response=await axios.put(`https://filmatrix.onrender.com/filmcompany/hiringfeedbackput/${id}`,data)
        console.log(response);
   }
 
@@ -30,7 +30,7 @@ console.log(id)
 console.log(id)
 useEffect(()=>{
   let fetchdata=async ()=>{
-    let response=await axios.get(`http://localhost:4000/filmcompany/viewhiringreq/${id}`)
+    let response=await axios.get(`https://filmatrix.onrender.com/filmcompany/viewhiringreq/${id}`)
 
    let result = response.data.find((item)=> item?.req?._id===id )
    console.log(result,'result');

@@ -23,7 +23,7 @@ export const Editcategory = () => {
       formData.append('name', data.category);
       formData.append('Image', data.Image);
 
-      const response = await axios.put(`http://localhost:4000/admin/editcategory/${id}`, formData, {
+      const response = await axios.put(`https://filmatrix.onrender.com/admin/editcategory/${id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -39,7 +39,7 @@ export const Editcategory = () => {
 
   useEffect(()=>{
     let fetchdata=async ()=>{
-      let response=await axios.get(`http://localhost:4000/admin/categorydetail/${id}`)
+      let response=await axios.get(`https://filmatrix.onrender.com/admin/categorydetail/${id}`)
       setView(response.data)
     }
     fetchdata()
@@ -65,7 +65,7 @@ export const Editcategory = () => {
             <label className='block h-10 mb-2  text-gray-900 dark:text-white' htmlFor='file_input'>
               Work photo:
             </label>
-            <a href={`http://localhost:4000/uploads/${view?.Image}`}> <img className='w-14 m-auto' src={`http://localhost:4000/uploads/${view?.Image}`} alt="" /></a>
+            <a href={`https://filmatrix.onrender.com/uploads/${view?.Image}`}> <img className='w-14 m-auto' src={`https://filmatrix.onrender.com/uploads/${view?.Image}`} alt="" /></a>
             <input
               onChange={handleFile}
               name='Image'

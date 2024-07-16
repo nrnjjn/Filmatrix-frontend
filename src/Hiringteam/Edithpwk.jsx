@@ -11,7 +11,7 @@ let {userId} = useParams()
 
   useEffect(()=>{
     let fetchdata=async ()=>{
-        let response=await axios.get(`http://localhost:4000/hiringteam/viewpreviousworkd/${userId}`)
+        let response=await axios.get(`https://filmatrix.onrender.com/hiringteam/viewpreviousworkd/${userId}`)
         console.log(response.data);
         setUserData(response.data)
       }
@@ -44,7 +44,7 @@ let handleChange=(event)=>{
         console.log(data);
     console.log(formData);
     toast.success('Previous work updated')
-    let response= axios.put(`http://localhost:4000/hiringteam/editpreviouswork/${userId}`,formData,{
+    let response= axios.put(`https://filmatrix.onrender.com/hiringteam/editpreviouswork/${userId}`,formData,{
       headers:{
         'content-Type':'multiport/form-data'
       }
@@ -88,8 +88,8 @@ let handleChange=(event)=>{
 <div className='pt-2'>
     <div className='flex flex-wrap justify-between w-[470px] ms-20 py-3 '>      
         <label class="block h-10 mb-2  text-gray-900 dark:text-white" for="file_input">Work photo:</label>
-        <a href={`http://localhost:4000/uploads/${userData.Image}`} download>
-             <img  alt="" className='w-10 h-10 ' src={`http://localhost:4000/uploads/${userData.Image}`} />
+        <a href={`https://filmatrix.onrender.com/uploads/${userData.Image}`} download>
+             <img  alt="" className='w-10 h-10 ' src={`https://filmatrix.onrender.com/uploads/${userData.Image}`} />
              </a>
         <input onChange={handlefile} name='Image' class="block w-[40%] text-sm text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>
             </div>

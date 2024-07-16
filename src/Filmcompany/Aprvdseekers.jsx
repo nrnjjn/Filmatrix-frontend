@@ -11,7 +11,7 @@ export const Aprvdseekers = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/filmcompany/viewjobseekers/${localStorage.getItem('id')}`);
+                const response = await axios.get(`https://filmatrix.onrender.com/filmcompany/viewjobseekers/${localStorage.getItem('id')}`);
                 console.log(response.data);
                 setData(response.data);
                 setFilteredData(response.data); // Initialize filteredData with all data

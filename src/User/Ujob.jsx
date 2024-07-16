@@ -7,7 +7,7 @@ export const Ujob = () => {
 let {id}=useParams()
   useEffect(()=>{
     let fetchdata=async ()=>{
-      let response=await axios.get(`http://localhost:4000/seekers/viewjob/${id}`)
+      let response=await axios.get(`https://filmatrix.onrender.com/seekers/viewjob/${id}`)
       console.log(response.data);
       if(response.data){
           setdata(response.data)

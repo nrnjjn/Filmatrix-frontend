@@ -36,7 +36,7 @@ export const Addjob = () => {
     event.preventDefault()
     navigate('/hiring/hviewjob')
     try {
-      const response = await axios.post('http://localhost:4000/hiringteam/addjob', { ...data, userId: id })
+      const response = await axios.post('https://filmatrix.onrender.com/hiringteam/addjob', { ...data, userId: id })
       console.log(response);
     } catch (error) {
       console.error('Error adding job:', error);
@@ -47,8 +47,8 @@ export const Addjob = () => {
     const fetchData = async () => {
       try {
         const [response1, response2] = await Promise.all([
-          axios.get(`http://localhost:4000/filmcompany/viewlocfname/${id}`),
-          axios.get(`http://localhost:4000/admin/viewcategory/`)
+          axios.get(`https://filmatrix.onrender.com/filmcompany/viewlocfname/${id}`),
+          axios.get(`https://filmatrix.onrender.com/admin/viewcategory/`)
         ]);
         setData2(response1.data);
         setView(response2.data);

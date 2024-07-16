@@ -9,14 +9,14 @@ export const Hiringreqdetail = () => {
 
     let handlesubmit = async (status) => {
         setRefresh(!refresh);
-        let response = await axios.put(`http://localhost:4000/filmcompany/manageHiring/${id}`, { ...data, Status: status });
+        let response = await axios.put(`https://filmatrix.onrender.com/filmcompany/manageHiring/${id}`, { ...data, Status: status });
         console.log(response);
         setData('');
     };
 
     useEffect(() => {
         let fetchdata = async () => {
-            let response = await axios.get(`http://localhost:4000/filmcompany/viewhiringdetail/${id}`);
+            let response = await axios.get(`https://filmatrix.onrender.com/filmcompany/viewhiringdetail/${id}`);
             console.log(response.data);
             setData(response.data);
         };
@@ -26,7 +26,7 @@ export const Hiringreqdetail = () => {
     return (
         <div className='fcvloc pt-32'>
             <div className='bg-slate-950/50 w-[800px] h-[470px] m-auto flex gap-2 '>
-                <img src={`http://localhost:4000/uploads/${data.hiring?.Liscence}`} alt="" className='w-80 h-80  ps-3 pt-3' />
+                <img src={`https://filmatrix.onrender.com/uploads/${data.hiring?.Liscence}`} alt="" className='w-80 h-80  ps-3 pt-3' />
                 <div className='flex flex-wrap flex-col'>
                     <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
                         <p className='font-bold'>Email:</p>

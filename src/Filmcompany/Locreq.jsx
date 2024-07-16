@@ -11,7 +11,7 @@ export const Locreq = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/filmcompany/viewlocreq/${id}`);
+                const response = await axios.get(`https://filmatrix.onrender.com/filmcompany/viewlocreq/${id}`);
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);

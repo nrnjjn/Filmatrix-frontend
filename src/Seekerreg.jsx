@@ -47,7 +47,7 @@ export const Seekerreg = () => {
         formData.append('confirmPassword', data.confirmPassword);
         formData.append('userType','seekers')
     console.log(data);
-    let response=await axios.post('http://localhost:4000/seekers/register',formData,{userType:'seekers',
+    let response=await axios.post('https://filmatrix.onrender.com/seekers/register',formData,{userType:'seekers',
     headers: {
         'Content-Type': 'multipart/form-data'  // Set the content type for FormData
       }

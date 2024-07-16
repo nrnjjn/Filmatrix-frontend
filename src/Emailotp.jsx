@@ -11,7 +11,7 @@ const Emailotp = () => {
   let navigate=useNavigate()
     const sendOTP = async () => {
       try {
-        const response = await axios.post('http://localhost:4000/admin/sendOTP', { Email });
+        const response = await axios.post('https://filmatrix.onrender.com/admin/sendOTP', { Email });
         setMessage(response.data.message);
         console.log(response.data.otp,'--------------------');
         setVerifyotp(response.data.otp)

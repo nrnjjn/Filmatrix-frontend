@@ -11,7 +11,7 @@ export const Fcviewhcreq = () => {
 
     useEffect(() => {
         let fetchdata = async () => {
-            let response = await axios.get(`http://localhost:4000/filmcompany/viewhiringreq/${id}`);
+            let response = await axios.get(`https://filmatrix.onrender.com/filmcompany/viewhiringreq/${id}`);
             setdata(response.data);
         };
         fetchdata();

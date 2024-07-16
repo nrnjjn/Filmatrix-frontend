@@ -12,7 +12,7 @@ export const Hancstatus = () => {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/hiringteam/viewhreq/${id2}`);
+        const response = await axios.get(`https://filmatrix.onrender.com/hiringteam/viewhreq/${id2}`);
         console.log(response.data);
         if (response.data) {
           setData(response.data);

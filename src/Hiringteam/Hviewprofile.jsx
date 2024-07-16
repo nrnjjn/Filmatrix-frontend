@@ -9,7 +9,7 @@ export const Hviewprofile = () => {
   useEffect(()=>{
     let fetchdata=async ()=>{
         
-        let response=await axios.get(`http://localhost:4000/seekers/viewprofile/${id}`)
+        let response=await axios.get(`https://filmatrix.onrender.com/seekers/viewprofile/${id}`)
         console.log(response.data);
         setUserData(response.data)
       }
@@ -41,7 +41,7 @@ export const Hviewprofile = () => {
         }
         console.log(data);
         console.log(formData);  
-    let response=await axios.put(`http://localhost:4000/seekers/editprofile/${id}`,formData,{
+    let response=await axios.put(`https://filmatrix.onrender.com/seekers/editprofile/${id}`,formData,{
     headers:{
         'content-Type':'multiport/form-data'
       }
@@ -89,8 +89,8 @@ export const Hviewprofile = () => {
                     
             <label class="block h-10 mb-2  font-medium text-gray-900 dark:text-white" for="file_input">Liscence</label>
 
-             <a href={`http://localhost:4000/uploads/${userData?.Liscence}`} download>
-                <img  alt="" className='w-10 h-10 ' src={`http://localhost:4000/uploads/${userData?.Liscence}`} />
+             <a href={`https://filmatrix.onrender.com/uploads/${userData?.Liscence}`} download>
+                <img  alt="" className='w-10 h-10 ' src={`https://filmatrix.onrender.com/uploads/${userData?.Liscence}`} />
                 </a>
 
             <input onChange={handlefile} name='Liscence' class="block w-[40%] text-sm text-gray-900  border-white rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 border-2" id="file_input" type="file"/>

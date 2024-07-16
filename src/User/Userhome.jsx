@@ -10,7 +10,7 @@ export const Userhome = () => {
   useEffect(()=>{
 
     let fetchdata=async ()=>{
-      let response=await axios.get(`http://localhost:4000/admin/viewcategory/`)
+      let response=await axios.get(`https://filmatrix.onrender.com/admin/viewcategory/`)
       setView(response.data)
     }
     fetchdata()
@@ -29,7 +29,7 @@ return(
   <>
 
   <Link to={`/user/viewjobs/category/${item?._id}`}><div className='w-60 h-60 bg-slate-950/80 rounded'>
-            <img src={ `http://localhost:4000/uploads/${item.Image}` } alt="" className='w-52 h-44 m-auto pt-3'/>
+            <img src={ `https://filmatrix.onrender.com/uploads/${item.Image}` } alt="" className='w-52 h-44 m-auto pt-3'/>
             <p className='text-white text-center pt-3 text-[20px]'>{item.name}</p>
         </div></Link>
   </>

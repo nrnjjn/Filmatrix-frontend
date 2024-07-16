@@ -38,7 +38,7 @@ let handleChange=(event)=>{
     toast.success('Previous work added')
 
     // navigate('/hiring/viewhpwk')
-    let response=await axios.post(`http://localhost:4000/hiringteam/addpwk`,formData,{
+    let response=await axios.post(`https://filmatrix.onrender.com/hiringteam/addpwk`,formData,{
        userId:id,
         headers: {
             'Content-Type': 'multipart/form-data'  // Set the content type for FormData

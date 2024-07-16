@@ -18,7 +18,7 @@ let handleSubmit=async (event)=>{
   event.preventDefault()
   setData(data)
   console.log(data);
-  let response=await axios.put(`http://localhost:4000/hiringteam/hiringprogress/${id}`,data)
+  let response=await axios.put(`https://filmatrix.onrender.com/hiringteam/hiringprogress/${id}`,data)
   console.log(response);
     
   // navigate('/hiring/hviewp')

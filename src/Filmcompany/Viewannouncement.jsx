@@ -8,16 +8,15 @@ export const Viewannouncement = () => {
     const [searchQuery, setSearchQuery] = useState('');
 
     const handleDelete = async (id) => {
-        let response = await axios.delete(`http://localhost:4000/filmcompany/deleteanc/${id}`);
+        let response = await axios.delete(`https://filmatrix.onrender.com/filmcompany/deleteanc/${id}`);
         console.log(response);
         // After deletion, refetch the data
         window.location.reload(); // Reload the page after submitting
-
         fetchData();
     };
 
     const fetchData = async () => {
-        let response = await axios.get(`http://localhost:4000/filmcompany/viewanc/${id}`);
+        let response = await axios.get(`https://filmatrix.onrender.com/filmcompany/viewanc/${id}`);
         console.log(response.data);
         if (response.data) {
             setdata(response.data);
@@ -82,7 +81,7 @@ export const Viewannouncement = () => {
                                 <td>{item.Director}</td>
                                 <td>{item.description}</td>
                                 <td className='flex flex-wrap justify-center pt-3'>
-                                    <img alt='' className='w-10 h-10 ' src={`http://localhost:4000/uploads/${item.Image}`} />
+                                    <img alt='' className='w-10 h-10 ' src={`https://filmatrix.onrender.com/uploads/${item.Image}`} />
                                 </td>
                                 <td class='px-6 py-4'>{new Date(item.Date).toLocaleDateString()}</td>
                                 <td>

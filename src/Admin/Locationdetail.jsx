@@ -10,7 +10,7 @@ export const Locationdetail = () => {
 
     let handlesubmit=async (status)=>{
         setrefresh(!refresh)
-        let response=await axios.put(`http://localhost:4000/admin/managelocreq/${id}`,{...data,Status:status})
+        let response=await axios.put(`https://filmatrix.onrender.com/admin/managelocreq/${id}`,{...data,Status:status})
         console.log(response)
         setdata('')
       }
@@ -18,7 +18,7 @@ export const Locationdetail = () => {
 
     useEffect(()=>{
         let fetchdata=async ()=>{
-          let response=await axios.get(`http://localhost:4000/admin/locationreqd/${id}`)
+          let response=await axios.get(`https://filmatrix.onrender.com/admin/locationreqd/${id}`)
           console.log(response.data);
           if(response.data){
               setdata(response.data)
@@ -30,11 +30,11 @@ export const Locationdetail = () => {
     <div className='fcvloc pt-32'>
       <div className='bg-slate-950/50 w-[60%] h-[470px] m-auto  gap-2 '>
         <div className='flex'>
-            <img src={ `http://localhost:4000/uploads/${data.response?.Image}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
-            <img src={ `http://localhost:4000/uploads/${data.response?.Image2}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
+            <img src={ `https://filmatrix.onrender.com/uploads/${data.response?.Image}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
+            <img src={ `https://filmatrix.onrender.com/uploads/${data.response?.Image2}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
             </div>
             <div className='flex gap-5 pb-3'>  
-            <img src={ `http://localhost:4000/uploads/${data.response?.Image3}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
+            <img src={ `https://filmatrix.onrender.com/uploads/${data.response?.Image3}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
 
             <div className='flex flex-wrap flex-col'>
             <div className='flex flex-wrap text-white gap-12 pt-2 text-center'>
@@ -64,7 +64,7 @@ export const Locationdetail = () => {
                 <p>{data.response?.Priceperday}</p>
             </div>
            <div>
-           <a  href={`http://localhost:4000/uploads/${data.response?.Certificate}`} download >Certificate</a>
+           <a  href={`https://filmatrix.onrender.com/uploads/${data.response?.Certificate}`} download >Certificate</a>
            </div>
             <div className='flex flex-wrap text-white pt-2 text-center gap-8 justify-center'>
             <button onClick={()=>{handlesubmit('Accepted',data._id)}} className='   text-green-500'>Accept</button>

@@ -13,7 +13,7 @@ export const Approvedseekers = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/admin/viewseekers');
+        const response = await axios.get('https://filmatrix.onrender.com/admin/viewseekers');
         setData(response?.data);
 
         // Extract unique film names from the data

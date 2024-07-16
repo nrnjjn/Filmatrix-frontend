@@ -8,7 +8,7 @@ export const Lvfd = () => {
 
     useEffect(() => {
         let fetchdata = async () => {
-            let response = await axios.get(`http://localhost:4000/locationowner/viewlocreq/${id2}`);
+            let response = await axios.get(`https://filmatrix.onrender.com/locationowner/viewlocreq/${id2}`);
             console.log(response.data);
             if (response.data) {
                 setData(response.data);

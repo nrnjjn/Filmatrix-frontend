@@ -12,7 +12,7 @@ export const Hfclocstatus = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/hiringteam/locreqst/${id}`);
+                const response = await axios.get(`https://filmatrix.onrender.com/hiringteam/locreqst/${id}`);
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -33,7 +33,7 @@ export const Hfclocstatus = () => {
             // Extract total from fcreq
 
             // Send POST request with the total value included in fcreq
-            await axios.post('http://localhost:4000/hiringteam/locationbooking', {
+            await axios.post('https://filmatrix.onrender.com/hiringteam/locationbooking', {
                 ...data,
                 hiringId: id,
                 locationId: loc,

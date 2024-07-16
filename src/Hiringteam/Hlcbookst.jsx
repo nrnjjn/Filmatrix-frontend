@@ -13,7 +13,7 @@ export const Hlcbookst = () => {
 
     useEffect(() => {
         let fetchdata = async () => {
-            let response = await axios.get(`http://localhost:4000/hiringteam/viewlocationbooking/${id}`);
+            let response = await axios.get(`https://filmatrix.onrender.com/hiringteam/viewlocationbooking/${id}`);
             console.log(response.data);
             setData(response.data);
         };

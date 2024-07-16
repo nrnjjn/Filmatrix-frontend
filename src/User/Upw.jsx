@@ -35,7 +35,7 @@ let handleChange=(event)=>{
 
 
     // navigate('/user/uvpw')
-    let response=await axios.post(`http://localhost:4000/seekers/addpreviouswork`,formData,{
+    let response=await axios.post(`https://filmatrix.onrender.com/seekers/addpreviouswork`,formData,{
        userId:id,
         headers: {
             'Content-Type': 'multipart/form-data'  // Set the content type for FormData

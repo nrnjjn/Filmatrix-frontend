@@ -36,7 +36,7 @@ let handleChange=(event)=>{
 
     // navigate('/location/lviewlc')
     
-    let response=await axios.post('http://localhost:4000/locationowner/addlocation',formData,{
+    let response=await axios.post('https://filmatrix.onrender.com/locationowner/addlocation',formData,{
       headers: {
         'Content-Type': 'multipart/form-data' 
       }})

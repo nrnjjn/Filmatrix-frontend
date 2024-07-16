@@ -9,7 +9,7 @@ export const Fcviewloc = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/filmcompany/viewloc');
+                const response = await axios.get('https://filmatrix.onrender.com/filmcompany/viewloc');
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -43,7 +43,7 @@ export const Fcviewloc = () => {
                 {filteredData.map((item) => (
                     <Link key={item._id} to={`/filmcompany/locdt/${item._id}`}>
                         <div className='w-60 h-60 bg-slate-950/30 rounded'>
-                            <img src={`http://localhost:4000/uploads/${item.Image}`} alt='' className='w-52 m-auto pt-3' />
+                            <img src={`https://filmatrix.onrender.com/uploads/${item.Image}`} alt='' className='w-52 m-auto pt-3' />
                             <p className='text-white text-center pt-3 text-[20px]'>{item.locationName}</p>
                         </div>
                     </Link>

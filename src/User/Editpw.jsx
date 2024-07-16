@@ -12,7 +12,7 @@ let {userId} = useParams()
 
   useEffect(()=>{
     let fetchdata=async ()=>{
-        let response=await axios.get(`http://localhost:4000/seekers/viewpreviousworkd/${userId}`)
+        let response=await axios.get(`https://filmatrix.onrender.com/seekers/viewpreviousworkd/${userId}`)
         console.log(response.data);
         setUserData(response.data)
       }
@@ -44,7 +44,7 @@ let handleChange=(event)=>{
         }
         console.log(data);
     console.log(formData);
-    let response= axios.put(`http://localhost:4000/seekers/editpreviouswork/${userId}`,formData,{
+    let response= axios.put(`https://filmatrix.onrender.com/seekers/editpreviouswork/${userId}`,formData,{
       headers:{
         'content-Type':'multiport/form-data'
       }

@@ -9,7 +9,7 @@ export const Hviewanc = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/hiringteam/viewanc');
+                const response = await axios.get('https://filmatrix.onrender.com/hiringteam/viewanc');
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -42,7 +42,7 @@ export const Hviewanc = () => {
                 {filteredData.map((item) => (
                     <Link to={`/hiring/hvancd/${item._id}`} key={item._id}>
                         <div className='w-60 h-60 bg-slate-950/50 rounded'>
-                            <img src={`http://localhost:4000/uploads/${item.Image}`} alt="" className='w-[208px] h-[142px] m-auto pt-3' />
+                            <img src={`https://filmatrix.onrender.com/uploads/${item.Image}`} alt="" className='w-[208px] h-[142px] m-auto pt-3' />
                             <p className='text-white text-center pt-5 text-[20px]'>{item.Filmname}</p>
                         </div>
                     </Link>

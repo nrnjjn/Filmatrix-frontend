@@ -9,7 +9,7 @@ export const Ujobreqst = () => {
     useEffect(() => {
         const fetchdata = async () => {
             const id = localStorage.getItem('id');
-            const response = await axios.get(`http://localhost:4000/seekers/jobreqst/${id}`);
+            const response = await axios.get(`https://filmatrix.onrender.com/seekers/jobreqst/${id}`);
             setData(response.data);
         };
         fetchdata();

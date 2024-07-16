@@ -17,14 +17,14 @@ export const Lbookingreq = () => {
 
     let handleSubmit = async (status, rid) => {
         setRefresh(!refresh);
-        let response = await axios.put(`http://localhost:4000/locationowner/managebookings/${rid}`, { bookingStatus: status });
+        let response = await axios.put(`https://filmatrix.onrender.com/locationowner/managebookings/${rid}`, { bookingStatus: status });
         console.log(response);
         setData('');
     };
 
     useEffect(() => {
         let fetchdata = async () => {
-            let response = await axios.get(`http://localhost:4000/locationowner/viewlocreq/${id}`);
+            let response = await axios.get(`https://filmatrix.onrender.com/locationowner/viewlocreq/${id}`);
             console.log(response.data);
             setData2(response.data);
         };

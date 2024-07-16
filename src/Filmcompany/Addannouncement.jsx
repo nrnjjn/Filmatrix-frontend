@@ -31,7 +31,7 @@ let id=localStorage.getItem('id')
     setData(data)
     console.log(data);
     toast.success('New announcement added')
-    let response=await axios.post(`http://localhost:4000/filmcompany/addanc`,formData,{
+    let response=await axios.post(`https://filmatrix.onrender.com/filmcompany/addanc`,formData,{
       headers: {
         'Content-Type': 'multipart/form-data'  // Set the content type for FormData
       }})

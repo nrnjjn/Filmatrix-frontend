@@ -23,14 +23,14 @@ let handleSubmit=async (event)=>{
   setData(data)
   console.log(data);
   navigate('/hiring/hviewjob')
-  let response=await axios.put(`http://localhost:4000/hiringteam/editjob/${id}`,data)
+  let response=await axios.put(`https://filmatrix.onrender.com/hiringteam/editjob/${id}`,data)
   console.log(response);
   setrefresh(!refresh)
 }
 
 useEffect(()=>{
   let fetchdata=async()=>{
-    let response=await axios.get(`http://localhost:4000/hiringteam/viewjobd/${id}`)
+    let response=await axios.get(`https://filmatrix.onrender.com/hiringteam/viewjobd/${id}`)
     setData2(response.data)
   }
   fetchdata()

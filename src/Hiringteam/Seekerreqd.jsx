@@ -13,13 +13,13 @@ export const Seekerreqd = () => {
   
   
     let handlesubmit=async (status)=>{
-        let response=await axios.put(`http://localhost:4000/hiringteam/managejobreq/${id}`,{Status:status})
+        let response=await axios.put(`https://filmatrix.onrender.com/hiringteam/managejobreq/${id}`,{Status:status})
         console.log(response)
       
       }
       useEffect(()=>{
         let fetchdata=async ()=>{
-          let response=await axios.get(`http://localhost:4000/hiringteam/seekerreqd/${id}`)
+          let response=await axios.get(`https://filmatrix.onrender.com/hiringteam/seekerreqd/${id}`)
           console.log(response.data);
             setData(response.data)
             
@@ -31,7 +31,7 @@ export const Seekerreqd = () => {
 
     <div className='fcvloc pt-32'>
       <div className='bg-slate-950/50 w-[800px] h-[470px] m-auto flex gap-2 '>
-            <img src={ `http://localhost:4000/uploads/${data.seeker?.Idproof}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
+            <img src={ `https://filmatrix.onrender.com/uploads/${data.seeker?.Idproof}` } alt="" className='w-80 h-80  ps-3 pt-3 '/>
             <div className='flex flex-wrap flex-col'>
             <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
             <p className='font-bold'>Name:</p>
@@ -54,7 +54,7 @@ export const Seekerreqd = () => {
                   <Link to={`/hiring/hvpw/${data.seeker?._id}`}> <button className='text-yellow-200  rounded w-14 h-6 text-center'> Previous work</button>
                   </Link></p>
                 <p className='text-red-500'>
-                  <a  href={`http://localhost:4000/uploads/${data.response?.Cv}`} download >Cv</a>
+                  <a  href={`https://filmatrix.onrender.com/uploads/${data.response?.Cv}`} download >Cv</a>
                 </p>
             </div>
             <form>

@@ -48,7 +48,7 @@ else{
     formData.append('userType','locationowner')
     console.log(data);
     // navigate('/')
-    let response=await axios.post('http://localhost:4000/seekers/register',formData,{userType:'locationowner',
+    let response=await axios.post('https://filmatrix.onrender.com/seekers/register',formData,{userType:'locationowner',
     headers: {
         'Content-Type': 'multipart/form-data'  // Set the content type for FormData
       }

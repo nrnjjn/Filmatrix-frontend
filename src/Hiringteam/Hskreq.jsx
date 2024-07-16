@@ -13,7 +13,7 @@ export const Hskreq = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/hiringteam/viewjobreq/${id2}`);
+                const response = await axios.get(`https://filmatrix.onrender.com/hiringteam/viewjobreq/${id2}`);
                 setData(response.data);
                 // Extract unique film names from the data
                 const uniqueFilmNames = [...new Set(response.data.map(item => item.anc?.Filmname))];

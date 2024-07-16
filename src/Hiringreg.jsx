@@ -47,7 +47,7 @@ let handleSubmit= async(event)=>{
         formData.append('confirmPassword', data.confirmPassword);
         formData.append('userType','hiringteam')
   console.log(data);
-  let response=await axios.post('http://localhost:4000/seekers/register',formData,{userType:'hiringteam',
+  let response=await axios.post('https://filmatrix.onrender.com/seekers/register',formData,{userType:'hiringteam',
   headers: {
       'Content-Type': 'multipart/form-data'  // Set the content type for FormData
     }

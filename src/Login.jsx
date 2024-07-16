@@ -15,7 +15,7 @@ export const Login = () => {
   let handleSubmit=async (event)=>{
     event.preventDefault()
     setData(data)
-    let response=await axios.post('http://localhost:4000/seekers/login',data)
+    let response=await axios.post('https://filmatrix.onrender.com/seekers/login',data)
     console.log(response);
     if(response.data){
       localStorage.setItem('id',response.data._id)

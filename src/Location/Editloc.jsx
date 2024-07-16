@@ -11,7 +11,7 @@ export const Editloc = () => {
 
   useEffect(()=>{
     let fetchdata=async ()=>{
-        let response=await axios.get(`http://localhost:4000/locationowner/viewlocd/${userId}`)
+        let response=await axios.get(`https://filmatrix.onrender.com/locationowner/viewlocd/${userId}`)
         console.log(response.data);
         setUserData(response.data)
       }
@@ -42,7 +42,7 @@ let handleChange=(event)=>{
         }
         console.log(data);
     console.log(formData);
-    let response= axios.put(`http://localhost:4000/locationowner/editloc/${userId}`,formData,{
+    let response= axios.put(`https://filmatrix.onrender.com/locationowner/editloc/${userId}`,formData,{
       headers:{
         'content-Type':'multiport/form-data'
       }

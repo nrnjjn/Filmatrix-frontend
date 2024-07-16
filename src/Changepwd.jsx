@@ -20,7 +20,7 @@ const Changepwd = () => {
       toast.success('Password updated')
       event.preventDefault()
       setData(data)
-      let response = axios.put(`http://localhost:4000/admin/changepass/${Email}`,data);
+      let response = axios.put(`https://filmatrix.onrender.com/admin/changepass/${Email}`,data);
       console.log(response);
       setData('');
       navigate('/login')

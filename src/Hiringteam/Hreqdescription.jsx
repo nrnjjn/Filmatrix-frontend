@@ -17,7 +17,7 @@ let {id2}=useParams()
     console.log(data);
     // event.preventDefault()
     // navigate('/filmcompany/vanc')
-    let response=await axios.post('http://localhost:4000/hiringteam/posthiringreq',{...data,userId:id,ancId:id2})
+    let response=await axios.post('https://filmatrix.onrender.com/hiringteam/posthiringreq',{...data,userId:id,ancId:id2})
     console.log(response);    
   }
   return (
